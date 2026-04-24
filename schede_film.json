@@ -3,10 +3,10 @@
     "scheda": 1,
     "titolo": "MICHAEL",
     "valutazioni": {
-      "MYMONETRO": "3.68",
+      "MYMONETRO": "3.65",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "2.79",
-      "PUBBLICO": "4.75"
+      "PUBBLICO": "4.67"
     },
     "consigliato": "SI",
     "genere": [
@@ -39,7 +39,8 @@
           "17:45",
           "19:00",
           "20:30",
-          "21:40"
+          "21:40",
+          "22:45"
         ],
         "orari_vo": [
           "21:00"
@@ -74,11 +75,12 @@
       },
       "CINEMA Atlantic": {
         "orari": [
-          "15:30",
-          "18:00",
+          "15:00",
+          "17:30",
           "19:00",
-          "20:30",
-          "21:30"
+          "20:00",
+          "21:30",
+          "22:30"
         ],
         "orari_vo": []
       },
@@ -138,7 +140,7 @@
           "16:15"
         ],
         "orari_vo": [
-          "18:45",
+          "18:46",
           "21:15"
         ]
       },
@@ -216,47 +218,46 @@
       },
       "The Space Moderno": {
         "orari": [
-          "15:00",
-          "16:10",
-          "17:30",
-          "18:00",
-          "19:10",
+          "15:30",
+          "17:00",
+          "17:45",
+          "18:30",
+          "19:30",
           "20:00",
-          "21:00",
           "21:30",
-          "22:15"
+          "22:40"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
           "14:05",
-          "14:35",
           "15:00",
-          "15:15",
           "15:35",
           "16:00",
           "16:30",
-          "16:45",
+          "16:50",
           "17:05",
-          "17:10",
-          "17:40",
+          "17:30",
           "18:00",
-          "18:15",
-          "18:35",
+          "18:25",
           "18:50",
           "19:00",
-          "19:05",
+          "19:10",
           "19:30",
-          "19:45",
+          "19:50",
           "20:05",
-          "20:25",
-          "20:40",
+          "20:30",
           "21:00",
-          "21:20",
-          "21:35",
+          "21:25",
+          "21:45",
           "22:00",
-          "22:15"
+          "22:20",
+          "22:40",
+          "23:00",
+          "23:20",
+          "23:35",
+          "23:55"
         ],
         "orari_vo": []
       },
@@ -275,7 +276,8 @@
           "16:30",
           "19:00",
           "20:00",
-          "21:30"
+          "21:30",
+          "22:30"
         ],
         "orari_vo": []
       },
@@ -284,16 +286,17 @@
           "16:00",
           "16:30",
           "17:00",
+          "17:30",
           "18:00",
           "18:30",
           "19:00",
           "19:30",
           "20:00",
+          "20:30",
           "21:00",
           "21:30",
           "22:00",
-          "22:30",
-          "22:50"
+          "22:30"
         ],
         "orari_vo": [
           "19:20"
@@ -306,6 +309,7 @@
           "16:00",
           "16:30",
           "17:00",
+          "17:40",
           "18:00",
           "18:30",
           "19:00",
@@ -314,7 +318,9 @@
           "20:40",
           "21:00",
           "21:30",
+          "21:45",
           "22:00",
+          "22:10",
           "22:30",
           "23:00",
           "23:50"
@@ -334,15 +340,19 @@
           "16:30",
           "17:00",
           "18:00",
+          "18:15",
           "18:30",
+          "18:45",
           "19:00",
           "19:30",
           "20:00",
           "21:00",
-          "21:30",
+          "21:15",
+          "21:20",
           "22:00",
           "22:30",
-          "22:50"
+          "23:00",
+          "23:50"
         ],
         "orari_vo": [
           "14:30",
@@ -351,23 +361,22 @@
       },
       "Uci Luce Maximo": {
         "orari": [
-          "10:30",
-          "13:15",
+          "10:20",
           "14:00",
           "15:20",
           "16:00",
           "17:00",
-          "18:10",
+          "18:15",
           "19:00",
           "19:40",
           "20:45",
           "21:20",
           "22:00",
           "22:30",
-          "23:30"
+          "23:40"
         ],
         "orari_vo": [
-          "12:30"
+          "12:20"
         ]
       }
     }
@@ -409,7 +418,8 @@
         "orari": [
           "15:30",
           "18:00",
-          "20:30"
+          "20:30",
+          "22:45"
         ],
         "orari_vo": []
       },
@@ -442,6 +452,12 @@
       "CINEMA Broadway": {
         "orari": [
           "21:30"
+        ],
+        "orari_vo": []
+      },
+      "Casa del Cinema": {
+        "orari": [
+          "18:00"
         ],
         "orari_vo": []
       },
@@ -533,22 +549,25 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "21:15"
+          "21:30"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "20:45"
+          "16:10",
+          "20:50"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "16:25",
-          "19:45",
-          "21:10",
-          "22:30"
+          "14:40",
+          "16:30",
+          "18:35",
+          "21:15",
+          "22:15",
+          "23:15"
         ],
         "orari_vo": []
       },
@@ -564,7 +583,6 @@
         "orari": [
           "16:50",
           "20:40",
-          "21:20",
           "22:10"
         ],
         "orari_vo": []
@@ -572,18 +590,14 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "14:00",
-          "17:10",
-          "20:10",
-          "22:10",
-          "23:40"
+          "17:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Roma Est": {
         "orari": [
           "16:50",
-          "20:40",
-          "22:10"
+          "20:40"
         ],
         "orari_vo": []
       },
@@ -598,6 +612,156 @@
   },
   {
     "scheda": 3,
+    "titolo": "LA PIÙ PICCOLA",
+    "valutazioni": {
+      "MYMONETRO": "3.06",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.63",
+      "PUBBLICO": "3.56"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Francia",
+      "Germania"
+    ],
+    "anno": "2025",
+    "durata_minuti": 106,
+    "trama": "Un racconto di emancipazione in un film puro e misurato che non cede al discorso militante",
+    "regia": [
+      "Hafsia Herzi"
+    ],
+    "cast": [
+      "Nadia Melliti",
+      "Park Ji-min",
+      "Amina Ben Mohamed",
+      "Melissa Guers"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "Fandango",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Alhambra": {
+        "orari": [
+          "16:00",
+          "20:15"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Giulio Cesare": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": [
+          "20:30"
+        ]
+      },
+      "CINEMA Greenwich": {
+        "orari": [
+          "15:45",
+          "19:30"
+        ],
+        "orari_vo": [
+          "21:30"
+        ]
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "15:30",
+          "18:00",
+          "22:30"
+        ],
+        "orari_vo": []
+      },
+      "Quattro Fontane": {
+        "orari": [
+          "17:30",
+          "19:30"
+        ],
+        "orari_vo": [
+          "21:30"
+        ]
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "15:15"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 4,
+    "titolo": "LOVE ME TENDER",
+    "valutazioni": {
+      "MYMONETRO": "3.17",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.83",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 134,
+    "trama": "Uno sfaccettato dramma che riesce a restituire il ritratto di una donna a tutto tondo",
+    "regia": [
+      "Anna Cazenave Cambet"
+    ],
+    "cast": [
+      "Vicky Krieps",
+      "Monia Chokri",
+      "Antoine Reinartz",
+      "Viggo Ferreira-Redier"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "Wanted",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Farnese": {
+        "orari": [
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Greenwich": {
+        "orari": [
+          "16:00"
+        ],
+        "orari_vo": [
+          "18:30",
+          "21:30"
+        ]
+      },
+      "CINEMA Mignon": {
+        "orari": [
+          "16:15",
+          "18:45",
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Nuovo Olimpia": {
+        "orari": [],
+        "orari_vo": [
+          "16:00",
+          "18:30",
+          "21:00"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 5,
     "titolo": "RESURRECTION",
     "valutazioni": {
       "MYMONETRO": "3.84",
@@ -640,7 +804,7 @@
       "CINEMA Farnese": {
         "orari": [],
         "orari_vo": [
-          "16:00"
+          "15:45"
         ]
       },
       "Nuovo Cinema Aquila": {
@@ -653,8 +817,6 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "14:30",
-          "22:00",
           "14:00",
           "19:00"
         ]
@@ -662,7 +824,51 @@
     }
   },
   {
-    "scheda": 4,
+    "scheda": 6,
+    "titolo": "UN CANE A PROCESSO",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2024",
+    "durata_minuti": 85,
+    "trama": "Una commedia che sa mettere in scena temi importanti senza rinunciare al divertimento",
+    "regia": [
+      "Laetitia Dosch"
+    ],
+    "cast": [
+      "Laetitia Dosch",
+      "François Damiens",
+      "Anabela Moreira",
+      "Anne Dorval"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "Academy Two",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Quattro Fontane": {
+        "orari": [
+          "15:45",
+          "18:00"
+        ],
+        "orari_vo": [
+          "21:30"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 7,
     "titolo": "LE AQUILE DELLA REPUBBLICA",
     "valutazioni": {
       "MYMONETRO": "3.35",
@@ -696,9 +902,10 @@
     "consigli_visione": "N.D.",
     "cinema_orari": {
       "CINEMA Farnese": {
-        "orari": [],
+        "orari": [
+          "18:40"
+        ],
         "orari_vo": [
-          "16:00",
           "21:00"
         ]
       },
@@ -712,7 +919,141 @@
     }
   },
   {
-    "scheda": 5,
+    "scheda": 8,
+    "titolo": "LEE CRONIN - LA MUMMIA",
+    "valutazioni": {
+      "MYMONETRO": "2.45",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "2.39",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Horror"
+    ],
+    "paesi": [
+      "USA",
+      "Irlanda"
+    ],
+    "anno": "2026",
+    "durata_minuti": 133,
+    "trama": "Suggestione o manierismo? Un tentativo - riuscito a metà - di rinverdire i fasti di un classico del cinema horror",
+    "regia": [
+      "Lee Cronin"
+    ],
+    "cast": [
+      "Jack Reynor",
+      "Laia Costa",
+      "May Calamawy",
+      "Natalie Grace"
+    ],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "Warner Bros Italia",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00",
+          "17:30",
+          "21:40"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Andromeda": {
+        "orari": [
+          "18:50",
+          "21:15"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "17:10",
+          "21:40"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Broadway": {
+        "orari": [
+          "20:50"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "15:50",
+          "18:30",
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "20:00",
+          "22:30"
+        ],
+        "orari_vo": []
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "18:45",
+          "21:30"
+        ],
+        "orari_vo": []
+      },
+      "The Space Moderno": {
+        "orari": [
+          "23:40"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "15:35",
+          "18:45",
+          "20:10",
+          "21:30"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "18:10",
+          "19:40",
+          "21:40",
+          "22:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "18:10",
+          "20:50",
+          "22:40",
+          "23:45"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "19:40",
+          "22:00",
+          "23:30"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "20:20",
+          "23:20"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 9,
     "titolo": "SUPER MARIO GALAXY - IL FILM",
     "valutazioni": {
       "MYMONETRO": "3.05",
@@ -750,7 +1091,7 @@
       "CINEMA Adriano": {
         "orari": [
           "15:00",
-          "16:00",
+          "15:50",
           "17:20",
           "19:30"
         ],
@@ -846,7 +1187,7 @@
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
           "16:30",
-          "17:30",
+          "17:25",
           "18:35",
           "20:45"
         ],
@@ -854,16 +1195,16 @@
       },
       "The Space Moderno": {
         "orari": [
-          "15:00"
+          "15:15"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:45",
-          "16:45",
-          "19:05",
-          "21:30"
+          "14:05",
+          "16:05",
+          "18:05",
+          "19:10"
         ],
         "orari_vo": []
       },
@@ -900,15 +1241,13 @@
           "15:50",
           "17:10",
           "17:40",
-          "18:20",
-          "19:10"
+          "18:20"
         ],
         "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
-          "14:50",
-          "15:50",
+          "15:40",
           "17:15",
           "18:20"
         ],
@@ -917,7 +1256,7 @@
     }
   },
   {
-    "scheda": 6,
+    "scheda": 10,
     "titolo": "A CENA CON IL DITTATORE",
     "valutazioni": {
       "MYMONETRO": "3.50",
@@ -954,8 +1293,8 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "18:00",
-          "20:30"
+          "16:15",
+          "18:00"
         ],
         "orari_vo": []
       },
@@ -994,7 +1333,7 @@
     }
   },
   {
-    "scheda": 7,
+    "scheda": 11,
     "titolo": "LA SALITA",
     "valutazioni": {
       "MYMONETRO": "3.41",
@@ -1028,7 +1367,7 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "20:20"
+          "20:30"
         ],
         "orari_vo": []
       },
@@ -1070,13 +1409,411 @@
     }
   },
   {
-    "scheda": 8,
+    "scheda": 12,
+    "titolo": "THE LONG WALK",
+    "valutazioni": {
+      "MYMONETRO": "3.00",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "3.00",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Horror"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2025",
+    "durata_minuti": 108,
+    "trama": "Da un romanzo di Stephen King. Un racconto distopico di resistenza al potere autoritario",
+    "regia": [
+      "Francis Lawrence"
+    ],
+    "cast": [
+      "Cooper Hoffman",
+      "David Jonsson (II)",
+      "Garrett Wareing",
+      "Tut Nyuot"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "Adler Entertainment",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00",
+          "20:30",
+          "22:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "22:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "16:20",
+          "18:30",
+          "21:40"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "20:00",
+          "22:15"
+        ],
+        "orari_vo": []
+      },
+      "Multisala Odeon": {
+        "orari": [
+          "20:00",
+          "22:15"
+        ],
+        "orari_vo": []
+      },
+      "The Space Moderno": {
+        "orari": [
+          "21:50"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "16:00",
+          "18:50",
+          "22:05"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "18:50",
+          "20:55",
+          "22:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "18:15",
+          "19:50",
+          "22:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "19:50",
+          "22:20",
+          "23:45"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "21:40"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 13,
+    "titolo": "IL FIGLIO DEL DESERTO",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Family"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 92,
+    "trama": "Gilles de Maistre conferma il suo format di cinema spettacolare per famiglie. Dove tutto è un po' troppo prevedibile",
+    "regia": [
+      "Gilles de Maistre"
+    ],
+    "cast": [
+      "Nahel Tran",
+      "Nahil Bouazzaoui",
+      "Zayn Sekkat",
+      "Kev Adams"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "01 Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00",
+          "17:00",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Andromeda": {
+        "orari": [
+          "16:40",
+          "19:00",
+          "21:20"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "15:00",
+          "16:50"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Barberini": {
+        "orari": [
+          "15:00",
+          "19:20"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "16:30",
+          "18:30",
+          "20:30"
+        ],
+        "orari_vo": []
+      },
+      "Eurcine Multisala": {
+        "orari": [
+          "16:45",
+          "18:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Giulio Cesare": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "Multisala Odeon": {
+        "orari": [
+          "16:00",
+          "18:00"
+        ],
+        "orari_vo": []
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "The Space Moderno": {
+        "orari": [
+          "16:50",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "14:45",
+          "16:20",
+          "17:50"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Trianon": {
+        "orari": [
+          "16:00",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "16:40",
+          "18:40",
+          "20:05"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "14:25",
+          "16:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "14:20",
+          "16:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "12:00",
+          "14:10",
+          "16:30"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 14,
+    "titolo": "L'ULTIMA MISSIONE - PROJECT HAIL MARY",
+    "valutazioni": {
+      "MYMONETRO": "3.27",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.41",
+      "PUBBLICO": "2.89"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Fantascienza"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": 156,
+    "trama": "Un'opera sci-fi sulla speranza. Che lascia spazio ai toni da favola",
+    "regia": [
+      "Phil Lord",
+      "Christopher Miller"
+    ],
+    "cast": [
+      "Ryan Gosling",
+      "Milana Vayntrub",
+      "Sandra Hüller",
+      "Ken Leung"
+    ],
+    "uscita": "19 marzo 2026",
+    "distribuzione": "Eagle Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00",
+          "18:00",
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Andromeda": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "18:40",
+          "21:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Barberini": {
+        "orari": [],
+        "orari_vo": [
+          "16:30",
+          "18:45",
+          "21:15"
+        ]
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "20:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "19:00",
+          "22:00"
+        ],
+        "orari_vo": [
+          "20:30"
+        ]
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "15:35",
+          "17:45",
+          "19:10",
+          "20:40",
+          "22:15"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "21:10"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "14:50",
+          "21:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "14:50",
+          "17:50",
+          "21:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "16:50"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 15,
     "titolo": "MIO FRATELLO È UN VICHINGO - THE LAST VIKING",
     "valutazioni": {
-      "MYMONETRO": "3.40",
+      "MYMONETRO": "3.42",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "3.19",
-      "PUBBLICO": "3.50"
+      "PUBBLICO": "3.56"
     },
     "consigliato": "SI",
     "genere": [
@@ -1113,7 +1850,7 @@
     }
   },
   {
-    "scheda": 9,
+    "scheda": 16,
     "titolo": "IL DELITTO DEL 3° PIANO",
     "valutazioni": {
       "MYMONETRO": "2.94",
@@ -1155,6 +1892,14 @@
       "CINEMA Barberini": {
         "orari": [
           "21:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Caravaggio": {
+        "orari": [
+          "16:30",
+          "18:30",
+          "20:30"
         ],
         "orari_vo": []
       },
@@ -1215,7 +1960,7 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:25"
+          "17:15"
         ],
         "orari_vo": []
       },
@@ -1227,8 +1972,7 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "16:20",
-          "21:15"
+          "16:20"
         ],
         "orari_vo": []
       },
@@ -1241,7 +1985,7 @@
     }
   },
   {
-    "scheda": 10,
+    "scheda": 17,
     "titolo": "LA DONNA PIÙ RICCA DEL MONDO",
     "valutazioni": {
       "MYMONETRO": "2.70",
@@ -1276,7 +2020,7 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "18:20"
+          "18:10"
         ],
         "orari_vo": []
       },
@@ -1306,7 +2050,7 @@
     }
   },
   {
-    "scheda": 11,
+    "scheda": 18,
     "titolo": "ALLA FESTA DELLA RIVOLUZIONE",
     "valutazioni": {
       "MYMONETRO": "2.32",
@@ -1342,12 +2086,6 @@
         "orari": [
           "17:30",
           "21:40"
-        ],
-        "orari_vo": []
-      },
-      "CINEMA Alhambra": {
-        "orari": [
-          "16:30"
         ],
         "orari_vo": []
       },
@@ -1390,7 +2128,7 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:05"
+          "14:20"
         ],
         "orari_vo": []
       },
@@ -1403,7 +2141,7 @@
     }
   },
   {
-    "scheda": 12,
+    "scheda": 19,
     "titolo": "IL FIGLIO PIÙ BELLO",
     "valutazioni": {
       "MYMONETRO": "3.50",
@@ -1440,7 +2178,61 @@
     }
   },
   {
-    "scheda": 13,
+    "scheda": 20,
+    "titolo": "FINCHÈ MORTE NON CI SEPARI 2",
+    "valutazioni": {
+      "MYMONETRO": "3.22",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.65",
+      "PUBBLICO": "4.00"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Horror"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": 108,
+    "trama": "Un sequel vivace e potenziato nei modi, nelle forme e nella quantità",
+    "regia": [
+      "Tyler Gillett",
+      "Matt Bettinelli-Olpin"
+    ],
+    "cast": [
+      "Samara Weaving",
+      "Kathryn Newton",
+      "Elijah Wood",
+      "Sarah Michelle Gellar"
+    ],
+    "uscita": "9 aprile 2026",
+    "distribuzione": "Walt Disney",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "The Space Parco de Medici": {
+        "orari": [
+          "14:25"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "23:00"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "23:30"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 21,
     "titolo": "... CHE DIO PERDONA A TUTTI",
     "valutazioni": {
       "MYMONETRO": "3.02",
@@ -1476,6 +2268,12 @@
         "orari": [
           "17:50",
           "20:20"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Alhambra": {
+        "orari": [
+          "18:20"
         ],
         "orari_vo": []
       },
@@ -1565,7 +2363,7 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:20"
+          "15:20"
         ],
         "orari_vo": []
       },
@@ -1580,7 +2378,7 @@
     }
   },
   {
-    "scheda": 14,
+    "scheda": 22,
     "titolo": "È L'ULTIMA BATTUTA?",
     "valutazioni": {
       "MYMONETRO": "3.87",
@@ -1614,8 +2412,8 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "18:00",
-          "20:30"
+          "17:50",
+          "21:40"
         ],
         "orari_vo": []
       },
@@ -1624,6 +2422,14 @@
         "orari_vo": [
           "14:30",
           "16:20"
+        ]
+      },
+      "CINEMA Farnese": {
+        "orari": [
+          "16:00"
+        ],
+        "orari_vo": [
+          "21:00"
         ]
       },
       "CINEMA Madison": {
@@ -1644,7 +2450,406 @@
     }
   },
   {
-    "scheda": 15,
+    "scheda": 23,
+    "titolo": "IL CASO 137",
+    "valutazioni": {
+      "MYMONETRO": "3.56",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.61",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Thriller"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 115,
+    "trama": "La polarizzazione tra polizia e società civile in un film che mantiene la purezza narrativa rifiutando ogni faziosità",
+    "regia": [
+      "Dominik Moll"
+    ],
+    "cast": [
+      "Léa Drucker",
+      "Jonathan Turnbull",
+      "Solan Machado Graner",
+      "Sandra Colombo"
+    ],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "Teodora Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Giulio Cesare": {
+        "orari": [
+          "16:15",
+          "18:45"
+        ],
+        "orari_vo": [
+          "21:00"
+        ]
+      },
+      "CINEMA Nuovo Sacher": {
+        "orari": [],
+        "orari_vo": [
+          "16:00",
+          "18:15",
+          "20:45"
+        ]
+      },
+      "Quattro Fontane": {
+        "orari": [
+          "16:00",
+          "18:30"
+        ],
+        "orari_vo": [
+          "21:00"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 24,
+    "titolo": "BENVENUTI IN CAMPAGNA",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 96,
+    "trama": "Una commedia leggera e prevedibile, con un cast spiritoso che fa decollare il film (ma solo nel terzo atto)",
+    "regia": [
+      "Giambattista Avellino"
+    ],
+    "cast": [
+      "Giulia Bevilacqua",
+      "Maurizio Lastrico",
+      "Andrea Pennacchi",
+      "Giorgio Colangeli"
+    ],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "Vision Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:20",
+          "19:40"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Andromeda": {
+        "orari": [
+          "16:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "19:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Barberini": {
+        "orari": [
+          "14:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Broadway": {
+        "orari": [
+          "17:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "16:30",
+          "18:30",
+          "20:30"
+        ],
+        "orari_vo": []
+      },
+      "Eurcine Multisala": {
+        "orari": [
+          "20:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Jolly": {
+        "orari": [
+          "18:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "15:45",
+          "22:30"
+        ],
+        "orari_vo": []
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "19:30"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "15:15"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "16:15"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "15:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "15:20"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 25,
+    "titolo": "MALAVIA",
+    "valutazioni": {
+      "MYMONETRO": "3.19",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.33",
+      "PUBBLICO": "4.25"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 96,
+    "trama": "Un romanzo picaresco autentico su un adolescente interpretato da un credibilissimo Mattia Cozzolino",
+    "regia": [
+      "Nunzia De Stefano"
+    ],
+    "cast": [
+      "Mattia Francesco Cozzolino",
+      "Daniela De Vita",
+      "Junior Rodriguez",
+      "Francesca Gentile"
+    ],
+    "uscita": "26 marzo 2026",
+    "distribuzione": "Fandango",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 26,
+    "titolo": "LO CHIAMAVA ROCK & ROLL",
+    "valutazioni": {
+      "MYMONETRO": "4.10",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "4.71"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 106,
+    "trama": "Smeriglio torna alla regia con una vicenda che interroga i cosiddetti normodotati con il giusto ritmo e la giusta attenzione",
+    "regia": [
+      "Saverio Smeriglio"
+    ],
+    "cast": [
+      "Andrea Montovoli",
+      "Federico Richard Villa",
+      "Ivana Lotito",
+      "Caterina Silva"
+    ],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "Medusa",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 27,
+    "titolo": "MR. NOBODY AGAINST PUTIN - IL FILM CONTRO TUTTE LE GUERRE",
+    "valutazioni": {
+      "MYMONETRO": "3.50",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.50",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Documentario"
+    ],
+    "paesi": [
+      "Danimarca",
+      "Repubblica Ceca"
+    ],
+    "anno": "2025",
+    "durata_minuti": 90,
+    "trama": "Un documentario che riesce a mostrare dove la propaganda di un regime può arrivare",
+    "regia": [
+      "David Borenstein",
+      "Pavel Ilyich Talankin"
+    ],
+    "cast": [],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "ZaLab",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Intrastevere": {
+        "orari": [],
+        "orari_vo": [
+          "19:45",
+          "21:45"
+        ]
+      },
+      "CINEMA Tibur": {
+        "orari": [],
+        "orari_vo": [
+          "22:15"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 28,
+    "titolo": "EVA",
+    "valutazioni": {
+      "MYMONETRO": "2.34",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "2.17",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 98,
+    "trama": "Temi perturbanti in un film dall'atmosfera magica. Con un cast di solidi interpreti",
+    "regia": [
+      "Emanuela Rossi"
+    ],
+    "cast": [
+      "Carol Duarte",
+      "Edoardo Pesce",
+      "Tommaso Zoppi",
+      "Antonio Gerardi"
+    ],
+    "uscita": "21 aprile 2026",
+    "distribuzione": "Courier Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Delle Provincie": {
+        "orari": [
+          "15:40"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 29,
+    "titolo": "LOVITA",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 136,
+    "trama": "Un'opera dal cast azzeccato ma dalla sceneggiatura ipertrofica",
+    "regia": [
+      "Vito Vinci"
+    ],
+    "cast": [
+      "Priscilla Terenzi",
+      "Francesco Paolo Amoroso",
+      "Andrea Planamente",
+      "Mariana Falace"
+    ],
+    "uscita": "23 aprile 2026",
+    "distribuzione": "Ixtlan Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Delle Provincie": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Tiziano": {
+        "orari": [
+          "15:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 30,
     "titolo": "LA GRAZIA",
     "valutazioni": {
       "MYMONETRO": "4.13",
@@ -1685,7 +2890,7 @@
     }
   },
   {
-    "scheda": 16,
+    "scheda": 31,
     "titolo": "HAMNET - NEL NOME DEL FIGLIO",
     "valutazioni": {
       "MYMONETRO": "3.83",
@@ -1730,7 +2935,7 @@
     }
   },
   {
-    "scheda": 17,
+    "scheda": 32,
     "titolo": "SENTIMENTAL VALUE",
     "valutazioni": {
       "MYMONETRO": "3.79",
@@ -1775,21 +2980,20 @@
       },
       "Teatro Don Bosco": {
         "orari": [
-          "20:30",
           "18:00"
         ],
         "orari_vo": []
       },
       "CINEMA Tiziano": {
         "orari": [
-          "16:30"
+          "19:15"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 18,
+    "scheda": 33,
     "titolo": "RENTAL FAMILY - NELLE VITE DEGLI ALTRI",
     "valutazioni": {
       "MYMONETRO": "3.86",
@@ -1840,7 +3044,7 @@
     }
   },
   {
-    "scheda": 19,
+    "scheda": 34,
     "titolo": "PRIMA DELL'ALBA",
     "valutazioni": {
       "MYMONETRO": "3.53",
@@ -1877,14 +3081,55 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "17:30",
           "22:15"
         ]
       }
     }
   },
   {
-    "scheda": 20,
+    "scheda": 35,
+    "titolo": "SIRAT",
+    "valutazioni": {
+      "MYMONETRO": "3.41",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "4.03",
+      "PUBBLICO": "3.70"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Spagna",
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 120,
+    "trama": "Un film fortemente fisico con degli spunti di scrittura potenzialmente interessanti",
+    "regia": [
+      "Oliver Laxe"
+    ],
+    "cast": [
+      "Sergi López",
+      "Bruno Núñez",
+      "Stefania Gadda",
+      "Joshua Liam Herderson"
+    ],
+    "uscita": "8 gennaio 2026",
+    "distribuzione": "Mubi",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Teatro San Timoteo": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 36,
     "titolo": "TUTTO SU MIA MADRE",
     "valutazioni": {
       "MYMONETRO": "3.68",
@@ -1926,7 +3171,109 @@
     }
   },
   {
-    "scheda": 21,
+    "scheda": 37,
+    "titolo": "CASABLANCA",
+    "valutazioni": {
+      "MYMONETRO": "4.57",
+      "MYMOVIES.IT": "5.00",
+      "CRITICA": "4.50",
+      "PUBBLICO": "4.22"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "1942",
+    "durata_minuti": 102,
+    "trama": "Un autentico mito del cinema, nutrito dal mito di Bogart e da un gruppo straordinario di caratteristi. Oscar 1944",
+    "regia": [
+      "Michael Curtiz"
+    ],
+    "cast": [
+      "Humphrey Bogart",
+      "Ingrid Bergman",
+      "Paul Henreid",
+      "Claude Rains"
+    ],
+    "uscita": "26 giugno 2023",
+    "distribuzione": "Warner Bros Italia",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Casa del Cinema": {
+        "orari": [
+          "20:45"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 38,
+    "titolo": "IL BENE COMUNE",
+    "valutazioni": {
+      "MYMONETRO": "3.18",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.58",
+      "PUBBLICO": "3.95"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 103,
+    "trama": "A un passo dal musical, una favola che conferma il cinema originale di Rocco Papaleo",
+    "regia": [
+      "Rocco Papaleo"
+    ],
+    "cast": [
+      "Claudia Pandolfi",
+      "Rocco Papaleo",
+      "Teresa Saponangelo",
+      "Vanessa Scalera"
+    ],
+    "uscita": "12 marzo 2026",
+    "distribuzione": "PiperFilm",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Antares": {
+        "orari": [
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "Eurcine Multisala": {
+        "orari": [
+          "16:30",
+          "18:45",
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Intrastevere": {
+        "orari": [
+          "17:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Tiziano": {
+        "orari": [
+          "17:15"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 39,
     "titolo": "IL DIO DELL'AMORE",
     "valutazioni": {
       "MYMONETRO": "3.49",
@@ -1980,7 +3327,7 @@
     }
   },
   {
-    "scheda": 22,
+    "scheda": 40,
     "titolo": "LO STRANIERO",
     "valutazioni": {
       "MYMONETRO": "3.63",
@@ -2034,9 +3381,7 @@
           "16:15",
           "18:45"
         ],
-        "orari_vo": [
-          "21:15"
-        ]
+        "orari_vo": []
       },
       "CINEMA Mignon": {
         "orari": [
@@ -2045,12 +3390,6 @@
           "21:15"
         ],
         "orari_vo": []
-      },
-      "Nuovo Cinema Aquila": {
-        "orari": [],
-        "orari_vo": [
-          "21:00"
-        ]
       },
       "Quattro Fontane": {
         "orari": [
@@ -2064,7 +3403,7 @@
     }
   },
   {
-    "scheda": 23,
+    "scheda": 41,
     "titolo": "NOUVELLE VAGUE",
     "valutazioni": {
       "MYMONETRO": "3.89",
@@ -2103,11 +3442,17 @@
           "19:30"
         ],
         "orari_vo": []
+      },
+      "CINEMA Tiziano": {
+        "orari": [
+          "21:30"
+        ],
+        "orari_vo": []
       }
     }
   },
   {
-    "scheda": 24,
+    "scheda": 42,
     "titolo": "ARRIVEDERCI RAGAZZI",
     "valutazioni": {
       "MYMONETRO": "3.38",
@@ -2149,7 +3494,91 @@
     }
   },
   {
-    "scheda": 25,
+    "scheda": 43,
+    "titolo": "CENA DI CLASSE",
+    "valutazioni": {
+      "MYMONETRO": "2.84",
+      "MYMOVIES.IT": "2.00",
+      "CRITICA": "2.33",
+      "PUBBLICO": "4.18"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 94,
+    "trama": "Una commedia che perde la genuinità dell'ispirazione in una trama caotica",
+    "regia": [
+      "Francesco Mandelli"
+    ],
+    "cast": [
+      "Beatrice Arnera",
+      "Luigi Luciano",
+      "Giovanni Esposito",
+      "Roberto Lipari"
+    ],
+    "uscita": "26 marzo 2026",
+    "distribuzione": "Medusa",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Atlantic": {
+        "orari": [
+          "15:15"
+        ],
+        "orari_vo": []
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "16:30",
+          "21:30"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "15:10",
+          "20:45",
+          "22:50"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "17:40",
+          "21:50"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "14:40",
+          "18:50"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "14:25"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "11:00",
+          "14:20",
+          "19:10"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 44,
     "titolo": "LA MATTINA SCRIVO",
     "valutazioni": {
       "MYMONETRO": "3.67",
@@ -2189,7 +3618,6 @@
       },
       "Teatro Don Bosco": {
         "orari": [
-          "18:00",
           "21:00"
         ],
         "orari_vo": []
@@ -2197,7 +3625,7 @@
     }
   },
   {
-    "scheda": 26,
+    "scheda": 45,
     "titolo": "LA TORTA DEL PRESIDENTE",
     "valutazioni": {
       "MYMONETRO": "3.82",
@@ -2249,7 +3677,199 @@
     }
   },
   {
-    "scheda": 27,
+    "scheda": 46,
+    "titolo": "GIULIO REGENI - TUTTO IL MALE DEL MONDO",
+    "valutazioni": {
+      "MYMONETRO": "3.71",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.30",
+      "PUBBLICO": "4.33"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Documentario"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 105,
+    "trama": "Più di una semplice ricostruzione, un documentario di ampio respiro che diventa simbolo di ogni lotta per i diritti civili e contro la tortura",
+    "regia": [
+      "Simone Manetti"
+    ],
+    "cast": [
+      "Claudio Regeni",
+      "Paola Deffendi",
+      "Alessandra Ballerini"
+    ],
+    "uscita": "2 febbraio 2026",
+    "distribuzione": "Fandango",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Quattro Fontane": {
+        "orari": [
+          "17:45",
+          "21:45"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 47,
+    "titolo": "LA PICCOLA AMELIE",
+    "valutazioni": {
+      "MYMONETRO": "3.64",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.78",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Animazione"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 75,
+    "trama": "Forte e coloratissimo, un adattamento animato della biografia creativa di Amélie Nothomb",
+    "regia": [
+      "Liane-Cho Han Jin Kuang",
+      "Mailys Vallade"
+    ],
+    "cast": [],
+    "uscita": "1 gennaio 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Dei Piccoli": {
+        "orari": [
+          "16:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 48,
+    "titolo": "JUMPERS - UN SALTO TRA GLI ANIMALI",
+    "valutazioni": {
+      "MYMONETRO": "3.67",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "3.00",
+      "PUBBLICO": "5.00"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Animazione",
+      "Avventura",
+      "Commedia"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": 104,
+    "trama": "Un cartone animato che continua la tradizione Disney Pixar di affrontare argomenti delicati con un piglio coraggioso",
+    "regia": [
+      "Daniel Chong"
+    ],
+    "cast": [
+      "Tecla Insolia",
+      "Giorgio Panariello",
+      "Francesco Prando",
+      "Rossella Izzo"
+    ],
+    "uscita": "5 marzo 2026",
+    "distribuzione": "Walt Disney",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Andromeda": {
+        "orari": [
+          "16:45"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Dei Piccoli": {
+        "orari": [
+          "17:20"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 49,
+    "titolo": "UN ANNO DI SCUOLA",
+    "valutazioni": {
+      "MYMONETRO": "3.59",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "3.37",
+      "PUBBLICO": "3.40"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia",
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 102,
+    "trama": "Da tempo non si vedeva un'adolescenza raccontata in questo modo. Un film pieno di consapevolezza e libertà",
+    "regia": [
+      "Laura Samani"
+    ],
+    "cast": [
+      "Stella Wendick",
+      "Giacomo Covi",
+      "Pietro Giustolisi",
+      "Samuel Volturno"
+    ],
+    "uscita": "9 aprile 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Eurcine Multisala": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Giulio Cesare": {
+        "orari": [
+          "16:30",
+          "18:30",
+          "20:45"
+        ],
+        "orari_vo": []
+      },
+      "Nuovo Cinema Aquila": {
+        "orari": [
+          "18:00",
+          "21:00"
+        ],
+        "orari_vo": []
+      },
+      "Quattro Fontane": {
+        "orari": [
+          "15:45",
+          "19:45"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 50,
     "titolo": "GENERAZIONE ROMANTICA",
     "valutazioni": {
       "MYMONETRO": "3.63",
@@ -2285,14 +3905,180 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "01:00",
           "00:30"
         ]
       }
     }
   },
   {
-    "scheda": 28,
+    "scheda": 51,
+    "titolo": "VITA MIA",
+    "valutazioni": {
+      "MYMONETRO": "3.52",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.88",
+      "PUBBLICO": "4.17"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia",
+      "Francia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 125,
+    "trama": "Winspeare amplia il suo sguardo all'Europa conservando intatta la sua sensibilità nei confronti di chi porta sullo schermo",
+    "regia": [
+      "Edoardo Winspeare"
+    ],
+    "cast": [
+      "Dominique Sanda",
+      "Celeste Casciaro",
+      "Antonino Bruschetta",
+      "Ignazio Oliva"
+    ],
+    "uscita": "9 aprile 2026",
+    "distribuzione": "Draka",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Azzurro Scipioni": {
+        "orari": [
+          "15:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 52,
+    "titolo": "E.1027 - EILEEN GRAY E LA CASA SUL MARE",
+    "valutazioni": {
+      "MYMONETRO": "3.77",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.25",
+      "PUBBLICO": "4.56"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Documentario",
+      "Drammatico"
+    ],
+    "paesi": [
+      "Svizzera"
+    ],
+    "anno": "2024",
+    "durata_minuti": 89,
+    "trama": "Tra doc, fiction e messa in scena teatrale. La costruzione di una casa diversa per un diverso modo di concepire il mondo",
+    "regia": [
+      "Beatrice Minger",
+      "Christoph Schaub"
+    ],
+    "cast": [
+      "Natalie Radmall-Quirke",
+      "Axel Moustache",
+      "Charles Morillon",
+      "Vera Flück"
+    ],
+    "uscita": "16 marzo 2026",
+    "distribuzione": "Trent Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Dei Piccoli": {
+        "orari": [],
+        "orari_vo": [
+          "19:10"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 53,
+    "titolo": "KEEPER - L'ELETTA",
+    "valutazioni": {
+      "MYMONETRO": "2.67",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "3.00",
+      "PUBBLICO": "2.00"
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Horror"
+    ],
+    "paesi": [
+      "USA",
+      "Canada"
+    ],
+    "anno": "2025",
+    "durata_minuti": 99,
+    "trama": "Inconsueto psycho-thriller dai risvolti inquietanti. Una nuova conferma del talento multiforme di Osgood Perkins",
+    "regia": [
+      "Oz Perkins"
+    ],
+    "cast": [
+      "Tatiana Maslany",
+      "Rossif Sutherland",
+      "Birkett Turton",
+      "Eden Weiss"
+    ],
+    "uscita": "12 marzo 2026",
+    "distribuzione": "Be Water",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "23:10"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 54,
+    "titolo": "I NOSTRI ANNI",
+    "valutazioni": {
+      "MYMONETRO": "3.50",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.00"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2001",
+    "durata_minuti": 90,
+    "trama": "Uno stile autoriale e personale per un doc che riflette sul concetto di memoria",
+    "regia": [
+      "Daniele Gaglianone"
+    ],
+    "cast": [
+      "Virgilio Biei",
+      "Piero Franzo",
+      "Giuseppe Boccalatte"
+    ],
+    "uscita": "3 aprile 2026",
+    "distribuzione": "Kio Film",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "CINEMA Greenwich": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 55,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -2328,7 +4114,7 @@
     }
   },
   {
-    "scheda": 29,
+    "scheda": 56,
     "titolo": "AGNUS DEI",
     "valutazioni": {
       "MYMONETRO": "3.42",
@@ -2358,6 +4144,142 @@
       "Teatro Don Bosco": {
         "orari": [
           "16:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 57,
+    "titolo": "O QUE ARDE - VERRÀ IL FUOCO",
+    "valutazioni": {
+      "MYMONETRO": "3.43",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.61",
+      "PUBBLICO": "3.18"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Spagna"
+    ],
+    "anno": "2019",
+    "durata_minuti": 86,
+    "trama": "Memorabili suggestioni nel film che ha fatto esplodere il talento anarchico di Laxe",
+    "regia": [
+      "Oliver Laxe"
+    ],
+    "cast": [
+      "Amador Arias",
+      "Benedicta Sánchez",
+      "Inazio Abrao",
+      "Elena Mar Fernández"
+    ],
+    "uscita": "9 aprile 2026",
+    "distribuzione": "ExitMedia",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Azzurro Scipioni": {
+        "orari": [
+          "17:15"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 58,
+    "titolo": "GLI ULTIMI GIORNI DEL PARADISO",
+    "valutazioni": {
+      "MYMONETRO": "2.70",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "2.90",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Portogallo",
+      "Italia",
+      "Argentina"
+    ],
+    "anno": "2025",
+    "durata_minuti": 108,
+    "trama": "Un'opera - a tratti feroce - che ci aiuta a contemplare il nostro disagio contemporaneo",
+    "regia": [
+      "João Nuno Pinto"
+    ],
+    "cast": [
+      "Margarida Marinho",
+      "Beatriz Batarda",
+      "Rita Cabaço",
+      "Jorge Andrade"
+    ],
+    "uscita": "16 aprile 2026",
+    "distribuzione": "Trent Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Azzurro Scipioni": {
+        "orari": [
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Dei Piccoli": {
+        "orari": [
+          "20:45"
+        ],
+        "orari_vo": []
+      },
+      "Delle Provincie": {
+        "orari": [
+          "17:30"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 59,
+    "titolo": "L'ACQUA NON È MAI FERMA",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Noir"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 73,
+    "trama": "N.D.",
+    "regia": [
+      "Roberto Mariotti"
+    ],
+    "cast": [
+      "Elena Arvigo",
+      "Stefano Fresi",
+      "Toni Garrani"
+    ],
+    "uscita": "30 marzo 2026",
+    "distribuzione": "Zoorama",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Azzurro Scipioni": {
+        "orari": [
+          "21:00"
         ],
         "orari_vo": []
       }
