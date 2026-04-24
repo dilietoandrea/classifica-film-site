@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CFR - Roma</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 26px auto 44px;
+    }
+    header {
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 30px;
+      line-height: 1.12;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .report-card {
+      min-height: 238px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.08);
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+    .report-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .status {
+      display: inline-flex;
+      margin: 0 0 12px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .status.ok {
+      background: #e8f7ee;
+      color: #116236;
+    }
+    .status.missing {
+      background: #f3f4f6;
+      color: #5f6673;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+    }
+    .links a, .links span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcff;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .links a:hover, .links a:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: 2px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+    .open-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .open-link.disabled {
+      border-color: var(--line);
+      background: #eef1f5;
+      color: var(--muted);
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .report-card { min-height: 0; }
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 16px;
+      }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>CFR - Roma</h1>
+      <p class="meta">Generata il 22/04/2026 17:15</p>
+    </header>
+    <section class="grid">
+      <article class="report-card" style="--accent: #2d6cdf">
+        <div>
+          <p class="status ok">Disponibile</p>
+          <h2>Classifica Roma</h2>
+          <p>Film in sala, cinema, orari e punteggi.</p>
+        </div>
+        <div class="links">
+          <a href="classifica_film.csv">CSV</a><a href="storico/classifica_film_2026-04-22.csv">Storico</a><a href="storico/report_classifica_2026-04-22.html">Report diff</a>
+        </div>
+        <a class="open-link" href="classifica_film.html">Apri</a>
+      </article><article class="report-card" style="--accent: #7c3aed">
+        <div>
+          <p class="status ok">Disponibile</p>
+          <h2>Box office Italia</h2>
+          <p>Top 20 italiana con incassi weekend e totali.</p>
+        </div>
+        <div class="links">
+          <a href="boxoffice_italia_top20.csv">CSV</a><a href="storico/boxoffice_italia_top20_2026-04-22.csv">Storico</a><span>Report diff: non disponibile</span>
+        </div>
+        <a class="open-link" href="boxoffice_italia_top20.html">Apri</a>
+      </article><article class="report-card" style="--accent: #0f766e">
+        <div>
+          <p class="status ok">Disponibile</p>
+          <h2>Prossimamente</h2>
+          <p>Calendario delle prossime uscite in sala.</p>
+        </div>
+        <div class="links">
+          <a href="prossimamente.csv">CSV</a><a href="storico/prossimamente_2026-04-22.csv">Storico</a><span>Report diff: non disponibile</span>
+        </div>
+        <a class="open-link" href="prossimamente.html">Apri</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

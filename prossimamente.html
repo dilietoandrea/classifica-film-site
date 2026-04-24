@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prossimamente al Cinema</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --head: #dff6f2;
+      --accent: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.4; }
+    main { width: min(1500px, calc(100% - 32px)); margin: 24px auto 40px; }
+    h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+    .meta { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+    .toolbar { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; flex-wrap: wrap; }
+    .toolbar-nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .toolbar-tools {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex: 1 1 320px;
+      flex-wrap: wrap;
+    }
+    .search { width: min(460px, 100%); min-height: 42px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); font: inherit; }
+    .search:focus { outline: 2px solid rgba(15, 118, 110, 0.22); border-color: var(--accent); }
+    .counter { color: var(--muted); font-size: 14px; }
+    .nav-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--accent);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-link:hover, .nav-link:focus { border-color: var(--accent); outline: 2px solid rgba(15, 118, 110, 0.18); }
+    .nav-link[aria-current="page"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .table-wrap { overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(24, 32, 42, 0.08); }
+    table { width: 100%; min-width: 1320px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
+    th, td { padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; z-index: 1; background: var(--head); color: #063f3b; font-weight: 700; text-align: center; white-space: nowrap; }
+    tr:nth-child(even) td { background: #fbfcff; }
+    td:nth-child(1), td:nth-child(3), td:nth-child(6), td:nth-child(7), td:nth-child(11), td:nth-child(13), td:nth-child(14), td:nth-child(15) { text-align: center; white-space: nowrap; }
+    td:nth-child(2) { min-width: 220px; font-weight: 700; }
+    td:nth-child(16) { min-width: 360px; }
+    @media (max-width: 700px) {
+      main { width: calc(100% - 20px); margin-top: 14px; }
+      h1 { font-size: 22px; }
+      .toolbar { align-items: stretch; }
+      .toolbar-tools {
+        margin-left: 0;
+        justify-content: stretch;
+      }
+      .search { width: 100%; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Prossimamente al Cinema</h1>
+    <p class="meta">Elenco dei prossimi film in uscita nelle sale.</p>
+    <p class="meta">Generata il 24/04/2026 02:01 - 84 film</p>
+    <div class="toolbar">
+      <div class="toolbar-nav">
+        <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="classifica_film.html">Classifica</a>
+      <a class="nav-link" href="boxoffice_italia_top20.html">Box office</a>
+      <a class="nav-link" href="prossimamente.html" aria-current="page">Prossimamente</a>
+      </div>
+      <div class="toolbar-tools">
+        <span class="counter" id="table-counter">84 film</span>
+        <input class="search" id="table-search" type="search" placeholder="Cerca tra le prossime uscite" autocomplete="off">
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table id="upcoming-table">
+        <thead><tr><th>DATA USCITA</th><th>TITOLO</th><th>GIORNI ALL&#x27;USCITA</th><th>GENERE</th><th>PAESI</th><th>ANNO</th><th>DURATA<br>(MINUTI)</th><th>REGIA</th><th>CAST</th><th>DISTRIBUZIONE</th><th>MYMONETRO</th><th>CONSIGLIATO</th><th>MYMOVIES.IT</th><th>CRITICA</th><th>PUBBLICO</th><th>TRAMA</th><th>URL</th></tr></thead>
+        <tbody>
+<tr><td>23 aprile 2026</td><td>AVEVO DUE PAURE</td><td>-1</td><td>Documentario</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Theo Putzu, Paolo Cagnacci</td><td>N.D.</td><td>Garden Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/avevo-due-paure/</td></tr>
+<tr><td>23 aprile 2026</td><td>IL FIGLIO DEL DESERTO</td><td>-1</td><td>Family</td><td>Francia</td><td>2026</td><td>N.D.</td><td>Gilles de Maistre</td><td>Kev Adams, Adrianna Gradziel, Youssef Tounzi, Elkihel Faical</td><td>01 Distribution</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/il-figlio-del-deserto/</td></tr>
+<tr><td>23 aprile 2026</td><td>LA PIÙ PICCOLA</td><td>-1</td><td>Drammatico</td><td>Francia, Germania</td><td>2025</td><td>106</td><td>Hafsia Herzi</td><td>Nadia Melliti, Park Ji-min, Amina Ben Mohamed, Melissa Guers</td><td>Fandango</td><td>3,02</td><td>SI</td><td>3,00</td><td>2,50</td><td>3,56</td><td>Un racconto di emancipazione in un film puro e misurato che non cede al discorso militante</td><td>https://www.mymovies.it/film/2025/la-piu-piccola/</td></tr>
+<tr><td>23 aprile 2026</td><td>LE AQUILE DELLA REPUBBLICA</td><td>-1</td><td>Drammatico</td><td>Svezia, Francia</td><td>2025</td><td>127</td><td>Tarik Saleh</td><td>Fares Fares, Lyna Khoudri, Zineb Triki, Amr Waked</td><td>Movies Inspired</td><td>3,33</td><td>SI</td><td>3,50</td><td>2,64</td><td>3,85</td><td>Una fotografia dell&#x27;Egitto di oggi che intreccia sapientemente commedia, intrigo politico e denuncia esplicita</td><td>https://www.mymovies.it/film/2025/le-aquile-della-repubblica/</td></tr>
+<tr><td>23 aprile 2026</td><td>LOVE ME TENDER</td><td>-1</td><td>Drammatico</td><td>Francia</td><td>2025</td><td>134</td><td>Anna Cazenave Cambet</td><td>Vicky Krieps, Monia Chokri, Antoine Reinartz, Viggo Ferreira-Redier</td><td>Wanted</td><td>3,00</td><td>SI</td><td>3,50</td><td>2,50</td><td>0,00</td><td>Uno sfaccettato dramma che riesce a restituire il ritratto di una donna a tutto tondo</td><td>https://www.mymovies.it/film/2025/love-me-tender/</td></tr>
+<tr><td>23 aprile 2026</td><td>LOVITA</td><td>-1</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>136</td><td>Vito Vinci</td><td>Francesco Paolo Amoroso, Chiara Barbagallo, Smeralda Capizzi, Clara Cavallucci</td><td>Ixtlan Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/lovita/</td></tr>
+<tr><td>23 aprile 2026</td><td>RESURRECTION</td><td>-1</td><td>Drammatico</td><td>Cina</td><td>2025</td><td>160</td><td>Gan Bi</td><td>Jackson Yee, Qi Shu, Mark Chao, Gengxi Li, Jue Huang</td><td>I Wonder Pictures</td><td>3,73</td><td>SI</td><td>4,00</td><td>3,45</td><td>0,00</td><td>Un romantico e ambiziosissimo viaggio che prova a digerire e risputare un secolo abbondante di cinema</td><td>https://www.mymovies.it/film/2025/resurrection/</td></tr>
+<tr><td>23 aprile 2026</td><td>THE LONG WALK</td><td>-1</td><td>Horror</td><td>USA</td><td>2025</td><td>108</td><td>Francis Lawrence</td><td>Cooper Hoffman, David Jonsson (II), Garrett Wareing, Tut Nyuot</td><td>Adler Entertainment</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Da un romanzo di Stephen King. Un racconto distopico di resistenza al potere autoritario</td><td>https://www.mymovies.it/film/2025/the-long-walk/</td></tr>
+<tr><td>23 aprile 2026</td><td>UN CANE A PROCESSO</td><td>-1</td><td>Commedia</td><td>Francia</td><td>2024</td><td>85</td><td>Laetitia Dosch</td><td>Laetitia Dosch, François Damiens, Anabela Moreira, Anne Dorval</td><td>Academy Two</td><td>0,00</td><td>N.D.</td><td>3,50</td><td>0,00</td><td>0,00</td><td>Una commedia che sa mettere in scena temi importanti senza rinunciare al divertimento</td><td>https://www.mymovies.it/film/2024/un-cane-a-processo/</td></tr>
+<tr><td>27 aprile 2026</td><td>SUICIDE CLUB</td><td>3</td><td>Horror</td><td>Giappone</td><td>2001</td><td>99</td><td>Sion Sono</td><td>Ryo Ishibashi, Masatoshi Nagase, Mai Hosho, Tamao Satô</td><td>Cat People</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>3,17</td><td>Indagine su una serie ininterrotta di suicidi</td><td>https://www.mymovies.it/film/2001/suicideclub/</td></tr>
+<tr><td>27 aprile 2026</td><td>THE WHISPERING STAR</td><td>3</td><td>Fantascienza</td><td>Giappone</td><td>2015</td><td>101</td><td>Sion Sono</td><td>Kenji Endo, Yûto Ikeda, Megumi Kagurazaka, Mori Kouko</td><td>Cat People</td><td>3,04</td><td>SI</td><td>3,00</td><td>0,00</td><td>3,08</td><td>Un film delicatissimo che racconta attraverso gli occhi di un robot i sentimenti umani e il valore dei ricordi</td><td>https://www.mymovies.it/film/2015/thewhisperingstar/</td></tr>
+<tr><td>27 aprile 2026</td><td>UN SACCO BELLO</td><td>3</td><td>Commedia</td><td>Italia</td><td>1980</td><td>99</td><td>Carlo Verdone</td><td>Carlo Verdone, Mario Brega, Renato Scarpa, Veronica Miriel</td><td>Cineteca di Bologna</td><td>3,33</td><td>SI</td><td>3,00</td><td>0,00</td><td>3,65</td><td>Sei personaggi e un solo attore: Carlo Verdone. Un debutto straordinario</td><td>https://www.mymovies.it/film/1980/unsaccobello/</td></tr>
+<tr><td>29 aprile 2026</td><td>IL DIAVOLO VESTE PRADA 2</td><td>5</td><td>Commedia</td><td>USA</td><td>2026</td><td>N.D.</td><td>David Frankel</td><td>Anne Hathaway, Stanley Tucci, Emily Blunt, Meryl Streep</td><td>Walt Disney</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Il sequel del fenomeno del 2006 che ha segnato una generazione</td><td>https://www.mymovies.it/film/2026/il-diavolo-veste-prada-2/</td></tr>
+<tr><td>29 aprile 2026</td><td>RITORNO AL TRATTURO</td><td>5</td><td>Documentario</td><td>Italia</td><td>2026</td><td>54</td><td>Francesco Cordio</td><td>Elio Germano, Filippo Tantillo</td><td>Own Air</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Un doc frutto di forze diverse che punta i riflettori sui luoghi sperduti</td><td>https://www.mymovies.it/film/2026/ritorno-al-tratturo/</td></tr>
+<tr><td>30 aprile 2026</td><td>KOKUHO - IL MAESTRO DI KABUKI</td><td>6</td><td>Drammatico</td><td>Giappone</td><td>2025</td><td>174</td><td>Sang-il Lee</td><td>Keitatsu Koshiyama, Soya Kurokawa, Ai Mikami, Takahiro Miura</td><td>Tucker Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Il più grande maestro del kabuki</td><td>https://www.mymovies.it/film/2025/kokuho/</td></tr>
+<tr><td>30 aprile 2026</td><td>L&#x27;ORATORE</td><td>6</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Marco Pollini</td><td>Mauro Cerminara, Giorgio Colangeli, Marcello Fonte, Pasquale Greco</td><td>Ahora! Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Storia di musica e coraggio nelle strade di Napoli</td><td>https://www.mymovies.it/film/2026/loratore/</td></tr>
+<tr><td>30 aprile 2026</td><td>NEL TEPORE DEL BALLO</td><td>6</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Pupi Avati</td><td>Raoul Bova, Isabella Ferrari, Antonella Salvucci, Patrizio Pelizzi</td><td>01 Distribution</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Caduta e rinascita di un presentatore televisivo</td><td>https://www.mymovies.it/film/2026/nel-tepore-del-ballo/</td></tr>
+<tr><td>30 aprile 2026</td><td>NINO</td><td>6</td><td>Drammatico</td><td>Francia</td><td>2025</td><td>96</td><td>Pauline Loquès</td><td>Théodore Pellerin, Jeanne Balibar, William Lebghil, Salomé Dewaels</td><td>Filmclub Distribuzione</td><td>3,75</td><td>SI</td><td>4,00</td><td>3,50</td><td>0,00</td><td>Un esordio ricco di sfumature e di sottili trovate narrative. Una piccola opera che contiene moltitudini</td><td>https://www.mymovies.it/film/2025/nino/</td></tr>
+<tr><td>30 aprile 2026</td><td>THAT TIME I GOT REINCARNATED AS A SLIME - IL FILM - LE LACRIME DEL MARE AZZURRO</td><td>6</td><td>Animazione, Fantasy</td><td>Giappone</td><td>2026</td><td>N.D.</td><td>Yasuhito Kikuchi</td><td>Rina Hidaka, Mao Ichimichi, Ayako Kawasumi, Ryûichi Kijima</td><td>Crunchyroll</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/that-time-i-got-reincarnated-as-a-slime-il-film-le-lacrime-del-mare-azzurro/</td></tr>
+<tr><td>30 aprile 2026</td><td>YELLOW LETTERS</td><td>6</td><td>Drammatico</td><td>Germania, Turchia, Francia</td><td>2026</td><td>N.D.</td><td>Ilker Çatak</td><td>Tansu Biçer, Kerem Can, Aziz Çapkurt, Siir Eloglu</td><td>Lucky Red</td><td>3,47</td><td>SI</td><td>3,50</td><td>3,43</td><td>0,00</td><td>Catak si insinua nella coscienza dei suoi personaggi, rivelandone ambiguità morali e passi falsi comportamentali</td><td>https://www.mymovies.it/film/2026/yellow-letters/</td></tr>
+<tr><td>4 maggio 2026</td><td>EYES WIDE SHUT</td><td>10</td><td>Drammatico</td><td>Gran Bretagna, USA</td><td>1999</td><td>160</td><td>Stanley Kubrick</td><td>Nicole Kidman, Tom Cruise, Madison Eginton, Jackie Sawiris</td><td>Lucky Red</td><td>3,87</td><td>ASSOLUTAMENTE SI</td><td>4,00</td><td>0,00</td><td>3,74</td><td>Beatificato a priori, questo film ha chiuso tre parabole: ricerca, carriera e vita</td><td>https://www.mymovies.it/film/1999/eyeswideshut/</td></tr>
+<tr><td>4 maggio 2026</td><td>SPACE JAM</td><td>10</td><td>Commedia</td><td>USA</td><td>1996</td><td>87</td><td>Joe Pytka</td><td>Theresa Randle, Michael Jordan, Wayne Knight, Manner Washington</td><td>Warner Bros Italia</td><td>2,65</td><td>NI</td><td>2,00</td><td>0,00</td><td>3,29</td><td>Un incontro di basket con personaggi animati e Michael Jordan</td><td>https://www.mymovies.it/film/1996/spacejam/</td></tr>
+<tr><td>4 maggio 2026</td><td>WILLIE PEYOTE - ELEGIA SABAUDA</td><td>10</td><td>Documentario</td><td>Italia</td><td>2025</td><td>94</td><td>Enrico Bisi</td><td>N.D.</td><td>Wanted</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Un film sul mestiere di restare autentici: un elogio alla misura, all&#x27;intelligenza ironica, alla capacità di non prendersi troppo sul serio</td><td>https://www.mymovies.it/film/2025/willie-peyote-elegia-sabauda/</td></tr>
+<tr><td>6 maggio 2026</td><td>L&#x27;AMORE STA BENE SU TUTTO</td><td>12</td><td>Commedia</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Giampaolo Morelli</td><td>Claudia Gerini, Monica Guerritore, Paolo Calabresi, Roberto Citran</td><td>PiperFilm</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Quando l&#x27;amore trasforma tutto</td><td>https://www.mymovies.it/film/2026/lamore-sta-bene-su-tutto/</td></tr>
+<tr><td>6 maggio 2026</td><td>MORTAL KOMBAT II</td><td>12</td><td>Azione, Avventura</td><td>USA</td><td>2026</td><td>N.D.</td><td>Simon McQuoid</td><td>Hiroyuki Sanada, Karl Urban, Tadanobu Asano, Jessica McNamee</td><td>Warner Bros Italia</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Un&#x27;epica battaglia all&#x27;ultimo sangue</td><td>https://www.mymovies.it/film/2026/mortal-kombat-2/</td></tr>
+<tr><td>6 maggio 2026</td><td>THE SEA</td><td>12</td><td>Drammatico</td><td>Israele</td><td>2025</td><td>93</td><td>Shai Carmeli-Pollak</td><td>Khalifa Natour, Muhammad Gazawi, Marlene Bajali, Hilla Sarjon</td><td>Mescalito Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/the-sea/</td></tr>
+<tr><td>7 maggio 2026</td><td>ANTARTICA - QUASI UNA FIABA</td><td>13</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Lucia Calamaro</td><td>Silvio Orlando, Barbara Ronchi, Valentina Bellè, Simone Liberati</td><td>Vision Distribution</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Un film più unico che raro in Italia sulla ricerca scientifica, con un ottimo cast</td><td>https://www.mymovies.it/film/2026/antartica/</td></tr>
+<tr><td>7 maggio 2026</td><td>CLARA</td><td>13</td><td>Drammatico</td><td>Belgio</td><td>2026</td><td>94</td><td>Marta Bergman</td><td>Salim Kechiouche, Zbeida Belhajamor, Lucie Debay, Michael Abiteboul</td><td>Cineclub Internazionale</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/clara/</td></tr>
+<tr><td>7 maggio 2026</td><td>IL TEMPO È ANCORA NOSTRO</td><td>13</td><td>Drammatico</td><td>Italia</td><td>2024</td><td>N.D.</td><td>Maurizio Matteo Merli</td><td>Mirko Frezza, Miguel Gobbo Diaz, Simone Sabani, Andrea Roncato</td><td>Father&amp;Son</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2024/il-tempo-e-ancora-nostro/</td></tr>
+<tr><td>7 maggio 2026</td><td>ILLUSIONE</td><td>13</td><td>Drammatico</td><td>Italia, Belgio</td><td>2025</td><td>110</td><td>Francesca Archibugi</td><td>Jasmine Trinca, Michele Riondino, Angelina Andrei, Vittoria Puccini</td><td>01 Distribution</td><td>2,00</td><td>NI</td><td>2,50</td><td>1,50</td><td>0,00</td><td>Un&#x27;opera che spiazza per la complessità della narrazione e dei registri utilizzati</td><td>https://www.mymovies.it/film/2025/illusione/</td></tr>
+<tr><td>7 maggio 2026</td><td>MANAS - SORELLE</td><td>13</td><td>Drammatico</td><td>Brasile</td><td>2024</td><td>101</td><td>Marianna Brennand Fortes</td><td>Dira Paes, Rômulo Braga, Fatima Macedo</td><td>Black Light Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>3,90</td><td>0,00</td><td>Cercare un futuro migliore</td><td>https://www.mymovies.it/film/2024/manas/</td></tr>
+<tr><td>7 maggio 2026</td><td>NOI DUE SCONOSCIUTI</td><td>13</td><td>Commedia</td><td>Norvegia, Lettonia, Lituania, Danimarca, Finlandia</td><td>2025</td><td>100</td><td>Janicke Askevold</td><td>Lisa Loven Kongsli, Herbert Nordrum, Rolf Kristian Larsen, Nasrin Khusrawi</td><td>Teodora Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Equilibri che si capovolgono</td><td>https://www.mymovies.it/film/2025/noi-due-sconosciuti/</td></tr>
+<tr><td>7 maggio 2026</td><td>PECORE SOTTO COPERTURA</td><td>13</td><td>Azione, Commedia</td><td>Irlanda, Gran Bretagna, Germania, USA</td><td>2026</td><td>N.D.</td><td>Kyle Balda</td><td>Ciro Priello, Arianna Craviotto, Emma Thompson, Hugh Jackman</td><td>Eagle Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/pecore-sotto-copertura/</td></tr>
+<tr><td>7 maggio 2026</td><td>UN SOGNO ITALIANO</td><td>13</td><td>Documentario</td><td>Italia</td><td>2025</td><td>90</td><td>Fausto Caviglia</td><td>N.D.</td><td>Piano B Distribuzioni</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/un-sogno-italiano/</td></tr>
+<tr><td>11 maggio 2026</td><td>A QUALCUNO PIACE CALDO</td><td>17</td><td>Commedia</td><td>USA</td><td>1959</td><td>120</td><td>Billy Wilder</td><td>Jack Lemmon, Billy Gray, Joan Shawlee, Marilyn Monroe</td><td>Cineteca di Bologna</td><td>4,30</td><td>ASSOLUTAMENTE SI</td><td>4,50</td><td>0,00</td><td>4,09</td><td>Una pietra miliare della commedia americana, forse la migliore interpretazione di Marilyn Monroe</td><td>https://www.mymovies.it/film/1959/aqualcunopiacecaldo/</td></tr>
+<tr><td>11 maggio 2026</td><td>CORPI MUTANTI</td><td>17</td><td>Documentario</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Walter Bencini</td><td>N.D.</td><td>Lo Scrittoio</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/corpi-mutanti/</td></tr>
+<tr><td>11 maggio 2026</td><td>GENERAZIONE FUMETTO</td><td>17</td><td>Documentario</td><td>Italia</td><td>2025</td><td>105</td><td>Omar Rashid (II)</td><td>Gabriele Mainetti, Pasquale Petrolo, Antonio Manetti, Zerocalcare</td><td>Valmyn</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/generazione-fumetto/</td></tr>
+<tr><td>11 maggio 2026</td><td>GLI SPOSTATI</td><td>17</td><td>Drammatico</td><td>USA</td><td>1961</td><td>124</td><td>John Huston</td><td>Clark Gable, Marilyn Monroe, Montgomery Clift, Thelma Ritter</td><td>Cineteca di Bologna</td><td>3,33</td><td>SI</td><td>3,00</td><td>0,00</td><td>3,65</td><td>L&#x27;ultimo film di Marilyn Monroe e Clark Gable, un ritratto del malessere dell&#x27;America che cambia</td><td>https://www.mymovies.it/film/1961/gli-spostati/</td></tr>
+<tr><td>11 maggio 2026</td><td>GLI UOMINI PREFERISCONO LE BIONDE</td><td>17</td><td>Commedia</td><td>USA</td><td>1953</td><td>91</td><td>Howard Hawks</td><td>Jane Russell, Marilyn Monroe, Charles Coburn, Elliott Reid</td><td>Cineteca di Bologna</td><td>0,00</td><td>N.D.</td><td>4,00</td><td>0,00</td><td>3,08</td><td>N.D.</td><td>https://www.mymovies.it/film/1953/gli-uomini-preferiscono-le-bionde/</td></tr>
+<tr><td>11 maggio 2026</td><td>MILLENNIUM ACTRESS</td><td>17</td><td>Animazione</td><td>Giappone</td><td>2001</td><td>87</td><td>Satoshi Kon</td><td>Fumiko Orikasa, Mami Koyama, Miyoko Shoji, Kôichi Yamadera</td><td>Anime Factory</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>3,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2001/millenniumactress/</td></tr>
+<tr><td>11 maggio 2026</td><td>QUANDO LA MOGLIE È IN VACANZA</td><td>17</td><td>Commedia</td><td>USA</td><td>1955</td><td>105</td><td>Billy Wilder</td><td>Marilyn Monroe, Tom Ewell, Evelyn Keyes, Sonny Tufts</td><td>Cineteca di Bologna</td><td>3,75</td><td>SI</td><td>4,00</td><td>0,00</td><td>3,50</td><td>N.D.</td><td>https://www.mymovies.it/film/1955/quando-la-moglie-e-in-vacanza/</td></tr>
+<tr><td>13 maggio 2026</td><td>3 CHILOMETRI ALLA FINE DEL MONDO</td><td>19</td><td>Drammatico</td><td>Romania</td><td>2024</td><td>105</td><td>Emanuel Parvu</td><td>Laura Vasiliu, Adrian Titieni, Bogdan Dumitrache, Valeriu Andriuta</td><td>Academy Two</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>2,50</td><td>0,00</td><td>Un film che ci ricorda come nella civile Europa alcuni diritti vengano violati</td><td>https://www.mymovies.it/film/2024/3-chilometri-alla-fine-del-mondo/</td></tr>
+<tr><td>14 maggio 2026</td><td>A PRANZO LA DOMENICA</td><td>20</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Mariella Sellitti</td><td>Lorenza Indovina, Cesare Bocci</td><td>ZTV Production</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/a-pranzo-la-domenica/</td></tr>
+<tr><td>14 maggio 2026</td><td>CON LA PIOGGIA DENTRO</td><td>20</td><td>Documentario</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Matteo Berruto</td><td>N.D.</td><td>OpenDDB</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/con-la-pioggia-dentro/</td></tr>
+<tr><td>14 maggio 2026</td><td>E I FIGLI DOPO DI LORO</td><td>20</td><td>Drammatico</td><td>Francia</td><td>2024</td><td>146</td><td>Ludovic Boukherma, Zoran Boukherma</td><td>Paul Kircher, Angelina Woreth, Sayyid El Alami, Ludivine Sagnier</td><td>Fandango</td><td>2,70</td><td>SI</td><td>2,50</td><td>2,90</td><td>0,00</td><td>I gemelli Boukherma approdano al realismo crudo, ma il film non trova la strada giusta</td><td>https://www.mymovies.it/film/2024/e-i-figli-dopo-di-loro/</td></tr>
+<tr><td>14 maggio 2026</td><td>FRANZ</td><td>20</td><td>Biografico, Drammatico</td><td>Repubblica Ceca</td><td>2025</td><td>N.D.</td><td>Agnieszka Holland</td><td>Peter Kurth, Katharina Stark, Emma Smetana, Andrew Van Wilpe</td><td>Movies Inspired</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/franz/</td></tr>
+<tr><td>14 maggio 2026</td><td>HOPPER - IL SEGRETO DELLA MARMOTTA</td><td>20</td><td>Animazione</td><td>Belgio, USA, Francia</td><td>2025</td><td>88</td><td>Benjamin Mousquet</td><td>Joe Ochman, Bernardo de Paula, Jordan Tartakow, Mimi Maynard</td><td>Notorious Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/hopper-il-segreto-della-marmotta/</td></tr>
+<tr><td>14 maggio 2026</td><td>IL PRINCIPE DELLA FOLLIA</td><td>20</td><td>Thriller</td><td>Italia</td><td>2025</td><td>90</td><td>Dario D&#x27;Ambrosi</td><td>Stefano Zazzera, Carla Chiarelli, Mauro Cardinali, Francesca Giulia Geronimi</td><td>Notorious Pictures</td><td>0,00</td><td>N.D.</td><td>2,50</td><td>0,00</td><td>0,00</td><td>Tra noir e grottesco, la storia di una famiglia segnata dalla malattia e dall&#x27;orrore a cui la società l&#x27;ha condannata</td><td>https://www.mymovies.it/film/2025/il-principe-della-follia/</td></tr>
+<tr><td>14 maggio 2026</td><td>IN THE GREY</td><td>20</td><td>Azione</td><td>Gran Bretagna, USA</td><td>2026</td><td>98</td><td>Guy Ritchie</td><td>Eiza González, Jake Gyllenhaal, Henry Cavill, Rosamund Pike</td><td>01 Distribution</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/in-the-grey/</td></tr>
+<tr><td>14 maggio 2026</td><td>IRON MAIDEN - BURNING AMBITION</td><td>20</td><td>Documentario</td><td>USA</td><td>2026</td><td>N.D.</td><td>Malcolm Venville</td><td>N.D.</td><td>Universal Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/iron-maiden-burning-ambition/</td></tr>
+<tr><td>14 maggio 2026</td><td>MABOROSI - I BAGLIORI DELL&#x27;ANIMA</td><td>20</td><td>Drammatico</td><td>Giappone</td><td>1995</td><td>110</td><td>Kore&#x27;eda Hirokazu</td><td>Makiko Esumi, Takashi Naitô, Tadanobu Asano, Gohki Kashiyama</td><td>Bim Distribuzione</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>2,94</td><td>N.D.</td><td>https://www.mymovies.it/film/1995/maborosi/</td></tr>
+<tr><td>14 maggio 2026</td><td>MANIPULATION</td><td>20</td><td>Drammatico, Thriller</td><td>Repubblica Ceca, Italia, Germania</td><td>2026</td><td>128</td><td>David Balda</td><td>Pawel Lawrynowicz, Féodor Atkine, Heino Ferch, James Faulkner</td><td>Mescalito Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/manipulation/</td></tr>
+<tr><td>14 maggio 2026</td><td>MOTHER MARY</td><td>20</td><td>Drammatico</td><td>Gran Bretagna, USA, Germania, Finlandia</td><td>2025</td><td>N.D.</td><td>David Lowery</td><td>Anne Hathaway, Hunter Schafer, Jessica Brown Findlay, Alba Baptista</td><td>I Wonder Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Un melodramma pop al femminile. Con Anne Hathaway, star camaleontica, inquieta e fragilissima</td><td>https://www.mymovies.it/film/2025/mother-mary/</td></tr>
+<tr><td>14 maggio 2026</td><td>QUASI GRAZIA</td><td>20</td><td>Drammatico</td><td>Italia</td><td>2025</td><td>80</td><td>Peter Marcias</td><td>Laura Morante, Irene Maiorino, Ivana Monti, Monica Demuru</td><td>Europictures</td><td>0,00</td><td>N.D.</td><td>2,50</td><td>0,00</td><td>0,00</td><td>Grazia Deledda raccontata in tre momenti della vita in un film che spinge sulle radici sarde della grande scrittrice</td><td>https://www.mymovies.it/film/2025/quasi-grazia/</td></tr>
+<tr><td>14 maggio 2026</td><td>THE LUNCH - A LETTER TO AMERICA</td><td>20</td><td>Documentario</td><td>USA, Italia</td><td>2025</td><td>N.D.</td><td>Gianluca Vassallo</td><td>N.D.</td><td>Lo Scrittoio</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/the-lunch-a-letter-to-america/</td></tr>
+<tr><td>19 maggio 2026</td><td>RYUICHI SAKAMOTO | OPUS</td><td>25</td><td>Documentario</td><td>Giappone</td><td>2023</td><td>103</td><td>Neo Sora</td><td>N.D.</td><td>Nexo Studios</td><td>0,00</td><td>N.D.</td><td>3,50</td><td>0,00</td><td>0,00</td><td>L&#x27;ultimo toccante concerto di Ryuichi Sakamoto</td><td>https://www.mymovies.it/film/2023/ryuichi-sakamoto-opus/</td></tr>
+<tr><td>20 maggio 2026</td><td>STAR WARS - THE MANDALORIAN AND GROGU</td><td>26</td><td>Azione, Avventura, Fantasy</td><td>USA</td><td>2026</td><td>N.D.</td><td>Jon Favreau</td><td>N.D.</td><td>Walt Disney</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/star-wars-the-mandalorian-and-grogu/</td></tr>
+<tr><td>21 maggio 2026</td><td>ALDAIR - CUORE GIALLOROSSO</td><td>27</td><td>Documentario</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Simone Godano</td><td>Claudio Amendola</td><td>Nexo Studios</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/aldair-cuore-giallorosso/</td></tr>
+<tr><td>21 maggio 2026</td><td>AMARGA NAVIDAD</td><td>27</td><td>Drammatico</td><td>Spagna</td><td>2026</td><td>N.D.</td><td>Pedro Almodóvar</td><td>Aitana Sánchez-Gijón, Milena Smit, Bárbara Lennie, Vicky Luengo</td><td>Warner Bros Italia</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Il ritorno di Almodóvar tra dolore, memoria e cinema</td><td>https://www.mymovies.it/film/2026/amarga-navidad/</td></tr>
+<tr><td>21 maggio 2026</td><td>IO NON TI LASCIO SOLO</td><td>27</td><td>Commedia</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Fabrizio Cattani</td><td>Mimmo Borrelli, Valentina Cervi, Giorgio Pasotti, Pino Torcasio</td><td>Filmclub Distribuzione</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/io-non-ti-lascio-solo/</td></tr>
+<tr><td>21 maggio 2026</td><td>OBSESSION</td><td>27</td><td>Horror</td><td>USA</td><td>2026</td><td>108</td><td>Curry Barker</td><td>Michael Johnston (II), Inde Navarrette, Cooper Tomlinson, Megan Lawless</td><td>Universal Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/obsession/</td></tr>
+<tr><td>25 maggio 2026</td><td>LUCIO FONTANA - THE FINAL CUT</td><td>31</td><td>Documentario</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Andrea Bettinetti</td><td>N.D.</td><td>Nexo Studios</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/lucio-fontana-the-final-cut/</td></tr>
+<tr><td>25 maggio 2026</td><td>NOBODY KNOWS - COME SI DIVENTA ADULTI</td><td>31</td><td>Drammatico</td><td>Giappone</td><td>2004</td><td>141</td><td>Kore&#x27;eda Hirokazu</td><td>Yûya Yagira, Ayu Kitaura, Hiei Kimura, Momoko Shimizu</td><td>Bim Distribuzione</td><td>3,36</td><td>SI</td><td>3,00</td><td>0,00</td><td>3,71</td><td>Quando la realta&#x27; supera abbondantemente (e amaramente) la fantasia</td><td>https://www.mymovies.it/film/2004/nobody-knows/</td></tr>
+<tr><td>27 maggio 2026</td><td>BACKROOMS</td><td>33</td><td>Horror</td><td>USA</td><td>2026</td><td>90</td><td>Kane Parsons</td><td>Avan Jogia, Finn Bennett, Lukita Maxwell, Renate Reinsve</td><td>I Wonder Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Il grande salto dall&#x27;Analog Horror al cinema d&#x27;autore dello youtuber prodigio Kane Parsons</td><td>https://www.mymovies.it/film/2026/backrooms/</td></tr>
+<tr><td>27 maggio 2026</td><td>HIEDRA</td><td>33</td><td>Drammatico</td><td>Ecuador, Messico, Francia, Spagna</td><td>2025</td><td>98</td><td>Ana Cristina Barragán</td><td>Francis Eddú Llumiquinga, Simone Bucio</td><td>MFF - Michael Fantauzzi Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>3,00</td><td>0,00</td><td>L&#x27;innovativo punto di vista di un rapporto madre - figlio</td><td>https://www.mymovies.it/film/2025/hiedra/</td></tr>
+<tr><td>28 maggio 2026</td><td>DON&#x27;T LET THE SUN</td><td>34</td><td>Drammatico</td><td>Svizzera, Italia</td><td>2025</td><td>100</td><td>Jacqueline Zünd</td><td>Levan Gelbakhiani, Karidja Touré, Agnese Claisse, Cecilia Bertozzi</td><td>Trent Film</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/dont-let-the-sun/</td></tr>
+<tr><td>28 maggio 2026</td><td>HEN - STORIA DI UNA GALLINA</td><td>34</td><td>Drammatico</td><td>Germania, Grecia, Ungheria</td><td>2025</td><td>96</td><td>György Pálfi</td><td>Yannis Kokiasmenos, Maria Diakopanayotou, Argyris Pantazaras, Machmout Bamerni</td><td>Officine Ubu</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>2,88</td><td>0,00</td><td>Dal punto di vista di una gallina</td><td>https://www.mymovies.it/film/2025/hen-storia-di-una-gallina/</td></tr>
+<tr><td>28 maggio 2026</td><td>INNAMORARSI E ALTRE PESSIME IDEE</td><td>34</td><td>Commedia</td><td>Italia</td><td>2026</td><td>N.D.</td><td>Simone Aleandri</td><td>Claudio Colica, Barbara De Nuntis, Andrea Delogu, Davide Devenuto</td><td>01 Distribution</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/innamorarsi-e-altre-pessime-idee/</td></tr>
+<tr><td>28 maggio 2026</td><td>KILL BILL - THE WHOLE BLOODY AFFAIR</td><td>34</td><td>Azione</td><td>N.D.</td><td>2004</td><td>281</td><td>Quentin Tarantino</td><td>Uma Thurman, Lucy Liu, Vivica A. Fox, Michael Madsen</td><td>Plaion Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2004/kill-bill-the-whole-bloody-affair/</td></tr>
+<tr><td>28 maggio 2026</td><td>LE TIGRI DI MOMPRACEM</td><td>34</td><td>Thriller</td><td>Spagna</td><td>2025</td><td>109</td><td>Alberto Rodríguez</td><td>Antonio de la Torre, Bárbara Lennie, Joaquín Núñez, César Vicente</td><td>Movies Inspired</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/le-tigri-di-mompracem/</td></tr>
+<tr><td>28 maggio 2026</td><td>TUNER - L&#x27;ACCORDATORE</td><td>34</td><td>Drammatico</td><td>Canada, USA</td><td>2025</td><td>109</td><td>Daniel Roher</td><td>Leo Woodall, Dustin Hoffman, Havana Rose Liu, Lior Raz</td><td>Notorious Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2025/tuner/</td></tr>
+<tr><td>28 maggio 2026</td><td>UNA DONNA E UN BAMBINO</td><td>34</td><td>Drammatico</td><td>Iran, Francia</td><td>2025</td><td>131</td><td>Saeed Roustayi</td><td>Parinaz I zad Yar, Payman Maadi, Soha Niasti, Hassan Pourshirazi</td><td>Movies Inspired</td><td>0,00</td><td>N.D.</td><td>3,50</td><td>2,25</td><td>0,00</td><td>Una storia al femminile che potrebbe essere codificata come meló ma che qui diventa cartina al tornasole di una società</td><td>https://www.mymovies.it/film/2025/una-donna-e-un-bambino/</td></tr>
+<tr><td>4 giugno 2026</td><td>MASTERS OF THE UNIVERSE</td><td>41</td><td>Azione, Avventura, Drammatico</td><td>USA</td><td>2026</td><td>N.D.</td><td>Travis Knight</td><td>Kyle Allen, Morena Baccarin, Idris Elba, Nicholas Galitzine</td><td>Eagle Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>La battaglia tra He-Man e Skeletor</td><td>https://www.mymovies.it/film/2026/mastersoftheuniverse/</td></tr>
+<tr><td>4 giugno 2026</td><td>PRINCIPESSA MONONOKE</td><td>41</td><td>Animazione</td><td>Giappone</td><td>1997</td><td>133</td><td>Hayao Miyazaki</td><td>Billy Crudup, Billy Bob Thornton, Minnie Driver, John Di Maggio</td><td>Lucky Red</td><td>3,92</td><td>ASSOLUTAMENTE SI</td><td>3,75</td><td>0,00</td><td>4,08</td><td>Un film avventuroso che spiazza lo spettatore senza perdere coerenza. Il più canonico di Miyazaki</td><td>https://www.mymovies.it/film/1997/principessamononoke/</td></tr>
+<tr><td>8 giugno 2026</td><td>ARRAPAHO</td><td>45</td><td>Comico</td><td>Italia</td><td>1984</td><td>98</td><td>Ciro Ippolito</td><td>Urs Althaus, Daniele Pace, Tinì Cansino, Alfredo Cerruti</td><td>Cineteca di Bologna</td><td>2,26</td><td>NI</td><td>1,00</td><td>0,00</td><td>3,52</td><td>N.D.</td><td>https://www.mymovies.it/film/1984/arrapaho/</td></tr>
+<tr><td>10 giugno 2026</td><td>SCARY MOVIE</td><td>47</td><td>Horror</td><td>USA</td><td>2026</td><td>N.D.</td><td>Michael Tiddes</td><td>Anna Faris, Lochlyn Munro, Regina Hall, Chris Elliott</td><td>Eagle Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/scary-movie-6/</td></tr>
+<tr><td>11 giugno 2026</td><td>DISCLOSURE DAY</td><td>48</td><td>Fantascienza</td><td>USA</td><td>2026</td><td>N.D.</td><td>Steven Spielberg</td><td>Emily Blunt, Colman Domingo, Eve Hewson, Colin Firth</td><td>Universal Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>Spielberg torna alla origini</td><td>https://www.mymovies.it/film/2026/disclosure-day/</td></tr>
+<tr><td>11 giugno 2026</td><td>FINDING EMILY</td><td>48</td><td>Commedia</td><td>N.D.</td><td>2026</td><td>N.D.</td><td>Alicia MacDonald</td><td>Angourie Rice, Spike Fearn, Julia Rogers, Toby Rothwell</td><td>Universal Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/finding-emily/</td></tr>
+<tr><td>11 giugno 2026</td><td>ORFANO</td><td>48</td><td>Drammatico</td><td>Ungheria, Francia, Germania, Regno Unito</td><td>2025</td><td>132</td><td>László Nemes</td><td>Grégory Gadebois, Marcin Czarnik, Andrea Waskovics, Bojtorján Barabas</td><td>Movies Inspired</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>3,05</td><td>0,00</td><td>Un film che sa ricostruire con grande finezza filologica la Storia e il clima respirato da un giovane ragazzo</td><td>https://www.mymovies.it/film/2025/orfano/</td></tr>
+<tr><td>15 giugno 2026</td><td>STILL WALKING - CAMMINANDO IN UN GIORNO D&#x27;ESTATE</td><td>52</td><td>Drammatico</td><td>Giappone</td><td>2008</td><td>114</td><td>Kore&#x27;eda Hirokazu</td><td>You, Hiroshi Abe, Yoshio Harada, Ryôga Hayashi</td><td>Bim Distribuzione</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>3,00</td><td>Riunione di famiglia</td><td>https://www.mymovies.it/film/2008/still-walking/</td></tr>
+<tr><td>18 giugno 2026</td><td>ERA MEGLIO DOMANI</td><td>55</td><td>Commedia</td><td>Francia</td><td>2025</td><td>N.D.</td><td>Vinciane Millereau</td><td>Elsa Zylberstein, Didier Bourdon, Romain Cottard, Céline Fuhrer</td><td>Minerva</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Una commedia - campione d&#x27;incassi in Francia - che fa sorridere riflettendo sul presente</td><td>https://www.mymovies.it/film/2025/era-meglio-domani/</td></tr>
+<tr><td>18 giugno 2026</td><td>IL BACIO DELLA DONNA RAGNO</td><td>55</td><td>Musical, Drammatico</td><td>USA, Messico</td><td>2025</td><td>128</td><td>Bill Condon</td><td>Diego Luna, Tonatiuh Elizarraraz, Jennifer Lopez, Bruno Bichir</td><td>Eagle Pictures</td><td>0,00</td><td>N.D.</td><td>3,00</td><td>0,00</td><td>0,00</td><td>Un remake altamente professionale a cui manca inevitabilmente il respiro dell&#x27;originale</td><td>https://www.mymovies.it/film/2025/il-bacio-della-donna-ragno/</td></tr>
+<tr><td>18 giugno 2026</td><td>TI AUGURO OGNI BENE</td><td>55</td><td>Drammatico</td><td>USA</td><td>2024</td><td>93</td><td>Tommy Dorfman</td><td>Alexandra Daddario, Cole Sprouse, Lena Dunham, Amy Landecker</td><td>Notorious Pictures</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2024/ti-auguro-ogni-bene/</td></tr>
+<tr><td>N.D.</td><td>BILLIE EILISH - HIT ME HARD AND SOFT - THE TOUR</td><td>N.D.</td><td>Documentario</td><td>USA</td><td>2026</td><td>N.D.</td><td>N.D.</td><td>N.D.</td><td>N.D.</td><td>0,00</td><td>N.D.</td><td>0,00</td><td>0,00</td><td>0,00</td><td>N.D.</td><td>https://www.mymovies.it/film/2026/billie-eilish-hit-me-hard-and-soft-the-tour/</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script>
+    const searchInput = document.getElementById("table-search");
+    const counter = document.getElementById("table-counter");
+    const rows = Array.from(document.querySelectorAll("#upcoming-table tbody tr"));
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visible = 0;
+      for (const row of rows) {
+        const matches = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      counter.textContent = `${visible} di ${rows.length} film`;
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    updateFilter();
+  </script>
+</body>
+</html>

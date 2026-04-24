@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week-end Top20 Italia del 17/04/2026</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --head: #f1ebff;
+      --accent: #7c3aed;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: Arial, Helvetica, sans-serif; line-height: 1.4; }
+    main { width: min(1280px, calc(100% - 32px)); margin: 24px auto 40px; }
+    h1 { margin: 0 0 6px; font-size: 28px; }
+    .meta { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+    .toolbar { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; flex-wrap: wrap; }
+    .toolbar-nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .toolbar-tools {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex: 1 1 320px;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(460px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      outline: 2px solid rgba(124, 58, 237, 0.22);
+      border-color: var(--accent);
+    }
+    .counter { color: var(--muted); font-size: 14px; }
+    .nav-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--accent);
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-link:hover, .nav-link:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(124, 58, 237, 0.18);
+    }
+    .nav-link[aria-current="page"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+    .table-wrap { overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(24, 32, 42, 0.08); }
+    table { width: 100%; min-width: 980px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
+    th, td { padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { position: sticky; top: 0; background: var(--head); color: #27124d; text-align: center; }
+    td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(8) { text-align: center; white-space: nowrap; }
+    td:nth-child(2) { min-width: 260px; font-weight: 700; }
+    @media (max-width: 700px) {
+      main { width: calc(100% - 20px); margin-top: 14px; }
+      h1 { font-size: 22px; }
+      .toolbar { align-items: stretch; }
+      .toolbar-tools {
+        margin-left: 0;
+        justify-content: stretch;
+      }
+      .search { width: 100%; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Week-end Top20 Italia del 17/04/2026</h1>
+    <p class="meta">Classifica dei maggiori incassi al Box Office italiano durante il week-end di venerdì 17 aprile 2026</p>
+    <p class="meta">Generata il 24/04/2026 02:01 - 20 film</p>
+    <div class="toolbar">
+      <div class="toolbar-nav">
+        <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="classifica_film.html">Classifica</a>
+      <a class="nav-link" href="boxoffice_italia_top20.html" aria-current="page">Box office</a>
+      <a class="nav-link" href="prossimamente.html">Prossimamente</a>
+      </div>
+      <div class="toolbar-tools">
+        <span class="counter" id="table-counter">20 film</span>
+        <input class="search" id="table-search" type="search" placeholder="Cerca nel box office" autocomplete="off">
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table id="boxoffice-table">
+        <thead><tr><th>POSIZIONE</th><th>TITOLO</th><th>INCASSO WEEKEND</th><th>INCASSO TOTALE</th><th>REGIA</th><th>GENERE</th><th>PAESI</th><th>ANNO</th><th>RELAZIONE</th><th>URL</th></tr></thead>
+        <tbody>
+<tr><td>1</td><td>Super Mario Galaxy - Il Film</td><td>1.397.302</td><td>12.745.770</td><td>Michael Jelenic, Aaron Horvath</td><td>Animazione</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/super-mario-galaxy-il-film/</td></tr>
+<tr><td>2</td><td>The Drama - Un Segreto è per Sempre</td><td>771.110</td><td>4.484.753</td><td>Kristoffer Borgli</td><td>Commedia</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/the-drama/</td></tr>
+<tr><td>3</td><td>Lee Cronin - La mummia</td><td>715.874</td><td>717.462</td><td>Lee Cronin</td><td>Horror</td><td>USA, Irlanda</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/lee-cronin-la-mummia/</td></tr>
+<tr><td>4</td><td>L&#x27;Ultima Missione - Project Hail Mary</td><td>285.613</td><td>4.728.783</td><td>Phil Lord, Christopher Miller</td><td>Fantascienza</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/lultima-missione-project-hail-mary/</td></tr>
+<tr><td>5</td><td>... che Dio perdona a tutti</td><td>222.496</td><td>1.515.528</td><td>Pif</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/che-dio-perdona-a-tutti/</td></tr>
+<tr><td>6</td><td>Bts - World Tour Arirang</td><td>191.191</td><td>473.674</td><td>Ha Jung-jae</td><td>Concerto</td><td>Corea del sud</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/bts-world-tour-arirang/</td></tr>
+<tr><td>7</td><td>Benvenuti in campagna</td><td>135.211</td><td>135.211</td><td>Giambattista Avellino</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/benvenuti-in-campagna/</td></tr>
+<tr><td>8</td><td>Cena di classe</td><td>130.801</td><td>1.885.288</td><td>Francesco Mandelli</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/cena-di-classe/</td></tr>
+<tr><td>9</td><td>Alla festa della rivoluzione</td><td>125.115</td><td>126.315</td><td>Arnaldo Catinari</td><td>Drammatico</td><td>Italia</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/alla-festa-della-rivoluzione/</td></tr>
+<tr><td>10</td><td>Il delitto del 3° piano</td><td>122.380</td><td>123.129</td><td>Rémi Bezançon</td><td>Commedia</td><td>Francia</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/il-delitto-del-3-piano/</td></tr>
+<tr><td>11</td><td>Finchè morte non ci separi 2</td><td>90.038</td><td>477.236</td><td>Tyler Gillett, Matt Bettinelli-Olpin</td><td>Horror</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/finche-morte-non-ci-separi-2/</td></tr>
+<tr><td>12</td><td>Lo straniero</td><td>80.501</td><td>469.703</td><td>François Ozon</td><td>Drammatico</td><td>Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/lo-straniero/</td></tr>
+<tr><td>13</td><td>Il caso 137</td><td>71.676</td><td>78.259</td><td>Dominik Moll</td><td>Thriller</td><td>Francia</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/il-caso-137/</td></tr>
+<tr><td>14</td><td>A cena con il dittatore</td><td>66.381</td><td>175.421</td><td>Manuel Gómez Pereira</td><td>Commedia</td><td>Spagna, Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/a-cena-con-il-dittatore/</td></tr>
+<tr><td>15</td><td>La salita</td><td>64.830</td><td>178.086</td><td>Massimiliano Gallo</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/la-salita/</td></tr>
+<tr><td>16</td><td>La donna più ricca del mondo</td><td>56.046</td><td>59.731</td><td>Thierry Klifa</td><td>Drammatico</td><td>Francia, Belgio</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/la-donna-piu-ricca-del-mondo/</td></tr>
+<tr><td>17</td><td>Un anno di scuola</td><td>38.693</td><td>159.698</td><td>Laura Samani</td><td>Drammatico</td><td>Italia, Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/un-anno-di-scuola/</td></tr>
+<tr><td>18</td><td>È l&#x27;ultima battuta?</td><td>33.746</td><td>276.783</td><td>Bradley Cooper</td><td>Commedia</td><td>USA</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/e-lultima-battuta/</td></tr>
+<tr><td>19</td><td>Hamnet - Nel nome del figlio</td><td>24.594</td><td>4.193.827</td><td>Chloé Zhao</td><td>Drammatico</td><td>USA</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/hamnet/</td></tr>
+<tr><td>20</td><td>Mi batte il corazon</td><td>24.422</td><td>932.386</td><td>Francesco Prisco</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/mi-batte-il-corazon/</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script>
+    const searchInput = document.getElementById("table-search");
+    const counter = document.getElementById("table-counter");
+    const rows = Array.from(document.querySelectorAll("#boxoffice-table tbody tr"));
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visible = 0;
+      for (const row of rows) {
+        const matches = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      counter.textContent = `${visible} di ${rows.length} film`;
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    updateFilter();
+  </script>
+</body>
+</html>
