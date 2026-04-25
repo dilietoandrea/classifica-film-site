@@ -276,7 +276,7 @@ const API_BASE_URL = String(
         });
         if (response.status === 429) {
           citySelect.value = activeCity;
-          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova piÃ¹ tardi.", "error");
+          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
         }
         if (!response.ok) {
@@ -306,4 +306,3 @@ const API_BASE_URL = String(
     });
 
     updateFilter();
-
