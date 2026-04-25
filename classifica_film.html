@@ -77,33 +77,6 @@
       color: var(--muted);
       font-size: 14px;
     }
-    .field-label {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .city-select {
-      min-height: 42px;
-      padding: 9px 36px 9px 12px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--panel);
-      color: var(--ink);
-      font: inherit;
-    }
-    .city-select:focus {
-      outline: 2px solid rgba(45, 108, 223, 0.24);
-      border-color: var(--accent);
-    }
-    .api-status {
-      min-height: 24px;
-      margin: -8px 0 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .api-status.ok { color: #116236; }
-    .api-status.warn { color: #8a4b00; }
-    .api-status.error { color: #9f1d20; }
     .nav-link {
       min-height: 42px;
       display: inline-flex;
@@ -236,7 +209,6 @@
         margin-left: 0;
         justify-content: stretch;
       }
-      .city-select { width: 100%; }
       .search { width: 100%; }
       table { font-size: 13px; }
       th, td { padding: 8px 10px; }
@@ -245,10 +217,9 @@
 </head>
 <body>
   <main>
-    <h1 id="ranking-title">Classifica film - Roma</h1>
-    <p class="meta" id="ranking-subtitle">Guida alla programmazione dei film in uscita nelle sale cinematografiche di Roma.</p>
-    <p class="meta" id="ranking-updated">Generata il 25/04/2026 05:47 - 65 film</p>
-    <p class="api-status" id="api-status" role="status" aria-live="polite">source: static</p>
+    <h1>Classifica film - Roma</h1>
+    <p class="meta">Guida alla programmazione dei film in uscita nelle sale cinematografiche di Roma.</p>
+    <p class="meta">Generata il 25/04/2026 08:33 - 65 film</p>
     <div class="toolbar">
       <div class="toolbar-nav">
         <a class="nav-link" href="index.html">Home</a>
@@ -257,12 +228,6 @@
       <a class="nav-link" href="prossimamente.html">Prossimamente</a>
       </div>
       <div class="toolbar-tools">
-        <label class="field-label" for="city-select">Citta</label>
-        <select class="city-select" id="city-select">
-          <option value="roma" selected>Roma</option>
-          <option value="milano">Milano</option>
-          <option value="napoli">Napoli</option>
-        </select>
         <span class="counter" id="table-counter">65 film</span>
         <input class="search" id="table-search" type="search" placeholder="Cerca nella classifica" autocomplete="off">
       </div>
@@ -340,37 +305,14 @@
       </table>
     </div>
   </main>
-  <script src="site-config.js"></script>
   <script>
 
-    const API_BASE_URL = String(
-      window.CFR_SITE_CONFIG?.API_BASE_URL || window.API_BASE_URL || "http://127.0.0.1:8000"
-    ).replace(/\/+$/, "");
-    const DEFAULT_CITY = "roma";
-    const CITY_LABELS = {
-      roma: "Roma",
-      milano: "Milano",
-      napoli: "Napoli",
-    };
-    const titleElement = document.getElementById("ranking-title");
-    const subtitleElement = document.getElementById("ranking-subtitle");
-    const updatedElement = document.getElementById("ranking-updated");
-    const statusElement = document.getElementById("api-status");
-    const citySelect = document.getElementById("city-select");
     const table = document.getElementById("classifica-table");
     const searchInput = document.getElementById("table-search");
     const counter = document.getElementById("table-counter");
     const tbody = table.tBodies[0];
     const headerCells = Array.from(table.querySelectorAll("thead th[aria-sort]"));
     const sortButtons = Array.from(table.querySelectorAll("thead .sort-button"));
-    const staticSnapshot = {
-      city: DEFAULT_CITY,
-      title: titleElement.textContent,
-      subtitle: subtitleElement.textContent,
-      updated: updatedElement.textContent,
-      rowsHtml: tbody.innerHTML,
-    };
-    let activeCity = DEFAULT_CITY;
     let sortState = { column: null, direction: "ascending" };
 
     function allRows() {
@@ -383,21 +325,6 @@
 
     function updateCounter(visible) {
       counter.textContent = rowCountText(visible);
-    }
-
-    function setStatus(message, kind = "") {
-      statusElement.textContent = message;
-      statusElement.className = `api-status ${kind}`.trim();
-    }
-
-    function resetSortState() {
-      sortState = { column: null, direction: "ascending" };
-      for (const cell of headerCells) {
-        cell.setAttribute("aria-sort", "none");
-      }
-      for (const button of sortButtons) {
-        button.setAttribute("aria-pressed", "false");
-      }
     }
 
     function updateFilter() {
@@ -467,188 +394,12 @@
       updateFilter();
     }
 
-    function escapeHtml(value) {
-      return String(value ?? "N.D.")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#x27;");
-    }
-
-    function displayValue(value) {
-      if (value === null || value === undefined || value === "") {
-        return "N.D.";
-      }
-      return String(value);
-    }
-
-    function joinValues(value) {
-      if (Array.isArray(value)) {
-        return value.length ? value.join(", ") : "N.D.";
-      }
-      return displayValue(value);
-    }
-
-    function ratingToNumber(value) {
-      if (value === null || value === undefined || value === "" || value === "N.D.") {
-        return 0;
-      }
-      const number = Number(String(value).replace(",", "."));
-      return Number.isFinite(number) ? number : 0;
-    }
-
-    function formatRating(value) {
-      return ratingToNumber(value).toFixed(2).replace(".", ",");
-    }
-
-    function combineShowtimes(showtimeInfo) {
-      if (!showtimeInfo || showtimeInfo === "N.D.") {
-        return "N.D.";
-      }
-      if (Array.isArray(showtimeInfo)) {
-        return showtimeInfo.length ? showtimeInfo.join(", ") : "N.D.";
-      }
-      if (typeof showtimeInfo !== "object") {
-        return displayValue(showtimeInfo);
-      }
-      const normal = Array.isArray(showtimeInfo.orari) ? showtimeInfo.orari : [];
-      const vo = Array.isArray(showtimeInfo.orari_vo) ? showtimeInfo.orari_vo : [];
-      const parts = [];
-      if (normal.length) parts.push(normal.join(", "));
-      if (vo.length) parts.push(`VO: ${vo.join(", ")}`);
-      return parts.length ? parts.join(" | ") : "N.D.";
-    }
-
-    function cellHtml(value, sortValue = value) {
-      const text = displayValue(value);
-      return `<td data-sort-value="${escapeHtml(sortValue)}">${escapeHtml(text).replace(/\n/g, "<br>")}</td>`;
-    }
-
-    function movieRow(movie) {
-      const valutazioni = movie.valutazioni || {};
-      const cinemaOrari = movie.cinema_orari || {};
-      const cinemaNames = Object.keys(cinemaOrari);
-      const showtimes = Object.values(cinemaOrari).map(combineShowtimes);
-      const rating = ratingToNumber(valutazioni["MYMONETRO"]);
-      const duration = Number(movie.durata_minuti);
-      return "<tr>"
-        + cellHtml(movie.titolo, displayValue(movie.titolo).toLocaleUpperCase("it-IT"))
-        + cellHtml(formatRating(valutazioni["MYMONETRO"]), rating)
-        + cellHtml(movie.consigliato)
-        + cellHtml(joinValues(movie.genere))
-        + cellHtml(joinValues(movie.paesi))
-        + cellHtml(movie.anno)
-        + cellHtml(movie.durata_minuti, Number.isFinite(duration) ? duration : "")
-        + cellHtml(movie.trama)
-        + cellHtml(joinValues(movie.regia))
-        + cellHtml(joinValues(movie.cast))
-        + cellHtml(cinemaNames.length ? cinemaNames.join("\n") : "N.D.", cinemaNames.join(" "))
-        + cellHtml(showtimes.length ? showtimes.join("\n") : "N.D.", showtimes.join(" "))
-        + "</tr>";
-    }
-
-    function sortedMovies(movies) {
-      return [...movies].sort((movieA, movieB) => {
-        const ratingA = ratingToNumber(movieA.valutazioni?.["MYMONETRO"]);
-        const ratingB = ratingToNumber(movieB.valutazioni?.["MYMONETRO"]);
-        if (ratingA !== ratingB) {
-          return ratingB - ratingA;
-        }
-        return displayValue(movieA.titolo).localeCompare(displayValue(movieB.titolo), "it-IT", {
-          numeric: true,
-          sensitivity: "base",
-        });
-      });
-    }
-
-    function formatUpdatedAt(value) {
-      if (!value) {
-        return "data non disponibile";
-      }
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) {
-        return String(value);
-      }
-      return date.toLocaleString("it-IT", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-    }
-
-    function renderApiRanking(payload) {
-      const movies = Array.isArray(payload.movies) ? payload.movies : [];
-      const city = payload.city || activeCity || DEFAULT_CITY;
-      const cityLabel = payload.city_label || CITY_LABELS[city] || city;
-      const source = payload.metadata?.source || "api";
-      document.title = `Classifica film - ${cityLabel}`;
-      titleElement.textContent = `Classifica film - ${cityLabel}`;
-      subtitleElement.textContent = payload.subtitle || `Guida alla programmazione dei film in uscita nelle sale cinematografiche di ${cityLabel}.`;
-      updatedElement.textContent = `Aggiornata il ${formatUpdatedAt(payload.updated_at)} - ${movies.length} film`;
-      tbody.innerHTML = sortedMovies(movies).map(movieRow).join("");
-      searchInput.value = "";
-      resetSortState();
-      updateFilter();
-      activeCity = city;
-      citySelect.value = city;
-      setStatus(`source: ${source}`, "ok");
-    }
-
-    function restoreStaticFallback(message, kind = "warn") {
-      document.title = staticSnapshot.title;
-      titleElement.textContent = staticSnapshot.title;
-      subtitleElement.textContent = staticSnapshot.subtitle;
-      updatedElement.textContent = staticSnapshot.updated;
-      tbody.innerHTML = staticSnapshot.rowsHtml;
-      searchInput.value = "";
-      resetSortState();
-      updateFilter();
-      activeCity = staticSnapshot.city;
-      citySelect.value = staticSnapshot.city;
-      setStatus(message, kind);
-    }
-
-    async function loadCity(city) {
-      const cityLabel = CITY_LABELS[city] || city;
-      citySelect.disabled = true;
-      setStatus(`Aggiornamento ${cityLabel}...`, "");
-      try {
-        const response = await fetch(`${API_BASE_URL}/api/ranking?city=${encodeURIComponent(city)}`, {
-          headers: { Accept: "application/json" },
-        });
-        if (response.status === 429) {
-          citySelect.value = activeCity;
-          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova più tardi.", "error");
-          return;
-        }
-        if (!response.ok) {
-          throw new Error(`API response ${response.status}`);
-        }
-        const payload = await response.json();
-        renderApiRanking(payload);
-      } catch (error) {
-        restoreStaticFallback("API non raggiungibile. Mantengo i dati statici disponibili.", "warn");
-      } finally {
-        citySelect.disabled = false;
-      }
-    }
-
     for (const button of sortButtons) {
       button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
         sortBy(Number(button.dataset.column), button.dataset.sortType);
       });
     }
-
-    citySelect.addEventListener("change", () => {
-      const selectedCity = citySelect.value || DEFAULT_CITY;
-      if (selectedCity !== activeCity) {
-        loadCity(selectedCity);
-      }
-    });
 
     updateFilter();
 
