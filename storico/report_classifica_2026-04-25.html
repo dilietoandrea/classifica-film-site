@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confronto classifica</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --accent: #2d6cdf;
+      --accent-soft: #eaf2ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 44px;
+    }
+    header {
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(520px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+    .section-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .section-button:hover, .section-button:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .actions, .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .actions a, .summary-card {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .actions a:hover, .actions a:focus, .summary-card:hover, .summary-card:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .summary-card strong {
+      min-width: 28px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #10233f;
+      text-align: center;
+    }
+    .diff-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+      overflow: hidden;
+    }
+    summary {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    summary strong {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0;
+      padding: 0 16px 16px 34px;
+    }
+    li {
+      margin: 8px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .empty {
+      color: var(--muted);
+    }
+    li[hidden], .diff-section[hidden] {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+      }
+      h1 { font-size: 23px; }
+      summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Confronto classifica</h1>
+      <p class="meta">Generato il 25/04/2026 05:47</p>
+      <p class="meta">Precedente: classifica_film_2026-04-24.csv - Attuale: classifica_film_2026-04-25.csv</p>
+    </header>
+    <nav class="actions" aria-label="Collegamenti report">
+      <a href="../index.html">Home</a>
+      <a href="classifica_film_2026-04-24.csv">CSV precedente</a>
+      <a href="classifica_film_2026-04-25.csv">CSV attuale</a>
+    </nav>
+    <div class="toolbar">
+      <input class="search" id="diff-search" type="search" placeholder="Cerca nei cambi" autocomplete="off">
+      <label class="toggle">
+        <input id="toggle-unchanged" type="checkbox">
+        <span>Mostra invariati</span>
+      </label>
+      <button class="section-button" id="toggle-sections" type="button" aria-expanded="true">Chiudi sezioni</button>
+      <span class="counter" id="diff-counter"></span>
+    </div>
+    <nav class="summary-grid" aria-label="Sezioni">
+      <a class="summary-card" href="#section-0">
+        <span>Nuovi film</span>
+        <strong>15</strong>
+      </a><a class="summary-card" href="#section-1">
+        <span>Film usciti</span>
+        <strong>9</strong>
+      </a><a class="summary-card" href="#section-2">
+        <span>Saliti in classifica</span>
+        <strong>8</strong>
+      </a><a class="summary-card" href="#section-3">
+        <span>Scesi in classifica</span>
+        <strong>39</strong>
+      </a><a class="summary-card" href="#section-4">
+        <span>Variazioni punteggio</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-5">
+        <span>Cambi cinema</span>
+        <strong>7</strong>
+      </a><a class="summary-card" href="#section-6">
+        <span>Cambi orari</span>
+        <strong>37</strong>
+      </a><a class="summary-card" href="#section-7">
+        <span>Invariati</span>
+        <strong>3</strong>
+      </a>
+    </nav>
+    <section>
+      <details class="diff-section" id="section-0" data-section-title="nuovi film" open>
+        <summary>
+          <span>Nuovi film</span>
+          <strong data-count-label>15 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#1 roma città aperta (4,31)">#1 ROMA CITTÀ APERTA (4,31)</li>
+<li data-filter-text="#3 paisà (4,00)">#3 PAISÀ (4,00)</li>
+<li data-filter-text="#4 arco - un&#x27;amicizia per salvare il futuro (3,99)">#4 ARCO - UN&#x27;AMICIZIA PER SALVARE IL FUTURO (3,99)</li>
+<li data-filter-text="#11 scirocco e il regno dei venti (3,82)">#11 SCIROCCO E IL REGNO DEI VENTI (3,82)</li>
+<li data-filter-text="#12 porco rosso (3,81)">#12 PORCO ROSSO (3,81)</li>
+<li data-filter-text="#27 lo sguardo di emma (3,50)">#27 LO SGUARDO DI EMMA (3,50)</li>
+<li data-filter-text="#34 notte prima degli esami 3.0 (3,36)">#34 NOTTE PRIMA DEGLI ESAMI 3.0 (3,36)</li>
+<li data-filter-text="#39 tienimi presente (3,19)">#39 TIENIMI PRESENTE (3,19)</li>
+<li data-filter-text="#41 central do brasil (3,10)">#41 CENTRAL DO BRASIL (3,10)</li>
+<li data-filter-text="#56 bluey al cinema: collezione divertirsi con gli amici (0,00)">#56 BLUEY AL CINEMA: COLLEZIONE DIVERTIRSI CON GLI AMICI (0,00)</li>
+<li data-filter-text="#58 giorni di gloria (0,00)">#58 GIORNI DI GLORIA (0,00)</li>
+<li data-filter-text="#60 limite (0,00)">#60 LIMITE (0,00)</li>
+<li data-filter-text="#62 one ok rock detox japan tour at nissan stadium 2025 (0,00)">#62 ONE OK ROCK DETOX JAPAN TOUR AT NISSAN STADIUM 2025 (0,00)</li>
+<li data-filter-text="#63 tabù - egon schiele (0,00)">#63 TABÙ - EGON SCHIELE (0,00)</li>
+<li data-filter-text="#65 uova di garofano (0,00)">#65 UOVA DI GAROFANO (0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-1" data-section-title="film usciti" open>
+        <summary>
+          <span>Film usciti</span>
+          <strong data-count-label>9 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#1 casablanca (4,57)">#1 CASABLANCA (4,57)</li>
+<li data-filter-text="#3 lo chiamava rock &amp; roll (4,10)">#3 LO CHIAMAVA ROCK &amp; ROLL (4,10)</li>
+<li data-filter-text="#12 giulio regeni - tutto il male del mondo (3,71)">#12 GIULIO REGENI - TUTTO IL MALE DEL MONDO (3,71)</li>
+<li data-filter-text="#13 tutto su mia madre (3,68)">#13 TUTTO SU MIA MADRE (3,68)</li>
+<li data-filter-text="#25 i nostri anni (3,50)">#25 I NOSTRI ANNI (3,50)</li>
+<li data-filter-text="#29 o que arde - verrà il fuoco (3,43)">#29 O QUE ARDE - VERRÀ IL FUOCO (3,43)</li>
+<li data-filter-text="#30 agnus dei (3,42)">#30 AGNUS DEI (3,42)</li>
+<li data-filter-text="#35 arrivederci ragazzi (3,38)">#35 ARRIVEDERCI RAGAZZI (3,38)</li>
+<li data-filter-text="#57 l&#x27;acqua non è mai ferma (0,00)">#57 L&#x27;ACQUA NON È MAI FERMA (0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-2" data-section-title="saliti in classifica" open>
+        <summary>
+          <span>Saliti in classifica</span>
+          <strong data-count-label>8 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="mio fratello è un vichingo - the last viking: #31 -&gt; #30 (3,42)">MIO FRATELLO È UN VICHINGO - THE LAST VIKING: #31 -&gt; #30 (3,42)</li>
+<li data-filter-text="la salita: #32 -&gt; #31 (3,41)">LA SALITA: #32 -&gt; #31 (3,41)</li>
+<li data-filter-text="sirat: #33 -&gt; #32 (3,41)">SIRAT: #33 -&gt; #32 (3,41)</li>
+<li data-filter-text="le aquile della repubblica: #34 -&gt; #33 (3,39)">LE AQUILE DELLA REPUBBLICA: #34 -&gt; #33 (3,39)</li>
+<li data-filter-text="love me tender: #36 -&gt; #35 (3,31)">LOVE ME TENDER: #36 -&gt; #35 (3,31)</li>
+<li data-filter-text="l&#x27;ultima missione - project hail mary: #37 -&gt; #36 (3,27)">L&#x27;ULTIMA MISSIONE - PROJECT HAIL MARY: #37 -&gt; #36 (3,27)</li>
+<li data-filter-text="finchè morte non ci separi 2: #38 -&gt; #37 (3,22)">FINCHÈ MORTE NON CI SEPARI 2: #38 -&gt; #37 (3,22)</li>
+<li data-filter-text="malavia: #39 -&gt; #38 (3,19)">MALAVIA: #39 -&gt; #38 (3,19)</li>
+        </ul>
+      </details><details class="diff-section" id="section-3" data-section-title="scesi in classifica" open>
+        <summary>
+          <span>Scesi in classifica</span>
+          <strong data-count-label>39 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="nouvelle vague: #4 -&gt; #5 (3,89)">NOUVELLE VAGUE: #4 -&gt; #5 (3,89)</li>
+<li data-filter-text="è l&#x27;ultima battuta?: #5 -&gt; #6 (3,87)">È L&#x27;ULTIMA BATTUTA?: #5 -&gt; #6 (3,87)</li>
+<li data-filter-text="rental family - nelle vite degli altri: #6 -&gt; #7 (3,86)">RENTAL FAMILY - NELLE VITE DEGLI ALTRI: #6 -&gt; #7 (3,86)</li>
+<li data-filter-text="resurrection: #7 -&gt; #8 (3,85)">RESURRECTION: #7 -&gt; #8 (3,85)</li>
+<li data-filter-text="hamnet - nel nome del figlio: #8 -&gt; #9 (3,83)">HAMNET - NEL NOME DEL FIGLIO: #8 -&gt; #9 (3,83)</li>
+<li data-filter-text="la torta del presidente: #9 -&gt; #10 (3,82)">LA TORTA DEL PRESIDENTE: #9 -&gt; #10 (3,82)</li>
+<li data-filter-text="sentimental value: #10 -&gt; #13 (3,79)">SENTIMENTAL VALUE: #10 -&gt; #13 (3,79)</li>
+<li data-filter-text="e.1027 - eileen gray e la casa sul mare: #11 -&gt; #14 (3,77)">E.1027 - EILEEN GRAY E LA CASA SUL MARE: #11 -&gt; #14 (3,77)</li>
+<li data-filter-text="jumpers - un salto tra gli animali: #14 -&gt; #15 (3,67)">JUMPERS - UN SALTO TRA GLI ANIMALI: #14 -&gt; #15 (3,67)</li>
+<li data-filter-text="la mattina scrivo: #15 -&gt; #16 (3,67)">LA MATTINA SCRIVO: #15 -&gt; #16 (3,67)</li>
+<li data-filter-text="la piccola amelie: #16 -&gt; #17 (3,64)">LA PICCOLA AMELIE: #16 -&gt; #17 (3,64)</li>
+<li data-filter-text="generazione romantica: #17 -&gt; #18 (3,63)">GENERAZIONE ROMANTICA: #17 -&gt; #18 (3,63)</li>
+<li data-filter-text="lo straniero: #18 -&gt; #19 (3,63)">LO STRANIERO: #18 -&gt; #19 (3,63)</li>
+<li data-filter-text="michael: #19 -&gt; #20 (3,63)">MICHAEL: #19 -&gt; #20 (3,63)</li>
+<li data-filter-text="un anno di scuola: #20 -&gt; #21 (3,59)">UN ANNO DI SCUOLA: #20 -&gt; #21 (3,59)</li>
+<li data-filter-text="il caso 137: #21 -&gt; #22 (3,57)">IL CASO 137: #21 -&gt; #22 (3,57)</li>
+<li data-filter-text="prima dell&#x27;alba: #22 -&gt; #23 (3,53)">PRIMA DELL&#x27;ALBA: #22 -&gt; #23 (3,53)</li>
+<li data-filter-text="vita mia: #23 -&gt; #24 (3,52)">VITA MIA: #23 -&gt; #24 (3,52)</li>
+<li data-filter-text="a cena con il dittatore: #24 -&gt; #25 (3,50)">A CENA CON IL DITTATORE: #24 -&gt; #25 (3,50)</li>
+<li data-filter-text="mr. nobody against putin - il film contro tutte le guerre: #27 -&gt; #28 (3,50)">MR. NOBODY AGAINST PUTIN - IL FILM CONTRO TUTTE LE GUERRE: #27 -&gt; #28 (3,50)</li>
+<li data-filter-text="il dio dell&#x27;amore: #28 -&gt; #29 (3,49)">IL DIO DELL&#x27;AMORE: #28 -&gt; #29 (3,49)</li>
+<li data-filter-text="la più piccola: #41 -&gt; #42 (3,10)">LA PIÙ PICCOLA: #41 -&gt; #42 (3,10)</li>
+<li data-filter-text="super mario galaxy - il film: #42 -&gt; #43 (3,05)">SUPER MARIO GALAXY - IL FILM: #42 -&gt; #43 (3,05)</li>
+<li data-filter-text="... che dio perdona a tutti: #43 -&gt; #44 (3,02)">... CHE DIO PERDONA A TUTTI: #43 -&gt; #44 (3,02)</li>
+<li data-filter-text="the drama - un segreto è per sempre: #44 -&gt; #45 (3,01)">THE DRAMA - UN SEGRETO È PER SEMPRE: #44 -&gt; #45 (3,01)</li>
+<li data-filter-text="the long walk: #45 -&gt; #46 (3,00)">THE LONG WALK: #45 -&gt; #46 (3,00)</li>
+<li data-filter-text="il delitto del 3° piano: #46 -&gt; #47 (2,97)">IL DELITTO DEL 3° PIANO: #46 -&gt; #47 (2,97)</li>
+<li data-filter-text="cena di classe: #47 -&gt; #48 (2,84)">CENA DI CLASSE: #47 -&gt; #48 (2,84)</li>
+<li data-filter-text="la donna più ricca del mondo: #48 -&gt; #49 (2,73)">LA DONNA PIÙ RICCA DEL MONDO: #48 -&gt; #49 (2,73)</li>
+<li data-filter-text="gli ultimi giorni del paradiso: #49 -&gt; #50 (2,70)">GLI ULTIMI GIORNI DEL PARADISO: #49 -&gt; #50 (2,70)</li>
+<li data-filter-text="keeper - l&#x27;eletta: #50 -&gt; #51 (2,67)">KEEPER - L&#x27;ELETTA: #50 -&gt; #51 (2,67)</li>
+<li data-filter-text="lee cronin - la mummia: #51 -&gt; #52 (2,42)">LEE CRONIN - LA MUMMIA: #51 -&gt; #52 (2,42)</li>
+<li data-filter-text="benvenuti in campagna: #52 -&gt; #53 (2,34)">BENVENUTI IN CAMPAGNA: #52 -&gt; #53 (2,34)</li>
+<li data-filter-text="eva: #53 -&gt; #54 (2,34)">EVA: #53 -&gt; #54 (2,34)</li>
+<li data-filter-text="alla festa della rivoluzione: #54 -&gt; #55 (2,32)">ALLA FESTA DELLA RIVOLUZIONE: #54 -&gt; #55 (2,32)</li>
+<li data-filter-text="discover rome: #55 -&gt; #57 (0,00)">DISCOVER ROME: #55 -&gt; #57 (0,00)</li>
+<li data-filter-text="il figlio del deserto: #56 -&gt; #59 (0,00)">IL FIGLIO DEL DESERTO: #56 -&gt; #59 (0,00)</li>
+<li data-filter-text="lovita: #58 -&gt; #61 (0,00)">LOVITA: #58 -&gt; #61 (0,00)</li>
+<li data-filter-text="un cane a processo: #59 -&gt; #64 (0,00)">UN CANE A PROCESSO: #59 -&gt; #64 (0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-4" data-section-title="variazioni punteggio" open>
+        <summary>
+          <span>Variazioni punteggio</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-5" data-section-title="cambi cinema" open>
+        <summary>
+          <span>Cambi cinema</span>
+          <strong data-count-label>7 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="hamnet - nel nome del figlio: cinema eden | cinema madison -&gt; cinema eden | cinema madison | teatro don bosco">HAMNET - NEL NOME DEL FIGLIO: CINEMA Eden | CINEMA Madison -&gt; CINEMA Eden | CINEMA Madison | Teatro Don Bosco</li>
+<li data-filter-text="jumpers - un salto tra gli animali: cinema andromeda | cinema dei piccoli -&gt; cinema andromeda | cinema dei piccoli | uci cinemas porta di roma | uci cinemas roma est | uci luce maximo">JUMPERS - UN SALTO TRA GLI ANIMALI: CINEMA Andromeda | CINEMA Dei Piccoli -&gt; CINEMA Andromeda | CINEMA Dei Piccoli | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est | Uci Luce Maximo</li>
+<li data-filter-text="the drama - un segreto è per sempre: cinema adriano | cinema andromeda | cinema atlantic | cinema barberini | cinema broadway | casa del cinema | cinema cineland | cinema doria | cinema giulio cesare | cinema greenwich | cinema intrastevere | cinema jolly | cinema madison | cinema multisala lux | multisala odeon | cinema nuovo olimpia | cinema savoy | the screen cinemas roma ottavia | the space moderno | the space parco de medici | cinema trianon | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est | uci luce maximo -&gt; cinema adriano | cinema andromeda | cinema atlantic | cinema barberini | cinema broadway | cinema cineland | cinema doria | cinema giulio cesare | cinema greenwich | cinema intrastevere | cinema jolly | cinema madison | cinema multisala lux | multisala odeon | cinema nuovo olimpia | cinema savoy | the screen cinemas roma ottavia | the space moderno | the space parco de medici | cinema trianon | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est | uci luce maximo">THE DRAMA - UN SEGRETO È PER SEMPRE: CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Barberini | CINEMA Broadway | Casa del Cinema | CINEMA Cineland | CINEMA Doria | CINEMA Giulio Cesare | CINEMA Greenwich | CINEMA Intrastevere | CINEMA Jolly | CINEMA Madison | CINEMA Multisala Lux | Multisala Odeon | CINEMA Nuovo Olimpia | CINEMA Savoy | The Screen Cinemas Roma Ottavia | The Space Moderno | The Space Parco de Medici | CINEMA Trianon | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est | Uci Luce Maximo -&gt; CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Barberini | CINEMA Broadway | CINEMA Cineland | CINEMA Doria | CINEMA Giulio Cesare | CINEMA Greenwich | CINEMA Intrastevere | CINEMA Jolly | CINEMA Madison | CINEMA Multisala Lux | Multisala Odeon | CINEMA Nuovo Olimpia | CINEMA Savoy | The Screen Cinemas Roma Ottavia | The Space Moderno | The Space Parco de Medici | CINEMA Trianon | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est | Uci Luce Maximo</li>
+<li data-filter-text="la donna più ricca del mondo: cinema alhambra | cinema eden | eurcine multisala | cinema giulio cesare -&gt; cinema eden | eurcine multisala | cinema giulio cesare">LA DONNA PIÙ RICCA DEL MONDO: CINEMA Alhambra | CINEMA Eden | Eurcine Multisala | CINEMA Giulio Cesare -&gt; CINEMA Eden | Eurcine Multisala | CINEMA Giulio Cesare</li>
+<li data-filter-text="lee cronin - la mummia: cinema adriano | cinema andromeda | cinema atlantic | cinema broadway | cinema cineland | cinema multisala lux | the screen cinemas roma ottavia | the space moderno | the space parco de medici | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est | uci luce maximo -&gt; cinema adriano | cinema andromeda | cinema atlantic | cinema broadway | cinema cineland | cinema multisala lux | the screen cinemas roma ottavia | the space parco de medici | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est | uci luce maximo">LEE CRONIN - LA MUMMIA: CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Broadway | CINEMA Cineland | CINEMA Multisala Lux | The Screen Cinemas Roma Ottavia | The Space Moderno | The Space Parco de Medici | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est | Uci Luce Maximo -&gt; CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Broadway | CINEMA Cineland | CINEMA Multisala Lux | The Screen Cinemas Roma Ottavia | The Space Parco de Medici | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est | Uci Luce Maximo</li>
+<li data-filter-text="benvenuti in campagna: cinema adriano | cinema andromeda | cinema atlantic | cinema barberini | cinema broadway | cinema cineland | eurcine multisala | cinema jolly | cinema multisala lux | the screen cinemas roma ottavia | the space parco de medici | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est -&gt; cinema adriano | cinema andromeda | cinema atlantic | cinema barberini | cinema broadway | cinema cineland | cinema jolly | cinema multisala lux | the screen cinemas roma ottavia | the space parco de medici | uci cinemas parco leonardo | uci cinemas porta di roma | uci cinemas roma est">BENVENUTI IN CAMPAGNA: CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Barberini | CINEMA Broadway | CINEMA Cineland | Eurcine Multisala | CINEMA Jolly | CINEMA Multisala Lux | The Screen Cinemas Roma Ottavia | The Space Parco de Medici | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est -&gt; CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Barberini | CINEMA Broadway | CINEMA Cineland | CINEMA Jolly | CINEMA Multisala Lux | The Screen Cinemas Roma Ottavia | The Space Parco de Medici | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma | Uci Cinemas Roma Est</li>
+<li data-filter-text="alla festa della rivoluzione: cinema adriano | cinema andromeda | cinema atlantic | cinema cineland | cinema eden | cinema multisala lux | the space parco de medici | uci cinemas porta di roma -&gt; cinema adriano | cinema alhambra | cinema andromeda | cinema atlantic | cinema cineland | cinema eden | cinema multisala lux | the space parco de medici | uci cinemas parco leonardo | uci cinemas porta di roma">ALLA FESTA DELLA RIVOLUZIONE: CINEMA Adriano | CINEMA Andromeda | CINEMA Atlantic | CINEMA Cineland | CINEMA Eden | CINEMA Multisala Lux | The Space Parco de Medici | Uci Cinemas Porta di Roma -&gt; CINEMA Adriano | CINEMA Alhambra | CINEMA Andromeda | CINEMA Atlantic | CINEMA Cineland | CINEMA Eden | CINEMA Multisala Lux | The Space Parco de Medici | Uci Cinemas Parco Leonardo | Uci Cinemas Porta di Roma</li>
+        </ul>
+      </details><details class="diff-section" id="section-6" data-section-title="cambi orari" open>
+        <summary>
+          <span>Cambi orari</span>
+          <strong data-count-label>37 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="è l&#x27;ultima battuta?: 17:50, 21:40 | vo: 14:30, 16:20 | 16:00 | vo: 21:00 | 17:15, 19:25 | 16:15, 18:40, 21:00 -&gt; 18:00, 20:30 | vo: 14:00, 16:30 | 16:00 | vo: 21:00 | 17:15, 19:25 | 16:15, 18:40, 21:00">È L&#x27;ULTIMA BATTUTA?: 17:50, 21:40 | VO: 14:30, 16:20 | 16:00 | VO: 21:00 | 17:15, 19:25 | 16:15, 18:40, 21:00 -&gt; 18:00, 20:30 | VO: 14:00, 16:30 | 16:00 | VO: 21:00 | 17:15, 19:25 | 16:15, 18:40, 21:00</li>
+<li data-filter-text="resurrection: vo: 16:40, 21:30 | vo: 15:45 | vo: 17:00, 20:00 | vo: 14:00, 19:00 -&gt; vo: 11:00, 16:15, 21:30 | vo: 18:30 | vo: 17:00, 20:00 | vo: 21:00">RESURRECTION: VO: 16:40, 21:30 | VO: 15:45 | VO: 17:00, 20:00 | VO: 14:00, 19:00 -&gt; VO: 11:00, 16:15, 21:30 | VO: 18:30 | VO: 17:00, 20:00 | VO: 21:00</li>
+<li data-filter-text="hamnet - nel nome del figlio: 15:00, 19:00 | 21:35 -&gt; 15:00, 19:00 | 21:35 | 15:30">HAMNET - NEL NOME DEL FIGLIO: 15:00, 19:00 | 21:35 -&gt; 15:00, 19:00 | 21:35 | 15:30</li>
+<li data-filter-text="la torta del presidente: 15:45 | vo: 19:50 | 15:30, 19:30 -&gt; 19:45 | 15:30, 19:30">LA TORTA DEL PRESIDENTE: 15:45 | VO: 19:50 | 15:30, 19:30 -&gt; 19:45 | 15:30, 19:30</li>
+<li data-filter-text="sentimental value: 21:30 | 18:00 | 19:15 -&gt; 21:30 | 21:00 | 19:15">SENTIMENTAL VALUE: 21:30 | 18:00 | 19:15 -&gt; 21:30 | 21:00 | 19:15</li>
+<li data-filter-text="e.1027 - eileen gray e la casa sul mare: vo: 19:10 -&gt; vo: 19:40">E.1027 - EILEEN GRAY E LA CASA SUL MARE: VO: 19:10 -&gt; VO: 19:40</li>
+<li data-filter-text="jumpers - un salto tra gli animali: 16:45 | 17:20 -&gt; 16:45 | 14:50 | 11:00, 11:20 | 11:00, 11:10 | 11:00">JUMPERS - UN SALTO TRA GLI ANIMALI: 16:45 | 17:20 -&gt; 16:45 | 14:50 | 11:00, 11:20 | 11:00, 11:10 | 11:00</li>
+<li data-filter-text="la mattina scrivo: 17:45 | 21:00 -&gt; 17:45 | 18:00">LA MATTINA SCRIVO: 17:45 | 21:00 -&gt; 17:45 | 18:00</li>
+<li data-filter-text="la piccola amelie: 16:00 -&gt; 10:30">LA PICCOLA AMELIE: 16:00 -&gt; 10:30</li>
+<li data-filter-text="lo straniero: 15:45, 18:10, 21:00 | 16:00, 18:30 | vo: 21:00 | 16:15, 18:45 | 16:00, 18:30, 21:15 | 16:00, 21:00 | vo: 18:30 -&gt; 15:45, 18:10, 21:00 | 16:00, 18:30 | vo: 21:00 | 16:15, 18:45 | vo: 21:15 | 16:00, 18:30, 21:15 | 18:30 | vo: 21:00">LO STRANIERO: 15:45, 18:10, 21:00 | 16:00, 18:30 | VO: 21:00 | 16:15, 18:45 | 16:00, 18:30, 21:15 | 16:00, 21:00 | VO: 18:30 -&gt; 15:45, 18:10, 21:00 | 16:00, 18:30 | VO: 21:00 | 16:15, 18:45 | VO: 21:15 | 16:00, 18:30, 21:15 | 18:30 | VO: 21:00</li>
+<li data-filter-text="michael: 15:00, 16:20, 17:45, 19:00, 20:30, 21:40, 22:45 | vo: 21:00 | 16:00, 20:30 | 16:20, 17:30, 18:50, 20:30, 21:20 | vo: 21:10 | 16:30, 19:00, 21:30 | 15:00, 17:30, 19:00, 20:00, 21:30, 22:30 | 15:15, 17:30, 18:20, 19:45, 22:00 | vo: 14:30, 16:45, 19:00, 20:30, 21:15 | 14:45, 17:00, 19:15, 21:00 | 16:00, 17:00, 18:30, 20:15, 21:15 | 16:30, 19:00, 21:30 | 16:15, 18:45, 21:15 | 16:15 | vo: 18:46, 21:15 | 16:30 | vo: 19:00, 21:30 | 16:00, 17:00, 18:30, 20:00, 21:00, 22:20 | 14:45, 16:00, 17:00, 18:20, 19:20, 21:00, 21:40 | 16:30, 19:00, 21:30 | vo: 17:30, 20:00, 22:30 | 16:30, 19:00, 21:30 | 16:30, 19:00 | vo: 21:30 | 16:30, 17:45, 20:15, 21:30 | vo: 19:00 | 15:30, 17:00, 17:45, 18:30, 19:30, 20:00, 21:30, 22:40 | 14:05, 15:00, 15:35, 16:00, 16:30, 16:50, 17:05, 17:30, 18:00, 18:25, 18:50, 19:00, 19:10, 19:30, 19:50, 20:05, 20:30, 21:00, 21:25, 21:45, 22:00, 22:20, 22:40, 23:00, 23:20, 23:35, 23:55 | 16:15, 18:45, 20:00 | vo: 21:30 | 16:30, 19:00, 20:00, 21:30, 22:30 | 16:00, 16:30, 17:00, 17:30, 18:00, 18:30, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:30 | vo: 19:20 | 14:00, 15:00, 16:00, 16:30, 17:00, 17:40, 18:00, 18:30, 19:00, 19:30, 20:00, 20:40, 21:00, 21:30, 21:45, 22:00, 22:10, 22:30, 23:00, 23:50 | vo: 15:30, 19:20, 21:10 | 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 18:00, 18:15, 18:30, 18:45, 19:00, 19:30, 20:00, 21:00, 21:15, 21:20, 22:00, 22:30, 23:00, 23:50 | vo: 14:30, 19:20 | 10:20, 14:00, 15:20, 16:00, 17:00, 18:15, 19:00, 19:40, 20:45, 21:20, 22:00, 22:30, 23:40 | vo: 12:20 -&gt; 15:00, 16:20, 17:45, 19:00, 20:30, 21:40, 22:45 | vo: 21:00 | 15:15, 17:00, 21:00 | 16:20, 17:30, 18:50, 20:30, 21:20 | vo: 21:10 | 16:30, 19:00, 21:30 | 15:00, 17:30, 19:00, 20:00, 21:30, 22:30 | 11:00, 15:15, 17:30, 18:15, 19:45, 22:00 | vo: 11:30, 14:30, 16:45, 19:00, 20:30, 21:15 | 14:45, 17:00, 19:15, 21:00 | 16:00, 17:00, 18:30, 20:15, 21:15 | 16:30, 19:00, 21:30 | 16:15, 18:45, 21:15 | 16:15 | vo: 18:45, 21:15 | 16:30 | vo: 19:00, 21:30 | 16:00, 17:00, 18:30, 20:00, 21:00, 22:20 | 14:45, 16:00, 17:00, 18:20, 19:20, 21:00, 21:40 | 14:00, 16:30, 19:00, 21:30 | vo: 15:00, 17:30, 20:00, 22:30 | 16:30, 19:00, 21:30 | 16:30, 19:00 | vo: 21:30 | 15:30, 16:30, 17:45, 20:20, 21:30 | vo: 19:00 | 11:00, 12:00, 14:00, 15:00, 15:55, 17:00, 18:00, 19:00, 20:00, 21:00, 21:40, 22:30, 23:10, 00:30 | 11:05, 12:00, 12:30, 13:10, 13:40, 14:05, 14:25, 14:30, 15:00, 15:15, 15:40, 16:00, 16:25, 16:45, 17:05, 17:30, 17:40, 18:00, 18:25, 18:50, 19:00, 19:10, 19:30, 19:50, 20:05, 20:25, 20:35, 21:00, 21:20, 21:35, 22:00, 22:25 | 16:15, 18:45, 20:00 | vo: 21:30 | 16:30, 19:00, 20:00, 21:30, 22:30 | 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 17:30, 18:00, 18:35, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:30, 23:10 | vo: 14:30, 19:20 | 10:20, 11:10, 13:00, 14:00, 15:00, 16:00, 16:30, 17:00, 17:40, 18:00, 18:30, 18:45, 19:00, 19:30, 20:00, 20:40, 21:00, 21:20, 21:30, 21:45, 22:00, 22:10, 22:30, 23:00, 23:50 | vo: 12:00, 15:30, 19:20, 21:10 | 10:40, 11:30, 13:00, 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 17:45, 18:00, 18:30, 18:45, 19:00, 19:30, 20:00, 21:00, 21:15, 21:20, 21:40, 21:45, 22:00, 22:30, 23:00, 23:50 | vo: 12:20, 14:30, 19:20 | 10:00, 11:40, 13:00, 14:00, 15:20, 16:00, 17:00, 18:15, 19:00, 19:40, 20:45, 21:20, 22:00, 22:30, 23:40 | vo: 12:30">MICHAEL: 15:00, 16:20, 17:45, 19:00, 20:30, 21:40, 22:45 | VO: 21:00 | 16:00, 20:30 | 16:20, 17:30, 18:50, 20:30, 21:20 | VO: 21:10 | 16:30, 19:00, 21:30 | 15:00, 17:30, 19:00, 20:00, 21:30, 22:30 | 15:15, 17:30, 18:20, 19:45, 22:00 | VO: 14:30, 16:45, 19:00, 20:30, 21:15 | 14:45, 17:00, 19:15, 21:00 | 16:00, 17:00, 18:30, 20:15, 21:15 | 16:30, 19:00, 21:30 | 16:15, 18:45, 21:15 | 16:15 | VO: 18:46, 21:15 | 16:30 | VO: 19:00, 21:30 | 16:00, 17:00, 18:30, 20:00, 21:00, 22:20 | 14:45, 16:00, 17:00, 18:20, 19:20, 21:00, 21:40 | 16:30, 19:00, 21:30 | VO: 17:30, 20:00, 22:30 | 16:30, 19:00, 21:30 | 16:30, 19:00 | VO: 21:30 | 16:30, 17:45, 20:15, 21:30 | VO: 19:00 | 15:30, 17:00, 17:45, 18:30, 19:30, 20:00, 21:30, 22:40 | 14:05, 15:00, 15:35, 16:00, 16:30, 16:50, 17:05, 17:30, 18:00, 18:25, 18:50, 19:00, 19:10, 19:30, 19:50, 20:05, 20:30, 21:00, 21:25, 21:45, 22:00, 22:20, 22:40, 23:00, 23:20, 23:35, 23:55 | 16:15, 18:45, 20:00 | VO: 21:30 | 16:30, 19:00, 20:00, 21:30, 22:30 | 16:00, 16:30, 17:00, 17:30, 18:00, 18:30, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:30 | VO: 19:20 | 14:00, 15:00, 16:00, 16:30, 17:00, 17:40, 18:00, 18:30, 19:00, 19:30, 20:00, 20:40, 21:00, 21:30, 21:45, 22:00, 22:10, 22:30, 23:00, 23:50 | VO: 15:30, 19:20, 21:10 | 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 18:00, 18:15, 18:30, 18:45, 19:00, 19:30, 20:00, 21:00, 21:15, 21:20, 22:00, 22:30, 23:00, 23:50 | VO: 14:30, 19:20 | 10:20, 14:00, 15:20, 16:00, 17:00, 18:15, 19:00, 19:40, 20:45, 21:20, 22:00, 22:30, 23:40 | VO: 12:20 -&gt; 15:00, 16:20, 17:45, 19:00, 20:30, 21:40, 22:45 | VO: 21:00 | 15:15, 17:00, 21:00 | 16:20, 17:30, 18:50, 20:30, 21:20 | VO: 21:10 | 16:30, 19:00, 21:30 | 15:00, 17:30, 19:00, 20:00, 21:30, 22:30 | 11:00, 15:15, 17:30, 18:15, 19:45, 22:00 | VO: 11:30, 14:30, 16:45, 19:00, 20:30, 21:15 | 14:45, 17:00, 19:15, 21:00 | 16:00, 17:00, 18:30, 20:15, 21:15 | 16:30, 19:00, 21:30 | 16:15, 18:45, 21:15 | 16:15 | VO: 18:45, 21:15 | 16:30 | VO: 19:00, 21:30 | 16:00, 17:00, 18:30, 20:00, 21:00, 22:20 | 14:45, 16:00, 17:00, 18:20, 19:20, 21:00, 21:40 | 14:00, 16:30, 19:00, 21:30 | VO: 15:00, 17:30, 20:00, 22:30 | 16:30, 19:00, 21:30 | 16:30, 19:00 | VO: 21:30 | 15:30, 16:30, 17:45, 20:20, 21:30 | VO: 19:00 | 11:00, 12:00, 14:00, 15:00, 15:55, 17:00, 18:00, 19:00, 20:00, 21:00, 21:40, 22:30, 23:10, 00:30 | 11:05, 12:00, 12:30, 13:10, 13:40, 14:05, 14:25, 14:30, 15:00, 15:15, 15:40, 16:00, 16:25, 16:45, 17:05, 17:30, 17:40, 18:00, 18:25, 18:50, 19:00, 19:10, 19:30, 19:50, 20:05, 20:25, 20:35, 21:00, 21:20, 21:35, 22:00, 22:25 | 16:15, 18:45, 20:00 | VO: 21:30 | 16:30, 19:00, 20:00, 21:30, 22:30 | 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 17:30, 18:00, 18:35, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:30, 23:10 | VO: 14:30, 19:20 | 10:20, 11:10, 13:00, 14:00, 15:00, 16:00, 16:30, 17:00, 17:40, 18:00, 18:30, 18:45, 19:00, 19:30, 20:00, 20:40, 21:00, 21:20, 21:30, 21:45, 22:00, 22:10, 22:30, 23:00, 23:50 | VO: 12:00, 15:30, 19:20, 21:10 | 10:40, 11:30, 13:00, 14:00, 15:00, 15:30, 16:00, 16:30, 17:00, 17:45, 18:00, 18:30, 18:45, 19:00, 19:30, 20:00, 21:00, 21:15, 21:20, 21:40, 21:45, 22:00, 22:30, 23:00, 23:50 | VO: 12:20, 14:30, 19:20 | 10:00, 11:40, 13:00, 14:00, 15:20, 16:00, 17:00, 18:15, 19:00, 19:40, 20:45, 21:20, 22:00, 22:30, 23:40 | VO: 12:30</li>
+<li data-filter-text="un anno di scuola: 16:30, 18:30 | 16:30, 18:30, 20:45 | 18:00, 21:00 | 15:45, 19:45 -&gt; 18:30, 20:45 | 15:30, 18:45 | 18:00, 21:00 | 16:30, 21:00">UN ANNO DI SCUOLA: 16:30, 18:30 | 16:30, 18:30, 20:45 | 18:00, 21:00 | 15:45, 19:45 -&gt; 18:30, 20:45 | 15:30, 18:45 | 18:00, 21:00 | 16:30, 21:00</li>
+<li data-filter-text="il caso 137: 16:15, 18:45 | vo: 21:00 | vo: 16:00, 18:15, 20:45 | 16:00, 18:30 | vo: 21:00 -&gt; 16:15, 18:45 | vo: 21:00 | vo: 16:00, 18:15, 20:45 | 16:00 | vo: 18:30, 21:30">IL CASO 137: 16:15, 18:45 | VO: 21:00 | VO: 16:00, 18:15, 20:45 | 16:00, 18:30 | VO: 21:00 -&gt; 16:15, 18:45 | VO: 21:00 | VO: 16:00, 18:15, 20:45 | 16:00 | VO: 18:30, 21:30</li>
+<li data-filter-text="prima dell&#x27;alba: vo: 22:15 -&gt; vo: 17:00">PRIMA DELL&#x27;ALBA: VO: 22:15 -&gt; VO: 17:00</li>
+<li data-filter-text="vita mia: 15:00 -&gt; 16:45">VITA MIA: 15:00 -&gt; 16:45</li>
+<li data-filter-text="a cena con il dittatore: 16:15, 18:00 | 15:00, 17:10, 19:20, 21:30 | 17:30 | vo: 19:30 | 16:30, 18:45, 21:00 | 16:00, 18:00 -&gt; 17:10, 21:20 | 15:00, 17:10, 19:20, 21:30 | 17:30 | vo: 19:30 | 16:30, 18:45, 21:00 | 16:00, 18:00">A CENA CON IL DITTATORE: 16:15, 18:00 | 15:00, 17:10, 19:20, 21:30 | 17:30 | VO: 19:30 | 16:30, 18:45, 21:00 | 16:00, 18:00 -&gt; 17:10, 21:20 | 15:00, 17:10, 19:20, 21:30 | 17:30 | VO: 19:30 | 16:30, 18:45, 21:00 | 16:00, 18:00</li>
+<li data-filter-text="la salita: 20:30 | 17:30, 19:20 | 15:45, 17:45 | 16:00, 18:00 | 16:00, 20:10 | 16:15, 19:40 -&gt; 15:15, 19:20 | 17:30, 19:20 | 15:45, 18:00 | 16:00 | 16:00, 20:10 | 16:00, 18:00">LA SALITA: 20:30 | 17:30, 19:20 | 15:45, 17:45 | 16:00, 18:00 | 16:00, 20:10 | 16:15, 19:40 -&gt; 15:15, 19:20 | 17:30, 19:20 | 15:45, 18:00 | 16:00 | 16:00, 20:10 | 16:00, 18:00</li>
+<li data-filter-text="le aquile della repubblica: 18:40 | vo: 21:00 | 15:25, 21:30 -&gt; 16:00 | vo: 21:00 | 15:25, 21:30">LE AQUILE DELLA REPUBBLICA: 18:40 | VO: 21:00 | 15:25, 21:30 -&gt; 16:00 | VO: 21:00 | 15:25, 21:30</li>
+<li data-filter-text="love me tender: 18:30 | 16:00 | vo: 18:30, 21:30 | 16:15, 18:45, 21:00 | vo: 16:00, 18:30, 21:00 -&gt; 18:30 | 15:30 | vo: 21:30 | 18:45, 21:00 | vo: 16:00, 18:30, 21:00">LOVE ME TENDER: 18:30 | 16:00 | VO: 18:30, 21:30 | 16:15, 18:45, 21:00 | VO: 16:00, 18:30, 21:00 -&gt; 18:30 | 15:30 | VO: 21:30 | 18:45, 21:00 | VO: 16:00, 18:30, 21:00</li>
+<li data-filter-text="l&#x27;ultima missione - project hail mary: 15:00, 18:00, 21:00 | 21:00 | 18:40, 21:30 | vo: 16:30, 18:45, 21:15 | 20:00 | 19:00, 22:00 | vo: 20:30 | 21:00 | 15:35, 17:45, 19:10, 20:40, 22:15 | 21:10 | 14:50, 21:20 | 14:50, 17:50, 21:40 | 16:50 -&gt; 15:00, 18:00, 21:00 | 21:00 | 18:40, 21:30 | vo: 11:30, 16:30, 18:45, 21:15 | 20:00 | 19:00, 22:00 | vo: 20:30 | 21:00 | 12:25, 20:50, 23:10 | 14:50, 21:10 | 10:50, 14:50, 21:20 | 10:50, 14:50 | 16:50">L&#x27;ULTIMA MISSIONE - PROJECT HAIL MARY: 15:00, 18:00, 21:00 | 21:00 | 18:40, 21:30 | VO: 16:30, 18:45, 21:15 | 20:00 | 19:00, 22:00 | VO: 20:30 | 21:00 | 15:35, 17:45, 19:10, 20:40, 22:15 | 21:10 | 14:50, 21:20 | 14:50, 17:50, 21:40 | 16:50 -&gt; 15:00, 18:00, 21:00 | 21:00 | 18:40, 21:30 | VO: 11:30, 16:30, 18:45, 21:15 | 20:00 | 19:00, 22:00 | VO: 20:30 | 21:00 | 12:25, 20:50, 23:10 | 14:50, 21:10 | 10:50, 14:50, 21:20 | 10:50, 14:50 | 16:50</li>
+<li data-filter-text="finchè morte non ci separi 2: 14:25 | 23:00 -&gt; 12:15, 22:15 | 23:55">FINCHÈ MORTE NON CI SEPARI 2: 14:25 | 23:00 -&gt; 12:15, 22:15 | 23:55</li>
+<li data-filter-text="malavia: 15:00 -&gt; 21:40">MALAVIA: 15:00 -&gt; 21:40</li>
+<li data-filter-text="la più piccola: 16:00, 20:15 | 16:30, 18:30 | vo: 20:30 | 15:45, 19:30 | vo: 21:30 | 15:30, 18:00, 22:30 | 17:30, 19:30 | vo: 21:30 | 15:15 -&gt; 15:15, 17:30, 21:20 | 16:30, 18:30 | vo: 20:45 | 15:45, 19:45 | vo: 21:45 | 13:15, 18:00, 22:30 | 17:30, 19:30 | vo: 21:30 | 15:40">LA PIÙ PICCOLA: 16:00, 20:15 | 16:30, 18:30 | VO: 20:30 | 15:45, 19:30 | VO: 21:30 | 15:30, 18:00, 22:30 | 17:30, 19:30 | VO: 21:30 | 15:15 -&gt; 15:15, 17:30, 21:20 | 16:30, 18:30 | VO: 20:45 | 15:45, 19:45 | VO: 21:45 | 13:15, 18:00, 22:30 | 17:30, 19:30 | VO: 21:30 | 15:40</li>
+<li data-filter-text="super mario galaxy - il film: 15:00, 15:50, 17:20, 19:30 | 16:30, 17:30, 18:30, 19:20 | 16:30 | 15:00, 16:00, 17:00, 18:00 | vo: 14:30, 16:30 | 15:30, 17:20, 19:10 | 16:30, 17:30, 18:30 | 16:30, 18:30 | 16:30 | 16:00, 18:00 | 15:30, 17:30 | 17:00 | 16:00, 18:00 | 16:30, 17:25, 18:35, 20:45 | 15:15 | 14:05, 16:05, 18:05, 19:10 | 16:00, 17:00, 18:00 | 16:05, 17:10, 18:15, 19:10 | 15:10, 16:10, 16:50, 17:30, 18:20 | 14:40, 15:50, 17:10, 17:40, 18:20 | 15:40, 17:15, 18:20 -&gt; 15:00, 16:00, 17:20, 19:30 | 16:30, 17:30, 18:30, 19:20 | 16:30 | 15:00, 16:00, 17:00, 18:00 | vo: 12:45, 14:40, 16:20 | 15:30, 17:20, 19:10 | 16:30, 17:30, 18:30 | 16:30, 18:30 | 16:30 | 16:00, 18:00 | 15:30, 17:30 | 15:00, 16:00, 17:00, 18:00 | 16:00, 18:00 | 15:30, 16:30, 17:25, 18:35, 21:00 | 11:10, 13:45, 16:15 | 11:40, 12:30, 14:25, 16:05, 17:15, 17:50, 18:35 | 16:00, 17:00, 18:00 | 14:40, 16:10, 17:10, 18:20, 19:10 | 10:30, 11:30, 13:30, 14:20, 15:10, 16:10, 16:50, 17:30, 18:20 | 10:30, 11:20, 13:30, 14:40, 16:10, 17:10, 17:40, 18:20 | 11:30, 14:50, 15:50, 17:15, 18:20">SUPER MARIO GALAXY - IL FILM: 15:00, 15:50, 17:20, 19:30 | 16:30, 17:30, 18:30, 19:20 | 16:30 | 15:00, 16:00, 17:00, 18:00 | VO: 14:30, 16:30 | 15:30, 17:20, 19:10 | 16:30, 17:30, 18:30 | 16:30, 18:30 | 16:30 | 16:00, 18:00 | 15:30, 17:30 | 17:00 | 16:00, 18:00 | 16:30, 17:25, 18:35, 20:45 | 15:15 | 14:05, 16:05, 18:05, 19:10 | 16:00, 17:00, 18:00 | 16:05, 17:10, 18:15, 19:10 | 15:10, 16:10, 16:50, 17:30, 18:20 | 14:40, 15:50, 17:10, 17:40, 18:20 | 15:40, 17:15, 18:20 -&gt; 15:00, 16:00, 17:20, 19:30 | 16:30, 17:30, 18:30, 19:20 | 16:30 | 15:00, 16:00, 17:00, 18:00 | VO: 12:45, 14:40, 16:20 | 15:30, 17:20, 19:10 | 16:30, 17:30, 18:30 | 16:30, 18:30 | 16:30 | 16:00, 18:00 | 15:30, 17:30 | 15:00, 16:00, 17:00, 18:00 | 16:00, 18:00 | 15:30, 16:30, 17:25, 18:35, 21:00 | 11:10, 13:45, 16:15 | 11:40, 12:30, 14:25, 16:05, 17:15, 17:50, 18:35 | 16:00, 17:00, 18:00 | 14:40, 16:10, 17:10, 18:20, 19:10 | 10:30, 11:30, 13:30, 14:20, 15:10, 16:10, 16:50, 17:30, 18:20 | 10:30, 11:20, 13:30, 14:40, 16:10, 17:10, 17:40, 18:20 | 11:30, 14:50, 15:50, 17:15, 18:20</li>
+<li data-filter-text="... che dio perdona a tutti: 17:50, 20:20 | 18:20 | 21:00 | 19:40 | 15:00, 18:45 | 21:00 | 15:00 | 16:15, 18:45, 21:15 | 20:30 | 15:30 | 16:30, 20:45 | 17:20 | 17:50, 20:10 | 20:00, 22:15 | 16:30 | 15:20 | 16:00, 18:30, 21:00 -&gt; 17:50, 20:20 | 19:20 | 21:00 | 19:40 | 15:00, 18:45 | 21:00 | 15:00 | 16:15, 18:45, 21:15 | 20:30 | 15:30 | 16:30, 20:45 | 17:20 | 17:50, 20:10 | 20:00, 22:15 | 16:30 | 11:45, 13:50 | 16:00, 18:30, 21:00">... CHE DIO PERDONA A TUTTI: 17:50, 20:20 | 18:20 | 21:00 | 19:40 | 15:00, 18:45 | 21:00 | 15:00 | 16:15, 18:45, 21:15 | 20:30 | 15:30 | 16:30, 20:45 | 17:20 | 17:50, 20:10 | 20:00, 22:15 | 16:30 | 15:20 | 16:00, 18:30, 21:00 -&gt; 17:50, 20:20 | 19:20 | 21:00 | 19:40 | 15:00, 18:45 | 21:00 | 15:00 | 16:15, 18:45, 21:15 | 20:30 | 15:30 | 16:30, 20:45 | 17:20 | 17:50, 20:10 | 20:00, 22:15 | 16:30 | 11:45, 13:50 | 16:00, 18:30, 21:00</li>
+<li data-filter-text="the drama - un segreto è per sempre: 15:30, 18:00, 20:30, 22:45 | 18:45, 21:20 | 17:20, 20:00, 22:10 | 19:30 | vo: 14:30, 17:00, 19:00, 21:00 | 21:30 | 18:00 | 18:30, 20:50 | 21:15 | 16:30 | vo: 18:45, 21:00 | vo: 21:00 | vo: 19:45, 21:45 | 19:30, 21:40 | 17:30, 19:30, 21:35 | 15:45, 18:00, 20:15, 22:30 | vo: 22:00 | 15:45, 18:00, 20:15, 22:30 | vo: 16:30, 18:30, 20:45 | 16:00, 18:30, 21:15 | 21:30 | 16:10, 20:50 | 14:40, 16:30, 18:35, 21:15, 22:15, 23:15 | 18:15, 21:00, 22:00 | 16:50, 20:40, 22:10 | 14:00, 17:10, 20:10, 23:20 | 16:50, 20:40 | 20:00, 22:20 -&gt; 15:30, 18:00, 20:30, 22:45 | 18:45, 21:20 | 17:20, 20:00, 22:10 | 19:10 | vo: 13:20, 14:30, 17:00, 19:00, 21:00 | 21:30 | 18:30, 20:50 | 21:15 | 16:30 | vo: 18:45, 21:00 | vo: 21:45 | vo: 19:45, 21:45 | 19:30, 21:40 | 17:30, 19:30, 21:35 | 13:30, 18:00, 20:15, 22:30 | vo: 13:45, 22:30 | 15:45, 18:00, 20:15, 22:30 | vo: 16:30, 18:30, 20:45 | 16:00, 18:30, 21:15 | 16:30, 21:30 | 14:10, 22:10 | 11:50, 14:20, 18:15, 19:45, 21:05, 22:20, 00:25 | 18:15, 21:00, 22:00 | 16:50, 20:45, 22:10 | 10:45, 14:00, 17:10, 20:10, 23:20 | 11:05, 16:50, 20:40, 22:10 | 20:00, 22:40">THE DRAMA - UN SEGRETO È PER SEMPRE: 15:30, 18:00, 20:30, 22:45 | 18:45, 21:20 | 17:20, 20:00, 22:10 | 19:30 | VO: 14:30, 17:00, 19:00, 21:00 | 21:30 | 18:00 | 18:30, 20:50 | 21:15 | 16:30 | VO: 18:45, 21:00 | VO: 21:00 | VO: 19:45, 21:45 | 19:30, 21:40 | 17:30, 19:30, 21:35 | 15:45, 18:00, 20:15, 22:30 | VO: 22:00 | 15:45, 18:00, 20:15, 22:30 | VO: 16:30, 18:30, 20:45 | 16:00, 18:30, 21:15 | 21:30 | 16:10, 20:50 | 14:40, 16:30, 18:35, 21:15, 22:15, 23:15 | 18:15, 21:00, 22:00 | 16:50, 20:40, 22:10 | 14:00, 17:10, 20:10, 23:20 | 16:50, 20:40 | 20:00, 22:20 -&gt; 15:30, 18:00, 20:30, 22:45 | 18:45, 21:20 | 17:20, 20:00, 22:10 | 19:10 | VO: 13:20, 14:30, 17:00, 19:00, 21:00 | 21:30 | 18:30, 20:50 | 21:15 | 16:30 | VO: 18:45, 21:00 | VO: 21:45 | VO: 19:45, 21:45 | 19:30, 21:40 | 17:30, 19:30, 21:35 | 13:30, 18:00, 20:15, 22:30 | VO: 13:45, 22:30 | 15:45, 18:00, 20:15, 22:30 | VO: 16:30, 18:30, 20:45 | 16:00, 18:30, 21:15 | 16:30, 21:30 | 14:10, 22:10 | 11:50, 14:20, 18:15, 19:45, 21:05, 22:20, 00:25 | 18:15, 21:00, 22:00 | 16:50, 20:45, 22:10 | 10:45, 14:00, 17:10, 20:10, 23:20 | 11:05, 16:50, 20:40, 22:10 | 20:00, 22:40</li>
+<li data-filter-text="the long walk: 15:00, 20:30, 22:45 | 22:00 | 16:20, 18:30, 21:40 | 20:00, 22:15 | 20:00, 22:15 | 21:50 | 16:00, 18:50, 22:05 | 18:50, 20:55, 22:20 | 18:15, 19:50, 22:20, 23:40 | 19:50, 22:20, 23:45 | 21:40 -&gt; 15:00, 20:30, 22:45 | 22:00 | 16:20, 18:30, 21:40 | 13:30, 20:00, 22:15 | 20:00, 22:15 | 18:50, 00:40 | 16:15, 20:05, 22:05, 00:10 | 18:50, 20:55, 22:20, 23:20 | 11:50, 19:50, 22:20 | 19:50, 22:20 | 21:40">THE LONG WALK: 15:00, 20:30, 22:45 | 22:00 | 16:20, 18:30, 21:40 | 20:00, 22:15 | 20:00, 22:15 | 21:50 | 16:00, 18:50, 22:05 | 18:50, 20:55, 22:20 | 18:15, 19:50, 22:20, 23:40 | 19:50, 22:20, 23:45 | 21:40 -&gt; 15:00, 20:30, 22:45 | 22:00 | 16:20, 18:30, 21:40 | 13:30, 20:00, 22:15 | 20:00, 22:15 | 18:50, 00:40 | 16:15, 20:05, 22:05, 00:10 | 18:50, 20:55, 22:20, 23:20 | 11:50, 19:50, 22:20 | 19:50, 22:20 | 21:40</li>
+<li data-filter-text="il delitto del 3° piano: 17:20, 19:30 | 21:30 | 16:30, 18:30, 20:30 | 16:15 | 16:30, 18:30 | 17:45 | 17:30, 19:30 | 15:45, 18:00, 20:15 | 18:00, 22:00 | 16:30, 18:30, 21:00 | 18:50 | 17:15 | 16:20 | 16:20, 21:15 | 14:10 -&gt; 17:20, 19:30 | 21:15 | 16:30, 18:30, 20:30 | 16:15 | 16:30, 18:30 | 17:45 | 17:30, 19:30 | 13:30, 15:45, 20:15 | 18:00, 22:00 | 16:30, 18:30, 21:00 | 18:50 | 11:35 | 14:00, 16:20 | 11:35, 16:20 | 14:10">IL DELITTO DEL 3° PIANO: 17:20, 19:30 | 21:30 | 16:30, 18:30, 20:30 | 16:15 | 16:30, 18:30 | 17:45 | 17:30, 19:30 | 15:45, 18:00, 20:15 | 18:00, 22:00 | 16:30, 18:30, 21:00 | 18:50 | 17:15 | 16:20 | 16:20, 21:15 | 14:10 -&gt; 17:20, 19:30 | 21:15 | 16:30, 18:30, 20:30 | 16:15 | 16:30, 18:30 | 17:45 | 17:30, 19:30 | 13:30, 15:45, 20:15 | 18:00, 22:00 | 16:30, 18:30, 21:00 | 18:50 | 11:35 | 14:00, 16:20 | 11:35, 16:20 | 14:10</li>
+<li data-filter-text="cena di classe: 15:15 | 16:30, 21:30 | 15:10, 20:45, 22:50 | 17:40, 21:50 | 14:40, 18:50 | 14:25 | 11:00, 14:20, 19:10 -&gt; 15:15 | 21:30 | 11:05, 14:05, 22:55 | 14:25, 17:40, 21:50 | 14:40, 18:50 | 11:25, 14:25 | 10:10, 14:20, 01:30">CENA DI CLASSE: 15:15 | 16:30, 21:30 | 15:10, 20:45, 22:50 | 17:40, 21:50 | 14:40, 18:50 | 14:25 | 11:00, 14:20, 19:10 -&gt; 15:15 | 21:30 | 11:05, 14:05, 22:55 | 14:25, 17:40, 21:50 | 14:40, 18:50 | 11:25, 14:25 | 10:10, 14:20, 01:30</li>
+<li data-filter-text="la donna più ricca del mondo: 18:10 | 15:30, 18:15, 21:00 | 18:30, 20:45 | 17:40 | vo: 21:45 -&gt; 15:30, 18:15, 21:00 | 18:30, 20:45 | 17:30 | vo: 21:45">LA DONNA PIÙ RICCA DEL MONDO: 18:10 | 15:30, 18:15, 21:00 | 18:30, 20:45 | 17:40 | VO: 21:45 -&gt; 15:30, 18:15, 21:00 | 18:30, 20:45 | 17:30 | VO: 21:45</li>
+<li data-filter-text="gli ultimi giorni del paradiso: 19:00 | 20:45 | 17:30 -&gt; 14:45 | 21:15 | 17:30">GLI ULTIMI GIORNI DEL PARADISO: 19:00 | 20:45 | 17:30 -&gt; 14:45 | 21:15 | 17:30</li>
+<li data-filter-text="keeper - l&#x27;eletta: 23:10 -&gt; 23:50">KEEPER - L&#x27;ELETTA: 23:10 -&gt; 23:50</li>
+<li data-filter-text="lee cronin - la mummia: 15:00, 17:30, 21:40 | 18:50, 21:15 | 17:10, 21:40 | 20:50 | 15:50, 18:30, 21:00 | 20:00, 22:30 | 18:45, 21:30 | 23:40 | 15:35, 18:45, 20:10, 21:30 | 18:10, 19:40, 21:40, 22:40 | 18:10, 20:50, 22:40, 23:45 | 19:40, 22:00, 23:30 | 20:20, 23:20 -&gt; 15:00, 17:30, 21:40 | 18:50, 21:15 | 17:10, 21:40 | 20:50 | 15:50, 18:30, 21:00 | 20:00, 22:30 | 18:45, 21:30 | 12:30, 14:50, 16:45, 19:05, 22:10, 23:45, 00:05 | 18:10, 19:40, 21:40, 22:40, 23:40 | 18:10, 20:50, 22:40, 23:45 | 19:40, 22:00, 23:30 | 20:20, 23:20">LEE CRONIN - LA MUMMIA: 15:00, 17:30, 21:40 | 18:50, 21:15 | 17:10, 21:40 | 20:50 | 15:50, 18:30, 21:00 | 20:00, 22:30 | 18:45, 21:30 | 23:40 | 15:35, 18:45, 20:10, 21:30 | 18:10, 19:40, 21:40, 22:40 | 18:10, 20:50, 22:40, 23:45 | 19:40, 22:00, 23:30 | 20:20, 23:20 -&gt; 15:00, 17:30, 21:40 | 18:50, 21:15 | 17:10, 21:40 | 20:50 | 15:50, 18:30, 21:00 | 20:00, 22:30 | 18:45, 21:30 | 12:30, 14:50, 16:45, 19:05, 22:10, 23:45, 00:05 | 18:10, 19:40, 21:40, 22:40, 23:40 | 18:10, 20:50, 22:40, 23:45 | 19:40, 22:00, 23:30 | 20:20, 23:20</li>
+<li data-filter-text="benvenuti in campagna: 15:20, 19:40 | 16:30 | 19:30 | 14:30 | 17:00 | 16:30, 18:30, 20:30 | 20:45 | 18:45 | 15:45, 22:30 | 19:30 | 15:15 | 16:15 | 15:20 | 15:20 -&gt; 15:20, 19:40 | 16:30 | 19:30 | 14:30 | 17:00 | 16:30, 18:30, 20:30 | 18:45 | 15:45 | 19:30 | 11:25, 13:25, 00:30 | 15:20 | 11:40, 15:20 | 11:25, 15:20">BENVENUTI IN CAMPAGNA: 15:20, 19:40 | 16:30 | 19:30 | 14:30 | 17:00 | 16:30, 18:30, 20:30 | 20:45 | 18:45 | 15:45, 22:30 | 19:30 | 15:15 | 16:15 | 15:20 | 15:20 -&gt; 15:20, 19:40 | 16:30 | 19:30 | 14:30 | 17:00 | 16:30, 18:30, 20:30 | 18:45 | 15:45 | 19:30 | 11:25, 13:25, 00:30 | 15:20 | 11:40, 15:20 | 11:25, 15:20</li>
+<li data-filter-text="alla festa della rivoluzione: 17:30, 21:40 | 16:30, 18:45, 21:15 | 15:00 | 15:45, 18:00, 20:15 | 17:00, 21:30 | 16:00, 18:00, 20:00 | 14:20 | 14:20 -&gt; 17:30, 21:40 | 19:10 | 16:30, 18:45, 21:15 | 15:00 | 15:45, 18:00, 20:15 | 17:00, 21:30 | 14:00, 16:00, 18:00 | 11:20, 13:20 | 15:10 | 10:40, 13:50">ALLA FESTA DELLA RIVOLUZIONE: 17:30, 21:40 | 16:30, 18:45, 21:15 | 15:00 | 15:45, 18:00, 20:15 | 17:00, 21:30 | 16:00, 18:00, 20:00 | 14:20 | 14:20 -&gt; 17:30, 21:40 | 19:10 | 16:30, 18:45, 21:15 | 15:00 | 15:45, 18:00, 20:15 | 17:00, 21:30 | 14:00, 16:00, 18:00 | 11:20, 13:20 | 15:10 | 10:40, 13:50</li>
+<li data-filter-text="il figlio del deserto: 15:00, 17:00, 19:00 | 16:40, 19:00, 21:20 | 15:00, 16:50 | 15:00, 19:20 | 16:30, 18:30, 20:30 | 16:45, 18:45 | 16:30, 18:30 | 16:30, 18:30 | 16:00, 18:00 | 16:30, 18:30 | 16:50, 19:00 | 14:45, 16:20, 17:50 | 16:00, 19:00 | 16:40, 18:40, 20:05 | 14:25, 16:40, 19:10 | 14:20, 16:40 | 12:00, 14:10, 16:30 -&gt; 15:00, 17:00, 19:00 | 16:40, 19:00, 21:20 | 15:00, 16:50 | 11:00, 12:45, 15:15, 19:20 | 16:30, 18:30, 20:30 | 16:45 | 16:45 | 14:30, 16:30, 18:30 | 16:00, 18:00 | 15:30, 18:00 | 11:40, 16:55 | 11:50, 15:40, 17:10, 20:20 | 16:00, 19:00 | 14:20, 16:40, 20:05 | 11:15, 14:25, 16:40 | 10:45, 14:20, 16:40 | 12:00, 14:10, 16:30">IL FIGLIO DEL DESERTO: 15:00, 17:00, 19:00 | 16:40, 19:00, 21:20 | 15:00, 16:50 | 15:00, 19:20 | 16:30, 18:30, 20:30 | 16:45, 18:45 | 16:30, 18:30 | 16:30, 18:30 | 16:00, 18:00 | 16:30, 18:30 | 16:50, 19:00 | 14:45, 16:20, 17:50 | 16:00, 19:00 | 16:40, 18:40, 20:05 | 14:25, 16:40, 19:10 | 14:20, 16:40 | 12:00, 14:10, 16:30 -&gt; 15:00, 17:00, 19:00 | 16:40, 19:00, 21:20 | 15:00, 16:50 | 11:00, 12:45, 15:15, 19:20 | 16:30, 18:30, 20:30 | 16:45 | 16:45 | 14:30, 16:30, 18:30 | 16:00, 18:00 | 15:30, 18:00 | 11:40, 16:55 | 11:50, 15:40, 17:10, 20:20 | 16:00, 19:00 | 14:20, 16:40, 20:05 | 11:15, 14:25, 16:40 | 10:45, 14:20, 16:40 | 12:00, 14:10, 16:30</li>
+<li data-filter-text="un cane a processo: 15:45, 18:00 | vo: 21:30 -&gt; 15:45 | vo: 19:45">UN CANE A PROCESSO: 15:45, 18:00 | VO: 21:30 -&gt; 15:45 | VO: 19:45</li>
+        </ul>
+      </details><details class="diff-section" id="section-7" data-section-title="invariati" data-unchanged-section="true">
+        <summary>
+          <span>Invariati</span>
+          <strong data-count-label>3 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#2 la grazia (4,13)">#2 LA GRAZIA (4,13)</li>
+<li data-filter-text="#26 il figlio più bello (3,50)">#26 IL FIGLIO PIÙ BELLO (3,50)</li>
+<li data-filter-text="#40 il bene comune (3,18)">#40 IL BENE COMUNE (3,18)</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById("diff-search");
+    const toggleUnchanged = document.getElementById("toggle-unchanged");
+    const toggleSections = document.getElementById("toggle-sections");
+    const counter = document.getElementById("diff-counter");
+    const sections = Array.from(document.querySelectorAll(".diff-section"));
+
+    function countLabel(count) {
+      return count === 1 ? "1 voce" : `${count} voci`;
+    }
+
+    function visibleSectionsList() {
+      return sections.filter((section) => !section.hidden);
+    }
+
+    function updateSectionToggleLabel() {
+      const visibleSections = visibleSectionsList();
+      const allOpen = visibleSections.length > 0 && visibleSections.every((section) => section.open);
+      toggleSections.textContent = allOpen ? "Chiudi sezioni" : "Espandi sezioni";
+      toggleSections.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visibleRows = 0;
+      let totalRows = 0;
+      let visibleSections = 0;
+
+      for (const section of sections) {
+        const isUnchanged = section.dataset.unchangedSection === "true";
+        const showUnchanged = toggleUnchanged.checked || searchInput.value.trim();
+        if (isUnchanged && !showUnchanged) {
+          section.hidden = true;
+          continue;
+        }
+        const sectionTitle = section.dataset.sectionTitle || "";
+        const rows = Array.from(section.querySelectorAll("li:not(.empty)"));
+        const sectionMatches = !query || sectionTitle.includes(query);
+        let sectionVisibleRows = 0;
+        totalRows += rows.length;
+
+        for (const row of rows) {
+          const rowText = row.dataset.filterText || row.textContent.toLocaleLowerCase("it-IT");
+          const matches = sectionMatches || rowText.includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            sectionVisibleRows += 1;
+            visibleRows += 1;
+          }
+        }
+
+        const hasRows = rows.length > 0;
+        section.hidden = hasRows ? sectionVisibleRows === 0 : !sectionMatches;
+        if (!section.hidden) visibleSections += 1;
+        const count = query ? sectionVisibleRows : rows.length;
+        const label = section.querySelector("[data-count-label]");
+        if (label) label.textContent = countLabel(count);
+      }
+
+      counter.textContent = `${visibleRows} di ${totalRows} voci in ${visibleSections} sezioni`;
+      updateSectionToggleLabel();
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    toggleUnchanged.addEventListener("change", updateFilter);
+    toggleSections.addEventListener("click", () => {
+      const visibleSections = visibleSectionsList();
+      const shouldOpen = visibleSections.some((section) => !section.open);
+      for (const section of visibleSections) section.open = shouldOpen;
+      updateSectionToggleLabel();
+    });
+    for (const section of sections) section.addEventListener("toggle", updateSectionToggleLabel);
+    updateFilter();
+  </script>
+</body>
+</html>

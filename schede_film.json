@@ -48,8 +48,9 @@
       },
       "CINEMA Alhambra": {
         "orari": [
-          "16:00",
-          "20:30"
+          "15:15",
+          "17:00",
+          "21:00"
         ],
         "orari_vo": []
       },
@@ -86,13 +87,15 @@
       },
       "CINEMA Barberini": {
         "orari": [
+          "11:00",
           "15:15",
           "17:30",
-          "18:20",
+          "18:15",
           "19:45",
           "22:00"
         ],
         "orari_vo": [
+          "11:30",
           "14:30",
           "16:45",
           "19:00",
@@ -140,7 +143,7 @@
           "16:15"
         ],
         "orari_vo": [
-          "18:46",
+          "18:45",
           "21:15"
         ]
       },
@@ -178,11 +181,13 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
+          "14:00",
           "16:30",
           "19:00",
           "21:30"
         ],
         "orari_vo": [
+          "15:00",
           "17:30",
           "20:00",
           "22:30"
@@ -207,9 +212,10 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
+          "15:30",
           "16:30",
           "17:45",
-          "20:15",
+          "20:20",
           "21:30"
         ],
         "orari_vo": [
@@ -218,27 +224,42 @@
       },
       "The Space Moderno": {
         "orari": [
-          "15:30",
+          "11:00",
+          "12:00",
+          "14:00",
+          "15:00",
+          "15:55",
           "17:00",
-          "17:45",
-          "18:30",
-          "19:30",
+          "18:00",
+          "19:00",
           "20:00",
-          "21:30",
-          "22:40"
+          "21:00",
+          "21:40",
+          "22:30",
+          "23:10",
+          "00:30"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
+          "11:05",
+          "12:00",
+          "12:30",
+          "13:10",
+          "13:40",
           "14:05",
+          "14:25",
+          "14:30",
           "15:00",
-          "15:35",
+          "15:15",
+          "15:40",
           "16:00",
-          "16:30",
-          "16:50",
+          "16:25",
+          "16:45",
           "17:05",
           "17:30",
+          "17:40",
           "18:00",
           "18:25",
           "18:50",
@@ -247,17 +268,13 @@
           "19:30",
           "19:50",
           "20:05",
-          "20:30",
+          "20:25",
+          "20:35",
           "21:00",
-          "21:25",
-          "21:45",
+          "21:20",
+          "21:35",
           "22:00",
-          "22:20",
-          "22:40",
-          "23:00",
-          "23:20",
-          "23:35",
-          "23:55"
+          "22:25"
         ],
         "orari_vo": []
       },
@@ -283,12 +300,15 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "14:00",
+          "15:00",
+          "15:30",
           "16:00",
           "16:30",
           "17:00",
           "17:30",
           "18:00",
-          "18:30",
+          "18:35",
           "19:00",
           "19:30",
           "20:00",
@@ -296,14 +316,19 @@
           "21:00",
           "21:30",
           "22:00",
-          "22:30"
+          "22:30",
+          "23:10"
         ],
         "orari_vo": [
+          "14:30",
           "19:20"
         ]
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "10:20",
+          "11:10",
+          "13:00",
           "14:00",
           "15:00",
           "16:00",
@@ -312,11 +337,13 @@
           "17:40",
           "18:00",
           "18:30",
+          "18:45",
           "19:00",
           "19:30",
           "20:00",
           "20:40",
           "21:00",
+          "21:20",
           "21:30",
           "21:45",
           "22:00",
@@ -326,6 +353,7 @@
           "23:50"
         ],
         "orari_vo": [
+          "12:00",
           "15:30",
           "19:20",
           "21:10"
@@ -333,14 +361,17 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "10:40",
+          "11:30",
+          "13:00",
           "14:00",
           "15:00",
           "15:30",
           "16:00",
           "16:30",
           "17:00",
+          "17:45",
           "18:00",
-          "18:15",
           "18:30",
           "18:45",
           "19:00",
@@ -349,19 +380,24 @@
           "21:00",
           "21:15",
           "21:20",
+          "21:40",
+          "21:45",
           "22:00",
           "22:30",
           "23:00",
           "23:50"
         ],
         "orari_vo": [
+          "12:20",
           "14:30",
           "19:20"
         ]
       },
       "Uci Luce Maximo": {
         "orari": [
-          "10:20",
+          "10:00",
+          "11:40",
+          "13:00",
           "14:00",
           "15:20",
           "16:00",
@@ -376,7 +412,7 @@
           "23:40"
         ],
         "orari_vo": [
-          "12:20"
+          "12:30"
         ]
       }
     }
@@ -440,9 +476,10 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "19:30"
+          "19:10"
         ],
         "orari_vo": [
+          "13:20",
           "14:30",
           "17:00",
           "19:00",
@@ -452,12 +489,6 @@
       "CINEMA Broadway": {
         "orari": [
           "21:30"
-        ],
-        "orari_vo": []
-      },
-      "Casa del Cinema": {
-        "orari": [
-          "18:00"
         ],
         "orari_vo": []
       },
@@ -486,7 +517,7 @@
       "CINEMA Greenwich": {
         "orari": [],
         "orari_vo": [
-          "21:00"
+          "21:45"
         ]
       },
       "CINEMA Intrastevere": {
@@ -513,13 +544,14 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "15:45",
+          "13:30",
           "18:00",
           "20:15",
           "22:30"
         ],
         "orari_vo": [
-          "22:00"
+          "13:45",
+          "22:30"
         ]
       },
       "Multisala Odeon": {
@@ -549,25 +581,27 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
+          "16:30",
           "21:30"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "16:10",
-          "20:50"
+          "14:10",
+          "22:10"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:40",
-          "16:30",
-          "18:35",
-          "21:15",
-          "22:15",
-          "23:15"
+          "11:50",
+          "14:20",
+          "18:15",
+          "19:45",
+          "21:05",
+          "22:20",
+          "00:25"
         ],
         "orari_vo": []
       },
@@ -582,13 +616,14 @@
       "Uci Cinemas Parco Leonardo": {
         "orari": [
           "16:50",
-          "20:40",
+          "20:45",
           "22:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "10:45",
           "14:00",
           "17:10",
           "20:10",
@@ -598,15 +633,17 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "11:05",
           "16:50",
-          "20:40"
+          "20:40",
+          "22:10"
         ],
         "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
           "20:00",
-          "22:20"
+          "22:40"
         ],
         "orari_vo": []
       }
@@ -648,8 +685,9 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "16:00",
-          "20:15"
+          "15:15",
+          "17:30",
+          "21:20"
         ],
         "orari_vo": []
       },
@@ -659,21 +697,21 @@
           "18:30"
         ],
         "orari_vo": [
-          "20:30"
+          "20:45"
         ]
       },
       "CINEMA Greenwich": {
         "orari": [
           "15:45",
-          "19:30"
+          "19:45"
         ],
         "orari_vo": [
-          "21:30"
+          "21:45"
         ]
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "15:30",
+          "13:15",
           "18:00",
           "22:30"
         ],
@@ -690,7 +728,7 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "15:15"
+          "15:40"
         ],
         "orari_vo": []
       }
@@ -737,16 +775,14 @@
       },
       "CINEMA Greenwich": {
         "orari": [
-          "16:00"
+          "15:30"
         ],
         "orari_vo": [
-          "18:30",
           "21:30"
         ]
       },
       "CINEMA Mignon": {
         "orari": [
-          "16:15",
           "18:45",
           "21:00"
         ],
@@ -799,14 +835,15 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "16:40",
+          "11:00",
+          "16:15",
           "21:30"
         ]
       },
       "CINEMA Farnese": {
         "orari": [],
         "orari_vo": [
-          "15:45"
+          "18:30"
         ]
       },
       "Nuovo Cinema Aquila": {
@@ -819,8 +856,7 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "14:00",
-          "19:00"
+          "21:00"
         ]
       }
     }
@@ -860,11 +896,10 @@
     "cinema_orari": {
       "Quattro Fontane": {
         "orari": [
-          "15:45",
-          "18:00"
+          "15:45"
         ],
         "orari_vo": [
-          "21:30"
+          "19:45"
         ]
       }
     }
@@ -905,7 +940,7 @@
     "cinema_orari": {
       "CINEMA Farnese": {
         "orari": [
-          "18:40"
+          "16:00"
         ],
         "orari_vo": [
           "21:00"
@@ -1004,18 +1039,15 @@
         ],
         "orari_vo": []
       },
-      "The Space Moderno": {
-        "orari": [
-          "23:40"
-        ],
-        "orari_vo": []
-      },
       "The Space Parco de Medici": {
         "orari": [
-          "15:35",
-          "18:45",
-          "20:10",
-          "21:30"
+          "12:30",
+          "14:50",
+          "16:45",
+          "19:05",
+          "22:10",
+          "23:45",
+          "00:05"
         ],
         "orari_vo": []
       },
@@ -1024,7 +1056,8 @@
           "18:10",
           "19:40",
           "21:40",
-          "22:40"
+          "22:40",
+          "23:40"
         ],
         "orari_vo": []
       },
@@ -1093,7 +1126,7 @@
       "CINEMA Adriano": {
         "orari": [
           "15:00",
-          "15:50",
+          "16:00",
           "17:20",
           "19:30"
         ],
@@ -1126,8 +1159,9 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "14:30",
-          "16:30"
+          "12:45",
+          "14:40",
+          "16:20"
         ]
       },
       "CINEMA Broadway": {
@@ -1175,7 +1209,10 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "17:00"
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00"
         ],
         "orari_vo": []
       },
@@ -1188,25 +1225,31 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
+          "15:30",
           "16:30",
           "17:25",
           "18:35",
-          "20:45"
+          "21:00"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "15:15"
+          "11:10",
+          "13:45",
+          "16:15"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:05",
+          "11:40",
+          "12:30",
+          "14:25",
           "16:05",
-          "18:05",
-          "19:10"
+          "17:15",
+          "17:50",
+          "18:35"
         ],
         "orari_vo": []
       },
@@ -1220,15 +1263,20 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "16:05",
+          "14:40",
+          "16:10",
           "17:10",
-          "18:15",
+          "18:20",
           "19:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "10:30",
+          "11:30",
+          "13:30",
+          "14:20",
           "15:10",
           "16:10",
           "16:50",
@@ -1239,8 +1287,11 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "10:30",
+          "11:20",
+          "13:30",
           "14:40",
-          "15:50",
+          "16:10",
           "17:10",
           "17:40",
           "18:20"
@@ -1249,7 +1300,9 @@
       },
       "Uci Luce Maximo": {
         "orari": [
-          "15:40",
+          "11:30",
+          "14:50",
+          "15:50",
           "17:15",
           "18:20"
         ],
@@ -1295,8 +1348,8 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "16:15",
-          "18:00"
+          "17:10",
+          "21:20"
         ],
         "orari_vo": []
       },
@@ -1369,7 +1422,8 @@
     "cinema_orari": {
       "CINEMA Alhambra": {
         "orari": [
-          "20:30"
+          "15:15",
+          "19:20"
         ],
         "orari_vo": []
       },
@@ -1383,14 +1437,13 @@
       "CINEMA Greenwich": {
         "orari": [
           "15:45",
-          "17:45"
+          "18:00"
         ],
         "orari_vo": []
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "16:00",
-          "18:00"
+          "16:00"
         ],
         "orari_vo": []
       },
@@ -1403,8 +1456,8 @@
       },
       "Quattro Fontane": {
         "orari": [
-          "16:15",
-          "19:40"
+          "16:00",
+          "18:00"
         ],
         "orari_vo": []
       }
@@ -1467,6 +1520,7 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
+          "13:30",
           "20:00",
           "22:15"
         ],
@@ -1481,15 +1535,17 @@
       },
       "The Space Moderno": {
         "orari": [
-          "21:50"
+          "18:50",
+          "00:40"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "16:00",
-          "18:50",
-          "22:05"
+          "16:15",
+          "20:05",
+          "22:05",
+          "00:10"
         ],
         "orari_vo": []
       },
@@ -1497,24 +1553,23 @@
         "orari": [
           "18:50",
           "20:55",
-          "22:20"
+          "22:20",
+          "23:20"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "18:15",
+          "11:50",
           "19:50",
-          "22:20",
-          "23:40"
+          "22:20"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Roma Est": {
         "orari": [
           "19:50",
-          "22:20",
-          "23:45"
+          "22:20"
         ],
         "orari_vo": []
       },
@@ -1584,7 +1639,9 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "15:00",
+          "11:00",
+          "12:45",
+          "15:15",
           "19:20"
         ],
         "orari_vo": []
@@ -1599,20 +1656,19 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "16:45",
-          "18:45"
+          "16:45"
         ],
         "orari_vo": []
       },
       "CINEMA Giulio Cesare": {
         "orari": [
-          "16:30",
-          "18:30"
+          "16:45"
         ],
         "orari_vo": []
       },
       "CINEMA Multisala Lux": {
         "orari": [
+          "14:30",
           "16:30",
           "18:30"
         ],
@@ -1627,23 +1683,24 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "16:30",
-          "18:30"
+          "15:30",
+          "18:00"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "16:50",
-          "19:00"
+          "11:40",
+          "16:55"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:45",
-          "16:20",
-          "17:50"
+          "11:50",
+          "15:40",
+          "17:10",
+          "20:20"
         ],
         "orari_vo": []
       },
@@ -1656,22 +1713,23 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "14:20",
           "16:40",
-          "18:40",
           "20:05"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "11:15",
           "14:25",
-          "16:40",
-          "19:10"
+          "16:40"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "10:45",
           "14:20",
           "16:40"
         ],
@@ -1745,6 +1803,7 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
+          "11:30",
           "16:30",
           "18:45",
           "21:15"
@@ -1773,22 +1832,22 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "15:35",
-          "17:45",
-          "19:10",
-          "20:40",
-          "22:15"
+          "12:25",
+          "20:50",
+          "23:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "14:50",
           "21:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "10:50",
           "14:50",
           "21:20"
         ],
@@ -1796,9 +1855,8 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "14:50",
-          "17:50",
-          "21:40"
+          "10:50",
+          "14:50"
         ],
         "orari_vo": []
       },
@@ -1895,7 +1953,7 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "21:30"
+          "21:15"
         ],
         "orari_vo": []
       },
@@ -1935,8 +1993,8 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
+          "13:30",
           "15:45",
-          "18:00",
           "20:15"
         ],
         "orari_vo": []
@@ -1964,20 +2022,21 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "17:15"
+          "11:35"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "14:00",
           "16:20"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "16:20",
-          "21:15"
+          "11:35",
+          "16:20"
         ],
         "orari_vo": []
       },
@@ -2023,12 +2082,6 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "CINEMA Alhambra": {
-        "orari": [
-          "18:10"
-        ],
-        "orari_vo": []
-      },
       "CINEMA Eden": {
         "orari": [
           "15:30",
@@ -2046,7 +2099,7 @@
       },
       "CINEMA Giulio Cesare": {
         "orari": [
-          "17:40"
+          "17:30"
         ],
         "orari_vo": [
           "21:45"
@@ -2094,6 +2147,12 @@
         ],
         "orari_vo": []
       },
+      "CINEMA Alhambra": {
+        "orari": [
+          "19:10"
+        ],
+        "orari_vo": []
+      },
       "CINEMA Andromeda": {
         "orari": [
           "16:30",
@@ -2125,21 +2184,29 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
+          "14:00",
           "16:00",
-          "18:00",
-          "20:00"
+          "18:00"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:20"
+          "11:20",
+          "13:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "15:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "14:20"
+          "10:40",
+          "13:50"
         ],
         "orari_vo": []
       }
@@ -2218,13 +2285,14 @@
     "cinema_orari": {
       "The Space Parco de Medici": {
         "orari": [
-          "14:25"
+          "12:15",
+          "22:15"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "23:00"
+          "23:55"
         ],
         "orari_vo": []
       }
@@ -2272,7 +2340,7 @@
       },
       "CINEMA Alhambra": {
         "orari": [
-          "18:20"
+          "19:20"
         ],
         "orari_vo": []
       },
@@ -2362,7 +2430,8 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "15:20"
+          "11:45",
+          "13:50"
         ],
         "orari_vo": []
       },
@@ -2411,16 +2480,16 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "17:50",
-          "21:40"
+          "18:00",
+          "20:30"
         ],
         "orari_vo": []
       },
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "14:30",
-          "16:20"
+          "14:00",
+          "16:30"
         ]
       },
       "CINEMA Farnese": {
@@ -2500,17 +2569,60 @@
       },
       "Quattro Fontane": {
         "orari": [
-          "16:00",
-          "18:30"
+          "16:00"
         ],
         "orari_vo": [
-          "21:00"
+          "18:30",
+          "21:30"
         ]
       }
     }
   },
   {
     "scheda": 24,
+    "titolo": "LO SGUARDO DI EMMA",
+    "valutazioni": {
+      "MYMONETRO": "3.50",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.12",
+      "PUBBLICO": "3.89"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Svizzera",
+      "Francia",
+      "Belgio"
+    ],
+    "anno": "2025",
+    "durata_minuti": 98,
+    "trama": "Un doloroso coming of age che mette in scena la forza delle donne che si salvano da sole",
+    "regia": [
+      "Marie-Elsa Sgualdo"
+    ],
+    "cast": [
+      "Lila Gueneau",
+      "Grégoire Colin",
+      "Thomas Doret",
+      "Aurelia Petit"
+    ],
+    "uscita": "2 aprile 2026",
+    "distribuzione": "Trent Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Dei Piccoli": {
+        "orari": [],
+        "orari_vo": [
+          "11:55"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 25,
     "titolo": "BENVENUTI IN CAMPAGNA",
     "valutazioni": {
       "MYMONETRO": "2.34",
@@ -2581,12 +2693,6 @@
         ],
         "orari_vo": []
       },
-      "Eurcine Multisala": {
-        "orari": [
-          "20:45"
-        ],
-        "orari_vo": []
-      },
       "CINEMA Jolly": {
         "orari": [
           "18:45"
@@ -2595,8 +2701,7 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "15:45",
-          "22:30"
+          "15:45"
         ],
         "orari_vo": []
       },
@@ -2608,24 +2713,28 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "15:15"
+          "11:25",
+          "13:25",
+          "00:30"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "16:15"
+          "15:20"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "11:40",
           "15:20"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "11:25",
           "15:20"
         ],
         "orari_vo": []
@@ -2633,7 +2742,7 @@
     }
   },
   {
-    "scheda": 25,
+    "scheda": 26,
     "titolo": "MALAVIA",
     "valutazioni": {
       "MYMONETRO": "3.19",
@@ -2667,48 +2776,7 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "15:00"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 26,
-    "titolo": "LO CHIAMAVA ROCK & ROLL",
-    "valutazioni": {
-      "MYMONETRO": "4.10",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "4.71"
-    },
-    "consigliato": "ASSOLUTAMENTE SI",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "Italia"
-    ],
-    "anno": "2026",
-    "durata_minuti": 106,
-    "trama": "Smeriglio torna alla regia con una vicenda che interroga i cosiddetti normodotati con il giusto ritmo e la giusta attenzione",
-    "regia": [
-      "Saverio Smeriglio"
-    ],
-    "cast": [
-      "Andrea Montovoli",
-      "Federico Richard Villa",
-      "Ivana Lotito",
-      "Caterina Silva"
-    ],
-    "uscita": "16 aprile 2026",
-    "distribuzione": "Medusa",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Adriano": {
-        "orari": [
-          "20:30"
+          "21:40"
         ],
         "orari_vo": []
       }
@@ -2930,6 +2998,12 @@
           "21:35"
         ],
         "orari_vo": []
+      },
+      "Teatro Don Bosco": {
+        "orari": [
+          "15:30"
+        ],
+        "orari_vo": []
       }
     }
   },
@@ -2979,7 +3053,7 @@
       },
       "Teatro Don Bosco": {
         "orari": [
-          "18:00"
+          "21:00"
         ],
         "orari_vo": []
       },
@@ -3044,6 +3118,47 @@
   },
   {
     "scheda": 34,
+    "titolo": "ROMA CITTÀ APERTA",
+    "valutazioni": {
+      "MYMONETRO": "4.31",
+      "MYMOVIES.IT": "4.75",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.86"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "1945",
+    "durata_minuti": 98,
+    "trama": "Rossellini con pochi mezzi firma un capolavoro perfezionando il neorealismo",
+    "regia": [
+      "Roberto Rossellini"
+    ],
+    "cast": [
+      "Anna Magnani",
+      "Aldo Fabrizi",
+      "Maria Michi",
+      "Marcello Pagliero"
+    ],
+    "uscita": "31 marzo 2014",
+    "distribuzione": "Cineteca di Bologna",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Casa del Cinema": {
+        "orari": [
+          "18:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 35,
     "titolo": "PRIMA DELL'ALBA",
     "valutazioni": {
       "MYMONETRO": "3.53",
@@ -3080,13 +3195,154 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "22:15"
+          "17:00"
         ]
       }
     }
   },
   {
-    "scheda": 35,
+    "scheda": 36,
+    "titolo": "PORCO ROSSO",
+    "valutazioni": {
+      "MYMONETRO": "3.81",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "4.08",
+      "PUBBLICO": "3.84"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Animazione"
+    ],
+    "paesi": [
+      "Giappone"
+    ],
+    "anno": "1992",
+    "durata_minuti": 94,
+    "trama": "Dietro il divertissement, un'opera che lascia emergere il lato più politico e libertario di Miyazaki",
+    "regia": [
+      "Hayao Miyazaki"
+    ],
+    "cast": [
+      "Shuuichirou Moriyama",
+      "Akemi Okamura",
+      "Akio Ôtsuka",
+      "Tokiko Kato"
+    ],
+    "uscita": "25 aprile 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "Film per tutti",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": []
+      },
+      "Eurcine Multisala": {
+        "orari": [
+          "16:30",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Giulio Cesare": {
+        "orari": [
+          "16:30",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Greenwich": {
+        "orari": [
+          "18:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Madison": {
+        "orari": [
+          "15:45",
+          "17:45",
+          "19:30",
+          "21:15"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Mignon": {
+        "orari": [
+          "17:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "16:00",
+          "20:00"
+        ],
+        "orari_vo": []
+      },
+      "Quattro Fontane": {
+        "orari": [
+          "16:30",
+          "19:00"
+        ],
+        "orari_vo": []
+      },
+      "The Space Moderno": {
+        "orari": [
+          "13:20",
+          "19:45"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "17:00",
+          "19:35"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Troisi": {
+        "orari": [],
+        "orari_vo": [
+          "13:00",
+          "19:00"
+        ]
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "18:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "18:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "18:40"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "19:10"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 37,
     "titolo": "SIRAT",
     "valutazioni": {
       "MYMONETRO": "3.41",
@@ -3122,89 +3378,6 @@
       "Teatro San Timoteo": {
         "orari": [
           "21:00"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 36,
-    "titolo": "TUTTO SU MIA MADRE",
-    "valutazioni": {
-      "MYMONETRO": "3.68",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "3.70",
-      "PUBBLICO": "3.33"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Spagna"
-    ],
-    "anno": "1999",
-    "durata_minuti": 105,
-    "trama": "Un film carico di umanità in cui Almodovar trasfonde tutta la sua sensibilità",
-    "regia": [
-      "Pedro Almodóvar"
-    ],
-    "cast": [
-      "Penélope Cruz",
-      "Cecilia Roth",
-      "Marisa Paredes",
-      "Candela Peña",
-      "Antonia San Juan"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +16",
-    "cinema_orari": {
-      "Palazzo delle Esposizioni": {
-        "orari": [
-          "20:00"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 37,
-    "titolo": "CASABLANCA",
-    "valutazioni": {
-      "MYMONETRO": "4.57",
-      "MYMOVIES.IT": "5.00",
-      "CRITICA": "4.50",
-      "PUBBLICO": "4.22"
-    },
-    "consigliato": "ASSOLUTAMENTE SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "1942",
-    "durata_minuti": 102,
-    "trama": "Un autentico mito del cinema, nutrito dal mito di Bogart e da un gruppo straordinario di caratteristi. Oscar 1944",
-    "regia": [
-      "Michael Curtiz"
-    ],
-    "cast": [
-      "Humphrey Bogart",
-      "Ingrid Bergman",
-      "Paul Henreid",
-      "Claude Rains"
-    ],
-    "uscita": "26 giugno 2023",
-    "distribuzione": "Warner Bros Italia",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +16",
-    "cinema_orari": {
-      "Casa del Cinema": {
-        "orari": [
-          "20:45"
         ],
         "orari_vo": []
       }
@@ -3380,7 +3553,9 @@
           "16:15",
           "18:45"
         ],
-        "orari_vo": []
+        "orari_vo": [
+          "21:15"
+        ]
       },
       "CINEMA Mignon": {
         "orari": [
@@ -3392,11 +3567,10 @@
       },
       "Quattro Fontane": {
         "orari": [
-          "16:00",
-          "21:00"
+          "18:30"
         ],
         "orari_vo": [
-          "18:30"
+          "21:00"
         ]
       }
     }
@@ -3452,48 +3626,6 @@
   },
   {
     "scheda": 42,
-    "titolo": "ARRIVEDERCI RAGAZZI",
-    "valutazioni": {
-      "MYMONETRO": "3.38",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.75"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Francia"
-    ],
-    "anno": "1987",
-    "durata_minuti": 103,
-    "trama": "Louis Malle in stato di grazia",
-    "regia": [
-      "Louis Malle"
-    ],
-    "cast": [
-      "Gaspard Manesse",
-      "Francine Racette",
-      "Raphael Fejtö",
-      "François Berléand",
-      "Irène Jacob"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +16",
-    "cinema_orari": {
-      "Cineclub Alphaville": {
-        "orari": [],
-        "orari_vo": [
-          "21:00"
-        ]
-      }
-    }
-  },
-  {
-    "scheda": 43,
     "titolo": "CENA DI CLASSE",
     "valutazioni": {
       "MYMONETRO": "2.84",
@@ -3533,21 +3665,21 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "16:30",
           "21:30"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "15:10",
-          "20:45",
-          "22:50"
+          "11:05",
+          "14:05",
+          "22:55"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "14:25",
           "17:40",
           "21:50"
         ],
@@ -3562,22 +3694,23 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
+          "11:25",
           "14:25"
         ],
         "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
-          "11:00",
+          "10:10",
           "14:20",
-          "19:10"
+          "01:30"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 44,
+    "scheda": 43,
     "titolo": "LA MATTINA SCRIVO",
     "valutazioni": {
       "MYMONETRO": "3.67",
@@ -3617,14 +3750,14 @@
       },
       "Teatro Don Bosco": {
         "orari": [
-          "21:00"
+          "18:00"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 45,
+    "scheda": 44,
     "titolo": "LA TORTA DEL PRESIDENTE",
     "valutazioni": {
       "MYMONETRO": "3.82",
@@ -3660,11 +3793,9 @@
     "cinema_orari": {
       "CINEMA Giulio Cesare": {
         "orari": [
-          "15:45"
+          "19:45"
         ],
-        "orari_vo": [
-          "19:50"
-        ]
+        "orari_vo": []
       },
       "CINEMA Madison": {
         "orari": [
@@ -3676,41 +3807,83 @@
     }
   },
   {
-    "scheda": 46,
-    "titolo": "GIULIO REGENI - TUTTO IL MALE DEL MONDO",
+    "scheda": 45,
+    "titolo": "PAISÀ",
     "valutazioni": {
-      "MYMONETRO": "3.71",
+      "MYMONETRO": "4.00",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "4.00"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "1946",
+    "durata_minuti": 125,
+    "trama": "Sei episodi per raccontare l'Italia durante la guerra, con sguardo profondamente umano e assoluta libertà creativa",
+    "regia": [
+      "Roberto Rossellini"
+    ],
+    "cast": [
+      "William Tubbs",
+      "Harriet Medin",
+      "Gar Moore",
+      "Carmela Sazio",
+      "Dots Johnson"
+    ],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Cineclub Alphaville": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 46,
+    "titolo": "NOTTE PRIMA DEGLI ESAMI 3.0",
+    "valutazioni": {
+      "MYMONETRO": "3.36",
       "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.30",
-      "PUBBLICO": "4.33"
+      "CRITICA": "2.32",
+      "PUBBLICO": "4.25"
     },
     "consigliato": "SI",
     "genere": [
-      "Documentario"
+      "Commedia"
     ],
     "paesi": [
       "Italia"
     ],
     "anno": "2026",
-    "durata_minuti": 105,
-    "trama": "Più di una semplice ricostruzione, un documentario di ampio respiro che diventa simbolo di ogni lotta per i diritti civili e contro la tortura",
+    "durata_minuti": 95,
+    "trama": "Renzoni riprende il filo di un discorso interrotto con uno spirito retrò che piacerà ai 40-50enni",
     "regia": [
-      "Simone Manetti"
+      "Tommaso Renzoni"
     ],
     "cast": [
-      "Claudio Regeni",
-      "Paola Deffendi",
-      "Alessandra Ballerini"
+      "Sabrina Ferilli",
+      "Tommaso Cassissa",
+      "Gianmarco Tognazzi",
+      "Adriano Moretti"
     ],
-    "uscita": "2 febbraio 2026",
-    "distribuzione": "Fandango",
+    "uscita": "19 marzo 2026",
+    "distribuzione": "01 Distribution",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Quattro Fontane": {
+      "CINEMA Adriano": {
         "orari": [
-          "17:45",
-          "21:45"
+          "22:50"
         ],
         "orari_vo": []
       }
@@ -3747,7 +3920,7 @@
     "cinema_orari": {
       "CINEMA Dei Piccoli": {
         "orari": [
-          "16:00"
+          "10:30"
         ],
         "orari_vo": []
       }
@@ -3796,7 +3969,27 @@
       },
       "CINEMA Dei Piccoli": {
         "orari": [
-          "17:20"
+          "14:50"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "11:00",
+          "11:20"
+        ],
+        "orari_vo": []
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "11:00",
+          "11:10"
+        ],
+        "orari_vo": []
+      },
+      "Uci Luce Maximo": {
+        "orari": [
+          "11:00"
         ],
         "orari_vo": []
       }
@@ -3838,16 +4031,15 @@
     "cinema_orari": {
       "Eurcine Multisala": {
         "orari": [
-          "16:30",
-          "18:30"
+          "18:30",
+          "20:45"
         ],
         "orari_vo": []
       },
       "CINEMA Giulio Cesare": {
         "orari": [
-          "16:30",
-          "18:30",
-          "20:45"
+          "15:30",
+          "18:45"
         ],
         "orari_vo": []
       },
@@ -3860,8 +4052,8 @@
       },
       "Quattro Fontane": {
         "orari": [
-          "15:45",
-          "19:45"
+          "16:30",
+          "21:00"
         ],
         "orari_vo": []
       }
@@ -3869,6 +4061,87 @@
   },
   {
     "scheda": 50,
+    "titolo": "TIENIMI PRESENTE",
+    "valutazioni": {
+      "MYMONETRO": "3.19",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "3.31",
+      "PUBBLICO": "3.25"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 80,
+    "trama": "Un film nel film. La fotografia di moltissimi giovani raccontata con una tenerezza che squaglia perché la sappiamo vera",
+    "regia": [
+      "Alberto Palmiero"
+    ],
+    "cast": [
+      "Alberto Palmiero",
+      "Francesco Di Grazia",
+      "Gaia Nugnes",
+      "Elena Fattore"
+    ],
+    "uscita": "26 febbraio 2026",
+    "distribuzione": "Fandango",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Macro": {
+        "orari": [
+          "19:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 51,
+    "titolo": "CENTRAL DO BRASIL",
+    "valutazioni": {
+      "MYMONETRO": "3.10",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.20"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Brasile"
+    ],
+    "anno": "1998",
+    "durata_minuti": 115,
+    "trama": "N.D.",
+    "regia": [
+      "Walter Salles"
+    ],
+    "cast": [
+      "Fernanda Montenegro",
+      "Vinicius De Oliveira",
+      "Marília Pêra"
+    ],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "CINEMA Troisi": {
+        "orari": [],
+        "orari_vo": [
+          "15:00"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 52,
     "titolo": "GENERAZIONE ROMANTICA",
     "valutazioni": {
       "MYMONETRO": "3.63",
@@ -3910,7 +4183,7 @@
     }
   },
   {
-    "scheda": 51,
+    "scheda": 53,
     "titolo": "VITA MIA",
     "valutazioni": {
       "MYMONETRO": "3.52",
@@ -3945,14 +4218,14 @@
     "cinema_orari": {
       "Azzurro Scipioni": {
         "orari": [
-          "15:00"
+          "16:45"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 52,
+    "scheda": 54,
     "titolo": "E.1027 - EILEEN GRAY E LA CASA SUL MARE",
     "valutazioni": {
       "MYMONETRO": "3.77",
@@ -3989,13 +4262,13 @@
       "CINEMA Dei Piccoli": {
         "orari": [],
         "orari_vo": [
-          "19:10"
+          "19:40"
         ]
       }
     }
   },
   {
-    "scheda": 53,
+    "scheda": 55,
     "titolo": "KEEPER - L'ELETTA",
     "valutazioni": {
       "MYMONETRO": "2.67",
@@ -4030,54 +4303,128 @@
     "cinema_orari": {
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "23:10"
+          "23:50"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 54,
-    "titolo": "I NOSTRI ANNI",
+    "scheda": 56,
+    "titolo": "SCIROCCO E IL REGNO DEI VENTI",
     "valutazioni": {
-      "MYMONETRO": "3.50",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.00"
+      "MYMONETRO": "3.82",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.20",
+      "PUBBLICO": "4.75"
     },
     "consigliato": "SI",
     "genere": [
-      "Drammatico"
+      "Animazione"
+    ],
+    "paesi": [
+      "Belgio",
+      "Francia"
+    ],
+    "anno": "2023",
+    "durata_minuti": 81,
+    "trama": "Un film d'animazione che regge il confronto con Miyazaki. Affascinando grandi e piccini",
+    "regia": [
+      "Benoît Chieux"
+    ],
+    "cast": [],
+    "uscita": "16 ottobre 2025",
+    "distribuzione": "Trent Film",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Dei Piccoli": {
+        "orari": [
+          "16:40"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 57,
+    "titolo": "ARCO - UN'AMICIZIA PER SALVARE IL FUTURO",
+    "valutazioni": {
+      "MYMONETRO": "3.99",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.71",
+      "PUBBLICO": "4.75"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Animazione"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 88,
+    "trama": "Un coming of age poetico e gentile che affronta temi scottanti, dal cambiamento climatico alla morte",
+    "regia": [
+      "Ugo Bienvenu"
+    ],
+    "cast": [],
+    "uscita": "12 marzo 2026",
+    "distribuzione": "I Wonder Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Dei Piccoli": {
+        "orari": [
+          "18:05"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 58,
+    "titolo": "UOVA DI GAROFANO",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.00"
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Commedia"
     ],
     "paesi": [
       "Italia"
     ],
-    "anno": "2001",
-    "durata_minuti": 90,
-    "trama": "Uno stile autoriale e personale per un doc che riflette sul concetto di memoria",
+    "anno": "1991",
+    "durata_minuti": 120,
+    "trama": "N.D.",
     "regia": [
-      "Daniele Gaglianone"
+      "Silvano Agosti"
     ],
     "cast": [
-      "Virgilio Biei",
-      "Piero Franzo",
-      "Giuseppe Boccalatte"
+      "Alain Cuny",
+      "Lou Castel",
+      "Federico Zanola",
+      "Elisa Murolo"
     ],
-    "uscita": "3 aprile 2026",
-    "distribuzione": "Kio Film",
+    "uscita": "15 aprile 1997",
+    "distribuzione": "11 Marzo Cinematografica",
     "vm": "N.D.",
-    "consigli_visione": "Ragazzi +16",
+    "consigli_visione": "N.D.",
     "cinema_orari": {
-      "CINEMA Greenwich": {
+      "Azzurro Scipioni": {
         "orari": [
-          "21:00"
+          "19:00"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 55,
+    "scheda": 59,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4113,84 +4460,123 @@
     }
   },
   {
-    "scheda": 56,
-    "titolo": "AGNUS DEI",
+    "scheda": 60,
+    "titolo": "TABÙ - EGON SCHIELE",
     "valutazioni": {
-      "MYMONETRO": "3.42",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.83",
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "N.D.",
       "PUBBLICO": "N.D."
     },
-    "consigliato": "SI",
+    "consigliato": "N.D.",
+    "genere": [
+      "Documentario"
+    ],
+    "paesi": [],
+    "anno": "2026",
+    "durata_minuti": 90,
+    "trama": "Un documentario coraggioso che avvicina il pubblico all'umanità e al pensiero di un creatore controverso come Egon Schiele",
+    "regia": [
+      "Michele Mally"
+    ],
+    "cast": [],
+    "uscita": "20 aprile 2026",
+    "distribuzione": "Nexo Studios",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Barberini": {
+        "orari": [
+          "11:00",
+          "13:15"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 61,
+    "titolo": "GIORNI DI GLORIA",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "2.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.00"
+    },
+    "consigliato": "N.D.",
     "genere": [
       "Documentario"
     ],
     "paesi": [
       "Italia"
     ],
-    "anno": "2025",
-    "durata_minuti": 115,
-    "trama": "I preparativi di un paramento simbolico: un film che offre l'occasione di abbandonare i ritmi frenetici",
+    "anno": "1945",
+    "durata_minuti": 70,
+    "trama": "N.D.",
     "regia": [
-      "Massimiliano Camaiti (II)"
+      "Giuseppe De Santis",
+      "Luchino Visconti",
+      "Marcello Pagliero",
+      "Mario Serandrei"
     ],
     "cast": [],
-    "uscita": "20 aprile 2026",
-    "distribuzione": "Kinèa Distribuzioni",
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Teatro Don Bosco": {
+      "Casa del Cinema": {
         "orari": [
-          "16:00"
+          "20:00"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 57,
-    "titolo": "O QUE ARDE - VERRÀ IL FUOCO",
+    "scheda": 62,
+    "titolo": "LIMITE",
     "valutazioni": {
-      "MYMONETRO": "3.43",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.61",
-      "PUBBLICO": "3.18"
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.00"
     },
-    "consigliato": "SI",
+    "consigliato": "N.D.",
     "genere": [
       "Drammatico"
     ],
     "paesi": [
-      "Spagna"
+      "Brasile"
     ],
-    "anno": "2019",
-    "durata_minuti": 86,
-    "trama": "Memorabili suggestioni nel film che ha fatto esplodere il talento anarchico di Laxe",
+    "anno": "1931",
+    "durata_minuti": 120,
+    "trama": "N.D.",
     "regia": [
-      "Oliver Laxe"
+      "Mario Peixoto"
     ],
     "cast": [
-      "Amador Arias",
-      "Benedicta Sánchez",
-      "Inazio Abrao",
-      "Elena Mar Fernández"
+      "Raul Schnoor",
+      "Brutus Pedreira",
+      "Olga Breno",
+      "Tatiana Rey",
+      "Carmen Santos"
     ],
-    "uscita": "9 aprile 2026",
-    "distribuzione": "ExitMedia",
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Azzurro Scipioni": {
-        "orari": [
-          "17:15"
-        ],
-        "orari_vo": []
+      "CINEMA Troisi": {
+        "orari": [],
+        "orari_vo": [
+          "11:00"
+        ]
       }
     }
   },
   {
-    "scheda": 58,
+    "scheda": 63,
     "titolo": "GLI ULTIMI GIORNI DEL PARADISO",
     "valutazioni": {
       "MYMONETRO": "2.70",
@@ -4226,13 +4612,13 @@
     "cinema_orari": {
       "Azzurro Scipioni": {
         "orari": [
-          "19:00"
+          "14:45"
         ],
         "orari_vo": []
       },
       "CINEMA Dei Piccoli": {
         "orari": [
-          "20:45"
+          "21:15"
         ],
         "orari_vo": []
       },
@@ -4245,8 +4631,8 @@
     }
   },
   {
-    "scheda": 59,
-    "titolo": "L'ACQUA NON È MAI FERMA",
+    "scheda": 64,
+    "titolo": "BLUEY AL CINEMA: COLLEZIONE DIVERTIRSI CON GLI AMICI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
       "MYMOVIES.IT": "N.D.",
@@ -4255,32 +4641,62 @@
     },
     "consigliato": "N.D.",
     "genere": [
-      "Noir"
+      "Animazione"
     ],
-    "paesi": [
-      "Italia"
-    ],
-    "anno": "2025",
-    "durata_minuti": 73,
-    "trama": "N.D.",
+    "paesi": [],
+    "anno": "2026",
+    "durata_minuti": "N.D.",
+    "trama": "Giornate Straordinarie con Bluey e Bingo: Avventure e Amicizia",
     "regia": [
-      "Roberto Mariotti"
+      "Joe Brumm"
     ],
-    "cast": [
-      "Elena Arvigo",
-      "Stefano Fresi",
-      "Toni Garrani"
-    ],
-    "uscita": "30 marzo 2026",
-    "distribuzione": "Zoorama",
+    "cast": [],
+    "uscita": "26 marzo 2026",
+    "distribuzione": "Agenzia Cinema",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Azzurro Scipioni": {
+      "The Space Parco de Medici": {
         "orari": [
-          "21:00"
+          "11:15"
         ],
         "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 65,
+    "titolo": "ONE OK ROCK DETOX JAPAN TOUR AT NISSAN STADIUM 2025",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Documentario"
+    ],
+    "paesi": [
+      "Giappone"
+    ],
+    "anno": "2026",
+    "durata_minuti": 120,
+    "trama": "N.D.",
+    "regia": [
+      "Naoto Amazutsumi"
+    ],
+    "cast": [],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "The Space Parco de Medici": {
+        "orari": [],
+        "orari_vo": [
+          "15:05"
+        ]
       }
     }
   }

@@ -74,6 +74,60 @@
     table { width: 100%; min-width: 980px; border-collapse: separate; border-spacing: 0; font-size: 14px; }
     th, td { padding: 10px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
     th { position: sticky; top: 0; background: var(--head); color: #27124d; text-align: center; }
+
+    th[aria-sort] {
+      padding: 0;
+    }
+    .sort-button {
+      width: 100%;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 0;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .sort-button:hover {
+      color: var(--accent);
+    }
+    .sort-button:focus-visible {
+      outline: 2px solid rgba(24, 32, 42, 0.18);
+      outline-offset: -2px;
+    }
+    .sort-label {
+      min-width: 0;
+    }
+    .sort-indicator {
+      flex: 0 0 auto;
+      width: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1;
+    }
+    th[aria-sort="none"] .sort-indicator::before {
+      content: "\2195";
+    }
+    th[aria-sort="ascending"] .sort-indicator::before {
+      content: "\25B2";
+      color: var(--accent);
+    }
+    th[aria-sort="descending"] .sort-indicator::before {
+      content: "\25BC";
+      color: var(--accent);
+    }
+    th[aria-sort="ascending"] .sort-button,
+    th[aria-sort="descending"] .sort-button {
+      color: var(--accent);
+    }
+
     td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(8) { text-align: center; white-space: nowrap; }
     td:nth-child(2) { min-width: 260px; font-weight: 700; }
     @media (max-width: 700px) {
@@ -94,7 +148,7 @@
   <main>
     <h1>Week-end Top20 Italia del 17/04/2026</h1>
     <p class="meta">Classifica dei maggiori incassi al Box Office italiano durante il week-end di venerdì 17 aprile 2026</p>
-    <p class="meta">Generata il 24/04/2026 17:13 - 20 film</p>
+    <p class="meta">Generata il 25/04/2026 05:47 - 20 film</p>
     <div class="toolbar">
       <div class="toolbar-nav">
         <a class="nav-link" href="index.html">Home</a>
@@ -109,50 +163,130 @@
     </div>
     <div class="table-wrap">
       <table id="boxoffice-table">
-        <thead><tr><th>POSIZIONE</th><th>TITOLO</th><th>INCASSO WEEKEND</th><th>INCASSO TOTALE</th><th>REGIA</th><th>GENERE</th><th>PAESI</th><th>ANNO</th><th>RELAZIONE</th><th>URL</th></tr></thead>
+        <thead><tr><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="0" data-sort-type="number"><span class="sort-label">POSIZIONE</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="1" data-sort-type="text"><span class="sort-label">TITOLO</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="2" data-sort-type="number"><span class="sort-label">INCASSO WEEKEND</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="3" data-sort-type="number"><span class="sort-label">INCASSO TOTALE</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="4" data-sort-type="text"><span class="sort-label">REGIA</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="5" data-sort-type="text"><span class="sort-label">GENERE</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="6" data-sort-type="text"><span class="sort-label">PAESI</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="7" data-sort-type="number"><span class="sort-label">ANNO</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="8" data-sort-type="text"><span class="sort-label">RELAZIONE</span><span class="sort-indicator" aria-hidden="true"></span></button></th><th scope="col" aria-sort="none"><button class="sort-button" type="button" data-column="9" data-sort-type="text"><span class="sort-label">URL</span><span class="sort-indicator" aria-hidden="true"></span></button></th></tr></thead>
         <tbody>
-<tr><td>1</td><td>Super Mario Galaxy - Il Film</td><td>1.397.302</td><td>12.745.770</td><td>Michael Jelenic, Aaron Horvath</td><td>Animazione</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/super-mario-galaxy-il-film/</td></tr>
-<tr><td>2</td><td>The Drama - Un Segreto è per Sempre</td><td>771.110</td><td>4.484.753</td><td>Kristoffer Borgli</td><td>Commedia</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/the-drama/</td></tr>
-<tr><td>3</td><td>Lee Cronin - La mummia</td><td>715.874</td><td>717.462</td><td>Lee Cronin</td><td>Horror</td><td>USA, Irlanda</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/lee-cronin-la-mummia/</td></tr>
-<tr><td>4</td><td>L&#x27;Ultima Missione - Project Hail Mary</td><td>285.613</td><td>4.728.783</td><td>Phil Lord, Christopher Miller</td><td>Fantascienza</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/lultima-missione-project-hail-mary/</td></tr>
-<tr><td>5</td><td>... che Dio perdona a tutti</td><td>222.496</td><td>1.515.528</td><td>Pif</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/che-dio-perdona-a-tutti/</td></tr>
-<tr><td>6</td><td>Bts - World Tour Arirang</td><td>191.191</td><td>473.674</td><td>Ha Jung-jae</td><td>Concerto</td><td>Corea del sud</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/bts-world-tour-arirang/</td></tr>
-<tr><td>7</td><td>Benvenuti in campagna</td><td>135.211</td><td>135.211</td><td>Giambattista Avellino</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/benvenuti-in-campagna/</td></tr>
-<tr><td>8</td><td>Cena di classe</td><td>130.801</td><td>1.885.288</td><td>Francesco Mandelli</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/cena-di-classe/</td></tr>
-<tr><td>9</td><td>Alla festa della rivoluzione</td><td>125.115</td><td>126.315</td><td>Arnaldo Catinari</td><td>Drammatico</td><td>Italia</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/alla-festa-della-rivoluzione/</td></tr>
-<tr><td>10</td><td>Il delitto del 3° piano</td><td>122.380</td><td>123.129</td><td>Rémi Bezançon</td><td>Commedia</td><td>Francia</td><td>2026</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2026/il-delitto-del-3-piano/</td></tr>
-<tr><td>11</td><td>Finchè morte non ci separi 2</td><td>90.038</td><td>477.236</td><td>Tyler Gillett, Matt Bettinelli-Olpin</td><td>Horror</td><td>USA</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/finche-morte-non-ci-separi-2/</td></tr>
-<tr><td>12</td><td>Lo straniero</td><td>80.501</td><td>469.703</td><td>François Ozon</td><td>Drammatico</td><td>Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/lo-straniero/</td></tr>
-<tr><td>13</td><td>Il caso 137</td><td>71.676</td><td>78.259</td><td>Dominik Moll</td><td>Thriller</td><td>Francia</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/il-caso-137/</td></tr>
-<tr><td>14</td><td>A cena con il dittatore</td><td>66.381</td><td>175.421</td><td>Manuel Gómez Pereira</td><td>Commedia</td><td>Spagna, Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/a-cena-con-il-dittatore/</td></tr>
-<tr><td>15</td><td>La salita</td><td>64.830</td><td>178.086</td><td>Massimiliano Gallo</td><td>Drammatico</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/la-salita/</td></tr>
-<tr><td>16</td><td>La donna più ricca del mondo</td><td>56.046</td><td>59.731</td><td>Thierry Klifa</td><td>Drammatico</td><td>Francia, Belgio</td><td>2025</td><td>In relazione al primo week-end di uscita</td><td>https://www.mymovies.it/film/2025/la-donna-piu-ricca-del-mondo/</td></tr>
-<tr><td>17</td><td>Un anno di scuola</td><td>38.693</td><td>159.698</td><td>Laura Samani</td><td>Drammatico</td><td>Italia, Francia</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/un-anno-di-scuola/</td></tr>
-<tr><td>18</td><td>È l&#x27;ultima battuta?</td><td>33.746</td><td>276.783</td><td>Bradley Cooper</td><td>Commedia</td><td>USA</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/e-lultima-battuta/</td></tr>
-<tr><td>19</td><td>Hamnet - Nel nome del figlio</td><td>24.594</td><td>4.193.827</td><td>Chloé Zhao</td><td>Drammatico</td><td>USA</td><td>2025</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2025/hamnet/</td></tr>
-<tr><td>20</td><td>Mi batte il corazon</td><td>24.422</td><td>932.386</td><td>Francesco Prisco</td><td>Commedia</td><td>Italia</td><td>2026</td><td>In relazione incasso totale</td><td>https://www.mymovies.it/film/2026/mi-batte-il-corazon/</td></tr>
+<tr><td data-sort-value="1">1</td><td data-sort-value="Super Mario Galaxy - Il Film">Super Mario Galaxy - Il Film</td><td data-sort-value="1397302">1.397.302</td><td data-sort-value="12745770">12.745.770</td><td data-sort-value="Michael Jelenic, Aaron Horvath">Michael Jelenic, Aaron Horvath</td><td data-sort-value="Animazione">Animazione</td><td data-sort-value="USA">USA</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/super-mario-galaxy-il-film/">https://www.mymovies.it/film/2026/super-mario-galaxy-il-film/</td></tr>
+<tr><td data-sort-value="2">2</td><td data-sort-value="The Drama - Un Segreto è per Sempre">The Drama - Un Segreto è per Sempre</td><td data-sort-value="771110">771.110</td><td data-sort-value="4484753">4.484.753</td><td data-sort-value="Kristoffer Borgli">Kristoffer Borgli</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="USA">USA</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/the-drama/">https://www.mymovies.it/film/2026/the-drama/</td></tr>
+<tr><td data-sort-value="3">3</td><td data-sort-value="Lee Cronin - La mummia">Lee Cronin - La mummia</td><td data-sort-value="715874">715.874</td><td data-sort-value="717462">717.462</td><td data-sort-value="Lee Cronin">Lee Cronin</td><td data-sort-value="Horror">Horror</td><td data-sort-value="USA, Irlanda">USA, Irlanda</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2026/lee-cronin-la-mummia/">https://www.mymovies.it/film/2026/lee-cronin-la-mummia/</td></tr>
+<tr><td data-sort-value="4">4</td><td data-sort-value="L&#x27;Ultima Missione - Project Hail Mary">L&#x27;Ultima Missione - Project Hail Mary</td><td data-sort-value="285613">285.613</td><td data-sort-value="4728783">4.728.783</td><td data-sort-value="Phil Lord, Christopher Miller">Phil Lord, Christopher Miller</td><td data-sort-value="Fantascienza">Fantascienza</td><td data-sort-value="USA">USA</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/lultima-missione-project-hail-mary/">https://www.mymovies.it/film/2026/lultima-missione-project-hail-mary/</td></tr>
+<tr><td data-sort-value="5">5</td><td data-sort-value="... che Dio perdona a tutti">... che Dio perdona a tutti</td><td data-sort-value="222496">222.496</td><td data-sort-value="1515528">1.515.528</td><td data-sort-value="Pif">Pif</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/che-dio-perdona-a-tutti/">https://www.mymovies.it/film/2026/che-dio-perdona-a-tutti/</td></tr>
+<tr><td data-sort-value="6">6</td><td data-sort-value="Bts - World Tour Arirang">Bts - World Tour Arirang</td><td data-sort-value="191191">191.191</td><td data-sort-value="473674">473.674</td><td data-sort-value="Ha Jung-jae">Ha Jung-jae</td><td data-sort-value="Concerto">Concerto</td><td data-sort-value="Corea del sud">Corea del sud</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/bts-world-tour-arirang/">https://www.mymovies.it/film/2026/bts-world-tour-arirang/</td></tr>
+<tr><td data-sort-value="7">7</td><td data-sort-value="Benvenuti in campagna">Benvenuti in campagna</td><td data-sort-value="135211">135.211</td><td data-sort-value="135211">135.211</td><td data-sort-value="Giambattista Avellino">Giambattista Avellino</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2026/benvenuti-in-campagna/">https://www.mymovies.it/film/2026/benvenuti-in-campagna/</td></tr>
+<tr><td data-sort-value="8">8</td><td data-sort-value="Cena di classe">Cena di classe</td><td data-sort-value="130801">130.801</td><td data-sort-value="1885288">1.885.288</td><td data-sort-value="Francesco Mandelli">Francesco Mandelli</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/cena-di-classe/">https://www.mymovies.it/film/2026/cena-di-classe/</td></tr>
+<tr><td data-sort-value="9">9</td><td data-sort-value="Alla festa della rivoluzione">Alla festa della rivoluzione</td><td data-sort-value="125115">125.115</td><td data-sort-value="126315">126.315</td><td data-sort-value="Arnaldo Catinari">Arnaldo Catinari</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2025/alla-festa-della-rivoluzione/">https://www.mymovies.it/film/2025/alla-festa-della-rivoluzione/</td></tr>
+<tr><td data-sort-value="10">10</td><td data-sort-value="Il delitto del 3° piano">Il delitto del 3° piano</td><td data-sort-value="122380">122.380</td><td data-sort-value="123129">123.129</td><td data-sort-value="Rémi Bezançon">Rémi Bezançon</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Francia">Francia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2026/il-delitto-del-3-piano/">https://www.mymovies.it/film/2026/il-delitto-del-3-piano/</td></tr>
+<tr><td data-sort-value="11">11</td><td data-sort-value="Finchè morte non ci separi 2">Finchè morte non ci separi 2</td><td data-sort-value="90038">90.038</td><td data-sort-value="477236">477.236</td><td data-sort-value="Tyler Gillett, Matt Bettinelli-Olpin">Tyler Gillett, Matt Bettinelli-Olpin</td><td data-sort-value="Horror">Horror</td><td data-sort-value="USA">USA</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/finche-morte-non-ci-separi-2/">https://www.mymovies.it/film/2026/finche-morte-non-ci-separi-2/</td></tr>
+<tr><td data-sort-value="12">12</td><td data-sort-value="Lo straniero">Lo straniero</td><td data-sort-value="80501">80.501</td><td data-sort-value="469703">469.703</td><td data-sort-value="François Ozon">François Ozon</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="Francia">Francia</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2025/lo-straniero/">https://www.mymovies.it/film/2025/lo-straniero/</td></tr>
+<tr><td data-sort-value="13">13</td><td data-sort-value="Il caso 137">Il caso 137</td><td data-sort-value="71676">71.676</td><td data-sort-value="78259">78.259</td><td data-sort-value="Dominik Moll">Dominik Moll</td><td data-sort-value="Thriller">Thriller</td><td data-sort-value="Francia">Francia</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2025/il-caso-137/">https://www.mymovies.it/film/2025/il-caso-137/</td></tr>
+<tr><td data-sort-value="14">14</td><td data-sort-value="A cena con il dittatore">A cena con il dittatore</td><td data-sort-value="66381">66.381</td><td data-sort-value="175421">175.421</td><td data-sort-value="Manuel Gómez Pereira">Manuel Gómez Pereira</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Spagna, Francia">Spagna, Francia</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2025/a-cena-con-il-dittatore/">https://www.mymovies.it/film/2025/a-cena-con-il-dittatore/</td></tr>
+<tr><td data-sort-value="15">15</td><td data-sort-value="La salita">La salita</td><td data-sort-value="64830">64.830</td><td data-sort-value="178086">178.086</td><td data-sort-value="Massimiliano Gallo">Massimiliano Gallo</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/la-salita/">https://www.mymovies.it/film/2026/la-salita/</td></tr>
+<tr><td data-sort-value="16">16</td><td data-sort-value="La donna più ricca del mondo">La donna più ricca del mondo</td><td data-sort-value="56046">56.046</td><td data-sort-value="59731">59.731</td><td data-sort-value="Thierry Klifa">Thierry Klifa</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="Francia, Belgio">Francia, Belgio</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione al primo week-end di uscita">In relazione al primo week-end di uscita</td><td data-sort-value="https://www.mymovies.it/film/2025/la-donna-piu-ricca-del-mondo/">https://www.mymovies.it/film/2025/la-donna-piu-ricca-del-mondo/</td></tr>
+<tr><td data-sort-value="17">17</td><td data-sort-value="Un anno di scuola">Un anno di scuola</td><td data-sort-value="38693">38.693</td><td data-sort-value="159698">159.698</td><td data-sort-value="Laura Samani">Laura Samani</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="Italia, Francia">Italia, Francia</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2025/un-anno-di-scuola/">https://www.mymovies.it/film/2025/un-anno-di-scuola/</td></tr>
+<tr><td data-sort-value="18">18</td><td data-sort-value="È l&#x27;ultima battuta?">È l&#x27;ultima battuta?</td><td data-sort-value="33746">33.746</td><td data-sort-value="276783">276.783</td><td data-sort-value="Bradley Cooper">Bradley Cooper</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="USA">USA</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2025/e-lultima-battuta/">https://www.mymovies.it/film/2025/e-lultima-battuta/</td></tr>
+<tr><td data-sort-value="19">19</td><td data-sort-value="Hamnet - Nel nome del figlio">Hamnet - Nel nome del figlio</td><td data-sort-value="24594">24.594</td><td data-sort-value="4193827">4.193.827</td><td data-sort-value="Chloé Zhao">Chloé Zhao</td><td data-sort-value="Drammatico">Drammatico</td><td data-sort-value="USA">USA</td><td data-sort-value="2025">2025</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2025/hamnet/">https://www.mymovies.it/film/2025/hamnet/</td></tr>
+<tr><td data-sort-value="20">20</td><td data-sort-value="Mi batte il corazon">Mi batte il corazon</td><td data-sort-value="24422">24.422</td><td data-sort-value="932386">932.386</td><td data-sort-value="Francesco Prisco">Francesco Prisco</td><td data-sort-value="Commedia">Commedia</td><td data-sort-value="Italia">Italia</td><td data-sort-value="2026">2026</td><td data-sort-value="In relazione incasso totale">In relazione incasso totale</td><td data-sort-value="https://www.mymovies.it/film/2026/mi-batte-il-corazon/">https://www.mymovies.it/film/2026/mi-batte-il-corazon/</td></tr>
         </tbody>
       </table>
     </div>
   </main>
   <script>
+
+    const table = document.getElementById("boxoffice-table");
     const searchInput = document.getElementById("table-search");
     const counter = document.getElementById("table-counter");
-    const rows = Array.from(document.querySelectorAll("#boxoffice-table tbody tr"));
+    const tbody = table.tBodies[0];
+    const headerCells = Array.from(table.querySelectorAll("thead th[aria-sort]"));
+    const sortButtons = Array.from(table.querySelectorAll("thead .sort-button"));
+    let sortState = { column: null, direction: "ascending" };
+
+    function allRows() {
+      return Array.from(tbody.rows);
+    }
+
+    function rowCountText(visible) {
+      return `${visible} di ${tbody.rows.length} film`;
+    }
+
+    function updateCounter(visible) {
+      counter.textContent = rowCountText(visible);
+    }
 
     function updateFilter() {
       const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
       let visible = 0;
-      for (const row of rows) {
+      for (const row of allRows()) {
         const matches = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
         row.hidden = !matches;
         if (matches) visible += 1;
       }
-      counter.textContent = `${visible} di ${rows.length} film`;
+      updateCounter(visible);
     }
 
-    searchInput.addEventListener("input", updateFilter);
+    function cellSortValue(row, columnIndex) {
+      const cell = row.cells[columnIndex];
+      if (!cell) {
+        return "";
+      }
+      return cell.dataset.sortValue ?? cell.textContent.trim();
+    }
+
+    function compareRows(rowA, rowB, columnIndex, sortType) {
+      const valueA = cellSortValue(rowA, columnIndex);
+      const valueB = cellSortValue(rowB, columnIndex);
+      if (sortType === "number") {
+        const numberA = Number(valueA);
+        const numberB = Number(valueB);
+        const hasNumberA = Number.isFinite(numberA);
+        const hasNumberB = Number.isFinite(numberB);
+        if (hasNumberA && hasNumberB && numberA !== numberB) {
+          return numberA - numberB;
+        }
+        if (hasNumberA !== hasNumberB) {
+          return hasNumberA ? -1 : 1;
+        }
+      }
+      return String(valueA).localeCompare(String(valueB), "it-IT", {
+        numeric: true,
+        sensitivity: "base",
+      });
+    }
+
+    function updateSortState(columnIndex, direction) {
+      for (const cell of headerCells) {
+        cell.setAttribute("aria-sort", "none");
+      }
+      headerCells[columnIndex].setAttribute("aria-sort", direction);
+      for (const button of sortButtons) {
+        button.setAttribute("aria-pressed", "false");
+      }
+      sortButtons[columnIndex].setAttribute("aria-pressed", "true");
+    }
+
+    function sortBy(columnIndex, sortType) {
+      const nextDirection =
+        sortState.column === columnIndex && sortState.direction === "ascending"
+          ? "descending"
+          : "ascending";
+      sortState = { column: columnIndex, direction: nextDirection };
+      const rows = allRows();
+      rows.sort((rowA, rowB) => {
+        const result = compareRows(rowA, rowB, columnIndex, sortType);
+        return nextDirection === "ascending" ? result : -result;
+      });
+      tbody.append(...rows);
+      updateSortState(columnIndex, nextDirection);
+      updateFilter();
+    }
+
+    for (const button of sortButtons) {
+      button.setAttribute("aria-pressed", "false");
+      button.addEventListener("click", () => {
+        sortBy(Number(button.dataset.column), button.dataset.sortType);
+      });
+    }
+
     updateFilter();
+
   </script>
 </body>
 </html>
