@@ -2,16 +2,17 @@ const API_BASE_URL = String(
       window.CFR_SITE_CONFIG?.API_BASE_URL || window.API_BASE_URL || "http://127.0.0.1:8000"
     ).replace(/\/+$/, "");
     const DEFAULT_CITY = "roma";
-    const CITY_LABELS = {
-      roma: "Roma",
-      milano: "Milano",
-      napoli: "Napoli",
-    };
+    const FALLBACK_CITIES = [
+      { city: "roma", city_label: "Roma" },
+      { city: "milano", city_label: "Milano" },
+      { city: "napoli", city_label: "Napoli" },
+    ];
     const titleElement = document.getElementById("ranking-title");
     const subtitleElement = document.getElementById("ranking-subtitle");
     const updatedElement = document.getElementById("ranking-updated");
     const statusElement = document.getElementById("api-status");
     const citySelect = document.getElementById("city-select");
+    const cityFilter = document.getElementById("city-filter");
     const table = document.getElementById("classifica-table");
     const searchInput = document.getElementById("table-search");
     const counter = document.getElementById("table-counter");
@@ -25,6 +26,8 @@ const API_BASE_URL = String(
       updated: updatedElement.textContent,
       rowsHtml: tbody.innerHTML,
     };
+    let cityCatalog = FALLBACK_CITIES;
+    let cityLabels = Object.fromEntries(FALLBACK_CITIES.map((city) => [city.city, city.city_label]));
     let activeCity = DEFAULT_CITY;
     let sortState = { column: null, direction: "ascending" };
 
@@ -43,6 +46,95 @@ const API_BASE_URL = String(
     function setStatus(message, kind = "") {
       statusElement.textContent = message;
       statusElement.className = `api-status ${kind}`.trim();
+    }
+
+    function normalizeCityItem(item) {
+      const city = String(item?.city || "").trim().toLocaleLowerCase("it-IT");
+      const cityLabel = String(item?.city_label || "").trim();
+      if (!city || !cityLabel) {
+        return null;
+      }
+      const normalized = {
+        city,
+        city_label: cityLabel,
+      };
+      const region = String(item?.region || "").trim();
+      const province = String(item?.province || "").trim();
+      if (region) normalized.region = region;
+      if (province && province !== cityLabel) normalized.province = province;
+      return normalized;
+    }
+
+    function cityOptionLabel(city) {
+      if (city.region) {
+        return `${city.city_label} (${city.region})`;
+      }
+      if (city.province) {
+        return `${city.city_label} (${city.province})`;
+      }
+      return city.city_label;
+    }
+
+    function refreshCityLabels() {
+      cityLabels = Object.fromEntries(cityCatalog.map((city) => [city.city, city.city_label]));
+    }
+
+    function renderCityOptions(query = "") {
+      const normalizedQuery = query.trim().toLocaleLowerCase("it-IT");
+      const activeValue = citySelect.value || activeCity || DEFAULT_CITY;
+      let visibleCities = cityCatalog.filter((city) => {
+        if (!normalizedQuery) {
+          return true;
+        }
+        return [city.city, city.city_label, city.region, city.province]
+          .filter(Boolean)
+          .join(" ")
+          .toLocaleLowerCase("it-IT")
+          .includes(normalizedQuery);
+      });
+      const activeCityItem = cityCatalog.find((city) => city.city === activeValue);
+      if (activeCityItem && !visibleCities.some((city) => city.city === activeCityItem.city)) {
+        visibleCities = [activeCityItem, ...visibleCities];
+      }
+      citySelect.innerHTML = visibleCities
+        .map((city) => `<option value="${escapeHtml(city.city)}">${escapeHtml(cityOptionLabel(city))}</option>`)
+        .join("");
+      citySelect.value = visibleCities.some((city) => city.city === activeValue)
+        ? activeValue
+        : DEFAULT_CITY;
+    }
+
+    function useCityCatalog(cities) {
+      const normalizedCities = cities.map(normalizeCityItem).filter(Boolean);
+      if (!normalizedCities.some((city) => city.city === DEFAULT_CITY)) {
+        normalizedCities.unshift(FALLBACK_CITIES[0]);
+      }
+      cityCatalog = normalizedCities.length ? normalizedCities : FALLBACK_CITIES;
+      refreshCityLabels();
+      renderCityOptions(cityFilter?.value || "");
+    }
+
+    async function loadCityCatalog() {
+      if (!API_BASE_URL) {
+        useCityCatalog(FALLBACK_CITIES);
+        return;
+      }
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/cities`, {
+          headers: { Accept: "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error(`API response ${response.status}`);
+        }
+        const payload = await response.json();
+        if (!Array.isArray(payload.cities)) {
+          throw new Error("Invalid city catalog");
+        }
+        useCityCatalog(payload.cities);
+      } catch (error) {
+        useCityCatalog(FALLBACK_CITIES);
+        setStatus("Catalogo citta non raggiungibile. Uso Roma, Milano e Napoli.", "warn");
+      }
     }
 
     function resetSortState() {
@@ -237,7 +329,7 @@ const API_BASE_URL = String(
     function renderApiRanking(payload) {
       const movies = Array.isArray(payload.movies) ? payload.movies : [];
       const city = payload.city || activeCity || DEFAULT_CITY;
-      const cityLabel = payload.city_label || CITY_LABELS[city] || city;
+      const cityLabel = payload.city_label || cityLabels[city] || city;
       const source = payload.metadata?.source || "api";
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
@@ -267,7 +359,7 @@ const API_BASE_URL = String(
     }
 
     async function loadCity(city) {
-      const cityLabel = CITY_LABELS[city] || city;
+      const cityLabel = cityLabels[city] || city;
       citySelect.disabled = true;
       setStatus(`Aggiornamento ${cityLabel}...`, "");
       try {
@@ -305,4 +397,11 @@ const API_BASE_URL = String(
       }
     });
 
+    if (cityFilter) {
+      cityFilter.addEventListener("input", () => {
+        renderCityOptions(cityFilter.value);
+      });
+    }
+
+    loadCityCatalog();
     updateFilter();

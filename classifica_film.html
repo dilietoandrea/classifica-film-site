@@ -95,6 +95,20 @@
       outline: 2px solid rgba(45, 108, 223, 0.24);
       border-color: var(--accent);
     }
+    .city-filter {
+      width: min(220px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .city-filter:focus {
+      outline: 2px solid rgba(45, 108, 223, 0.24);
+      border-color: var(--accent);
+    }
     .api-status {
       min-height: 24px;
       margin: -8px 0 14px;
@@ -237,6 +251,7 @@
         justify-content: stretch;
       }
       .city-select { width: 100%; }
+      .city-filter { width: 100%; }
       .search { width: 100%; }
       table { font-size: 13px; }
       th, td { padding: 8px 10px; }
@@ -258,6 +273,7 @@
       </div>
       <div class="toolbar-tools">
         <label class="field-label" for="city-select">Citta</label>
+        <input class="city-filter" id="city-filter" type="search" placeholder="Filtra citta" autocomplete="off">
         <select class="city-select" id="city-select">
           <option value="roma" selected>Roma</option>
           <option value="milano">Milano</option>
