@@ -30,6 +30,7 @@ const API_BASE_URL = String(
     let cityLabels = Object.fromEntries(FALLBACK_CITIES.map((city) => [city.city, city.city_label]));
     let activeCity = DEFAULT_CITY;
     let sortState = { column: null, direction: "ascending" };
+    let loadCityRequestId = 0;
 
     function allRows() {
       return Array.from(tbody.rows);
@@ -359,6 +360,7 @@ const API_BASE_URL = String(
     }
 
     async function loadCity(city) {
+      const requestId = ++loadCityRequestId;
       const cityLabel = cityLabels[city] || city;
       citySelect.disabled = true;
       setStatus(`Aggiornamento ${cityLabel}...`, "");
@@ -366,14 +368,16 @@ const API_BASE_URL = String(
         const response = await fetch(`${API_BASE_URL}/api/ranking?city=${encodeURIComponent(city)}`, {
           headers: { Accept: "application/json" },
         });
+        if (requestId !== loadCityRequestId) return;
         if (response.status === 429) {
           citySelect.value = activeCity;
-          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
+          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova più tardi.", "error");
           return;
         }
         if (response.status === 400) {
           try {
             const errorPayload = await response.json();
+            if (requestId !== loadCityRequestId) return;
             const errorDetail = errorPayload.detail || errorPayload;
             if (errorDetail.error_code === "ranking_not_available") {
               const message = errorDetail.message || `Classifica non disponibile per ${cityLabel}.`;
@@ -388,11 +392,15 @@ const API_BASE_URL = String(
           throw new Error(`API response ${response.status}`);
         }
         const payload = await response.json();
+        if (requestId !== loadCityRequestId) return;
         renderApiRanking(payload);
       } catch (error) {
+        if (requestId !== loadCityRequestId) return;
         restoreStaticFallback("API non raggiungibile. Mantengo i dati statici disponibili.", "warn");
       } finally {
-        citySelect.disabled = false;
+        if (requestId === loadCityRequestId) {
+          citySelect.disabled = false;
+        }
       }
     }
 
