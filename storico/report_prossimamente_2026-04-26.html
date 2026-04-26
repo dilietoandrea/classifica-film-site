@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confronto prossimamente</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --accent: #2d6cdf;
+      --accent-soft: #eaf2ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 44px;
+    }
+    header {
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(520px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+    .section-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .section-button:hover, .section-button:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .actions, .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .actions a, .summary-card {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .actions a:hover, .actions a:focus, .summary-card:hover, .summary-card:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .summary-card strong {
+      min-width: 28px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #10233f;
+      text-align: center;
+    }
+    .diff-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+      overflow: hidden;
+    }
+    summary {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    summary strong {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0;
+      padding: 0 16px 16px 34px;
+    }
+    li {
+      margin: 8px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .empty {
+      color: var(--muted);
+    }
+    li[hidden], .diff-section[hidden] {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+      }
+      h1 { font-size: 23px; }
+      summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Confronto prossimamente</h1>
+      <p class="meta">Generato il 26/04/2026 11:09</p>
+      <p class="meta">Precedente: prossimamente_2026-04-25.csv - Attuale: prossimamente_2026-04-26.csv</p>
+    </header>
+    <nav class="actions" aria-label="Collegamenti report">
+      <a href="../index.html">Home</a>
+      <a href="prossimamente_2026-04-25.csv">CSV precedente</a>
+      <a href="prossimamente_2026-04-26.csv">CSV attuale</a>
+    </nav>
+    <div class="toolbar">
+      <input class="search" id="diff-search" type="search" placeholder="Cerca nei cambi" autocomplete="off">
+      <label class="toggle">
+        <input id="toggle-unchanged" type="checkbox">
+        <span>Mostra invariati</span>
+      </label>
+      <button class="section-button" id="toggle-sections" type="button" aria-expanded="true">Chiudi sezioni</button>
+      <span class="counter" id="diff-counter"></span>
+    </div>
+    <nav class="summary-grid" aria-label="Sezioni">
+      <a class="summary-card" href="#section-0">
+        <span>Nuovi film in arrivo</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-1">
+        <span>Film non piu presenti</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-2">
+        <span>Cambi data uscita</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-3">
+        <span>Cambi distribuzione</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-4">
+        <span>Variazioni MYMONETRO</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-5">
+        <span>Invariati</span>
+        <strong>83</strong>
+      </a>
+    </nav>
+    <section>
+      <details class="diff-section" id="section-0" data-section-title="nuovi film in arrivo" open>
+        <summary>
+          <span>Nuovi film in arrivo</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-1" data-section-title="film non piu presenti" open>
+        <summary>
+          <span>Film non piu presenti</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-2" data-section-title="cambi data uscita" open>
+        <summary>
+          <span>Cambi data uscita</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-3" data-section-title="cambi distribuzione" open>
+        <summary>
+          <span>Cambi distribuzione</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-4" data-section-title="variazioni mymonetro" open>
+        <summary>
+          <span>Variazioni MYMONETRO</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-5" data-section-title="invariati" data-unchanged-section="true">
+        <summary>
+          <span>Invariati</span>
+          <strong data-count-label>83 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="suicide club: 27 aprile 2026 (cat people, 0,00)">SUICIDE CLUB: 27 aprile 2026 (Cat People, 0,00)</li>
+<li data-filter-text="the whispering star: 27 aprile 2026 (cat people, 3,04)">THE WHISPERING STAR: 27 aprile 2026 (Cat People, 3,04)</li>
+<li data-filter-text="un sacco bello: 27 aprile 2026 (cineteca di bologna, 3,33)">UN SACCO BELLO: 27 aprile 2026 (Cineteca di Bologna, 3,33)</li>
+<li data-filter-text="il diavolo veste prada 2: 29 aprile 2026 (walt disney, 0,00)">IL DIAVOLO VESTE PRADA 2: 29 aprile 2026 (Walt Disney, 0,00)</li>
+<li data-filter-text="ritorno al tratturo: 29 aprile 2026 (own air, 0,00)">RITORNO AL TRATTURO: 29 aprile 2026 (Own Air, 0,00)</li>
+<li data-filter-text="kokuho - il maestro di kabuki: 30 aprile 2026 (tucker film, 0,00)">KOKUHO - IL MAESTRO DI KABUKI: 30 aprile 2026 (Tucker Film, 0,00)</li>
+<li data-filter-text="l&#x27;oratore: 30 aprile 2026 (ahora! film, 0,00)">L&#x27;ORATORE: 30 aprile 2026 (Ahora! Film, 0,00)</li>
+<li data-filter-text="nel tepore del ballo: 30 aprile 2026 (01 distribution, 0,00)">NEL TEPORE DEL BALLO: 30 aprile 2026 (01 Distribution, 0,00)</li>
+<li data-filter-text="nino: 30 aprile 2026 (filmclub distribuzione, 3,75)">NINO: 30 aprile 2026 (Filmclub Distribuzione, 3,75)</li>
+<li data-filter-text="that time i got reincarnated as a slime - il film - le lacrime del mare azzurro: 30 aprile 2026 (crunchyroll, 0,00)">THAT TIME I GOT REINCARNATED AS A SLIME - IL FILM - LE LACRIME DEL MARE AZZURRO: 30 aprile 2026 (Crunchyroll, 0,00)</li>
+<li data-filter-text="yellow letters: 30 aprile 2026 (lucky red, 3,47)">YELLOW LETTERS: 30 aprile 2026 (Lucky Red, 3,47)</li>
+<li data-filter-text="eyes wide shut: 4 maggio 2026 (lucky red, 3,87)">EYES WIDE SHUT: 4 maggio 2026 (Lucky Red, 3,87)</li>
+<li data-filter-text="space jam: 4 maggio 2026 (warner bros italia, 2,65)">SPACE JAM: 4 maggio 2026 (Warner Bros Italia, 2,65)</li>
+<li data-filter-text="willie peyote - elegia sabauda: 4 maggio 2026 (wanted, 0,00)">WILLIE PEYOTE - ELEGIA SABAUDA: 4 maggio 2026 (Wanted, 0,00)</li>
+<li data-filter-text="l&#x27;amore sta bene su tutto: 6 maggio 2026 (piperfilm, 0,00)">L&#x27;AMORE STA BENE SU TUTTO: 6 maggio 2026 (PiperFilm, 0,00)</li>
+<li data-filter-text="mortal kombat ii: 6 maggio 2026 (warner bros italia, 0,00)">MORTAL KOMBAT II: 6 maggio 2026 (Warner Bros Italia, 0,00)</li>
+<li data-filter-text="the sea: 6 maggio 2026 (mescalito film, 0,00)">THE SEA: 6 maggio 2026 (Mescalito Film, 0,00)</li>
+<li data-filter-text="antartica - quasi una fiaba: 7 maggio 2026 (vision distribution, 0,00)">ANTARTICA - QUASI UNA FIABA: 7 maggio 2026 (Vision Distribution, 0,00)</li>
+<li data-filter-text="clara: 7 maggio 2026 (cineclub internazionale, 0,00)">CLARA: 7 maggio 2026 (Cineclub Internazionale, 0,00)</li>
+<li data-filter-text="dracula: 7 maggio 2026 (cat people, 2,96)">DRACULA: 7 maggio 2026 (Cat People, 2,96)</li>
+<li data-filter-text="il tempo è ancora nostro: 7 maggio 2026 (father&amp;son, 0,00)">IL TEMPO È ANCORA NOSTRO: 7 maggio 2026 (Father&amp;Son, 0,00)</li>
+<li data-filter-text="illusione: 7 maggio 2026 (01 distribution, 2,00)">ILLUSIONE: 7 maggio 2026 (01 Distribution, 2,00)</li>
+<li data-filter-text="manas - sorelle: 7 maggio 2026 (black light film, 3,70)">MANAS - SORELLE: 7 maggio 2026 (Black Light Film, 3,70)</li>
+<li data-filter-text="noi due sconosciuti: 7 maggio 2026 (teodora film, 0,00)">NOI DUE SCONOSCIUTI: 7 maggio 2026 (Teodora Film, 0,00)</li>
+<li data-filter-text="pecore sotto copertura: 7 maggio 2026 (eagle pictures, 0,00)">PECORE SOTTO COPERTURA: 7 maggio 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="un sogno italiano: 7 maggio 2026 (piano b distribuzioni, 0,00)">UN SOGNO ITALIANO: 7 maggio 2026 (Piano B Distribuzioni, 0,00)</li>
+<li data-filter-text="a qualcuno piace caldo: 11 maggio 2026 (cineteca di bologna, 4,30)">A QUALCUNO PIACE CALDO: 11 maggio 2026 (Cineteca di Bologna, 4,30)</li>
+<li data-filter-text="corpi mutanti: 11 maggio 2026 (lo scrittoio, 0,00)">CORPI MUTANTI: 11 maggio 2026 (Lo Scrittoio, 0,00)</li>
+<li data-filter-text="generazione fumetto: 11 maggio 2026 (valmyn, 0,00)">GENERAZIONE FUMETTO: 11 maggio 2026 (Valmyn, 0,00)</li>
+<li data-filter-text="gli spostati: 11 maggio 2026 (cineteca di bologna, 3,33)">GLI SPOSTATI: 11 maggio 2026 (Cineteca di Bologna, 3,33)</li>
+<li data-filter-text="gli uomini preferiscono le bionde: 11 maggio 2026 (cineteca di bologna, 0,00)">GLI UOMINI PREFERISCONO LE BIONDE: 11 maggio 2026 (Cineteca di Bologna, 0,00)</li>
+<li data-filter-text="millennium actress: 11 maggio 2026 (anime factory, 0,00)">MILLENNIUM ACTRESS: 11 maggio 2026 (Anime Factory, 0,00)</li>
+<li data-filter-text="quando la moglie è in vacanza: 11 maggio 2026 (cineteca di bologna, 3,75)">QUANDO LA MOGLIE È IN VACANZA: 11 maggio 2026 (Cineteca di Bologna, 3,75)</li>
+<li data-filter-text="3 chilometri alla fine del mondo: 13 maggio 2026 (academy two, 0,00)">3 CHILOMETRI ALLA FINE DEL MONDO: 13 maggio 2026 (Academy Two, 0,00)</li>
+<li data-filter-text="top gun: 13 maggio 2026 (eagle pictures, 3,04)">TOP GUN: 13 maggio 2026 (Eagle Pictures, 3,04)</li>
+<li data-filter-text="a pranzo la domenica: 14 maggio 2026 (ztv production, 0,00)">A PRANZO LA DOMENICA: 14 maggio 2026 (ZTV Production, 0,00)</li>
+<li data-filter-text="con la pioggia dentro: 14 maggio 2026 (openddb, 0,00)">CON LA PIOGGIA DENTRO: 14 maggio 2026 (OpenDDB, 0,00)</li>
+<li data-filter-text="e i figli dopo di loro: 14 maggio 2026 (fandango, 2,70)">E I FIGLI DOPO DI LORO: 14 maggio 2026 (Fandango, 2,70)</li>
+<li data-filter-text="franz: 14 maggio 2026 (movies inspired, 0,00)">FRANZ: 14 maggio 2026 (Movies Inspired, 0,00)</li>
+<li data-filter-text="hopper - il segreto della marmotta: 14 maggio 2026 (notorious pictures, 0,00)">HOPPER - IL SEGRETO DELLA MARMOTTA: 14 maggio 2026 (Notorious Pictures, 0,00)</li>
+<li data-filter-text="il principe della follia: 14 maggio 2026 (notorious pictures, 0,00)">IL PRINCIPE DELLA FOLLIA: 14 maggio 2026 (Notorious Pictures, 0,00)</li>
+<li data-filter-text="in the grey: 14 maggio 2026 (01 distribution, 0,00)">IN THE GREY: 14 maggio 2026 (01 Distribution, 0,00)</li>
+<li data-filter-text="iron maiden - burning ambition: 14 maggio 2026 (universal pictures, 0,00)">IRON MAIDEN - BURNING AMBITION: 14 maggio 2026 (Universal Pictures, 0,00)</li>
+<li data-filter-text="la festa è finita: 14 maggio 2026 (no.mad entertainment, 0,00)">LA FESTA È FINITA: 14 maggio 2026 (No.Mad Entertainment, 0,00)</li>
+<li data-filter-text="le tigri di mompracem: 14 maggio 2026 (movies inspired, 0,00)">LE TIGRI DI MOMPRACEM: 14 maggio 2026 (Movies Inspired, 0,00)</li>
+<li data-filter-text="maborosi - i bagliori dell&#x27;anima: 14 maggio 2026 (bim distribuzione, 0,00)">MABOROSI - I BAGLIORI DELL&#x27;ANIMA: 14 maggio 2026 (Bim Distribuzione, 0,00)</li>
+<li data-filter-text="manipulation: 14 maggio 2026 (mescalito film, 0,00)">MANIPULATION: 14 maggio 2026 (Mescalito Film, 0,00)</li>
+<li data-filter-text="mother mary: 14 maggio 2026 (i wonder pictures, 0,00)">MOTHER MARY: 14 maggio 2026 (I Wonder Pictures, 0,00)</li>
+<li data-filter-text="quasi grazia: 14 maggio 2026 (europictures, 0,00)">QUASI GRAZIA: 14 maggio 2026 (Europictures, 0,00)</li>
+<li data-filter-text="the lunch - a letter to america: 14 maggio 2026 (lo scrittoio, 0,00)">THE LUNCH - A LETTER TO AMERICA: 14 maggio 2026 (Lo Scrittoio, 0,00)</li>
+<li data-filter-text="top gun - maverick: 18 maggio 2026 (eagle pictures, 3,67)">TOP GUN - MAVERICK: 18 maggio 2026 (Eagle Pictures, 3,67)</li>
+<li data-filter-text="ryuichi sakamoto | opus: 19 maggio 2026 (nexo studios, 0,00)">RYUICHI SAKAMOTO | OPUS: 19 maggio 2026 (Nexo Studios, 0,00)</li>
+<li data-filter-text="star wars - the mandalorian and grogu: 20 maggio 2026 (walt disney, 0,00)">STAR WARS - THE MANDALORIAN AND GROGU: 20 maggio 2026 (Walt Disney, 0,00)</li>
+<li data-filter-text="aldair - cuore giallorosso: 21 maggio 2026 (nexo studios, 0,00)">ALDAIR - CUORE GIALLOROSSO: 21 maggio 2026 (Nexo Studios, 0,00)</li>
+<li data-filter-text="amarga navidad: 21 maggio 2026 (warner bros italia, 0,00)">AMARGA NAVIDAD: 21 maggio 2026 (Warner Bros Italia, 0,00)</li>
+<li data-filter-text="io non ti lascio solo: 21 maggio 2026 (filmclub distribuzione, 0,00)">IO NON TI LASCIO SOLO: 21 maggio 2026 (Filmclub Distribuzione, 0,00)</li>
+<li data-filter-text="obsession: 21 maggio 2026 (universal pictures, 0,00)">OBSESSION: 21 maggio 2026 (Universal Pictures, 0,00)</li>
+<li data-filter-text="passenger: 21 maggio 2026 (eagle pictures, 0,00)">PASSENGER: 21 maggio 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="king marracash: 25 maggio 2026 (adler entertainment, 0,00)">KING MARRACASH: 25 maggio 2026 (Adler Entertainment, 0,00)</li>
+<li data-filter-text="lucio fontana - the final cut: 25 maggio 2026 (nexo studios, 0,00)">LUCIO FONTANA - THE FINAL CUT: 25 maggio 2026 (Nexo Studios, 0,00)</li>
+<li data-filter-text="nobody knows - come si diventa adulti: 25 maggio 2026 (bim distribuzione, 3,36)">NOBODY KNOWS - COME SI DIVENTA ADULTI: 25 maggio 2026 (Bim Distribuzione, 3,36)</li>
+<li data-filter-text="backrooms: 27 maggio 2026 (i wonder pictures, 0,00)">BACKROOMS: 27 maggio 2026 (I Wonder Pictures, 0,00)</li>
+<li data-filter-text="hiedra: 27 maggio 2026 (mff - michael fantauzzi film, 0,00)">HIEDRA: 27 maggio 2026 (MFF - Michael Fantauzzi Film, 0,00)</li>
+<li data-filter-text="don&#x27;t let the sun: 28 maggio 2026 (trent film, 0,00)">DON&#x27;T LET THE SUN: 28 maggio 2026 (Trent Film, 0,00)</li>
+<li data-filter-text="hen - storia di una gallina: 28 maggio 2026 (officine ubu, 0,00)">HEN - STORIA DI UNA GALLINA: 28 maggio 2026 (Officine Ubu, 0,00)</li>
+<li data-filter-text="il regno di kensuke: 28 maggio 2026 (movies inspired, 0,00)">IL REGNO DI KENSUKE: 28 maggio 2026 (Movies Inspired, 0,00)</li>
+<li data-filter-text="innamorarsi e altre pessime idee: 28 maggio 2026 (01 distribution, 0,00)">INNAMORARSI E ALTRE PESSIME IDEE: 28 maggio 2026 (01 Distribution, 0,00)</li>
+<li data-filter-text="kill bill - the whole bloody affair: 28 maggio 2026 (plaion pictures, 0,00)">KILL BILL - THE WHOLE BLOODY AFFAIR: 28 maggio 2026 (Plaion Pictures, 0,00)</li>
+<li data-filter-text="l&#x27;amore che rimane: 28 maggio 2026 (movies inspired, 3,32)">L&#x27;AMORE CHE RIMANE: 28 maggio 2026 (Movies Inspired, 3,32)</li>
+<li data-filter-text="tuner - l&#x27;accordatore: 28 maggio 2026 (notorious pictures, 0,00)">TUNER - L&#x27;ACCORDATORE: 28 maggio 2026 (Notorious Pictures, 0,00)</li>
+<li data-filter-text="una donna e un bambino: 28 maggio 2026 (movies inspired, 0,00)">UNA DONNA E UN BAMBINO: 28 maggio 2026 (Movies Inspired, 0,00)</li>
+<li data-filter-text="masters of the universe: 4 giugno 2026 (eagle pictures, 0,00)">MASTERS OF THE UNIVERSE: 4 giugno 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="principessa mononoke: 4 giugno 2026 (lucky red, 3,92)">PRINCIPESSA MONONOKE: 4 giugno 2026 (Lucky Red, 3,92)</li>
+<li data-filter-text="arrapaho: 8 giugno 2026 (cineteca di bologna, 2,26)">ARRAPAHO: 8 giugno 2026 (Cineteca di Bologna, 2,26)</li>
+<li data-filter-text="scary movie: 10 giugno 2026 (eagle pictures, 0,00)">SCARY MOVIE: 10 giugno 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="disclosure day: 11 giugno 2026 (universal pictures, 0,00)">DISCLOSURE DAY: 11 giugno 2026 (Universal Pictures, 0,00)</li>
+<li data-filter-text="finding emily: 11 giugno 2026 (universal pictures, 0,00)">FINDING EMILY: 11 giugno 2026 (Universal Pictures, 0,00)</li>
+<li data-filter-text="orfano: 11 giugno 2026 (movies inspired, 0,00)">ORFANO: 11 giugno 2026 (Movies Inspired, 0,00)</li>
+<li data-filter-text="still walking - camminando in un giorno d&#x27;estate: 15 giugno 2026 (bim distribuzione, 0,00)">STILL WALKING - CAMMINANDO IN UN GIORNO D&#x27;ESTATE: 15 giugno 2026 (Bim Distribuzione, 0,00)</li>
+<li data-filter-text="era meglio domani: 18 giugno 2026 (minerva, 0,00)">ERA MEGLIO DOMANI: 18 giugno 2026 (Minerva, 0,00)</li>
+<li data-filter-text="il bacio della donna ragno: 18 giugno 2026 (eagle pictures, 0,00)">IL BACIO DELLA DONNA RAGNO: 18 giugno 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="ti auguro ogni bene: 18 giugno 2026 (notorious pictures, 0,00)">TI AUGURO OGNI BENE: 18 giugno 2026 (Notorious Pictures, 0,00)</li>
+<li data-filter-text="billie eilish - hit me hard and soft - the tour: n.d. (n.d., 0,00)">BILLIE EILISH - HIT ME HARD AND SOFT - THE TOUR: N.D. (N.D., 0,00)</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById("diff-search");
+    const toggleUnchanged = document.getElementById("toggle-unchanged");
+    const toggleSections = document.getElementById("toggle-sections");
+    const counter = document.getElementById("diff-counter");
+    const sections = Array.from(document.querySelectorAll(".diff-section"));
+
+    function countLabel(count) {
+      return count === 1 ? "1 voce" : `${count} voci`;
+    }
+
+    function visibleSectionsList() {
+      return sections.filter((section) => !section.hidden);
+    }
+
+    function updateSectionToggleLabel() {
+      const visibleSections = visibleSectionsList();
+      const allOpen = visibleSections.length > 0 && visibleSections.every((section) => section.open);
+      toggleSections.textContent = allOpen ? "Chiudi sezioni" : "Espandi sezioni";
+      toggleSections.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visibleRows = 0;
+      let totalRows = 0;
+      let visibleSections = 0;
+
+      for (const section of sections) {
+        const isUnchanged = section.dataset.unchangedSection === "true";
+        const showUnchanged = toggleUnchanged.checked || searchInput.value.trim();
+        if (isUnchanged && !showUnchanged) {
+          section.hidden = true;
+          continue;
+        }
+        const sectionTitle = section.dataset.sectionTitle || "";
+        const rows = Array.from(section.querySelectorAll("li:not(.empty)"));
+        const sectionMatches = !query || sectionTitle.includes(query);
+        let sectionVisibleRows = 0;
+        totalRows += rows.length;
+
+        for (const row of rows) {
+          const rowText = row.dataset.filterText || row.textContent.toLocaleLowerCase("it-IT");
+          const matches = sectionMatches || rowText.includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            sectionVisibleRows += 1;
+            visibleRows += 1;
+          }
+        }
+
+        const hasRows = rows.length > 0;
+        section.hidden = hasRows ? sectionVisibleRows === 0 : !sectionMatches;
+        if (!section.hidden) visibleSections += 1;
+        const count = query ? sectionVisibleRows : rows.length;
+        const label = section.querySelector("[data-count-label]");
+        if (label) label.textContent = countLabel(count);
+      }
+
+      counter.textContent = `${visibleRows} di ${totalRows} voci in ${visibleSections} sezioni`;
+      updateSectionToggleLabel();
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    toggleUnchanged.addEventListener("change", updateFilter);
+    toggleSections.addEventListener("click", () => {
+      const visibleSections = visibleSectionsList();
+      const shouldOpen = visibleSections.some((section) => !section.open);
+      for (const section of visibleSections) section.open = shouldOpen;
+      updateSectionToggleLabel();
+    });
+    for (const section of sections) section.addEventListener("toggle", updateSectionToggleLabel);
+    updateFilter();
+  </script>
+</body>
+</html>
