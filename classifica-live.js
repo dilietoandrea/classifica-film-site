@@ -358,30 +358,50 @@ const API_BASE_URL = String(
       setStatus(message, kind);
     }
 
-    async function loadCity(city) {
-      const cityLabel = cityLabels[city] || city;
-      citySelect.disabled = true;
-      setStatus(`Aggiornamento ${cityLabel}...`, "");
-      try {
-        const response = await fetch(`${API_BASE_URL}/api/ranking?city=${encodeURIComponent(city)}`, {
-          headers: { Accept: "application/json" },
-        });
-        if (response.status === 429) {
-          citySelect.value = activeCity;
-          setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
-          return;
-        }
-        if (!response.ok) {
-          throw new Error(`API response ${response.status}`);
-        }
-        const payload = await response.json();
-        renderApiRanking(payload);
-      } catch (error) {
-        restoreStaticFallback("API non raggiungibile. Mantengo i dati statici disponibili.", "warn");
-      } finally {
-        citySelect.disabled = false;
-      }
-    }
+	async function loadCity(city) {
+	  const cityLabel = cityLabels[city] || city;
+	  citySelect.disabled = true;
+	  setStatus(`Aggiornamento ${cityLabel}...`, "");
+
+	  try {
+		const response = await fetch(`${API_BASE_URL}/api/ranking?city=${encodeURIComponent(city)}`, {
+		  headers: { Accept: "application/json" },
+		});
+
+		if (response.status === 429) {
+		  citySelect.value = activeCity;
+		  setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova più tardi.", "error");
+		  return;
+		}
+
+		if (response.status === 400) {
+		  try {
+			const errorPayload = await response.json();
+			const errorDetail = errorPayload.detail || errorPayload;
+
+			if (errorDetail.error_code === "ranking_not_available") {
+			  const message = errorDetail.message || `Classifica non disponibile per ${cityLabel}.`;
+			  citySelect.value = activeCity;
+			  setStatus(`${message} (${cityLabel})`, "error");
+			  return;
+			}
+		  } catch (parseError) {
+			// Continue to generic error handling below.
+		  }
+		}
+
+		if (!response.ok) {
+		  throw new Error(`API response ${response.status}`);
+		}
+
+		const payload = await response.json();
+		renderApiRanking(payload);
+	  } catch (error) {
+		restoreStaticFallback("API non raggiungibile. Mantengo i dati statici disponibili.", "warn");
+	  } finally {
+		citySelect.disabled = false;
+	  }
+	}
 
     for (const button of sortButtons) {
       button.setAttribute("aria-pressed", "false");
