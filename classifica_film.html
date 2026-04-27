@@ -95,8 +95,13 @@
       outline: 2px solid rgba(45, 108, 223, 0.24);
       border-color: var(--accent);
     }
-    .city-filter {
+    .city-combobox-wrapper {
+      position: relative;
+      display: inline-block;
       width: min(220px, 100%);
+    }
+    .city-filter {
+      width: 100%;
       min-height: 42px;
       padding: 9px 12px;
       border: 1px solid var(--line);
@@ -108,6 +113,39 @@
     .city-filter:focus {
       outline: 2px solid rgba(45, 108, 223, 0.24);
       border-color: var(--accent);
+    }
+    .city-combobox-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 4px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(24, 32, 42, 0.1);
+      max-height: 320px;
+      overflow-y: auto;
+      z-index: 10;
+      display: none;
+    }
+    .city-combobox-results[aria-hidden="false"] {
+      display: block;
+    }
+    .city-result {
+      padding: 10px 12px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--line);
+      transition: background-color 0.15s ease;
+    }
+    .city-result:last-child {
+      border-bottom: none;
+    }
+    .city-result:hover, .city-result[aria-selected="true"] {
+      background: var(--head);
+    }
+    .city-result:active {
+      background: rgba(45, 108, 223, 0.1);
     }
     .api-status {
       min-height: 24px;
@@ -262,7 +300,7 @@
   <main>
     <h1 id="ranking-title">Classifica film - Roma</h1>
     <p class="meta" id="ranking-subtitle">Guida alla programmazione dei film in uscita nelle sale cinematografiche di Roma.</p>
-    <p class="meta" id="ranking-updated">Generata il 27/04/2026 18:19 - 58 film</p>
+    <p class="meta" id="ranking-updated">Generata il 27/04/2026 19:09 - 58 film</p>
     <p class="api-status" id="api-status" role="status" aria-live="polite">source: static</p>
     <div class="toolbar">
       <div class="toolbar-nav">
@@ -272,9 +310,12 @@
       <a class="nav-link" href="prossimamente.html">Prossimamente</a>
       </div>
       <div class="toolbar-tools">
-        <label class="field-label" for="city-select">Citta</label>
-        <input class="city-filter" id="city-filter" type="search" placeholder="Filtra citta" autocomplete="off">
-        <select class="city-select" id="city-select">
+        <label class="field-label" for="city-filter">Citta</label>
+        <div class="city-combobox-wrapper">
+          <input class="city-filter" id="city-filter" type="search" placeholder="Filtra citta" aria-expanded="false" aria-controls="city-combobox-results" role="combobox" autocomplete="off">
+          <div id="city-combobox-results" class="city-combobox-results" role="listbox" aria-label="Città disponibili" aria-hidden="true"></div>
+        </div>
+        <select class="city-select" id="city-select" style="display: none;">
           <option value="roma" selected>Roma</option>
           <option value="milano">Milano</option>
           <option value="napoli">Napoli</option>

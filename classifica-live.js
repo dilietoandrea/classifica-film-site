@@ -13,6 +13,7 @@ const API_BASE_URL = String(
     const statusElement = document.getElementById("api-status");
     const citySelect = document.getElementById("city-select");
     const cityFilter = document.getElementById("city-filter");
+    const comboboxResultsContainer = document.getElementById("city-combobox-results");
     const table = document.getElementById("classifica-table");
     const searchInput = document.getElementById("table-search");
     const counter = document.getElementById("table-counter");
@@ -32,6 +33,9 @@ const API_BASE_URL = String(
     let sortState = { column: null, direction: "ascending" };
     let loadCityRequestId = 0;
     let visibleCityOptions = [];
+    let highlightedCityIndex = -1;
+    let isCityListOpen = false;
+    const RESULTS_LIMIT = 10;
 
     function allRows() {
       return Array.from(tbody.rows);
@@ -82,8 +86,50 @@ const API_BASE_URL = String(
     }
 
     function renderCityOptions(query = "") {
+      renderCityResults(query);
+    }
+
+    function openCityResults() {
+      isCityListOpen = true;
+      cityFilter.setAttribute("aria-expanded", "true");
+      comboboxResultsContainer.setAttribute("aria-hidden", "false");
+      highlightedCityIndex = -1;
+    }
+
+    function closeCityResults() {
+      isCityListOpen = false;
+      cityFilter.setAttribute("aria-expanded", "false");
+      comboboxResultsContainer.setAttribute("aria-hidden", "true");
+      highlightedCityIndex = -1;
+      cityFilter.removeAttribute("aria-activedescendant");
+    }
+
+    function highlightCityResult(index) {
+      highlightedCityIndex = index;
+      const resultItems = comboboxResultsContainer.querySelectorAll("[role='option']");
+      resultItems.forEach((item, i) => {
+        item.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
+      if (index >= 0 && index < resultItems.length) {
+        resultItems[index].scrollIntoView({ block: "nearest" });
+        cityFilter.setAttribute("aria-activedescendant", resultItems[index].id);
+      } else {
+        cityFilter.removeAttribute("aria-activedescendant");
+      }
+    }
+
+    function selectCity(city) {
+      if (!city) return;
+      citySelect.value = city.city;
+      cityFilter.value = city.city_label;
+      closeCityResults();
+      if (city.city !== activeCity) {
+        loadCity(city.city);
+      }
+    }
+
+    function renderCityResults(query = "") {
       const normalizedQuery = query.trim().toLocaleLowerCase("it-IT");
-      const activeValue = citySelect.value || activeCity || DEFAULT_CITY;
       const matchingCities = cityCatalog.filter((city) => {
         if (!normalizedQuery) {
           return true;
@@ -95,19 +141,29 @@ const API_BASE_URL = String(
           .includes(normalizedQuery);
       });
       visibleCityOptions = matchingCities;
-      let visibleCities = [...matchingCities];
-      const activeCityItem = cityCatalog.find((city) => city.city === activeValue);
-      if (activeCityItem && !visibleCities.some((city) => city.city === activeCityItem.city)) {
-        visibleCities = [activeCityItem, ...visibleCities];
+      highlightedCityIndex = -1;
+      if (!matchingCities.length) {
+        comboboxResultsContainer.innerHTML = '<div role="option" class="city-result" style="cursor: default; pointer-events: none;">Nessuna città trovata</div>';
+        if (isCityListOpen) openCityResults();
+        return;
       }
-      citySelect.innerHTML = visibleCities.length
-        ? visibleCities
-            .map((city) => `<option value="${escapeHtml(city.city)}">${escapeHtml(cityOptionLabel(city))}</option>`)
-            .join("")
-        : '<option disabled>Nessuna città trovata</option>';
-      citySelect.value = visibleCities.some((city) => city.city === activeValue)
-        ? activeValue
-        : DEFAULT_CITY;
+      const limited = matchingCities.slice(0, RESULTS_LIMIT);
+      comboboxResultsContainer.innerHTML = limited
+        .map((city, index) => `<div id="city-result-${index}" role="option" class="city-result" data-city="${escapeHtml(city.city)}" aria-selected="false">${escapeHtml(cityOptionLabel(city))}</div>`)
+        .join("");
+      const resultItems = comboboxResultsContainer.querySelectorAll("[role='option'][data-city]");
+      resultItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const cityValue = item.getAttribute("data-city");
+          const selectedCity = cityCatalog.find((c) => c.city === cityValue);
+          if (selectedCity) selectCity(selectedCity);
+        });
+        item.addEventListener("mouseenter", () => {
+          const index = Array.from(resultItems).indexOf(item);
+          highlightCityResult(index);
+        });
+      });
+      if (isCityListOpen) openCityResults();
     }
 
     function selectBestFilteredCity() {
@@ -122,9 +178,8 @@ const API_BASE_URL = String(
       if (!chosen) {
         chosen = visibleCityOptions[0];
       }
-      if (chosen && chosen.city !== activeCity) {
-        citySelect.value = chosen.city;
-        loadCity(chosen.city);
+      if (chosen) {
+        selectCity(chosen);
       }
     }
 
@@ -450,16 +505,49 @@ const API_BASE_URL = String(
     });
 
     if (cityFilter) {
-      cityFilter.addEventListener("input", () => {
-        renderCityOptions(cityFilter.value);
+      cityFilter.addEventListener("focus", () => {
+        openCityResults();
+        renderCityResults(cityFilter.value);
+      });
+      cityFilter.addEventListener("input", (event) => {
+        renderCityResults(event.target.value);
+        if (!isCityListOpen) openCityResults();
       });
       cityFilter.addEventListener("keydown", (event) => {
+        if (!isCityListOpen && event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
         if (event.key === "Enter") {
           event.preventDefault();
-          selectBestFilteredCity();
+          if (highlightedCityIndex >= 0 && visibleCityOptions[highlightedCityIndex]) {
+            selectCity(visibleCityOptions[highlightedCityIndex]);
+          } else {
+            selectBestFilteredCity();
+          }
+        } else if (event.key === "ArrowDown") {
+          event.preventDefault();
+          if (!isCityListOpen) openCityResults();
+          const resultItems = comboboxResultsContainer.querySelectorAll("[role='option'][data-city]");
+          if (resultItems.length) {
+            highlightCityResult((highlightedCityIndex + 1) % resultItems.length);
+          }
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          if (!isCityListOpen) openCityResults();
+          const resultItems = comboboxResultsContainer.querySelectorAll("[role='option'][data-city]");
+          if (resultItems.length) {
+            highlightCityResult(highlightedCityIndex <= 0 ? resultItems.length - 1 : highlightedCityIndex - 1);
+          }
+        } else if (event.key === "Escape") {
+          event.preventDefault();
+          closeCityResults();
         }
       });
     }
+
+    document.addEventListener("click", (event) => {
+      if (cityFilter && comboboxResultsContainer && !cityFilter.contains(event.target) && !comboboxResultsContainer.contains(event.target)) {
+        closeCityResults();
+      }
+    });
 
     loadCityCatalog();
     updateFilter();
