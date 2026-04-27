@@ -31,6 +31,7 @@ const API_BASE_URL = String(
     let activeCity = DEFAULT_CITY;
     let sortState = { column: null, direction: "ascending" };
     let loadCityRequestId = 0;
+    let visibleCityOptions = [];
 
     function allRows() {
       return Array.from(tbody.rows);
@@ -83,7 +84,7 @@ const API_BASE_URL = String(
     function renderCityOptions(query = "") {
       const normalizedQuery = query.trim().toLocaleLowerCase("it-IT");
       const activeValue = citySelect.value || activeCity || DEFAULT_CITY;
-      let visibleCities = cityCatalog.filter((city) => {
+      const matchingCities = cityCatalog.filter((city) => {
         if (!normalizedQuery) {
           return true;
         }
@@ -93,16 +94,38 @@ const API_BASE_URL = String(
           .toLocaleLowerCase("it-IT")
           .includes(normalizedQuery);
       });
+      visibleCityOptions = matchingCities;
+      let visibleCities = [...matchingCities];
       const activeCityItem = cityCatalog.find((city) => city.city === activeValue);
       if (activeCityItem && !visibleCities.some((city) => city.city === activeCityItem.city)) {
         visibleCities = [activeCityItem, ...visibleCities];
       }
-      citySelect.innerHTML = visibleCities
-        .map((city) => `<option value="${escapeHtml(city.city)}">${escapeHtml(cityOptionLabel(city))}</option>`)
-        .join("");
+      citySelect.innerHTML = visibleCities.length
+        ? visibleCities
+            .map((city) => `<option value="${escapeHtml(city.city)}">${escapeHtml(cityOptionLabel(city))}</option>`)
+            .join("")
+        : '<option disabled>Nessuna città trovata</option>';
       citySelect.value = visibleCities.some((city) => city.city === activeValue)
         ? activeValue
         : DEFAULT_CITY;
+    }
+
+    function selectBestFilteredCity() {
+      const query = cityFilter.value.trim().toLocaleLowerCase("it-IT");
+      if (!query || !visibleCityOptions.length) {
+        return;
+      }
+      let chosen = visibleCityOptions.find((city) =>
+        city.city.toLocaleLowerCase("it-IT") === query ||
+        city.city_label.toLocaleLowerCase("it-IT") === query
+      );
+      if (!chosen) {
+        chosen = visibleCityOptions[0];
+      }
+      if (chosen && chosen.city !== activeCity) {
+        citySelect.value = chosen.city;
+        loadCity(chosen.city);
+      }
     }
 
     function useCityCatalog(cities) {
@@ -429,6 +452,12 @@ const API_BASE_URL = String(
     if (cityFilter) {
       cityFilter.addEventListener("input", () => {
         renderCityOptions(cityFilter.value);
+      });
+      cityFilter.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          selectBestFilteredCity();
+        }
       });
     }
 
