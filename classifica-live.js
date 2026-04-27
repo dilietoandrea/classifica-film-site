@@ -408,6 +408,7 @@ const API_BASE_URL = String(
       } finally {
         if (requestId === loadCityRequestId) {
           citySelect.disabled = false;
+        }
       }
     }
 
