@@ -35,7 +35,6 @@ const API_BASE_URL = String(
     let visibleCityOptions = [];
     let highlightedCityIndex = -1;
     let isCityListOpen = false;
-    const RESULTS_LIMIT = 10;
 
     function allRows() {
       return Array.from(tbody.rows);
@@ -147,8 +146,7 @@ const API_BASE_URL = String(
         if (isCityListOpen) openCityResults();
         return;
       }
-      const limited = matchingCities.slice(0, RESULTS_LIMIT);
-      comboboxResultsContainer.innerHTML = limited
+      comboboxResultsContainer.innerHTML = matchingCities
         .map((city, index) => `<div id="city-result-${index}" role="option" class="city-result" data-city="${escapeHtml(city.city)}" aria-selected="false">${escapeHtml(cityOptionLabel(city))}</div>`)
         .join("");
       const resultItems = comboboxResultsContainer.querySelectorAll("[role='option'][data-city]");
