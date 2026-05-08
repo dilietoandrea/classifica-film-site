@@ -16,6 +16,7 @@ const API_BASE_URL = String(
     const comboboxResultsContainer = document.getElementById("city-combobox-results");
     const table = document.getElementById("classifica-table");
     const searchInput = document.getElementById("table-search");
+    const showtimeFilter = document.getElementById("showtime-filter");
     const counter = document.getElementById("table-counter");
     const tbody = table.tBodies[0];
     const headerCells = Array.from(table.querySelectorAll("thead th[aria-sort]"));
@@ -224,11 +225,39 @@ const API_BASE_URL = String(
       }
     }
 
+    function parseShowtimeMinutes(value) {
+      if (!value || value === "N.D.") {
+        return [];
+      }
+      const matches = String(value).matchAll(/\b([01]?\d|2[0-3])[:.]([0-5]\d)\b/g);
+      return Array.from(matches, (match) => Number(match[1]) * 60 + Number(match[2]));
+    }
+
+    function matchesShowtimeFilter(row, selectedFilter) {
+      if (!selectedFilter || selectedFilter === "all") {
+        return true;
+      }
+      const showtimes = parseShowtimeMinutes(row.dataset.showtimes || "");
+      if (!showtimes.length) {
+        return false;
+      }
+      return showtimes.some((minutes) => {
+        if (selectedFilter === "morning") return minutes < 12 * 60;
+        if (selectedFilter === "afternoon") return minutes >= 12 * 60 && minutes < 18 * 60;
+        if (selectedFilter === "evening") return minutes >= 18 * 60;
+        if (selectedFilter === "after-21") return minutes >= 21 * 60;
+        return true;
+      });
+    }
+
     function updateFilter() {
       const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      const selectedShowtimeFilter = showtimeFilter?.value || "all";
       let visible = 0;
       for (const row of allRows()) {
-        const matches = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
+        const matchesText = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
+        const matchesShowtime = matchesShowtimeFilter(row, selectedShowtimeFilter);
+        const matches = matchesText && matchesShowtime;
         row.hidden = !matches;
         if (matches) visible += 1;
       }
@@ -351,12 +380,14 @@ const API_BASE_URL = String(
 
     function movieRow(movie) {
       const valutazioni = movie.valutazioni || {};
-      const cinemaOrari = movie.cinema_orari || {};
+      const cinemaOrari = movie.cinema_orari && typeof movie.cinema_orari === "object" && !Array.isArray(movie.cinema_orari)
+        ? movie.cinema_orari
+        : {};
       const cinemaNames = Object.keys(cinemaOrari);
       const showtimes = Object.values(cinemaOrari).map(combineShowtimes);
       const rating = ratingToNumber(valutazioni["MYMONETRO"]);
       const duration = Number(movie.durata_minuti);
-      return "<tr>"
+      return `<tr data-showtimes="${escapeHtml(showtimes.join(" "))}">`
         + cellHtml(movie.titolo, displayValue(movie.titolo).toLocaleUpperCase("it-IT"))
         + cellHtml(formatRating(valutazioni["MYMONETRO"]), rating)
         + cellHtml(movie.consigliato)
@@ -494,6 +525,8 @@ const API_BASE_URL = String(
         sortBy(Number(button.dataset.column), button.dataset.sortType);
       });
     }
+
+    showtimeFilter?.addEventListener("change", updateFilter);
 
     citySelect.addEventListener("change", () => {
       const selectedCity = citySelect.value || DEFAULT_CITY;
