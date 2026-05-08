@@ -16,11 +16,15 @@ const API_BASE_URL = String(
     const comboboxResultsContainer = document.getElementById("city-combobox-results");
     const table = document.getElementById("classifica-table");
     const searchInput = document.getElementById("table-search");
-    const showtimeFilter = document.getElementById("showtime-filter");
+    const showtimeStart = document.getElementById("showtime-start");
+    const showtimeEnd = document.getElementById("showtime-end");
+    const showtimeReset = document.getElementById("showtime-reset");
     const counter = document.getElementById("table-counter");
     const tbody = table.tBodies[0];
     const headerCells = Array.from(table.querySelectorAll("thead th[aria-sort]"));
     const sortButtons = Array.from(table.querySelectorAll("thead .sort-button"));
+    const CINEMA_COLUMN_INDEX = 10;
+    const SHOWTIME_COLUMN_INDEX = 11;
     const staticSnapshot = {
       city: DEFAULT_CITY,
       title: titleElement.textContent,
@@ -225,42 +229,182 @@ const API_BASE_URL = String(
       }
     }
 
-    function parseShowtimeMinutes(value) {
-      if (!value || value === "N.D.") {
-        return [];
+    function parseHourSelect(value) {
+      const match = String(value || "").match(/^([01]?\d|2[0-3])(?::00)?$/);
+      if (!match) {
+        return null;
       }
-      const matches = String(value).matchAll(/\b([01]?\d|2[0-3])[:.]([0-5]\d)\b/g);
-      return Array.from(matches, (match) => Number(match[1]) * 60 + Number(match[2]));
+      return Number(match[1]) * 60;
     }
 
-    function matchesShowtimeFilter(row, selectedFilter) {
-      if (!selectedFilter || selectedFilter === "all") {
+    function currentShowtimeRange() {
+      const start = parseHourSelect(showtimeStart?.value);
+      const end = parseHourSelect(showtimeEnd?.value);
+      return {
+        start,
+        end,
+        active: start !== null || end !== null,
+      };
+    }
+
+    function showtimeInRange(minutes, range) {
+      if (!range.active) return true;
+      if (range.start !== null && range.end !== null) {
+        if (range.start <= range.end) {
+          return minutes >= range.start && minutes <= range.end;
+        }
+        return minutes >= range.start || minutes <= range.end;
+      }
+      if (range.start !== null) return minutes >= range.start;
+      if (range.end !== null) return minutes <= range.end;
+      return true;
+    }
+
+    function filteredShowtimeText(value, range) {
+      if (!value || value === "N.D.") {
+        return "";
+      }
+      const timePattern = /\b([01]?\d|2[0-3])[:.]([0-5]\d)\b/g;
+      const lines = String(value).split(/\n+/).map((line) => line.trim()).filter(Boolean);
+      const filteredLines = lines.map((line) => {
+        const parts = line.split("|").map((part) => part.trim()).filter(Boolean);
+        const filteredParts = parts.map((part) => {
+          const isVo = /^VO:\s*/i.test(part);
+          const matchingTimes = Array.from(part.matchAll(timePattern))
+            .filter((match) => showtimeInRange(Number(match[1]) * 60 + Number(match[2]), range))
+            .map((match) => match[0]);
+          if (!matchingTimes.length) {
+            return "";
+          }
+          return `${isVo ? "VO: " : ""}${matchingTimes.join(", ")}`;
+        }).filter(Boolean);
+        return filteredParts.join(" | ");
+      }).filter(Boolean);
+      return filteredLines.join("\n");
+    }
+
+    function parseShowtimeGroups(row) {
+      try {
+        const groups = JSON.parse(row.dataset.showtimeGroups || "[]");
+        if (!Array.isArray(groups)) {
+          return [];
+        }
+        return groups
+          .map((group) => ({
+            cinema: String(group?.cinema || "").trim(),
+            showtimes: String(group?.showtimes || "").trim(),
+          }))
+          .filter((group) => group.cinema || group.showtimes);
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function showtimeGroupsHtml(groups, field) {
+      if (!groups.length) {
+        return "N.D.";
+      }
+      return '<div class="showtime-groups">'
+        + groups.map((group, index) => (
+          `<div class="showtime-group" data-showtime-index="${index}">${escapeHtml(group[field] || "N.D.")}</div>`
+        )).join("\n")
+        + "</div>";
+    }
+
+    function showtimeCellHtml(groups, field, sortValue) {
+      return `<td data-sort-value="${escapeHtml(sortValue)}">${showtimeGroupsHtml(groups, field)}</td>`;
+    }
+
+    function showtimeGroupElements(cell) {
+      if (!cell || typeof cell.querySelectorAll !== "function") {
+        return [];
+      }
+      return Array.from(cell.querySelectorAll(".showtime-group"));
+    }
+
+    function elementHeight(element) {
+      if (element && typeof element.getBoundingClientRect === "function") {
+        return element.getBoundingClientRect().height;
+      }
+      return Number(element?.offsetHeight) || 0;
+    }
+
+    function syncShowtimeGroupHeights(row) {
+      const cinemaGroups = showtimeGroupElements(row.cells[CINEMA_COLUMN_INDEX]);
+      const showtimeGroups = showtimeGroupElements(row.cells[SHOWTIME_COLUMN_INDEX]);
+      for (const group of [...cinemaGroups, ...showtimeGroups]) {
+        if (group.style) {
+          group.style.minHeight = "";
+        }
+      }
+      const groupCount = Math.min(cinemaGroups.length, showtimeGroups.length);
+      for (let index = 0; index < groupCount; index += 1) {
+        const height = Math.max(elementHeight(cinemaGroups[index]), elementHeight(showtimeGroups[index]));
+        if (height > 0 && cinemaGroups[index].style && showtimeGroups[index].style) {
+          cinemaGroups[index].style.minHeight = `${height}px`;
+          showtimeGroups[index].style.minHeight = `${height}px`;
+        }
+      }
+    }
+
+    function syncVisibleShowtimeGroupHeights() {
+      for (const row of allRows()) {
+        if (!row.hidden) {
+          syncShowtimeGroupHeights(row);
+        }
+      }
+    }
+
+    function renderShowtimeGroups(row, groups) {
+      const cinemaCell = row.cells[CINEMA_COLUMN_INDEX];
+      const showtimeCell = row.cells[SHOWTIME_COLUMN_INDEX];
+      if (!cinemaCell || !showtimeCell) {
         return true;
       }
-      const showtimes = parseShowtimeMinutes(row.dataset.showtimes || "");
-      if (!showtimes.length) {
-        return false;
-      }
-      return showtimes.some((minutes) => {
-        if (selectedFilter === "morning") return minutes < 12 * 60;
-        if (selectedFilter === "afternoon") return minutes >= 12 * 60 && minutes < 18 * 60;
-        if (selectedFilter === "evening") return minutes >= 18 * 60;
-        if (selectedFilter === "after-21") return minutes >= 21 * 60;
+      cinemaCell.innerHTML = showtimeGroupsHtml(groups, "cinema");
+      showtimeCell.innerHTML = showtimeGroupsHtml(groups, "showtimes");
+      return groups.length > 0;
+    }
+
+    function updateShowtimeCells(row, range) {
+      const groups = parseShowtimeGroups(row);
+      if (!range.active) {
+        renderShowtimeGroups(row, groups);
         return true;
-      });
+      }
+      const filteredGroups = groups
+        .map((group) => ({
+          cinema: group.cinema,
+          showtimes: filteredShowtimeText(group.showtimes, range),
+        }))
+        .filter((group) => group.showtimes);
+      renderShowtimeGroups(row, filteredGroups);
+      return filteredGroups.length > 0;
+    }
+
+    function matchesShowtimeFilter(row, range) {
+      return updateShowtimeCells(row, range);
+    }
+
+    function rowMatchesText(row, query) {
+      if (!query) {
+        return true;
+      }
+      return row.textContent.toLocaleLowerCase("it-IT").includes(query);
     }
 
     function updateFilter() {
       const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
-      const selectedShowtimeFilter = showtimeFilter?.value || "all";
+      const showtimeRange = currentShowtimeRange();
       let visible = 0;
       for (const row of allRows()) {
-        const matchesText = !query || row.textContent.toLocaleLowerCase("it-IT").includes(query);
-        const matchesShowtime = matchesShowtimeFilter(row, selectedShowtimeFilter);
+        const matchesShowtime = matchesShowtimeFilter(row, showtimeRange);
+        const matchesText = rowMatchesText(row, query);
         const matches = matchesText && matchesShowtime;
         row.hidden = !matches;
         if (matches) visible += 1;
       }
+      syncVisibleShowtimeGroupHeights();
       updateCounter(visible);
     }
 
@@ -378,16 +522,26 @@ const API_BASE_URL = String(
       return `<td data-sort-value="${escapeHtml(sortValue)}">${escapeHtml(text).replace(/\n/g, "<br>")}</td>`;
     }
 
+    function showtimeGroupsFromCinemaOrari(cinemaOrari) {
+      return Object.entries(cinemaOrari)
+        .map(([cinema, showtimeInfo]) => ({
+          cinema,
+          showtimes: combineShowtimes(showtimeInfo),
+        }))
+        .filter((group) => group.showtimes && group.showtimes !== "N.D.");
+    }
+
     function movieRow(movie) {
       const valutazioni = movie.valutazioni || {};
       const cinemaOrari = movie.cinema_orari && typeof movie.cinema_orari === "object" && !Array.isArray(movie.cinema_orari)
         ? movie.cinema_orari
         : {};
-      const cinemaNames = Object.keys(cinemaOrari);
-      const showtimes = Object.values(cinemaOrari).map(combineShowtimes);
+      const showtimeGroups = showtimeGroupsFromCinemaOrari(cinemaOrari);
+      const cinemaNames = showtimeGroups.map((group) => group.cinema);
+      const showtimes = showtimeGroups.map((group) => group.showtimes);
       const rating = ratingToNumber(valutazioni["MYMONETRO"]);
       const duration = Number(movie.durata_minuti);
-      return `<tr data-showtimes="${escapeHtml(showtimes.join(" "))}">`
+      return `<tr data-showtime-groups="${escapeHtml(JSON.stringify(showtimeGroups))}">`
         + cellHtml(movie.titolo, displayValue(movie.titolo).toLocaleUpperCase("it-IT"))
         + cellHtml(formatRating(valutazioni["MYMONETRO"]), rating)
         + cellHtml(movie.consigliato)
@@ -398,8 +552,8 @@ const API_BASE_URL = String(
         + cellHtml(movie.trama)
         + cellHtml(joinValues(movie.regia))
         + cellHtml(joinValues(movie.cast))
-        + cellHtml(cinemaNames.length ? cinemaNames.join("\n") : "N.D.", cinemaNames.join(" "))
-        + cellHtml(showtimes.length ? showtimes.join("\n") : "N.D.", showtimes.join(" "))
+        + showtimeCellHtml(showtimeGroups, "cinema", cinemaNames.join(" "))
+        + showtimeCellHtml(showtimeGroups, "showtimes", showtimes.join(" "))
         + "</tr>";
     }
 
@@ -526,7 +680,16 @@ const API_BASE_URL = String(
       });
     }
 
-    showtimeFilter?.addEventListener("change", updateFilter);
+    showtimeStart?.addEventListener("change", updateFilter);
+    showtimeEnd?.addEventListener("change", updateFilter);
+    showtimeReset?.addEventListener("click", () => {
+      if (showtimeStart) showtimeStart.value = "";
+      if (showtimeEnd) showtimeEnd.value = "";
+      updateFilter();
+    });
+    if (typeof window.addEventListener === "function") {
+      window.addEventListener("resize", syncVisibleShowtimeGroupHeights);
+    }
 
     citySelect.addEventListener("change", () => {
       const selectedCity = citySelect.value || DEFAULT_CITY;
