@@ -3,10 +3,10 @@
     "scheda": 1,
     "titolo": "IL DIAVOLO VESTE PRADA 2",
     "valutazioni": {
-      "MYMONETRO": "2.86",
+      "MYMONETRO": "2.84",
       "MYMOVIES.IT": "3.00",
-      "CRITICA": "2.85",
-      "PUBBLICO": "2.72"
+      "CRITICA": "2.86",
+      "PUBBLICO": "2.67"
     },
     "consigliato": "SI",
     "genere": [
@@ -42,8 +42,7 @@
           "19:00",
           "20:20",
           "21:00",
-          "21:30",
-          "22:50"
+          "21:30"
         ],
         "orari_vo": []
       },
@@ -57,8 +56,11 @@
       },
       "CINEMA Andromeda": {
         "orari": [
+          "15:30",
           "16:30",
+          "17:45",
           "18:45",
+          "20:15",
           "21:20"
         ],
         "orari_vo": [
@@ -80,9 +82,8 @@
           "17:00",
           "18:00",
           "19:20",
-          "20:20",
-          "21:40",
-          "22:40"
+          "20:30",
+          "21:40"
         ],
         "orari_vo": []
       },
@@ -90,28 +91,27 @@
         "orari": [
           "11:30",
           "13:00",
-          "15:15",
-          "17:15",
-          "19:30",
-          "21:30",
-          "22:00"
+          "18:15",
+          "20:30"
         ],
         "orari_vo": [
           "11:00",
+          "11:30",
           "13:10",
           "14:00",
           "15:20",
           "16:15",
           "17:40",
-          "18:30",
-          "19:20",
+          "19:01",
           "19:50",
-          "21:00",
+          "20:45",
+          "21:30",
           "22:00"
         ]
       },
       "CINEMA Broadway": {
         "orari": [
+          "15:10",
           "17:20",
           "19:30",
           "21:40"
@@ -143,13 +143,13 @@
           "17:45",
           "18:30",
           "20:00",
-          "21:00",
-          "22:30"
+          "21:00"
         ],
         "orari_vo": []
       },
       "CINEMA Eden": {
         "orari": [
+          "10:30",
           "14:30",
           "16:45",
           "19:00",
@@ -159,6 +159,7 @@
       },
       "Eurcine Multisala": {
         "orari": [
+          "11:00",
           "16:00",
           "17:50",
           "18:30",
@@ -184,8 +185,9 @@
           "21:00"
         ],
         "orari_vo": [
+          "10:45",
           "16:45",
-          "18:30",
+          "18:31",
           "21:30"
         ]
       },
@@ -278,49 +280,57 @@
           "17:30",
           "18:30",
           "20:15",
-          "21:10",
-          "21:45"
+          "21:30"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "16:40",
-          "21:20"
+          "11:45",
+          "12:50",
+          "15:40",
+          "16:20",
+          "18:00",
+          "19:10",
+          "21:15",
+          "22:00"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
+          "11:00",
+          "11:15",
+          "12:00",
+          "12:40",
+          "13:10",
+          "13:35",
           "14:00",
-          "14:20",
-          "14:50",
+          "14:10",
+          "14:25",
           "15:00",
-          "15:25",
-          "15:40",
-          "16:10",
-          "16:40",
+          "15:30",
+          "16:05",
+          "16:20",
+          "16:30",
+          "16:45",
           "17:00",
-          "17:15",
-          "17:40",
+          "17:10",
+          "17:30",
           "18:00",
-          "18:25",
-          "18:35",
+          "18:30",
+          "18:40",
           "19:00",
-          "19:10",
-          "19:40",
+          "19:05",
+          "19:35",
+          "19:45",
           "20:00",
-          "20:15",
-          "20:40",
+          "20:30",
           "21:00",
-          "21:10",
           "21:30",
-          "22:15",
-          "22:40",
-          "22:50",
-          "23:00",
-          "23:35",
-          "23:55"
+          "21:40",
+          "22:00",
+          "22:25"
         ],
         "orari_vo": []
       },
@@ -340,20 +350,23 @@
           "18:30",
           "19:15",
           "20:00",
-          "21:00",
-          "22:30"
+          "21:00"
         ],
         "orari_vo": []
       },
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "15:30",
-          "21:00"
+          "13:15",
+          "18:30"
         ]
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:20",
+          "12:10",
+          "13:20",
+          "14:00",
           "14:40",
           "15:10",
           "16:00",
@@ -364,23 +377,19 @@
           "19:00",
           "19:30",
           "20:20",
-          "20:45",
           "21:30",
           "21:40",
           "22:00",
-          "22:20",
-          "23:10"
+          "22:20"
         ],
         "orari_vo": [
-          "14:00"
+          "12:40"
         ]
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:20",
           "11:20",
           "12:10",
-          "13:10",
           "14:40",
           "15:10",
           "16:00",
@@ -390,15 +399,14 @@
           "18:00",
           "18:50",
           "19:30",
-          "20:20",
+          "20:10",
           "20:50",
           "21:10",
           "21:20",
           "21:40",
           "22:00",
           "22:20",
-          "23:10",
-          "23:50"
+          "23:00"
         ],
         "orari_vo": [
           "12:40"
@@ -424,17 +432,15 @@
           "21:40",
           "22:00",
           "22:20",
-          "22:50",
-          "23:30"
+          "22:50"
         ],
-        "orari_vo": [
-          "12:40"
-        ]
+        "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
           "10:20",
           "11:20",
+          "12:10",
           "13:10",
           "14:00",
           "14:20",
@@ -459,12 +465,12 @@
     "scheda": 2,
     "titolo": "BILLIE EILISH - HIT ME HARD AND SOFT - THE TOUR",
     "valutazioni": {
-      "MYMONETRO": "N.D.",
+      "MYMONETRO": "4.34",
       "MYMOVIES.IT": "5.00",
-      "CRITICA": "N.D.",
+      "CRITICA": "3.67",
       "PUBBLICO": "N.D."
     },
-    "consigliato": "N.D.",
+    "consigliato": "ASSOLUTAMENTE SI",
     "genere": [
       "Documentario"
     ],
@@ -508,7 +514,6 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "11:00",
           "16:00",
           "18:00"
         ]
@@ -532,7 +537,7 @@
       "The Space Moderno": {
         "orari": [],
         "orari_vo": [
-          "19:35",
+          "19:30",
           "18:30"
         ]
       },
@@ -583,9 +588,9 @@
     "scheda": 3,
     "titolo": "ANTARTICA - QUASI UNA FIABA",
     "valutazioni": {
-      "MYMONETRO": "3.01",
+      "MYMONETRO": "2.98",
       "MYMOVIES.IT": "3.00",
-      "CRITICA": "2.71",
+      "CRITICA": "2.61",
       "PUBBLICO": "3.33"
     },
     "consigliato": "SI",
@@ -662,15 +667,14 @@
       },
       "CINEMA Savoy": {
         "orari": [
-          "15:30",
-          "21:45"
+          "15:30"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "15:05",
-          "20:45"
+          "15:55",
+          "21:10"
         ],
         "orari_vo": []
       }
@@ -680,9 +684,9 @@
     "scheda": 4,
     "titolo": "CLARA",
     "valutazioni": {
-      "MYMONETRO": "2.34",
+      "MYMONETRO": "2.38",
       "MYMOVIES.IT": "2.50",
-      "CRITICA": "2.17",
+      "CRITICA": "2.25",
       "PUBBLICO": "N.D."
     },
     "consigliato": "NI",
@@ -711,14 +715,14 @@
     "cinema_orari": {
       "Azzurro Scipioni": {
         "orari": [
-          "18:45"
+          "15:45"
         ],
         "orari_vo": []
       },
       "Delle Provincie": {
         "orari": [],
         "orari_vo": [
-          "18:00"
+          "21:00"
         ]
       }
     }
@@ -782,7 +786,7 @@
       },
       "CINEMA Broadway": {
         "orari": [
-          "15:00"
+          "16:00"
         ],
         "orari_vo": []
       },
@@ -822,26 +826,28 @@
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
           "15:30",
-          "19:35"
+          "21:45"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "14:00"
+          "13:50"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:25",
+          "13:30",
+          "14:20",
           "16:15",
-          "17:40"
+          "18:10"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:40",
           "14:30",
           "17:20",
           "19:20"
@@ -860,15 +866,13 @@
         "orari": [
           "11:40",
           "14:40",
-          "16:20",
-          "16:30"
+          "16:50"
         ],
         "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
-          "14:30",
-          "17:10"
+          "14:30"
         ],
         "orari_vo": []
       }
@@ -878,12 +882,12 @@
     "scheda": 6,
     "titolo": "MORTAL KOMBAT II",
     "valutazioni": {
-      "MYMONETRO": "N.D.",
+      "MYMONETRO": "2.69",
       "MYMOVIES.IT": "3.00",
-      "CRITICA": "N.D.",
+      "CRITICA": "2.38",
       "PUBBLICO": "N.D."
     },
-    "consigliato": "N.D.",
+    "consigliato": "NI",
     "genere": [
       "Azione",
       "Avventura",
@@ -913,8 +917,7 @@
         "orari": [
           "15:00",
           "17:40",
-          "20:20",
-          "22:50"
+          "20:20"
         ],
         "orari_vo": []
       },
@@ -959,27 +962,29 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "17:00",
+          "18:00",
           "21:50"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "15:40"
+          "15:00",
+          "22:15"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:50",
-          "16:25",
+          "15:15",
+          "18:15",
           "21:30"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:30",
           "14:25",
           "16:50",
           "18:45",
@@ -996,8 +1001,7 @@
           "18:30",
           "19:50",
           "21:00",
-          "22:30",
-          "23:30"
+          "22:30"
         ],
         "orari_vo": []
       },
@@ -1005,7 +1009,6 @@
         "orari": [
           "11:30",
           "14:10",
-          "16:50",
           "19:50",
           "22:30"
         ],
@@ -1014,7 +1017,8 @@
       "Uci Luce Maximo": {
         "orari": [
           "19:50",
-          "22:30"
+          "22:30",
+          "23:40"
         ],
         "orari_vo": []
       }
@@ -1024,9 +1028,9 @@
     "scheda": 7,
     "titolo": "THE DRAMA - UN SEGRETO È PER SEMPRE",
     "valutazioni": {
-      "MYMONETRO": "2.98",
+      "MYMONETRO": "2.97",
       "MYMOVIES.IT": "2.50",
-      "CRITICA": "3.48",
+      "CRITICA": "3.47",
       "PUBBLICO": "2.95"
     },
     "consigliato": "SI",
@@ -1062,12 +1066,19 @@
       "CINEMA Giulio Cesare": {
         "orari": [],
         "orari_vo": [
+          "11:00",
           "21:46"
         ]
       },
       "CINEMA Madison": {
         "orari": [
           "21:35"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "11:30"
         ],
         "orari_vo": []
       }
@@ -1077,10 +1088,10 @@
     "scheda": 8,
     "titolo": "MICHAEL",
     "valutazioni": {
-      "MYMONETRO": "3.39",
+      "MYMONETRO": "3.38",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "2.45",
-      "PUBBLICO": "4.21"
+      "PUBBLICO": "4.20"
     },
     "consigliato": "SI",
     "genere": [
@@ -1113,8 +1124,7 @@
           "17:45",
           "19:00",
           "20:30",
-          "21:40",
-          "22:45"
+          "21:40"
         ],
         "orari_vo": []
       },
@@ -1138,33 +1148,34 @@
       "CINEMA Antares": {
         "orari": [
           "16:30",
-          "19:00",
-          "22:30"
+          "19:00"
         ],
         "orari_vo": []
       },
       "CINEMA Atlantic": {
         "orari": [
-          "15:00",
-          "17:30",
+          "15:30",
+          "18:00",
           "19:10",
-          "20:00",
-          "21:30",
-          "22:30"
+          "20:30",
+          "21:30"
         ],
         "orari_vo": []
       },
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "12:50",
-          "14:40",
-          "17:00",
-          "21:45"
+          "11:30",
+          "14:00",
+          "15:50",
+          "18:20",
+          "19:15",
+          "22:00"
         ]
       },
       "CINEMA Broadway": {
         "orari": [
+          "14:45",
           "17:00",
           "19:15",
           "21:30"
@@ -1191,6 +1202,7 @@
       },
       "Eurcine Multisala": {
         "orari": [
+          "10:45",
           "16:45",
           "18:15",
           "19:10",
@@ -1201,11 +1213,10 @@
       },
       "CINEMA Giulio Cesare": {
         "orari": [
-          "16:31",
-          "19:00",
           "20:45"
         ],
         "orari_vo": [
+          "10:45",
           "21:30"
         ]
       },
@@ -1272,47 +1283,46 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "16:30",
-          "18:00",
-          "19:00",
-          "20:30",
-          "21:30"
+          "16:00",
+          "17:45",
+          "18:40",
+          "20:20",
+          "21:20"
         ],
         "orari_vo": []
       },
       "The Space Moderno": {
         "orari": [
-          "22:30"
+          "13:15",
+          "16:30",
+          "20:50"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:30",
-          "15:15",
-          "15:40",
-          "16:45",
-          "17:15",
+          "11:10",
+          "13:05",
+          "14:40",
+          "15:10",
+          "16:15",
+          "17:25",
           "17:50",
-          "18:15",
-          "18:40",
+          "18:25",
           "19:15",
           "19:45",
-          "20:30",
+          "20:10",
           "20:50",
           "21:25",
-          "21:50",
-          "22:00",
-          "23:05",
-          "23:30",
-          "23:45"
+          "21:40",
+          "22:25",
+          "22:55"
         ],
         "orari_vo": []
       },
       "CINEMA Tibur": {
         "orari": [
-          "15:30",
-          "17:50"
+          "15:30"
         ],
         "orari_vo": [
           "22:00"
@@ -1323,27 +1333,27 @@
           "16:30",
           "18:00",
           "19:00",
-          "21:30",
-          "22:30"
+          "21:30"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:05",
+          "12:00",
+          "13:00",
           "14:10",
           "15:30",
           "17:00",
           "18:30",
           "19:10",
-          "19:40",
           "20:00",
           "21:30",
           "22:10",
-          "22:40",
-          "23:20"
+          "22:40"
         ],
         "orari_vo": [
-          "16:20"
+          "19:40"
         ]
       },
       "Uci Cinemas Porta di Roma": {
@@ -1355,12 +1365,12 @@
           "17:00",
           "18:11",
           "18:20",
-          "19:05",
           "19:20",
           "20:00",
+          "20:20",
           "21:30",
           "22:10",
-          "23:40"
+          "22:50"
         ],
         "orari_vo": [
           "15:30"
@@ -1372,13 +1382,13 @@
           "13:00",
           "14:00",
           "15:30",
+          "16:20",
           "17:00",
           "18:30",
           "19:10",
           "20:00",
           "21:20",
-          "22:10",
-          "23:10"
+          "22:10"
         ],
         "orari_vo": []
       },
@@ -1390,8 +1400,7 @@
           "18:35",
           "20:00",
           "21:25",
-          "22:50",
-          "23:40"
+          "22:50"
         ],
         "orari_vo": []
       }
@@ -1401,12 +1410,12 @@
     "scheda": 9,
     "titolo": "ILLUSIONE",
     "valutazioni": {
-      "MYMONETRO": "2.04",
+      "MYMONETRO": "2.97",
       "MYMOVIES.IT": "2.50",
-      "CRITICA": "1.58",
-      "PUBBLICO": "N.D."
+      "CRITICA": "1.75",
+      "PUBBLICO": "4.67"
     },
-    "consigliato": "NI",
+    "consigliato": "SI",
     "genere": [
       "Drammatico"
     ],
@@ -1456,11 +1465,10 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "11:00",
           "14:00",
           "15:15",
-          "19:20",
-          "21:30"
+          "17:15",
+          "21:40"
         ],
         "orari_vo": []
       },
@@ -1474,6 +1482,7 @@
       },
       "CINEMA Eden": {
         "orari": [
+          "10:30",
           "14:45",
           "17:00",
           "19:15",
@@ -1483,6 +1492,7 @@
       },
       "CINEMA Giulio Cesare": {
         "orari": [
+          "10:45",
           "16:15",
           "18:30",
           "21:00"
@@ -1491,9 +1501,9 @@
       },
       "CINEMA Greenwich": {
         "orari": [
-          "16:30",
-          "18:45",
-          "21:00"
+          "17:30",
+          "19:30",
+          "21:30"
         ],
         "orari_vo": []
       },
@@ -1521,15 +1531,15 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "15:45",
-          "19:20"
+          "15:30",
+          "19:40"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "17:45",
-          "22:25"
+          "14:05",
+          "22:20"
         ],
         "orari_vo": []
       },
@@ -1542,7 +1552,6 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "16:25",
           "20:10"
         ],
         "orari_vo": []
@@ -1589,6 +1598,18 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "CINEMA Barberini": {
+        "orari": [
+          "11:00"
+        ],
+        "orari_vo": []
+      },
+      "CINEMA Giulio Cesare": {
+        "orari": [],
+        "orari_vo": [
+          "11:30"
+        ]
+      },
       "CINEMA Intrastevere": {
         "orari": [
           "17:15"
@@ -1597,6 +1618,7 @@
       },
       "CINEMA Tibur": {
         "orari": [
+          "17:50",
           "20:10"
         ],
         "orari_vo": []
@@ -1607,12 +1629,12 @@
     "scheda": 11,
     "titolo": "L'AMORE STA BENE SU TUTTO",
     "valutazioni": {
-      "MYMONETRO": "N.D.",
+      "MYMONETRO": "1.67",
       "MYMOVIES.IT": "1.50",
-      "CRITICA": "N.D.",
+      "CRITICA": "1.83",
       "PUBBLICO": "N.D."
     },
-    "consigliato": "N.D.",
+    "consigliato": "NO",
     "genere": [
       "Commedia"
     ],
@@ -1646,7 +1668,9 @@
       },
       "CINEMA Andromeda": {
         "orari": [
-          "17:30",
+          "15:45",
+          "17:45",
+          "19:30",
           "21:15"
         ],
         "orari_vo": []
@@ -1660,16 +1684,17 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "11:00",
-          "12:50",
-          "17:30",
+          "14:00",
+          "16:30",
           "20:10"
         ],
         "orari_vo": []
       },
       "CINEMA Broadway": {
         "orari": [
-          "15:10"
+          "18:00",
+          "19:40",
+          "21:20"
         ],
         "orari_vo": []
       },
@@ -1683,7 +1708,8 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "15:45",
+          "11:15",
+          "16:00",
           "18:10",
           "20:00"
         ],
@@ -1713,9 +1739,10 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
+          "16:00",
           "17:45",
           "19:45",
-          "21:30"
+          "21:00"
         ],
         "orari_vo": []
       },
@@ -1736,7 +1763,7 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "13:50",
-          "21:50"
+          "22:50"
         ],
         "orari_vo": []
       },
@@ -1753,9 +1780,9 @@
     "scheda": 12,
     "titolo": "NOI DUE SCONOSCIUTI",
     "valutazioni": {
-      "MYMONETRO": "3.00",
+      "MYMONETRO": "2.98",
       "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.00",
+      "CRITICA": "2.95",
       "PUBBLICO": "N.D."
     },
     "consigliato": "SI",
@@ -1788,7 +1815,7 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
-          "15:00",
+          "10:45",
           "17:00",
           "19:00",
           "21:30"
@@ -1868,6 +1895,7 @@
       },
       "CINEMA Eden": {
         "orari": [
+          "10:45",
           "15:30",
           "17:30",
           "19:45"
@@ -1876,6 +1904,7 @@
       },
       "Eurcine Multisala": {
         "orari": [
+          "11:15",
           "15:45",
           "17:40",
           "19:35"
@@ -1911,6 +1940,12 @@
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
           "15:30"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "11:30"
         ],
         "orari_vo": []
       }
@@ -1949,12 +1984,6 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Casa del Cinema": {
-        "orari": [
-          "20:30"
-        ],
-        "orari_vo": []
-      },
       "CINEMA Farnese": {
         "orari": [
           "15:15"
@@ -2054,13 +2083,14 @@
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
           "15:30",
-          "17:30"
+          "17:35"
         ],
         "orari_vo": []
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:05"
+          "11:10",
+          "13:40"
         ],
         "orari_vo": []
       },
@@ -2072,6 +2102,8 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:15",
+          "13:30",
           "14:15",
           "16:05",
           "17:10"
@@ -2081,7 +2113,6 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "10:40",
-          "11:50",
           "13:30",
           "14:20",
           "16:10",
@@ -2111,9 +2142,9 @@
     "scheda": 16,
     "titolo": "YELLOW LETTERS",
     "valutazioni": {
-      "MYMONETRO": "3.40",
+      "MYMONETRO": "3.44",
       "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.29",
+      "CRITICA": "3.37",
       "PUBBLICO": "N.D."
     },
     "consigliato": "SI",
@@ -2152,9 +2183,12 @@
         ]
       },
       "CINEMA Greenwich": {
-        "orari": [],
+        "orari": [
+          "16:30",
+          "19:00"
+        ],
         "orari_vo": [
-          "21:15"
+          "21:30"
         ]
       },
       "Nuovo Cinema Aquila": {
@@ -2230,25 +2264,13 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "23:50"
+          "11:30"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "23:00"
-        ],
-        "orari_vo": []
-      },
-      "Uci Cinemas Porta di Roma": {
-        "orari": [
-          "22:50"
-        ],
-        "orari_vo": []
-      },
-      "Uci Cinemas Roma Est": {
-        "orari": [
-          "23:50"
+          "22:45"
         ],
         "orari_vo": []
       }
@@ -2341,6 +2363,12 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "11:30"
+        ],
+        "orari_vo": []
+      },
       "Uci Cinemas Roma Est": {
         "orari": [
           "10:35"
@@ -2385,6 +2413,12 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "CINEMA Barberini": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
+      },
       "CINEMA Eden": {
         "orari": [
           "15:00",
@@ -2394,7 +2428,7 @@
       },
       "CINEMA Greenwich": {
         "orari": [
-          "18:30"
+          "16:00"
         ],
         "orari_vo": []
       },
@@ -2484,7 +2518,7 @@
     "cinema_orari": {
       "CINEMA Greenwich": {
         "orari": [
-          "16:15"
+          "15:45"
         ],
         "orari_vo": []
       },
@@ -2585,6 +2619,12 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "CINEMA Farnese": {
+        "orari": [],
+        "orari_vo": [
+          "21:00"
+        ]
+      },
       "CINEMA Madison": {
         "orari": [],
         "orari_vo": [
@@ -2603,48 +2643,6 @@
   },
   {
     "scheda": 25,
-    "titolo": "LE AQUILE DELLA REPUBBLICA",
-    "valutazioni": {
-      "MYMONETRO": "3.40",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "2.85",
-      "PUBBLICO": "3.84"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Svezia",
-      "Francia"
-    ],
-    "anno": "2025",
-    "durata_minuti": 127,
-    "trama": "Una fotografia dell'Egitto di oggi che intreccia sapientemente commedia, intrigo politico e denuncia esplicita",
-    "regia": [
-      "Tarik Saleh"
-    ],
-    "cast": [
-      "Fares Fares",
-      "Lyna Khoudri",
-      "Zineb Triki",
-      "Amr Waked"
-    ],
-    "uscita": "23 aprile 2026",
-    "distribuzione": "Movies Inspired",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Farnese": {
-        "orari": [
-          "17:00"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 26,
     "titolo": "DRACULA",
     "valutazioni": {
       "MYMONETRO": "2.75",
@@ -2682,8 +2680,7 @@
     "cinema_orari": {
       "Azzurro Scipioni": {
         "orari": [
-          "15:30",
-          "20:30"
+          "17:30"
         ],
         "orari_vo": []
       },
@@ -2696,18 +2693,19 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "18:00"
+          "15:30",
+          "21:00"
         ]
       }
     }
   },
   {
-    "scheda": 27,
+    "scheda": 26,
     "titolo": "MANAS - SORELLE",
     "valutazioni": {
-      "MYMONETRO": "4.04",
+      "MYMONETRO": "4.00",
       "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.63",
+      "CRITICA": "3.50",
       "PUBBLICO": "5.00"
     },
     "consigliato": "ASSOLUTAMENTE SI",
@@ -2740,17 +2738,11 @@
           "13:45",
           "18:00"
         ]
-      },
-      "CINEMA Troisi": {
-        "orari": [],
-        "orari_vo": [
-          "13:30"
-        ]
       }
     }
   },
   {
-    "scheda": 28,
+    "scheda": 27,
     "titolo": "IL TEMPO È ANCORA NOSTRO",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -2803,49 +2795,7 @@
     }
   },
   {
-    "scheda": 29,
-    "titolo": "FINCHÈ MORTE NON CI SEPARI 2",
-    "valutazioni": {
-      "MYMONETRO": "3.22",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "2.65",
-      "PUBBLICO": "4.00"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Horror"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "2026",
-    "durata_minuti": 108,
-    "trama": "Un sequel vivace e potenziato nei modi, nelle forme e nella quantità",
-    "regia": [
-      "Tyler Gillett",
-      "Matt Bettinelli-Olpin"
-    ],
-    "cast": [
-      "Samara Weaving",
-      "Kathryn Newton",
-      "Elijah Wood",
-      "Sarah Michelle Gellar"
-    ],
-    "uscita": "9 aprile 2026",
-    "distribuzione": "Walt Disney",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Uci Cinemas Parco Leonardo": {
-        "orari": [
-          "23:40"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 30,
+    "scheda": 28,
     "titolo": "L'ULTIMA MISSIONE - PROJECT HAIL MARY",
     "valutazioni": {
       "MYMONETRO": "3.27",
@@ -2884,8 +2834,15 @@
           "21:00"
         ]
       },
+      "The Space Parco de Medici": {
+        "orari": [
+          "12:15"
+        ],
+        "orari_vo": []
+      },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
+          "11:25",
           "15:50"
         ],
         "orari_vo": []
@@ -2899,7 +2856,7 @@
     }
   },
   {
-    "scheda": 31,
+    "scheda": 29,
     "titolo": "... CHE DIO PERDONA A TUTTI",
     "valutazioni": {
       "MYMONETRO": "3.02",
@@ -2953,7 +2910,7 @@
     }
   },
   {
-    "scheda": 32,
+    "scheda": 30,
     "titolo": "È L'ULTIMA BATTUTA?",
     "valutazioni": {
       "MYMONETRO": "3.72",
@@ -2985,6 +2942,12 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "CINEMA Farnese": {
+        "orari": [
+          "17:00"
+        ],
+        "orari_vo": []
+      },
       "CINEMA Madison": {
         "orari": [
           "19:25"
@@ -2994,7 +2957,7 @@
     }
   },
   {
-    "scheda": 33,
+    "scheda": 31,
     "titolo": "IL CASO 137",
     "valutazioni": {
       "MYMONETRO": "3.81",
@@ -3041,7 +3004,7 @@
     }
   },
   {
-    "scheda": 34,
+    "scheda": 32,
     "titolo": "THE LONG WALK",
     "valutazioni": {
       "MYMONETRO": "3.09",
@@ -3073,16 +3036,24 @@
     "vm": "V.M. 14",
     "consigli_visione": "N.D.",
     "cinema_orari": {
+      "The Space Parco de Medici": {
+        "orari": [
+          "11:20",
+          "13:50",
+          "23:25"
+        ],
+        "orari_vo": []
+      },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "23:30"
+          "22:50"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 35,
+    "scheda": 33,
     "titolo": "IL FIGLIO DEL DESERTO",
     "valutazioni": {
       "MYMONETRO": "2.50",
@@ -3128,7 +3099,9 @@
       },
       "The Space Parco de Medici": {
         "orari": [
-          "14:15"
+          "11:00",
+          "13:40",
+          "16:10"
         ],
         "orari_vo": []
       },
@@ -3141,50 +3114,7 @@
     }
   },
   {
-    "scheda": 36,
-    "titolo": "UN POETA",
-    "valutazioni": {
-      "MYMONETRO": "3.29",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.57",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "Colombia",
-      "Germania",
-      "Svezia"
-    ],
-    "anno": "2025",
-    "durata_minuti": 120,
-    "trama": "Simon Mesa Soto al secondo lungometraggio dirige una commedia amara sui sogni infranti e sul cinismo imperante",
-    "regia": [
-      "Simón Mesa Soto"
-    ],
-    "cast": [
-      "Ubeimar Rios",
-      "Rebeca Andrade",
-      "Guillermo Cardona",
-      "Alisson Correa"
-    ],
-    "uscita": "26 marzo 2026",
-    "distribuzione": "Cineclub Internazionale",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Barberini": {
-        "orari": [
-          "16:45"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 37,
+    "scheda": 34,
     "titolo": "MR. NOBODY AGAINST PUTIN - IL FILM CONTRO TUTTE LE GUERRE",
     "valutazioni": {
       "MYMONETRO": "3.57",
@@ -3218,11 +3148,23 @@
         "orari_vo": [
           "15:30"
         ]
+      },
+      "Quattro Fontane": {
+        "orari": [],
+        "orari_vo": [
+          "11:15"
+        ]
+      },
+      "Teatro Don Bosco": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": []
       }
     }
   },
   {
-    "scheda": 38,
+    "scheda": 35,
     "titolo": "LOVITA",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -3256,14 +3198,14 @@
     "cinema_orari": {
       "Delle Provincie": {
         "orari": [
-          "15:00"
+          "15:30"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 39,
+    "scheda": 36,
     "titolo": "HAMNET - NEL NOME DEL FIGLIO",
     "valutazioni": {
       "MYMONETRO": "3.80",
@@ -3293,10 +3235,10 @@
     "consigli_visione": "N.D.",
     "cinema_orari": {
       "Delle Provincie": {
-        "orari": [],
-        "orari_vo": [
-          "20:00"
-        ]
+        "orari": [
+          "18:30"
+        ],
+        "orari_vo": []
       },
       "CINEMA Madison": {
         "orari": [
@@ -3313,13 +3255,13 @@
     }
   },
   {
-    "scheda": 40,
+    "scheda": 37,
     "titolo": "LE CITTÀ DI PIANURA",
     "valutazioni": {
       "MYMONETRO": "3.39",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "3.70",
-      "PUBBLICO": "2.96"
+      "PUBBLICO": "2.98"
     },
     "consigliato": "SI",
     "genere": [
@@ -3348,9 +3290,10 @@
     "cinema_orari": {
       "CINEMA Giulio Cesare": {
         "orari": [
+          "11:00",
           "16:30",
-          "18:30",
-          "21:45"
+          "18:31",
+          "21:01"
         ],
         "orari_vo": []
       },
@@ -3358,22 +3301,60 @@
         "orari": [
           "17:00",
           "19:00",
-          "21:15"
+          "21:00"
         ],
         "orari_vo": []
       },
       "Quattro Fontane": {
         "orari": [
-          "17:01",
-          "19:01",
-          "21:01"
+          "17:00",
+          "19:00",
+          "21:00"
         ],
         "orari_vo": []
       }
     }
   },
   {
-    "scheda": 41,
+    "scheda": 38,
+    "titolo": "I CENTO PASSI",
+    "valutazioni": {
+      "MYMONETRO": "3.41",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.82"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2000",
+    "durata_minuti": 114,
+    "trama": "Un film di impegno civile che si ispira a fatti realmente accaduti",
+    "regia": [
+      "Drammatico",
+      "Italia",
+      "2000"
+    ],
+    "cast": [],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Palazzo San Lorenzo": {
+        "orari": [
+          "17:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 39,
     "titolo": "RENTAL FAMILY - NELLE VITE DEGLI ALTRI",
     "valutazioni": {
       "MYMONETRO": "3.85",
@@ -3408,6 +3389,7 @@
     "cinema_orari": {
       "Eurcine Multisala": {
         "orari": [
+          "11:15",
           "18:15"
         ],
         "orari_vo": []
@@ -3422,7 +3404,48 @@
     }
   },
   {
-    "scheda": 42,
+    "scheda": 40,
+    "titolo": "ROMANTICHE",
+    "valutazioni": {
+      "MYMONETRO": "3.15",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.78",
+      "PUBBLICO": "3.18"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2023",
+    "durata_minuti": 108,
+    "trama": "Un one woman show che mette in bella mostra il talento comico e camaleontico di Pilar Fogliati",
+    "regia": [
+      "Pilar Fogliati"
+    ],
+    "cast": [
+      "Pilar Fogliati",
+      "Barbora Bobulova",
+      "Claudia Lagona",
+      "Diane Fleri"
+    ],
+    "uscita": "23 febbraio 2023",
+    "distribuzione": "Vision Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +13",
+    "cinema_orari": {
+      "CINEMA The Cineclub": {
+        "orari": [
+          "20:15"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 41,
     "titolo": "GIOIA MIA",
     "valutazioni": {
       "MYMONETRO": "3.48",
@@ -3456,9 +3479,59 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
+          "10:45",
+          "15:00",
           "17:10",
           "19:10",
           "21:00"
+        ],
+        "orari_vo": []
+      },
+      "Eurcine Multisala": {
+        "orari": [
+          "11:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 42,
+    "titolo": "LA SIRENETTA",
+    "valutazioni": {
+      "MYMONETRO": "2.67",
+      "MYMOVIES.IT": "2.00",
+      "CRITICA": "3.38",
+      "PUBBLICO": "2.64"
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Musical",
+      "Avventura"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2023",
+    "durata_minuti": 135,
+    "trama": "La fiaba di Andersen torna in un live action con le canzoni del classico animato ma dalla durata eccessiva",
+    "regia": [
+      "Rob Marshall"
+    ],
+    "cast": [
+      "Halle Bailey",
+      "Mahmood",
+      "Jonah Hauer-King",
+      "Melissa McCarthy"
+    ],
+    "uscita": "24 maggio 2023",
+    "distribuzione": "Walt Disney",
+    "vm": "N.D.",
+    "consigli_visione": "Film per tutti",
+    "cinema_orari": {
+      "CINEMA Troisi": {
+        "orari": [
+          "11:00"
         ],
         "orari_vo": []
       }
@@ -3506,7 +3579,7 @@
       },
       "Teatro Don Bosco": {
         "orari": [
-          "18:00"
+          "15:45"
         ],
         "orari_vo": []
       }
@@ -3547,7 +3620,8 @@
     "cinema_orari": {
       "Teatro San Timoteo": {
         "orari": [
-          "21:00"
+          "15:30",
+          "18:30"
         ],
         "orari_vo": []
       }
@@ -3589,7 +3663,7 @@
       "CINEMA Greenwich": {
         "orari": [],
         "orari_vo": [
-          "20:30"
+          "21:15"
         ]
       },
       "CINEMA Mignon": {
@@ -3609,40 +3683,50 @@
   },
   {
     "scheda": 46,
-    "titolo": "IL SUONO DI UNA CADUTA",
+    "titolo": "ZOOTROPOLIS 2",
     "valutazioni": {
-      "MYMONETRO": "3.21",
-      "MYMOVIES.IT": "2.50",
-      "CRITICA": "3.63",
-      "PUBBLICO": "3.50"
+      "MYMONETRO": "3.65",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.54",
+      "PUBBLICO": "3.92"
     },
     "consigliato": "SI",
     "genere": [
-      "Drammatico"
+      "Animazione",
+      "Commedia",
+      "Family"
     ],
     "paesi": [
-      "Germania"
+      "USA"
     ],
     "anno": "2025",
-    "durata_minuti": 149,
-    "trama": "Un'opera ambiziosa che mette in scena la condizione femminile con un raffinato gusto compositivo e qualche vezzo",
+    "durata_minuti": 108,
+    "trama": "Un'irresistibile sarabanda di gag scatenate e comiche con vari livelli visivi di lettura",
     "regia": [
-      "Mascha Schilinski"
+      "Byron Howard",
+      "Rich Moore",
+      "Jared Bush"
     ],
     "cast": [
-      "Hanna Heckt",
-      "Greta Krämer",
-      "Filip Schnack",
-      "Helena Luer"
+      "Michela Giraud",
+      "Max Angioni",
+      "Matteo Martari",
+      "Alessandro Del Piero"
     ],
-    "uscita": "26 febbraio 2026",
-    "distribuzione": "I Wonder Pictures",
+    "uscita": "26 novembre 2025",
+    "distribuzione": "Walt Disney",
     "vm": "N.D.",
-    "consigli_visione": "N.D.",
+    "consigli_visione": "Film per tutti",
     "cinema_orari": {
-      "Teatro San Timoteo": {
+      "The Space Moderno": {
         "orari": [
-          "15:30"
+          "11:10"
+        ],
+        "orari_vo": []
+      },
+      "The Space Parco de Medici": {
+        "orari": [
+          "11:00"
         ],
         "orari_vo": []
       }
@@ -3650,6 +3734,47 @@
   },
   {
     "scheda": 47,
+    "titolo": "EFFETTO NOTTE",
+    "valutazioni": {
+      "MYMONETRO": "3.93",
+      "MYMOVIES.IT": "4.17",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.68"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Francia"
+    ],
+    "anno": "1973",
+    "durata_minuti": 115,
+    "trama": "Una delle pietre miliari della filmografia di François Truffaut e dell'intera storia del cinema",
+    "regia": [
+      "François Truffaut"
+    ],
+    "cast": [
+      "Jacqueline Bisset",
+      "François Truffaut",
+      "Valentina Cortese",
+      "Jean-Pierre Aumont"
+    ],
+    "uscita": "25 ottobre 2021",
+    "distribuzione": "Cineteca di Bologna",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Cineclub Alphaville": {
+        "orari": [
+          "20:00"
+        ],
+        "orari_vo": []
+      }
+    }
+  },
+  {
+    "scheda": 48,
     "titolo": "LA TORTA DEL PRESIDENTE",
     "valutazioni": {
       "MYMONETRO": "3.92",
@@ -3685,8 +3810,7 @@
     "cinema_orari": {
       "Teatro Don Bosco": {
         "orari": [
-          "15:45",
-          "21:00"
+          "18:00"
         ],
         "orari_vo": []
       },
@@ -3699,7 +3823,7 @@
     }
   },
   {
-    "scheda": 48,
+    "scheda": 49,
     "titolo": "LA MATTINA SCRIVO",
     "valutazioni": {
       "MYMONETRO": "3.67",
@@ -3746,7 +3870,7 @@
     }
   },
   {
-    "scheda": 49,
+    "scheda": 50,
     "titolo": "RUBY GILLMAN - LA RAGAZZA CON I TENTACOLI",
     "valutazioni": {
       "MYMONETRO": "2.61",
@@ -3779,6 +3903,13 @@
     "vm": "N.D.",
     "consigli_visione": "Film per tutti",
     "cinema_orari": {
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "11:00",
+          "11:10"
+        ],
+        "orari_vo": []
+      },
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "11:00",
@@ -3795,52 +3926,10 @@
       },
       "Uci Luce Maximo": {
         "orari": [
-          "10:20",
+          "10:30",
           "12:15"
         ],
         "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 50,
-    "titolo": "THELMA",
-    "valutazioni": {
-      "MYMONETRO": "3.04",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.07",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Azione",
-      "Commedia"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "2024",
-    "durata_minuti": 97,
-    "trama": "Un feel good movie dallo humour intelligente, che affronta spunti seri con testarda leggerezza",
-    "regia": [
-      "Josh Margolin"
-    ],
-    "cast": [
-      "June Squibb",
-      "Fred Hechinger",
-      "Richard Roundtree",
-      "Parker Posey"
-    ],
-    "uscita": "18 settembre 2024",
-    "distribuzione": "Universal Pictures",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +13",
-    "cinema_orari": {
-      "CINEMA Troisi": {
-        "orari": [],
-        "orari_vo": [
-          "11:00"
-        ]
       }
     }
   },
@@ -3889,40 +3978,41 @@
   },
   {
     "scheda": 52,
-    "titolo": "CORPO CELESTE",
+    "titolo": "LUDWIG",
     "valutazioni": {
-      "MYMONETRO": "3.10",
-      "MYMOVIES.IT": "2.50",
-      "CRITICA": "3.55",
-      "PUBBLICO": "3.25"
+      "MYMONETRO": "4.05",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "4.11"
     },
-    "consigliato": "SI",
+    "consigliato": "ASSOLUTAMENTE SI",
     "genere": [
-      "Drammatico"
+      "Storico"
     ],
     "paesi": [
-      "Italia"
+      "Italia",
+      "Germania"
     ],
-    "anno": "2011",
-    "durata_minuti": 98,
-    "trama": "Ritratto sincero di un'adolescente alle prese con i sacramenti, dentro e fuori la Chiesa",
+    "anno": "1973",
+    "durata_minuti": 264,
+    "trama": "N.D.",
     "regia": [
-      "Alice Rohrwacher"
+      "Luchino Visconti"
     ],
     "cast": [
-      "Yile Yara Vianello",
-      "Salvatore Cantalupo",
-      "Pasqualina Scuncia",
-      "Anita Caprioli"
+      "Helmut Berger",
+      "Trevor Howard",
+      "Romy Schneider",
+      "Silvana Mangano"
     ],
-    "uscita": "27 maggio 2011",
-    "distribuzione": "Cinecittà Luce",
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
     "vm": "N.D.",
-    "consigli_visione": "Ragazzi +13",
+    "consigli_visione": "Ragazzi +16",
     "cinema_orari": {
-      "CINEMA Barberini": {
+      "Casa del Cinema": {
         "orari": [
-          "11:30"
+          "16:30"
         ],
         "orari_vo": []
       }
@@ -3930,49 +4020,6 @@
   },
   {
     "scheda": 53,
-    "titolo": "IL BANDITO DELLE UNDICI",
-    "valutazioni": {
-      "MYMONETRO": "3.51",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "4.01"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Francia",
-      "Italia"
-    ],
-    "anno": "1965",
-    "durata_minuti": 112,
-    "trama": "N.D.",
-    "regia": [
-      "Jean-Luc Godard"
-    ],
-    "cast": [
-      "Jean-Paul Belmondo",
-      "Anna Karina",
-      "Dirk Sanders",
-      "Raymond Devos",
-      "Graziella Galvani"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Cineclub Alphaville": {
-        "orari": [
-          "21:00"
-        ],
-        "orari_vo": []
-      }
-    }
-  },
-  {
-    "scheda": 54,
     "titolo": "E.1027 - EILEEN GRAY E LA CASA SUL MARE",
     "valutazioni": {
       "MYMONETRO": "3.77",
@@ -4015,7 +4062,7 @@
     }
   },
   {
-    "scheda": 55,
+    "scheda": 54,
     "titolo": "ARCO - UN'AMICIZIA PER SALVARE IL FUTURO",
     "valutazioni": {
       "MYMONETRO": "3.99",
@@ -4051,7 +4098,7 @@
     }
   },
   {
-    "scheda": 56,
+    "scheda": 55,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4087,7 +4134,7 @@
     }
   },
   {
-    "scheda": 57,
+    "scheda": 56,
     "titolo": "MA COME SI PUÒ UCCIDERE UN BAMBINO?",
     "valutazioni": {
       "MYMONETRO": "3.22",
@@ -4129,8 +4176,91 @@
     }
   },
   {
+    "scheda": 57,
+    "titolo": "A CIASCUNO IL SUO DESTINO",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.17"
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "1946",
+    "durata_minuti": 122,
+    "trama": "N.D.",
+    "regia": [
+      "Mitchell Leisen"
+    ],
+    "cast": [
+      "Olivia De Havilland",
+      "John Lund",
+      "Roland Culver",
+      "María Andersen",
+      "Phillip Terry"
+    ],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Quattro Fontane": {
+        "orari": [],
+        "orari_vo": [
+          "11:00"
+        ]
+      }
+    }
+  },
+  {
     "scheda": 58,
-    "titolo": "MASPALOMAS",
+    "titolo": "MABOROSI - I BAGLIORI DELL'ANIMA",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "2.94"
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Giappone"
+    ],
+    "anno": "1995",
+    "durata_minuti": 110,
+    "trama": "N.D.",
+    "regia": [
+      "Kore'eda Hirokazu"
+    ],
+    "cast": [
+      "Makiko Esumi",
+      "Takashi Naitô",
+      "Tadanobu Asano",
+      "Gohki Kashiyama"
+    ],
+    "uscita": "14 maggio 2026",
+    "distribuzione": "Bim Distribuzione",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Quattro Fontane": {
+        "orari": [],
+        "orari_vo": [
+          "11:15"
+        ]
+      }
+    }
+  },
+  {
+    "scheda": 59,
+    "titolo": "LA CASA",
     "valutazioni": {
       "MYMONETRO": "N.D.",
       "MYMOVIES.IT": "N.D.",
@@ -4144,18 +4274,17 @@
     "paesi": [
       "Spagna"
     ],
-    "anno": "2025",
-    "durata_minuti": 115,
+    "anno": "2024",
+    "durata_minuti": 83,
     "trama": "N.D.",
     "regia": [
-      "Aitor Arregi",
-      "José Mari Goenaga"
+      "Alex Montoya"
     ],
     "cast": [
-      "José Ramón Soroiz",
-      "Zorion Eguileor",
-      "Kevin Medina (II)",
-      "Nagore Aranburu"
+      "David Verdaguer",
+      "Luis Callejo",
+      "Óscar de la Fuente",
+      "Olivia Molina"
     ],
     "uscita": "N.D.",
     "distribuzione": "N.D.",
@@ -4164,7 +4293,7 @@
     "cinema_orari": {
       "CINEMA Barberini": {
         "orari": [
-          "21:30"
+          "15:00"
         ],
         "orari_vo": []
       }
