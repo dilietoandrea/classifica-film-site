@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confronto box office Italia Top 20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --accent: #2d6cdf;
+      --accent-soft: #eaf2ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 44px;
+    }
+    header {
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(520px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+    .section-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .section-button:hover, .section-button:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .actions, .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .actions a, .summary-card {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .actions a:hover, .actions a:focus, .summary-card:hover, .summary-card:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .summary-card strong {
+      min-width: 28px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #10233f;
+      text-align: center;
+    }
+    .diff-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+      overflow: hidden;
+    }
+    summary {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    summary strong {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0;
+      padding: 0 16px 16px 34px;
+    }
+    li {
+      margin: 8px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .empty {
+      color: var(--muted);
+    }
+    li[hidden], .diff-section[hidden] {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+      }
+      h1 { font-size: 23px; }
+      summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Confronto box office Italia Top 20</h1>
+      <p class="meta">Generato il 11/05/2026 13:32</p>
+      <p class="meta">Precedente: boxoffice_italia_top20_2026-05-10.csv - Attuale: boxoffice_italia_top20_2026-05-11.csv</p>
+    </header>
+    <nav class="actions" aria-label="Collegamenti report">
+      <a href="../index.html">Home</a>
+      <a href="boxoffice_italia_top20_2026-05-10.csv">CSV precedente</a>
+      <a href="boxoffice_italia_top20_2026-05-11.csv">CSV attuale</a>
+    </nav>
+    <div class="toolbar">
+      <input class="search" id="diff-search" type="search" placeholder="Cerca nei cambi" autocomplete="off">
+      <label class="toggle">
+        <input id="toggle-unchanged" type="checkbox">
+        <span>Mostra invariati</span>
+      </label>
+      <button class="section-button" id="toggle-sections" type="button" aria-expanded="true">Chiudi sezioni</button>
+      <span class="counter" id="diff-counter"></span>
+    </div>
+    <nav class="summary-grid" aria-label="Sezioni">
+      <a class="summary-card" href="#section-0">
+        <span>Nuovi film</span>
+        <strong>8</strong>
+      </a><a class="summary-card" href="#section-1">
+        <span>Film usciti</span>
+        <strong>8</strong>
+      </a><a class="summary-card" href="#section-2">
+        <span>Saliti nel box office</span>
+        <strong>1</strong>
+      </a><a class="summary-card" href="#section-3">
+        <span>Scesi nel box office</span>
+        <strong>9</strong>
+      </a><a class="summary-card" href="#section-4">
+        <span>Variazioni incasso weekend</span>
+        <strong>12</strong>
+      </a><a class="summary-card" href="#section-5">
+        <span>Variazioni incasso totale</span>
+        <strong>12</strong>
+      </a><a class="summary-card" href="#section-6">
+        <span>Invariati</span>
+        <strong>2</strong>
+      </a>
+    </nav>
+    <section>
+      <details class="diff-section" id="section-0" data-section-title="nuovi film" open>
+        <summary>
+          <span>Nuovi film</span>
+          <strong data-count-label>8 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#3 mortal kombat ii (weekend 407.136, totale 476.202)">#3 Mortal Kombat II (weekend 407.136, totale 476.202)</li>
+<li data-filter-text="#5 billie eilish - hit me hard and soft - the tour (weekend 300.368, totale 300.368)">#5 Billie Eilish - Hit me Hard and Soft - The Tour (weekend 300.368, totale 300.368)</li>
+<li data-filter-text="#7 illusione (weekend 151.611, totale 151.611)">#7 Illusione (weekend 151.611, totale 151.611)</li>
+<li data-filter-text="#8 l&#x27;amore sta bene su tutto (weekend 120.871, totale 130.236)">#8 L&#x27;amore sta bene su tutto (weekend 120.871, totale 130.236)</li>
+<li data-filter-text="#9 antartica - quasi una fiaba (weekend 78.287, totale 78.287)">#9 Antartica - Quasi una fiaba (weekend 78.287, totale 78.287)</li>
+<li data-filter-text="#12 le città di pianura (weekend 54.432, totale 1.848.343)">#12 Le città di pianura (weekend 54.432, totale 1.848.343)</li>
+<li data-filter-text="#15 noi due sconosciuti (weekend 24.253, totale 24.253)">#15 Noi due sconosciuti (weekend 24.253, totale 24.253)</li>
+<li data-filter-text="#16 the sea (weekend 22.200, totale 138.709)">#16 The Sea (weekend 22.200, totale 138.709)</li>
+        </ul>
+      </details><details class="diff-section" id="section-1" data-section-title="film usciti" open>
+        <summary>
+          <span>Film usciti</span>
+          <strong data-count-label>8 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#9 the long walk (weekend 58.910, totale 276.102)">#9 The Long Walk (weekend 58.910, totale 276.102)</li>
+<li data-filter-text="#10 il figlio del deserto (weekend 54.151, totale 231.571)">#10 Il Figlio del Deserto (weekend 54.151, totale 231.571)</li>
+<li data-filter-text="#11 l&#x27;ultima missione - project hail mary (weekend 38.574, totale 4.982.325)">#11 L&#x27;Ultima Missione - Project Hail Mary (weekend 38.574, totale 4.982.325)</li>
+<li data-filter-text="#14 that time i got reincarnated as a slime - il film - le lacrime del mare azzurro (weekend 25.721, totale 25.721)">#14 That Time I Got Reincarnated As a Slime - Il Film - Le Lacrime del Mare Azzurro (weekend 25.721, totale 25.721)</li>
+<li data-filter-text="#17 resurrection (weekend 17.067, totale 52.870)">#17 Resurrection (weekend 17.067, totale 52.870)</li>
+<li data-filter-text="#18 kokuho - il maestro di kabuki (weekend 16.629, totale 20.798)">#18 Kokuho - Il maestro di Kabuki (weekend 16.629, totale 20.798)</li>
+<li data-filter-text="#19 la più piccola (weekend 15.952, totale 77.728)">#19 La più piccola (weekend 15.952, totale 77.728)</li>
+<li data-filter-text="#20 nino (weekend 14.770, totale 15.786)">#20 Nino (weekend 14.770, totale 15.786)</li>
+        </ul>
+      </details><details class="diff-section" id="section-2" data-section-title="saliti nel box office" open>
+        <summary>
+          <span>Saliti nel box office</span>
+          <strong data-count-label>1 voce</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="pecore sotto copertura: #8 -&gt; #4 (weekend 340.111)">Pecore sotto copertura: #8 -&gt; #4 (weekend 340.111)</li>
+        </ul>
+      </details><details class="diff-section" id="section-3" data-section-title="scesi nel box office" open>
+        <summary>
+          <span>Scesi nel box office</span>
+          <strong data-count-label>9 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="super mario galaxy - il film: #3 -&gt; #6 (weekend 186.577)">Super Mario Galaxy - Il Film: #3 -&gt; #6 (weekend 186.577)</li>
+<li data-filter-text="yellow letters: #6 -&gt; #10 (weekend 55.634)">Yellow Letters: #6 -&gt; #10 (weekend 55.634)</li>
+<li data-filter-text="nel tepore del ballo: #5 -&gt; #11 (weekend 55.164)">Nel tepore del ballo: #5 -&gt; #11 (weekend 55.164)</li>
+<li data-filter-text="lee cronin - la mummia: #4 -&gt; #13 (weekend 52.072)">Lee Cronin - La mummia: #4 -&gt; #13 (weekend 52.072)</li>
+<li data-filter-text="the drama - un segreto è per sempre: #7 -&gt; #14 (weekend 25.733)">The Drama - Un Segreto è per Sempre: #7 -&gt; #14 (weekend 25.733)</li>
+<li data-filter-text="a cena con il dittatore: #15 -&gt; #17 (weekend 16.929)">A cena con il dittatore: #15 -&gt; #17 (weekend 16.929)</li>
+<li data-filter-text="... che dio perdona a tutti: #12 -&gt; #18 (weekend 12.969)">... che Dio perdona a tutti: #12 -&gt; #18 (weekend 12.969)</li>
+<li data-filter-text="il caso 137: #13 -&gt; #19 (weekend 12.376)">Il caso 137: #13 -&gt; #19 (weekend 12.376)</li>
+<li data-filter-text="lo straniero: #16 -&gt; #20 (weekend 11.114)">Lo straniero: #16 -&gt; #20 (weekend 11.114)</li>
+        </ul>
+      </details><details class="diff-section" id="section-4" data-section-title="variazioni incasso weekend" open>
+        <summary>
+          <span>Variazioni incasso weekend</span>
+          <strong data-count-label>12 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="il diavolo veste prada 2: 11.460.189 -&gt; 6.657.152">Il Diavolo veste Prada 2: 11.460.189 -&gt; 6.657.152</li>
+<li data-filter-text="michael: 4.636.909 -&gt; 3.367.121">Michael: 4.636.909 -&gt; 3.367.121</li>
+<li data-filter-text="pecore sotto copertura: 73.326 -&gt; 340.111">Pecore sotto copertura: 73.326 -&gt; 340.111</li>
+<li data-filter-text="super mario galaxy - il film: 357.767 -&gt; 186.577">Super Mario Galaxy - Il Film: 357.767 -&gt; 186.577</li>
+<li data-filter-text="yellow letters: 86.062 -&gt; 55.634">Yellow Letters: 86.062 -&gt; 55.634</li>
+<li data-filter-text="nel tepore del ballo: 151.868 -&gt; 55.164">Nel tepore del ballo: 151.868 -&gt; 55.164</li>
+<li data-filter-text="lee cronin - la mummia: 185.931 -&gt; 52.072">Lee Cronin - La mummia: 185.931 -&gt; 52.072</li>
+<li data-filter-text="the drama - un segreto è per sempre: 73.367 -&gt; 25.733">The Drama - Un Segreto è per Sempre: 73.367 -&gt; 25.733</li>
+<li data-filter-text="a cena con il dittatore: 25.529 -&gt; 16.929">A cena con il dittatore: 25.529 -&gt; 16.929</li>
+<li data-filter-text="... che dio perdona a tutti: 29.235 -&gt; 12.969">... che Dio perdona a tutti: 29.235 -&gt; 12.969</li>
+<li data-filter-text="il caso 137: 27.698 -&gt; 12.376">Il caso 137: 27.698 -&gt; 12.376</li>
+<li data-filter-text="lo straniero: 21.857 -&gt; 11.114">Lo straniero: 21.857 -&gt; 11.114</li>
+        </ul>
+      </details><details class="diff-section" id="section-5" data-section-title="variazioni incasso totale" open>
+        <summary>
+          <span>Variazioni incasso totale</span>
+          <strong data-count-label>12 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="il diavolo veste prada 2: 14.178.176 -&gt; 24.605.766">Il Diavolo veste Prada 2: 14.178.176 -&gt; 24.605.766</li>
+<li data-filter-text="michael: 13.381.312 -&gt; 18.089.418">Michael: 13.381.312 -&gt; 18.089.418</li>
+<li data-filter-text="pecore sotto copertura: 73.326 -&gt; 414.289">Pecore sotto copertura: 73.326 -&gt; 414.289</li>
+<li data-filter-text="super mario galaxy - il film: 13.993.157 -&gt; 14.225.867">Super Mario Galaxy - Il Film: 13.993.157 -&gt; 14.225.867</li>
+<li data-filter-text="yellow letters: 86.062 -&gt; 161.791">Yellow Letters: 86.062 -&gt; 161.791</li>
+<li data-filter-text="nel tepore del ballo: 151.946 -&gt; 239.034">Nel tepore del ballo: 151.946 -&gt; 239.034</li>
+<li data-filter-text="lee cronin - la mummia: 1.661.583 -&gt; 1.760.110">Lee Cronin - La mummia: 1.661.583 -&gt; 1.760.110</li>
+<li data-filter-text="the drama - un segreto è per sempre: 5.138.290 -&gt; 5.187.980">The Drama - Un Segreto è per Sempre: 5.138.290 -&gt; 5.187.980</li>
+<li data-filter-text="a cena con il dittatore: 267.070 -&gt; 290.073">A cena con il dittatore: 267.070 -&gt; 290.073</li>
+<li data-filter-text="... che dio perdona a tutti: 1.669.654 -&gt; 1.689.672">... che Dio perdona a tutti: 1.669.654 -&gt; 1.689.672</li>
+<li data-filter-text="il caso 137: 208.968 -&gt; 227.862">Il caso 137: 208.968 -&gt; 227.862</li>
+<li data-filter-text="lo straniero: 570.876 -&gt; 589.891">Lo straniero: 570.876 -&gt; 589.891</li>
+        </ul>
+      </details><details class="diff-section" id="section-6" data-section-title="invariati" data-unchanged-section="true">
+        <summary>
+          <span>Invariati</span>
+          <strong data-count-label>2 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#1 il diavolo veste prada 2 (weekend 6.657.152, totale 24.605.766)">#1 Il Diavolo veste Prada 2 (weekend 6.657.152, totale 24.605.766)</li>
+<li data-filter-text="#2 michael (weekend 3.367.121, totale 18.089.418)">#2 Michael (weekend 3.367.121, totale 18.089.418)</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById("diff-search");
+    const toggleUnchanged = document.getElementById("toggle-unchanged");
+    const toggleSections = document.getElementById("toggle-sections");
+    const counter = document.getElementById("diff-counter");
+    const sections = Array.from(document.querySelectorAll(".diff-section"));
+
+    function countLabel(count) {
+      return count === 1 ? "1 voce" : `${count} voci`;
+    }
+
+    function visibleSectionsList() {
+      return sections.filter((section) => !section.hidden);
+    }
+
+    function updateSectionToggleLabel() {
+      const visibleSections = visibleSectionsList();
+      const allOpen = visibleSections.length > 0 && visibleSections.every((section) => section.open);
+      toggleSections.textContent = allOpen ? "Chiudi sezioni" : "Espandi sezioni";
+      toggleSections.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visibleRows = 0;
+      let totalRows = 0;
+      let visibleSections = 0;
+
+      for (const section of sections) {
+        const isUnchanged = section.dataset.unchangedSection === "true";
+        const showUnchanged = toggleUnchanged.checked || searchInput.value.trim();
+        if (isUnchanged && !showUnchanged) {
+          section.hidden = true;
+          continue;
+        }
+        const sectionTitle = section.dataset.sectionTitle || "";
+        const rows = Array.from(section.querySelectorAll("li:not(.empty)"));
+        const sectionMatches = !query || sectionTitle.includes(query);
+        let sectionVisibleRows = 0;
+        totalRows += rows.length;
+
+        for (const row of rows) {
+          const rowText = row.dataset.filterText || row.textContent.toLocaleLowerCase("it-IT");
+          const matches = sectionMatches || rowText.includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            sectionVisibleRows += 1;
+            visibleRows += 1;
+          }
+        }
+
+        const hasRows = rows.length > 0;
+        section.hidden = hasRows ? sectionVisibleRows === 0 : !sectionMatches;
+        if (!section.hidden) visibleSections += 1;
+        const count = query ? sectionVisibleRows : rows.length;
+        const label = section.querySelector("[data-count-label]");
+        if (label) label.textContent = countLabel(count);
+      }
+
+      counter.textContent = `${visibleRows} di ${totalRows} voci in ${visibleSections} sezioni`;
+      updateSectionToggleLabel();
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    toggleUnchanged.addEventListener("change", updateFilter);
+    toggleSections.addEventListener("click", () => {
+      const visibleSections = visibleSectionsList();
+      const shouldOpen = visibleSections.some((section) => !section.open);
+      for (const section of visibleSections) section.open = shouldOpen;
+      updateSectionToggleLabel();
+    });
+    for (const section of sections) section.addEventListener("toggle", updateSectionToggleLabel);
+    updateFilter();
+  </script>
+</body>
+</html>
