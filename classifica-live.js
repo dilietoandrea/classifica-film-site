@@ -620,6 +620,22 @@ const API_BASE_URL = String(
       setStatus(message, kind);
     }
 
+    function renderUnavailableRanking(city, cityLabel, message) {
+      document.title = `Classifica film - ${cityLabel}`;
+      titleElement.textContent = `Classifica film - ${cityLabel}`;
+      subtitleElement.textContent = message;
+      tbody.innerHTML = "";
+      searchInput.value = "";
+      resetSortState();
+      updateFilter();
+      activeCity = city;
+      citySelect.value = city;
+      if (cityFilter) {
+        cityFilter.value = cityLabel;
+      }
+      setStatus(`${message} (${cityLabel})`, "error");
+    }
+
     async function loadCity(city) {
       const requestId = ++loadCityRequestId;
       const cityLabel = cityLabels[city] || city;
@@ -646,7 +662,7 @@ const API_BASE_URL = String(
             const errorDetail = errorPayload.detail || errorPayload;
             if (errorDetail.error_code === "ranking_not_available") {
               const message = errorDetail.message || `Classifica non disponibile per ${cityLabel}.`;
-              setStatus(`${message} (${cityLabel})`, "error");
+              renderUnavailableRanking(city, cityLabel, message);
               return;
             }
           } catch (parseError) {
