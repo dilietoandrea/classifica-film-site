@@ -20,6 +20,16 @@
     main { width: min(1500px, calc(100% - 32px)); margin: 24px auto 40px; }
     h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
     .meta { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+    .version-info {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .version-info [data-status="ok"] { color: #116236; }
+    .version-info [data-status="warn"] { color: #8a4b00; }
+    .version-info [data-status="error"] { color: #9f1d20; }
+
     .toolbar { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; flex-wrap: wrap; }
     .toolbar-nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .toolbar-tools {
@@ -135,7 +145,7 @@
   <main>
     <h1>Prossimamente al Cinema</h1>
     <p class="meta">Elenco dei prossimi film in uscita nelle sale.</p>
-    <p class="meta">Generata il 17/05/2026 21:55 - 59 film</p>
+    <p class="meta">Generata il 17/05/2026 22:08 - 59 film</p>
     <div class="toolbar">
       <div class="toolbar-nav">
         <a class="nav-link" href="index.html">Home</a>
@@ -214,6 +224,7 @@
         </tbody>
       </table>
     </div>
+    <p class="meta version-info" id="version-info">Generato con cfr <span id="site-version">3.10.6</span></p>
   </main>
   <script>
 
