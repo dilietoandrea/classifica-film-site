@@ -11,6 +11,7 @@ const API_BASE_URL = String(
     const subtitleElement = document.getElementById("ranking-subtitle");
     const updatedElement = document.getElementById("ranking-updated");
     const statusElement = document.getElementById("api-status");
+    const apiVersionElement = document.getElementById("api-version");
     const citySelect = document.getElementById("city-select");
     const cityFilter = document.getElementById("city-filter");
     const comboboxResultsContainer = document.getElementById("city-combobox-results");
@@ -57,6 +58,41 @@ const API_BASE_URL = String(
     function setStatus(message, kind = "") {
       statusElement.textContent = message;
       statusElement.className = `api-status ${kind}`.trim();
+    }
+
+    function setApiVersion(message, kind = "") {
+      if (!apiVersionElement) {
+        return;
+      }
+      apiVersionElement.textContent = message;
+      if (kind) {
+        apiVersionElement.dataset.status = kind;
+      } else {
+        delete apiVersionElement.dataset.status;
+      }
+    }
+
+    async function loadApiVersion() {
+      if (!API_BASE_URL) {
+        setApiVersion("non configurata", "warn");
+        return;
+      }
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/version`, {
+          headers: { Accept: "application/json" },
+        });
+        if (!response.ok) {
+          throw new Error(`API response ${response.status}`);
+        }
+        const payload = await response.json();
+        const version = String(payload?.version || "").trim();
+        if (!version) {
+          throw new Error("Invalid API version");
+        }
+        setApiVersion(version, "ok");
+      } catch (error) {
+        setApiVersion("non raggiungibile", "warn");
+      }
     }
 
     function normalizeCityItem(item) {
@@ -775,5 +811,6 @@ const API_BASE_URL = String(
       }
     });
 
+    loadApiVersion();
     loadCityCatalog();
     updateFilter();
