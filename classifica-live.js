@@ -1,3 +1,4 @@
+// 1. Constants and DOM references
 const API_BASE_URL = String(
       window.CFR_SITE_CONFIG?.API_BASE_URL || window.API_BASE_URL || "http://127.0.0.1:8000"
     ).replace(/\/+$/, "");
@@ -43,18 +44,7 @@ const API_BASE_URL = String(
     let highlightedCityIndex = -1;
     let isCityListOpen = false;
 
-    function allRows() {
-      return Array.from(tbody.rows);
-    }
-
-    function rowCountText(visible) {
-      return `${visible} di ${tbody.rows.length} film`;
-    }
-
-    function updateCounter(visible) {
-      counter.textContent = rowCountText(visible);
-    }
-
+    // 2. Status and version helpers
     function setStatus(message, kind = "") {
       statusElement.textContent = message;
       statusElement.className = `api-status ${kind}`.trim();
@@ -95,6 +85,7 @@ const API_BASE_URL = String(
       }
     }
 
+    // 3. City catalog and combobox helpers
     function normalizeCityItem(item) {
       const city = String(item?.city || "").trim().toLocaleLowerCase("it-IT");
       const cityLabel = String(item?.city_label || "").trim();
@@ -120,6 +111,17 @@ const API_BASE_URL = String(
         return `${city.city_label} (${city.province})`;
       }
       return city.city_label;
+    }
+
+    function cityMatchesQuery(city, normalizedQuery) {
+      if (!normalizedQuery) {
+        return true;
+      }
+      return [city.city, city.city_label, city.region, city.province]
+        .filter(Boolean)
+        .join(" ")
+        .toLocaleLowerCase("it-IT")
+        .includes(normalizedQuery);
     }
 
     function refreshCityLabels() {
@@ -171,16 +173,7 @@ const API_BASE_URL = String(
 
     function renderCityResults(query = "") {
       const normalizedQuery = query.trim().toLocaleLowerCase("it-IT");
-      const matchingCities = cityCatalog.filter((city) => {
-        if (!normalizedQuery) {
-          return true;
-        }
-        return [city.city, city.city_label, city.region, city.province]
-          .filter(Boolean)
-          .join(" ")
-          .toLocaleLowerCase("it-IT")
-          .includes(normalizedQuery);
-      });
+      const matchingCities = cityCatalog.filter((city) => cityMatchesQuery(city, normalizedQuery));
       visibleCityOptions = matchingCities;
       highlightedCityIndex = -1;
       if (!matchingCities.length) {
@@ -256,16 +249,7 @@ const API_BASE_URL = String(
       }
     }
 
-    function resetSortState() {
-      sortState = { column: null, direction: "ascending" };
-      for (const cell of headerCells) {
-        cell.setAttribute("aria-sort", "none");
-      }
-      for (const button of sortButtons) {
-        button.setAttribute("aria-pressed", "false");
-      }
-    }
-
+    // 4. Showtime filtering helpers
     function parseHourSelect(value) {
       const match = String(value || "").match(/^([01]?\d|2[0-3])(?::00)?$/);
       if (!match) {
@@ -409,18 +393,35 @@ const API_BASE_URL = String(
         renderShowtimeGroups(row, groups);
         return true;
       }
-      const filteredGroups = groups
+      const filteredGroups = filteredShowtimeGroups(groups, range);
+      renderShowtimeGroups(row, filteredGroups);
+      return filteredGroups.length > 0;
+    }
+
+    function filteredShowtimeGroups(groups, range) {
+      return groups
         .map((group) => ({
           cinema: group.cinema,
           showtimes: filteredShowtimeText(group.showtimes, range),
         }))
         .filter((group) => group.showtimes);
-      renderShowtimeGroups(row, filteredGroups);
-      return filteredGroups.length > 0;
     }
 
     function matchesShowtimeFilter(row, range) {
       return updateShowtimeCells(row, range);
+    }
+
+    // 5. Table filtering and sorting helpers
+    function allRows() {
+      return Array.from(tbody.rows);
+    }
+
+    function rowCountText(visible) {
+      return `${visible} di ${tbody.rows.length} film`;
+    }
+
+    function updateCounter(visible) {
+      counter.textContent = rowCountText(visible);
     }
 
     function rowMatchesText(row, query) {
@@ -443,6 +444,16 @@ const API_BASE_URL = String(
       }
       syncVisibleShowtimeGroupHeights();
       updateCounter(visible);
+    }
+
+    function resetSortState() {
+      sortState = { column: null, direction: "ascending" };
+      for (const cell of headerCells) {
+        cell.setAttribute("aria-sort", "none");
+      }
+      for (const button of sortButtons) {
+        button.setAttribute("aria-pressed", "false");
+      }
     }
 
     function cellSortValue(row, columnIndex) {
@@ -501,6 +512,7 @@ const API_BASE_URL = String(
       updateFilter();
     }
 
+    // 6. API rendering and fallback helpers
     function escapeHtml(value) {
       return String(value ?? "N.D.")
         .replace(/&/g, "&amp;")
@@ -732,6 +744,7 @@ const API_BASE_URL = String(
       }
     }
 
+    // 7. Event listeners and initialization
     for (const button of sortButtons) {
       button.setAttribute("aria-pressed", "false");
       button.addEventListener("click", () => {
