@@ -52,7 +52,6 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "11:00",
           "13:00",
           "18:15",
           "21:45"
@@ -120,7 +119,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:30",
           "15:10",
           "17:10",
           "21:10"
@@ -216,14 +214,12 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "11:00",
           "15:00",
           "17:15",
           "19:30",
           "21:45"
         ],
         "orari_vo": [
-          "11:30",
           "13:10",
           "14:00",
           "15:20",
@@ -284,7 +280,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "11:00",
           "16:30",
           "18:00",
           "19:00",
@@ -308,7 +303,6 @@
           "19:15"
         ],
         "orari_vo": [
-          "10:45",
           "16:45",
           "18:30",
           "20:45"
@@ -493,11 +487,9 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:40",
           "11:40",
           "13:10",
           "14:30",
-          "15:20",
           "15:40",
           "16:00",
           "17:20",
@@ -510,12 +502,11 @@
           "22:20"
         ],
         "orari_vo": [
-          "10:45"
+          "15:20"
         ]
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:40",
           "11:40",
           "13:10",
           "14:30",
@@ -531,9 +522,7 @@
           "21:40",
           "22:20"
         ],
-        "orari_vo": [
-          "10:45"
-        ]
+        "orari_vo": []
       },
       "Uci Luce Maximo": {
         "orari": [
@@ -544,7 +533,8 @@
           "17:40",
           "18:50",
           "20:30",
-          "21:40"
+          "21:40",
+          "23:50"
         ],
         "orari_vo": [
           "12:45"
@@ -641,7 +631,6 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
-          "10:30",
           "15:00",
           "18:00",
           "21:00"
@@ -755,7 +744,6 @@
     "cinema_orari": {
       "CINEMA Barberini": {
         "orari": [
-          "11:00",
           "12:45",
           "14:30",
           "20:15"
@@ -816,7 +804,6 @@
           "18:30"
         ],
         "orari_vo": [
-          "11:15",
           "20:45"
         ]
       }
@@ -903,7 +890,6 @@
           "19:20"
         ],
         "orari_vo": [
-          "11:00",
           "13:00",
           "15:20",
           "17:45",
@@ -939,7 +925,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "10:45",
           "16:30",
           "18:15",
           "19:15",
@@ -954,7 +939,6 @@
           "20:45"
         ],
         "orari_vo": [
-          "10:45",
           "18:15",
           "21:30"
         ]
@@ -1093,12 +1077,13 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:30",
           "11:30",
           "13:30",
+          "15:00",
           "15:30",
           "17:30",
           "18:00",
+          "18:50",
           "19:20",
           "20:00",
           "20:30",
@@ -1135,7 +1120,8 @@
           "18:20",
           "19:40",
           "21:10",
-          "22:30"
+          "22:30",
+          "23:40"
         ],
         "orari_vo": []
       }
@@ -1263,10 +1249,10 @@
     "scheda": 11,
     "titolo": "THE DRAMA - UN SEGRETO È PER SEMPRE",
     "valutazioni": {
-      "MYMONETRO": "2.99",
+      "MYMONETRO": "3.02",
       "MYMOVIES.IT": "2.50",
       "CRITICA": "3.47",
-      "PUBBLICO": "3.00"
+      "PUBBLICO": "3.09"
     },
     "consigliato": "SI",
     "genere": [
@@ -1433,7 +1419,7 @@
         "orari": [
           "14:50",
           "17:40",
-          "22:00"
+          "22:30"
         ],
         "orari_vo": []
       },
@@ -1512,7 +1498,6 @@
       "CINEMA Barberini": {
         "orari": [],
         "orari_vo": [
-          "11:00",
           "17:20",
           "22:00"
         ]
@@ -1577,7 +1562,8 @@
       },
       "Uci Luce Maximo": {
         "orari": [
-          "22:50"
+          "22:50",
+          "23:20"
         ],
         "orari_vo": []
       }
@@ -1812,7 +1798,6 @@
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "11:00",
           "11:10",
           "14:20",
           "16:10",
@@ -1822,7 +1807,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "11:00",
           "11:10",
           "14:40",
           "16:20",
@@ -1832,7 +1816,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "11:00",
           "11:10",
           "14:40",
           "16:20",
@@ -2099,7 +2082,6 @@
       },
       "CINEMA Eden": {
         "orari": [
-          "10:45",
           "17:00",
           "19:10"
         ],
@@ -2171,7 +2153,6 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
-          "10:45",
           "15:00"
         ],
         "orari_vo": []
@@ -2386,7 +2367,6 @@
           "15:40"
         ],
         "orari_vo": [
-          "10:30",
           "21:30"
         ]
       },
@@ -2459,7 +2439,6 @@
       },
       "CINEMA Barberini": {
         "orari": [
-          "11:00",
           "13:20"
         ],
         "orari_vo": []
@@ -2551,7 +2530,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "11:15",
           "16:15",
           "21:45"
         ],
@@ -2603,7 +2581,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:20",
           "13:50"
         ],
         "orari_vo": []
@@ -2665,7 +2642,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "11:00",
           "16:00",
           "18:30",
           "20:45"
@@ -2974,7 +2950,6 @@
           "18:45"
         ],
         "orari_vo": [
-          "11:00",
           "21:15"
         ]
       },
@@ -3114,15 +3089,14 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:50",
           "14:00",
-          "16:30"
+          "16:30",
+          "17:00"
         ],
         "orari_vo": []
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:50",
           "14:00",
           "16:30"
         ],
@@ -3393,7 +3367,7 @@
       "MYMONETRO": "3.38",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "3.70",
-      "PUBBLICO": "2.94"
+      "PUBBLICO": "2.93"
     },
     "consigliato": "SI",
     "genere": [
@@ -3422,7 +3396,6 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
-          "10:45",
           "15:00",
           "17:10",
           "19:20",
@@ -3432,7 +3405,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "11:15",
           "16:00",
           "19:00",
           "21:00"
@@ -3441,7 +3413,6 @@
       },
       "CINEMA Giulio Cesare": {
         "orari": [
-          "11:00",
           "15:45",
           "17:40",
           "19:35",
@@ -3478,7 +3449,6 @@
       },
       "Quattro Fontane": {
         "orari": [
-          "11:15",
           "15:45",
           "17:40",
           "19:35",
@@ -3577,7 +3547,6 @@
     "cinema_orari": {
       "CINEMA Eden": {
         "orari": [
-          "10:45",
           "15:10",
           "17:10",
           "19:10",
@@ -3739,7 +3708,6 @@
       },
       "Eurcine Multisala": {
         "orari": [
-          "11:00",
           "16:15",
           "18:15"
         ],
@@ -4561,7 +4529,6 @@
     "cinema_orari": {
       "Quattro Fontane": {
         "orari": [
-          "11:15",
           "16:00",
           "17:45",
           "19:30"
@@ -4608,46 +4575,6 @@
   },
   {
     "scheda": 64,
-    "titolo": "AL TUO RITORNO",
-    "valutazioni": {
-      "MYMONETRO": "N.D.",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.00"
-    },
-    "consigliato": "N.D.",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "1944",
-    "durata_minuti": 85,
-    "trama": "N.D.",
-    "regia": [
-      "William Dieterle"
-    ],
-    "cast": [
-      "Joseph Cotten",
-      "Ginger Rogers",
-      "Shirley Temple"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Quattro Fontane": {
-        "orari": [],
-        "orari_vo": [
-          "11:00"
-        ]
-      }
-    }
-  },
-  {
-    "scheda": 65,
     "titolo": "LA BOLLA DELLE ACQUE MATTE",
     "valutazioni": {
       "MYMONETRO": "N.D.",

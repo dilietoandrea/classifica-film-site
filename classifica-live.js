@@ -37,6 +37,7 @@ const API_BASE_URL = String(
     let activeCity = DEFAULT_CITY;
     let sortState = { column: null, direction: "ascending" };
     let loadCityRequestId = 0;
+    let pendingCity = null;
     let visibleCityOptions = [];
     let highlightedCityIndex = -1;
     let isCityListOpen = false;
@@ -127,7 +128,7 @@ const API_BASE_URL = String(
       citySelect.value = city.city;
       cityFilter.value = city.city_label;
       closeCityResults();
-      if (city.city !== activeCity) {
+      if (city.city !== activeCity && city.city !== pendingCity) {
         loadCity(city.city);
       }
     }
@@ -525,10 +526,10 @@ const API_BASE_URL = String(
     function showtimeGroupsFromCinemaOrari(cinemaOrari) {
       return Object.entries(cinemaOrari)
         .map(([cinema, showtimeInfo]) => ({
-          cinema,
+          cinema: String(cinema || "").trim(),
           showtimes: combineShowtimes(showtimeInfo),
         }))
-        .filter((group) => group.showtimes && group.showtimes !== "N.D.");
+        .filter((group) => group.cinema || (group.showtimes && group.showtimes !== "N.D."));
     }
 
     function movieRow(movie) {
@@ -617,6 +618,9 @@ const API_BASE_URL = String(
       updateFilter();
       activeCity = staticSnapshot.city;
       citySelect.value = staticSnapshot.city;
+      if (cityFilter) {
+        cityFilter.value = cityLabels[staticSnapshot.city] || staticSnapshot.city;
+      }
       setStatus(message, kind);
     }
 
@@ -624,6 +628,7 @@ const API_BASE_URL = String(
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
       subtitleElement.textContent = message;
+      updatedElement.textContent = "Classifica non disponibile - 0 film";
       tbody.innerHTML = "";
       searchInput.value = "";
       resetSortState();
@@ -639,6 +644,7 @@ const API_BASE_URL = String(
     async function loadCity(city) {
       const requestId = ++loadCityRequestId;
       const cityLabel = cityLabels[city] || city;
+      pendingCity = city;
       citySelect.disabled = true;
       setStatus(`Aggiornamento ${cityLabel}...`, "");
       try {
@@ -684,6 +690,7 @@ const API_BASE_URL = String(
         restoreStaticFallback("API non raggiungibile. Mantengo i dati statici disponibili.", "warn");
       } finally {
         if (requestId === loadCityRequestId) {
+          pendingCity = null;
           citySelect.disabled = false;
         }
       }
@@ -709,7 +716,7 @@ const API_BASE_URL = String(
 
     citySelect.addEventListener("change", () => {
       const selectedCity = citySelect.value || DEFAULT_CITY;
-      if (selectedCity !== activeCity) {
+      if (selectedCity !== activeCity && selectedCity !== pendingCity) {
         loadCity(selectedCity);
       }
     });
