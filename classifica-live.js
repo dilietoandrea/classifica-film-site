@@ -703,6 +703,15 @@ const API_BASE_URL = String(
       });
     }
 
+    searchInput.addEventListener("input", updateFilter);
+    searchInput.addEventListener("search", updateFilter);
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        updateFilter();
+      }
+    });
+
     showtimeStart?.addEventListener("change", updateFilter);
     showtimeEnd?.addEventListener("change", updateFilter);
     showtimeReset?.addEventListener("click", () => {

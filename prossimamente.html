@@ -135,7 +135,7 @@
   <main>
     <h1>Prossimamente al Cinema</h1>
     <p class="meta">Elenco dei prossimi film in uscita nelle sale.</p>
-    <p class="meta">Generata il 17/05/2026 17:01 - 59 film</p>
+    <p class="meta">Generata il 17/05/2026 18:01 - 59 film</p>
     <div class="toolbar">
       <div class="toolbar-nav">
         <a class="nav-link" href="index.html">Home</a>
@@ -310,6 +310,15 @@
         sortBy(Number(button.dataset.column), button.dataset.sortType);
       });
     }
+
+    searchInput.addEventListener("input", updateFilter);
+    searchInput.addEventListener("search", updateFilter);
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        updateFilter();
+      }
+    });
 
     updateFilter();
 
