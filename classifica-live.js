@@ -327,7 +327,7 @@ const API_BASE_URL = String(
       }
       return '<div class="showtime-groups">'
         + groups.map((group, index) => (
-          `<div class="showtime-group" data-showtime-index="${index}">${escapeHtml(group[field] || "N.D.")}</div>`
+          `<div class="showtime-group" data-showtime-index="${index}">${escapeHtml(group[field] || "N.D.").replace(/\n/g, "<br>")}</div>`
         )).join("\n")
         + "</div>";
     }
@@ -566,6 +566,20 @@ const API_BASE_URL = String(
       return parts.length ? parts.join(" | ") : "N.D.";
     }
 
+    function optionalText(value) {
+      const text = String(value ?? "").trim();
+      return text && text !== "N.D." ? text : "";
+    }
+
+    function cinemaLabelWithDetails(cinema, showtimeInfo) {
+      const lines = [optionalText(cinema)].filter(Boolean);
+      const address = optionalText(showtimeInfo?.indirizzo);
+      const distance = optionalText(showtimeInfo?.distance_label);
+      if (address) lines.push(address);
+      if (distance) lines.push(distance);
+      return lines.join("\n");
+    }
+
     function cellHtml(value, sortValue = value) {
       const text = displayValue(value);
       return `<td data-sort-value="${escapeHtml(sortValue)}">${escapeHtml(text).replace(/\n/g, "<br>")}</td>`;
@@ -574,7 +588,7 @@ const API_BASE_URL = String(
     function showtimeGroupsFromCinemaOrari(cinemaOrari) {
       return Object.entries(cinemaOrari)
         .map(([cinema, showtimeInfo]) => ({
-          cinema: String(cinema || "").trim(),
+          cinema: cinemaLabelWithDetails(cinema, showtimeInfo),
           showtimes: combineShowtimes(showtimeInfo),
         }))
         .filter((group) => group.cinema || (group.showtimes && group.showtimes !== "N.D."));
