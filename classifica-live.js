@@ -4,6 +4,8 @@
     ).replace(/\/+$/, "");
     const DEFAULT_CITY = "roma";
     const USER_ORIGIN_STORAGE_KEY = "CFR_USER_ORIGIN";
+    const ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITH_DISTANCE";
+    const SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY = "CFR_SORT_CINEMAS_BY_DISTANCE";
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
       { city: "milano", city_label: "Milano" },
@@ -47,8 +49,12 @@
     let originInput = null;
     let originApplyButton = null;
     let originRemoveButton = null;
+    let onlyDistanceCheckbox = null;
+    let sortDistanceCheckbox = null;
     let distanceOriginInfo = null;
     let storedUserOrigin = readStoredUserOrigin();
+    let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY);
+    let sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY);
 
     // 2. Status and version helpers
     function setStatus(message, kind = "") {
@@ -76,6 +82,22 @@
       }
     }
 
+    function readStoredBoolean(key) {
+      try {
+        return window.localStorage?.getItem(key) === "1";
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function writeStoredBoolean(key, value) {
+      try {
+        window.localStorage?.setItem(key, value ? "1" : "0");
+      } catch (error) {
+        // localStorage may be blocked; the toggle still works for the current page.
+      }
+    }
+
     function writeStoredUserOrigin(value) {
       try {
         const text = String(value || "").trim();
@@ -90,6 +112,10 @@
     }
 
     function currentUserOrigin() {
+      return String(storedUserOrigin || "").trim();
+    }
+
+    function enteredUserOrigin() {
       return String(originInput?.value || storedUserOrigin || "").trim();
     }
 
@@ -107,13 +133,20 @@
     }
 
     function updateOriginButtons() {
-      const hasOrigin = Boolean(currentUserOrigin());
+      const hasEnteredOrigin = Boolean(enteredUserOrigin());
+      const hasActiveOrigin = Boolean(currentUserOrigin());
       if (originApplyButton) {
-        originApplyButton.disabled = !hasOrigin || pendingCity !== null;
+        originApplyButton.disabled = !hasEnteredOrigin || pendingCity !== null;
       }
       if (originRemoveButton) {
-        originRemoveButton.hidden = !hasOrigin;
+        originRemoveButton.hidden = !hasActiveOrigin;
         originRemoveButton.disabled = pendingCity !== null;
+      }
+      if (onlyDistanceCheckbox) {
+        onlyDistanceCheckbox.disabled = !hasActiveOrigin;
+      }
+      if (sortDistanceCheckbox) {
+        sortDistanceCheckbox.disabled = !hasActiveOrigin;
       }
     }
 
@@ -129,6 +162,18 @@
       style.id = "distance-origin-styles";
       style.textContent = `
         .distance-origin-input { width: min(340px, 100%); }
+        .distance-toggle {
+          min-height: 42px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: var(--muted);
+          font-size: 13px;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+        .distance-toggle input { width: 16px; height: 16px; }
+        .distance-toggle:has(input:disabled) { opacity: 0.55; }
         .distance-origin-info {
           min-height: 22px;
           margin: -6px 0 14px;
@@ -148,6 +193,8 @@
         originInput = existingInput;
         originApplyButton = document.getElementById("distance-origin-apply");
         originRemoveButton = document.getElementById("distance-origin-remove");
+        onlyDistanceCheckbox = document.getElementById("distance-only-with-distance");
+        sortDistanceCheckbox = document.getElementById("distance-sort-by-distance");
         distanceOriginInfo = document.getElementById("distance-origin-info");
         return;
       }
@@ -186,8 +233,31 @@
       originRemoveButton.type = "button";
       originRemoveButton.textContent = "Rimuovi";
 
+      const onlyDistanceLabel = document.createElement("label");
+      onlyDistanceLabel.className = "distance-toggle";
+      onlyDistanceCheckbox = document.createElement("input");
+      onlyDistanceCheckbox.id = "distance-only-with-distance";
+      onlyDistanceCheckbox.type = "checkbox";
+      onlyDistanceCheckbox.checked = onlyCinemasWithDistance;
+      onlyDistanceLabel.append(onlyDistanceCheckbox, "Solo cinema con distanza");
+
+      const sortDistanceLabel = document.createElement("label");
+      sortDistanceLabel.className = "distance-toggle";
+      sortDistanceCheckbox = document.createElement("input");
+      sortDistanceCheckbox.id = "distance-sort-by-distance";
+      sortDistanceCheckbox.type = "checkbox";
+      sortDistanceCheckbox.checked = sortCinemasByDistance;
+      sortDistanceLabel.append(sortDistanceCheckbox, "Ordina cinema per distanza");
+
       const insertBefore = searchInput && searchInput.parentNode === toolbarTools ? searchInput : null;
-      for (const element of [label, originInput, originApplyButton, originRemoveButton]) {
+      for (const element of [
+        label,
+        originInput,
+        originApplyButton,
+        originRemoveButton,
+        onlyDistanceLabel,
+        sortDistanceLabel,
+      ]) {
         toolbarTools.insertBefore(element, insertBefore);
       }
 
@@ -202,10 +272,11 @@
       storedUserOrigin = String(value || "").trim();
       writeStoredUserOrigin(storedUserOrigin);
       updateOriginButtons();
+      updateFilter();
     }
 
     function applyUserOrigin() {
-      const origin = currentUserOrigin();
+      const origin = enteredUserOrigin();
       if (!origin) {
         removeUserOrigin();
         return;
@@ -215,6 +286,14 @@
       }
       persistUserOrigin(origin);
       loadCity(activeCity || citySelect.value || DEFAULT_CITY);
+    }
+
+    function updateDistanceToggleState() {
+      onlyCinemasWithDistance = Boolean(onlyDistanceCheckbox?.checked);
+      sortCinemasByDistance = Boolean(sortDistanceCheckbox?.checked);
+      writeStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, onlyCinemasWithDistance);
+      writeStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, sortCinemasByDistance);
+      updateFilter();
     }
 
     function removeUserOrigin() {
@@ -501,6 +580,55 @@
       return filteredLines.join("\n");
     }
 
+    function distanceKmValue(value) {
+      if (value === null || value === undefined || value === "") {
+        return null;
+      }
+      const number = Number(value);
+      return Number.isFinite(number) ? number : null;
+    }
+
+    function groupHasDistance(group) {
+      return distanceKmValue(group?.distanceKm) !== null;
+    }
+
+    function distanceOptionsActive() {
+      return Boolean(currentUserOrigin());
+    }
+
+    function currentDistanceOptions() {
+      const active = distanceOptionsActive();
+      return {
+        onlyWithDistance: active && onlyCinemasWithDistance,
+        sortByDistance: active && sortCinemasByDistance,
+      };
+    }
+
+    function applyDistanceGroupOptions(groups) {
+      const options = currentDistanceOptions();
+      let nextGroups = [...groups];
+      if (options.onlyWithDistance) {
+        nextGroups = nextGroups.filter(groupHasDistance);
+      }
+      if (options.sortByDistance) {
+        nextGroups = nextGroups
+          .map((group, index) => ({ group, index, distanceKm: distanceKmValue(group.distanceKm) }))
+          .sort((left, right) => {
+            const leftHasDistance = left.distanceKm !== null;
+            const rightHasDistance = right.distanceKm !== null;
+            if (leftHasDistance && rightHasDistance && left.distanceKm !== right.distanceKm) {
+              return left.distanceKm - right.distanceKm;
+            }
+            if (leftHasDistance !== rightHasDistance) {
+              return leftHasDistance ? -1 : 1;
+            }
+            return left.index - right.index;
+          })
+          .map((item) => item.group);
+      }
+      return nextGroups;
+    }
+
     function parseShowtimeGroups(row) {
       try {
         const groups = JSON.parse(row.dataset.showtimeGroups || "[]");
@@ -511,6 +639,7 @@
           .map((group) => ({
             cinema: String(group?.cinema || "").trim(),
             showtimes: String(group?.showtimes || "").trim(),
+            distanceKm: distanceKmValue(group?.distanceKm),
           }))
           .filter((group) => group.cinema || group.showtimes);
       } catch (error) {
@@ -585,10 +714,11 @@
     }
 
     function updateShowtimeCells(row, range) {
-      const groups = parseShowtimeGroups(row);
+      const groups = applyDistanceGroupOptions(parseShowtimeGroups(row));
+      const distanceOptions = currentDistanceOptions();
       if (!range.active) {
         renderShowtimeGroups(row, groups);
-        return true;
+        return !distanceOptions.onlyWithDistance || groups.length > 0;
       }
       const filteredGroups = filteredShowtimeGroups(groups, range);
       renderShowtimeGroups(row, filteredGroups);
@@ -600,6 +730,7 @@
         .map((group) => ({
           cinema: group.cinema,
           showtimes: filteredShowtimeText(group.showtimes, range),
+          distanceKm: group.distanceKm,
         }))
         .filter((group) => group.showtimes);
     }
@@ -787,6 +918,7 @@
         .map(([cinema, showtimeInfo]) => ({
           cinema: cinemaLabelWithDetails(cinema, showtimeInfo),
           showtimes: combineShowtimes(showtimeInfo),
+          distanceKm: distanceKmValue(showtimeInfo?.distance_km),
         }))
         .filter((group) => group.cinema || (group.showtimes && group.showtimes !== "N.D."));
     }
@@ -1004,6 +1136,8 @@
     }
     originApplyButton?.addEventListener("click", applyUserOrigin);
     originRemoveButton?.addEventListener("click", removeUserOrigin);
+    onlyDistanceCheckbox?.addEventListener("change", updateDistanceToggleState);
+    sortDistanceCheckbox?.addEventListener("change", updateDistanceToggleState);
     updateOriginButtons();
 
     if (typeof window.addEventListener === "function") {
