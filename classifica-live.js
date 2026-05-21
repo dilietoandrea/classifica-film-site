@@ -1,8 +1,9 @@
 // 1. Constants and DOM references
-const API_BASE_URL = String(
+    const API_BASE_URL = String(
       window.CFR_SITE_CONFIG?.API_BASE_URL || window.API_BASE_URL || "http://127.0.0.1:8000"
     ).replace(/\/+$/, "");
     const DEFAULT_CITY = "roma";
+    const USER_ORIGIN_STORAGE_KEY = "CFR_USER_ORIGIN";
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
       { city: "milano", city_label: "Milano" },
@@ -43,6 +44,11 @@ const API_BASE_URL = String(
     let visibleCityOptions = [];
     let highlightedCityIndex = -1;
     let isCityListOpen = false;
+    let originInput = null;
+    let originApplyButton = null;
+    let originRemoveButton = null;
+    let distanceOriginInfo = null;
+    let storedUserOrigin = readStoredUserOrigin();
 
     // 2. Status and version helpers
     function setStatus(message, kind = "") {
@@ -60,6 +66,197 @@ const API_BASE_URL = String(
       } else {
         delete apiVersionElement.dataset.status;
       }
+    }
+
+    function readStoredUserOrigin() {
+      try {
+        return String(window.localStorage?.getItem(USER_ORIGIN_STORAGE_KEY) || "").trim();
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function writeStoredUserOrigin(value) {
+      try {
+        const text = String(value || "").trim();
+        if (text) {
+          window.localStorage?.setItem(USER_ORIGIN_STORAGE_KEY, text);
+        } else {
+          window.localStorage?.removeItem(USER_ORIGIN_STORAGE_KEY);
+        }
+      } catch (error) {
+        // localStorage may be blocked by the browser; distance calculation still works for the current page.
+      }
+    }
+
+    function currentUserOrigin() {
+      return String(originInput?.value || storedUserOrigin || "").trim();
+    }
+
+    function setDistanceOriginInfo(message, kind = "") {
+      if (!distanceOriginInfo) {
+        return;
+      }
+      distanceOriginInfo.textContent = message || "";
+      distanceOriginInfo.className = `distance-origin-info ${kind}`.trim();
+      if (message) {
+        distanceOriginInfo.removeAttribute("hidden");
+      } else {
+        distanceOriginInfo.setAttribute("hidden", "hidden");
+      }
+    }
+
+    function updateOriginButtons() {
+      const hasOrigin = Boolean(currentUserOrigin());
+      if (originApplyButton) {
+        originApplyButton.disabled = !hasOrigin || pendingCity !== null;
+      }
+      if (originRemoveButton) {
+        originRemoveButton.hidden = !hasOrigin;
+        originRemoveButton.disabled = pendingCity !== null;
+      }
+    }
+
+    function injectDistanceControlStyles() {
+      if (typeof document.createElement !== "function" || !document.head) {
+        return;
+      }
+      const existing = document.getElementById("distance-origin-styles");
+      if (existing && existing.id === "distance-origin-styles") {
+        return;
+      }
+      const style = document.createElement("style");
+      style.id = "distance-origin-styles";
+      style.textContent = `
+        .distance-origin-input { width: min(340px, 100%); }
+        .distance-origin-info {
+          min-height: 22px;
+          margin: -6px 0 14px;
+          color: var(--muted);
+          font-size: 13px;
+        }
+        .distance-origin-info.warn { color: #8a4b00; }
+        .distance-origin-remove[hidden],
+        .distance-origin-info[hidden] { display: none; }
+      `;
+      document.head.appendChild(style);
+    }
+
+    function ensureDistanceControls() {
+      const existingInput = document.getElementById("distance-origin-input");
+      if (existingInput && existingInput.id === "distance-origin-input") {
+        originInput = existingInput;
+        originApplyButton = document.getElementById("distance-origin-apply");
+        originRemoveButton = document.getElementById("distance-origin-remove");
+        distanceOriginInfo = document.getElementById("distance-origin-info");
+        return;
+      }
+      if (typeof document.createElement !== "function" || typeof document.querySelector !== "function") {
+        return;
+      }
+
+      const toolbarTools = document.querySelector(".toolbar-tools");
+      if (!toolbarTools) {
+        return;
+      }
+
+      injectDistanceControlStyles();
+
+      const label = document.createElement("label");
+      label.className = "field-label";
+      label.htmlFor = "distance-origin-input";
+      label.textContent = "Indirizzo di partenza";
+
+      originInput = document.createElement("input");
+      originInput.className = "distance-origin-input search";
+      originInput.id = "distance-origin-input";
+      originInput.type = "search";
+      originInput.placeholder = "Indirizzo di partenza";
+      originInput.autocomplete = "street-address";
+
+      originApplyButton = document.createElement("button");
+      originApplyButton.className = "showtime-reset distance-origin-apply";
+      originApplyButton.id = "distance-origin-apply";
+      originApplyButton.type = "button";
+      originApplyButton.textContent = "Calcola distanze";
+
+      originRemoveButton = document.createElement("button");
+      originRemoveButton.className = "showtime-reset distance-origin-remove";
+      originRemoveButton.id = "distance-origin-remove";
+      originRemoveButton.type = "button";
+      originRemoveButton.textContent = "Rimuovi";
+
+      const insertBefore = searchInput && searchInput.parentNode === toolbarTools ? searchInput : null;
+      for (const element of [label, originInput, originApplyButton, originRemoveButton]) {
+        toolbarTools.insertBefore(element, insertBefore);
+      }
+
+      distanceOriginInfo = document.createElement("p");
+      distanceOriginInfo.className = "distance-origin-info";
+      distanceOriginInfo.id = "distance-origin-info";
+      distanceOriginInfo.setAttribute("hidden", "hidden");
+      statusElement.insertAdjacentElement?.("afterend", distanceOriginInfo);
+    }
+
+    function persistUserOrigin(value) {
+      storedUserOrigin = String(value || "").trim();
+      writeStoredUserOrigin(storedUserOrigin);
+      updateOriginButtons();
+    }
+
+    function applyUserOrigin() {
+      const origin = currentUserOrigin();
+      if (!origin) {
+        removeUserOrigin();
+        return;
+      }
+      if (originInput) {
+        originInput.value = origin;
+      }
+      persistUserOrigin(origin);
+      loadCity(activeCity || citySelect.value || DEFAULT_CITY);
+    }
+
+    function removeUserOrigin() {
+      if (originInput) {
+        originInput.value = "";
+      }
+      persistUserOrigin("");
+      setDistanceOriginInfo("");
+      loadCity(activeCity || citySelect.value || DEFAULT_CITY);
+    }
+
+    function rankingApiUrl(city, origin = currentUserOrigin()) {
+      const params = [`city=${encodeURIComponent(city || DEFAULT_CITY)}`];
+      const originText = String(origin || "").trim();
+      if (originText) {
+        params.push(`origin=${encodeURIComponent(originText)}`);
+      }
+      return `${API_BASE_URL}/api/ranking?${params.join("&")}`;
+    }
+
+    function geocodingOriginErrorMessage(errorDetail) {
+      const code = String(errorDetail?.error_code || errorDetail?.code || "").toLowerCase();
+      const field = String(errorDetail?.field || "").toLowerCase();
+      const message = String(errorDetail?.message || errorDetail?.detail || "").toLowerCase();
+      if (field === "origin" || code.includes("origin") || message.includes("origin")) {
+        return "Non riesco a calcolare le distanze: indirizzo di partenza non trovato.";
+      }
+      return "";
+    }
+
+    function updateDistanceOriginInfo(payload) {
+      const origin = currentUserOrigin();
+      if (!origin) {
+        setDistanceOriginInfo("");
+        return;
+      }
+      if (payload?.metadata?.distance_origin_geocoded === false) {
+        setDistanceOriginInfo("Non riesco a calcolare le distanze: indirizzo di partenza non trovato.", "warn");
+        setStatus("Non riesco a calcolare le distanze: indirizzo di partenza non trovato.", "warn");
+        return;
+      }
+      setDistanceOriginInfo(`Distanze in linea d\u2019aria da: ${origin}`);
     }
 
     async function loadApiVersion() {
@@ -667,6 +864,7 @@ const API_BASE_URL = String(
       activeCity = city;
       citySelect.value = city;
       setStatus(`source: ${source}`, "ok");
+      updateDistanceOriginInfo(payload);
     }
 
     function restoreStaticFallback(message, kind = "warn") {
@@ -683,6 +881,7 @@ const API_BASE_URL = String(
       if (cityFilter) {
         cityFilter.value = cityLabels[staticSnapshot.city] || staticSnapshot.city;
       }
+      setDistanceOriginInfo("");
       setStatus(message, kind);
     }
 
@@ -700,6 +899,7 @@ const API_BASE_URL = String(
       if (cityFilter) {
         cityFilter.value = cityLabel;
       }
+      setDistanceOriginInfo("");
       setStatus(`${message} (${cityLabel})`, "error");
     }
 
@@ -708,9 +908,10 @@ const API_BASE_URL = String(
       const cityLabel = cityLabels[city] || city;
       pendingCity = city;
       citySelect.disabled = true;
+      updateOriginButtons();
       setStatus(`Aggiornamento ${cityLabel}...`, "");
       try {
-        const response = await fetch(`${API_BASE_URL}/api/ranking?city=${encodeURIComponent(city)}`, {
+        const response = await fetch(rankingApiUrl(city), {
           headers: { Accept: "application/json" },
         });
         if (requestId !== loadCityRequestId) {
@@ -728,6 +929,12 @@ const API_BASE_URL = String(
               return;
             }
             const errorDetail = errorPayload.detail || errorPayload;
+            const originMessage = geocodingOriginErrorMessage(errorDetail);
+            if (originMessage) {
+              setDistanceOriginInfo(originMessage, "warn");
+              setStatus(originMessage, "warn");
+              return;
+            }
             if (errorDetail.error_code === "ranking_not_available") {
               const message = errorDetail.message || `Classifica non disponibile per ${cityLabel}.`;
               renderUnavailableRanking(city, cityLabel, message);
@@ -754,6 +961,7 @@ const API_BASE_URL = String(
         if (requestId === loadCityRequestId) {
           pendingCity = null;
           citySelect.disabled = false;
+          updateOriginButtons();
         }
       }
     }
@@ -782,6 +990,22 @@ const API_BASE_URL = String(
       if (showtimeEnd) showtimeEnd.value = "";
       updateFilter();
     });
+
+    ensureDistanceControls();
+    if (originInput) {
+      originInput.value = storedUserOrigin;
+      originInput.addEventListener("input", updateOriginButtons);
+      originInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          applyUserOrigin();
+        }
+      });
+    }
+    originApplyButton?.addEventListener("click", applyUserOrigin);
+    originRemoveButton?.addEventListener("click", removeUserOrigin);
+    updateOriginButtons();
+
     if (typeof window.addEventListener === "function") {
       window.addEventListener("resize", syncVisibleShowtimeGroupHeights);
     }
@@ -840,4 +1064,7 @@ const API_BASE_URL = String(
 
     loadApiVersion();
     loadCityCatalog();
+    if (storedUserOrigin) {
+      loadCity(activeCity || DEFAULT_CITY);
+    }
     updateFilter();
