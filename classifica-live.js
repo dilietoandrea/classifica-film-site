@@ -6,6 +6,7 @@
     const USER_ORIGIN_STORAGE_KEY = "CFR_USER_ORIGIN";
     const ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITH_DISTANCE";
     const SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY = "CFR_SORT_CINEMAS_BY_DISTANCE";
+    const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
       { city: "milano", city_label: "Milano" },
@@ -55,6 +56,8 @@
     let storedUserOrigin = readStoredUserOrigin();
     let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY);
     let sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY);
+    let lastOriginRequestKey = "";
+    let lastOriginRequestAt = 0;
 
     // 2. Status and version helpers
     function setStatus(message, kind = "") {
@@ -281,11 +284,22 @@
         removeUserOrigin();
         return;
       }
+      if (pendingCity !== null) {
+        return;
+      }
+      const city = activeCity || citySelect.value || DEFAULT_CITY;
+      const requestKey = `${city}\n${origin}`;
+      const now = Date.now();
+      if (requestKey === lastOriginRequestKey && now - lastOriginRequestAt < ORIGIN_REQUEST_DEDUP_MS) {
+        return;
+      }
+      lastOriginRequestKey = requestKey;
+      lastOriginRequestAt = now;
       if (originInput) {
         originInput.value = origin;
       }
       persistUserOrigin(origin);
-      loadCity(activeCity || citySelect.value || DEFAULT_CITY);
+      loadCity(city);
     }
 
     function updateDistanceToggleState() {
@@ -319,7 +333,7 @@
       const field = String(errorDetail?.field || "").toLowerCase();
       const message = String(errorDetail?.message || errorDetail?.detail || "").toLowerCase();
       if (field === "origin" || code.includes("origin") || message.includes("origin")) {
-        return "Non riesco a calcolare le distanze: indirizzo di partenza non trovato.";
+        return "Indirizzo di partenza non trovato.";
       }
       return "";
     }
@@ -330,9 +344,33 @@
         setDistanceOriginInfo("");
         return;
       }
-      if (payload?.metadata?.distance_origin_geocoded === false) {
-        setDistanceOriginInfo("Non riesco a calcolare le distanze: indirizzo di partenza non trovato.", "warn");
-        setStatus("Non riesco a calcolare le distanze: indirizzo di partenza non trovato.", "warn");
+      const metadata = payload?.metadata || {};
+      const status = String(
+        metadata.distance_origin_geocoding_status ||
+          (metadata.distance_origin_geocoded === false ? "not_found" : "ok")
+      );
+      if (status === "rate_limited") {
+        const message = "Geocoding temporaneamente non disponibile. Riprova tra qualche minuto.";
+        setDistanceOriginInfo(message, "warn");
+        setStatus(message, "warn");
+        return;
+      }
+      if (status === "not_found") {
+        const message = "Indirizzo di partenza non trovato.";
+        setDistanceOriginInfo(message, "warn");
+        setStatus(message, "warn");
+        return;
+      }
+      if (status === "timeout" || status === "request_failed") {
+        const message = "Geocoding temporaneamente non disponibile. Riprova tra qualche minuto.";
+        setDistanceOriginInfo(message, "warn");
+        setStatus(message, "warn");
+        return;
+      }
+      if (status === "out_of_bounds") {
+        const message = "Indirizzo di partenza fuori dall'area supportata.";
+        setDistanceOriginInfo(message, "warn");
+        setStatus(message, "warn");
         return;
       }
       setDistanceOriginInfo(`Distanze in linea d\u2019aria da: ${origin}`);
