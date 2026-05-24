@@ -5,7 +5,9 @@
     const DEFAULT_CITY = "roma";
     const USER_ORIGIN_STORAGE_KEY = "CFR_USER_ORIGIN";
     const ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITH_DISTANCE";
+    const ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITHOUT_DISTANCE";
     const SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY = "CFR_SORT_CINEMAS_BY_DISTANCE";
+    const SHOW_CINEMA_ADDRESSES_STORAGE_KEY = "CFR_SHOW_CINEMA_ADDRESSES";
     const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
@@ -51,11 +53,15 @@
     let originApplyButton = null;
     let originRemoveButton = null;
     let onlyDistanceCheckbox = null;
+    let onlyWithoutDistanceCheckbox = null;
     let sortDistanceCheckbox = null;
+    let showAddressCheckbox = null;
     let distanceOriginInfo = null;
     let storedUserOrigin = readStoredUserOrigin();
     let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY);
+    let onlyCinemasWithoutDistance = readStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY);
     let sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY);
+    let showCinemaAddresses = readStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY);
     let lastOriginRequestKey = "";
     let lastOriginRequestAt = 0;
 
@@ -148,6 +154,9 @@
       if (onlyDistanceCheckbox) {
         onlyDistanceCheckbox.disabled = !hasActiveOrigin;
       }
+      if (onlyWithoutDistanceCheckbox) {
+        onlyWithoutDistanceCheckbox.disabled = !hasActiveOrigin;
+      }
       if (sortDistanceCheckbox) {
         sortDistanceCheckbox.disabled = !hasActiveOrigin;
       }
@@ -197,7 +206,9 @@
         originApplyButton = document.getElementById("distance-origin-apply");
         originRemoveButton = document.getElementById("distance-origin-remove");
         onlyDistanceCheckbox = document.getElementById("distance-only-with-distance");
+        onlyWithoutDistanceCheckbox = document.getElementById("distance-only-without-distance");
         sortDistanceCheckbox = document.getElementById("distance-sort-by-distance");
+        showAddressCheckbox = document.getElementById("distance-show-addresses");
         distanceOriginInfo = document.getElementById("distance-origin-info");
         return;
       }
@@ -244,6 +255,14 @@
       onlyDistanceCheckbox.checked = onlyCinemasWithDistance;
       onlyDistanceLabel.append(onlyDistanceCheckbox, "Solo cinema con distanza");
 
+      const onlyWithoutDistanceLabel = document.createElement("label");
+      onlyWithoutDistanceLabel.className = "distance-toggle";
+      onlyWithoutDistanceCheckbox = document.createElement("input");
+      onlyWithoutDistanceCheckbox.id = "distance-only-without-distance";
+      onlyWithoutDistanceCheckbox.type = "checkbox";
+      onlyWithoutDistanceCheckbox.checked = onlyCinemasWithoutDistance;
+      onlyWithoutDistanceLabel.append(onlyWithoutDistanceCheckbox, "Solo cinema senza distanza");
+
       const sortDistanceLabel = document.createElement("label");
       sortDistanceLabel.className = "distance-toggle";
       sortDistanceCheckbox = document.createElement("input");
@@ -252,6 +271,17 @@
       sortDistanceCheckbox.checked = sortCinemasByDistance;
       sortDistanceLabel.append(sortDistanceCheckbox, "Ordina cinema per distanza");
 
+      const showAddressLabel = document.createElement("label");
+      showAddressLabel.className = "distance-toggle";
+      showAddressCheckbox = document.createElement("input");
+      showAddressCheckbox.id = "distance-show-addresses";
+      showAddressCheckbox.type = "checkbox";
+      showAddressCheckbox.checked = showCinemaAddresses;
+      showAddressLabel.append(showAddressCheckbox, "Mostra indirizzi cinema");
+      normalizeDistanceFilterToggles();
+      onlyCinemasWithDistance = Boolean(onlyDistanceCheckbox.checked);
+      onlyCinemasWithoutDistance = Boolean(onlyWithoutDistanceCheckbox.checked);
+
       const insertBefore = searchInput && searchInput.parentNode === toolbarTools ? searchInput : null;
       for (const element of [
         label,
@@ -259,7 +289,9 @@
         originApplyButton,
         originRemoveButton,
         onlyDistanceLabel,
+        onlyWithoutDistanceLabel,
         sortDistanceLabel,
+        showAddressLabel,
       ]) {
         toolbarTools.insertBefore(element, insertBefore);
       }
@@ -302,11 +334,26 @@
       loadCity(city);
     }
 
-    function updateDistanceToggleState() {
+    function normalizeDistanceFilterToggles(changedToggle = "") {
+      if (changedToggle === "with" && onlyDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox) {
+        onlyWithoutDistanceCheckbox.checked = false;
+      } else if (changedToggle === "without" && onlyWithoutDistanceCheckbox?.checked && onlyDistanceCheckbox) {
+        onlyDistanceCheckbox.checked = false;
+      } else if (onlyDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox) {
+        onlyWithoutDistanceCheckbox.checked = false;
+      }
+    }
+
+    function updateDistanceToggleState(changedToggle = "") {
+      normalizeDistanceFilterToggles(changedToggle);
       onlyCinemasWithDistance = Boolean(onlyDistanceCheckbox?.checked);
+      onlyCinemasWithoutDistance = Boolean(onlyWithoutDistanceCheckbox?.checked);
       sortCinemasByDistance = Boolean(sortDistanceCheckbox?.checked);
+      showCinemaAddresses = Boolean(showAddressCheckbox?.checked);
       writeStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, onlyCinemasWithDistance);
+      writeStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, onlyCinemasWithoutDistance);
       writeStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, sortCinemasByDistance);
+      writeStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY, showCinemaAddresses);
       updateFilter();
     }
 
@@ -630,6 +677,10 @@
       return distanceKmValue(group?.distanceKm) !== null;
     }
 
+    function groupHasNoDistance(group) {
+      return !groupHasDistance(group);
+    }
+
     function distanceOptionsActive() {
       return Boolean(currentUserOrigin());
     }
@@ -638,7 +689,9 @@
       const active = distanceOptionsActive();
       return {
         onlyWithDistance: active && onlyCinemasWithDistance,
+        onlyWithoutDistance: active && onlyCinemasWithoutDistance,
         sortByDistance: active && sortCinemasByDistance,
+        showAddresses: showCinemaAddresses,
       };
     }
 
@@ -647,6 +700,9 @@
       let nextGroups = [...groups];
       if (options.onlyWithDistance) {
         nextGroups = nextGroups.filter(groupHasDistance);
+      }
+      if (options.onlyWithoutDistance) {
+        nextGroups = nextGroups.filter(groupHasNoDistance);
       }
       if (options.sortByDistance) {
         nextGroups = nextGroups
@@ -676,6 +732,8 @@
         return groups
           .map((group) => ({
             cinema: String(group?.cinema || "").trim(),
+            address: String(group?.address || "").trim(),
+            distanceLabel: String(group?.distanceLabel || "").trim(),
             showtimes: String(group?.showtimes || "").trim(),
             distanceKm: distanceKmValue(group?.distanceKm),
           }))
@@ -685,13 +743,35 @@
       }
     }
 
+    function cinemaDisplayText(group) {
+      const lines = [optionalText(group?.cinema)].filter(Boolean);
+      if (showCinemaAddresses) {
+        const address = optionalText(group?.address);
+        if (address) {
+          lines.push(address);
+        }
+      }
+      const distance = optionalText(group?.distanceLabel);
+      if (distance) {
+        lines.push(distance);
+      }
+      return lines.join("\n");
+    }
+
+    function showtimeGroupText(group, field) {
+      if (field === "cinema") {
+        return cinemaDisplayText(group) || "N.D.";
+      }
+      return group[field] || "N.D.";
+    }
+
     function showtimeGroupsHtml(groups, field) {
       if (!groups.length) {
         return "N.D.";
       }
       return '<div class="showtime-groups">'
         + groups.map((group, index) => (
-          `<div class="showtime-group" data-showtime-index="${index}">${escapeHtml(group[field] || "N.D.").replace(/\n/g, "<br>")}</div>`
+          `<div class="showtime-group" data-showtime-index="${index}">${escapeHtml(showtimeGroupText(group, field)).replace(/\n/g, "<br>")}</div>`
         )).join("\n")
         + "</div>";
     }
@@ -756,7 +836,7 @@
       const distanceOptions = currentDistanceOptions();
       if (!range.active) {
         renderShowtimeGroups(row, groups);
-        return !distanceOptions.onlyWithDistance || groups.length > 0;
+        return !(distanceOptions.onlyWithDistance || distanceOptions.onlyWithoutDistance) || groups.length > 0;
       }
       const filteredGroups = filteredShowtimeGroups(groups, range);
       renderShowtimeGroups(row, filteredGroups);
@@ -767,6 +847,8 @@
       return groups
         .map((group) => ({
           cinema: group.cinema,
+          address: group.address,
+          distanceLabel: group.distanceLabel,
           showtimes: filteredShowtimeText(group.showtimes, range),
           distanceKm: group.distanceKm,
         }))
@@ -937,13 +1019,18 @@
       return text && text !== "N.D." ? text : "";
     }
 
+    function cinemaGroupFromShowtimeInfo(cinema, showtimeInfo) {
+      return {
+        cinema: optionalText(cinema),
+        address: optionalText(showtimeInfo?.indirizzo),
+        distanceLabel: optionalText(showtimeInfo?.distance_label),
+        showtimes: combineShowtimes(showtimeInfo),
+        distanceKm: distanceKmValue(showtimeInfo?.distance_km),
+      };
+    }
+
     function cinemaLabelWithDetails(cinema, showtimeInfo) {
-      const lines = [optionalText(cinema)].filter(Boolean);
-      const address = optionalText(showtimeInfo?.indirizzo);
-      const distance = optionalText(showtimeInfo?.distance_label);
-      if (address) lines.push(address);
-      if (distance) lines.push(distance);
-      return lines.join("\n");
+      return cinemaDisplayText(cinemaGroupFromShowtimeInfo(cinema, showtimeInfo));
     }
 
     function cellHtml(value, sortValue = value) {
@@ -953,11 +1040,7 @@
 
     function showtimeGroupsFromCinemaOrari(cinemaOrari) {
       return Object.entries(cinemaOrari)
-        .map(([cinema, showtimeInfo]) => ({
-          cinema: cinemaLabelWithDetails(cinema, showtimeInfo),
-          showtimes: combineShowtimes(showtimeInfo),
-          distanceKm: distanceKmValue(showtimeInfo?.distance_km),
-        }))
+        .map(([cinema, showtimeInfo]) => cinemaGroupFromShowtimeInfo(cinema, showtimeInfo))
         .filter((group) => group.cinema || (group.showtimes && group.showtimes !== "N.D."));
     }
 
@@ -967,7 +1050,7 @@
         ? movie.cinema_orari
         : {};
       const showtimeGroups = showtimeGroupsFromCinemaOrari(cinemaOrari);
-      const cinemaNames = showtimeGroups.map((group) => group.cinema);
+      const cinemaNames = showtimeGroups.map((group) => cinemaDisplayText(group));
       const showtimes = showtimeGroups.map((group) => group.showtimes);
       const rating = ratingToNumber(valutazioni["MYMONETRO"]);
       const duration = Number(movie.durata_minuti);
@@ -1174,8 +1257,10 @@
     }
     originApplyButton?.addEventListener("click", applyUserOrigin);
     originRemoveButton?.addEventListener("click", removeUserOrigin);
-    onlyDistanceCheckbox?.addEventListener("change", updateDistanceToggleState);
-    sortDistanceCheckbox?.addEventListener("change", updateDistanceToggleState);
+    onlyDistanceCheckbox?.addEventListener("change", () => updateDistanceToggleState("with"));
+    onlyWithoutDistanceCheckbox?.addEventListener("change", () => updateDistanceToggleState("without"));
+    sortDistanceCheckbox?.addEventListener("change", () => updateDistanceToggleState());
+    showAddressCheckbox?.addEventListener("change", () => updateDistanceToggleState());
     updateOriginButtons();
 
     if (typeof window.addEventListener === "function") {
