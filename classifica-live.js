@@ -485,6 +485,9 @@
       if (originText) {
         params.push(`origin=${encodeURIComponent(originText)}`);
       }
+      if (needsApiRankingDataForAddressOptions()) {
+        params.push("address_mode=auto");
+      }
       return `${API_BASE_URL}/api/ranking?${params.join("&")}`;
     }
 
