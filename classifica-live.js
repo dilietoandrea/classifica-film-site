@@ -1390,7 +1390,8 @@
 
     loadApiVersion();
     loadCityCatalog();
-    if (storedUserOrigin) {
+    if (storedUserOrigin || showCinemaAddresses) {
       loadCity(activeCity || DEFAULT_CITY);
+    } else {
+      updateFilter();
     }
-    updateFilter();
