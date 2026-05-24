@@ -57,10 +57,10 @@
     let sortDistanceCheckbox = null;
     let showAddressCheckbox = null;
     let distanceOriginInfo = null;
-    let storedUserOrigin = readStoredUserOrigin();
-    let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY);
-    let onlyCinemasWithoutDistance = readStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY);
-    let sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY);
+    let storedUserOrigin = readStoredUserOrigin(activeCity);
+    let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, activeCity);
+    let onlyCinemasWithoutDistance = readStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, activeCity);
+    let sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, activeCity);
     let showCinemaAddresses = readStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY);
     let lastOriginRequestKey = "";
     let lastOriginRequestAt = 0;
@@ -83,37 +83,53 @@
       }
     }
 
-    function readStoredUserOrigin() {
+    function normalizeStorageCity(city) {
+      const text = String(city || DEFAULT_CITY).trim().toLocaleLowerCase("it-IT");
+      return text || DEFAULT_CITY;
+    }
+
+    function cityScopedStorageKey(key, city) {
+      return `${key}:${normalizeStorageCity(city)}`;
+    }
+
+    function distanceStateCity(city = pendingCity || activeCity || citySelect?.value || DEFAULT_CITY) {
+      return normalizeStorageCity(city);
+    }
+
+    function readStoredUserOrigin(city = distanceStateCity()) {
       try {
-        return String(window.localStorage?.getItem(USER_ORIGIN_STORAGE_KEY) || "").trim();
+        return String(window.localStorage?.getItem(cityScopedStorageKey(USER_ORIGIN_STORAGE_KEY, city)) || "").trim();
       } catch (error) {
         return "";
       }
     }
 
-    function readStoredBoolean(key) {
+    function readStoredBoolean(key, city = null) {
       try {
-        return window.localStorage?.getItem(key) === "1";
+        const storageKey = city ? cityScopedStorageKey(key, city) : key;
+        return window.localStorage?.getItem(storageKey) === "1";
       } catch (error) {
         return false;
       }
     }
 
-    function writeStoredBoolean(key, value) {
+    function writeStoredBoolean(key, value, city = null) {
       try {
-        window.localStorage?.setItem(key, value ? "1" : "0");
+        const storageKey = city ? cityScopedStorageKey(key, city) : key;
+        window.localStorage?.setItem(storageKey, value ? "1" : "0");
       } catch (error) {
         // localStorage may be blocked; the toggle still works for the current page.
       }
     }
 
-    function writeStoredUserOrigin(value) {
+    function writeStoredUserOrigin(value, city = distanceStateCity()) {
       try {
         const text = String(value || "").trim();
+        const storageKey = cityScopedStorageKey(USER_ORIGIN_STORAGE_KEY, city);
         if (text) {
-          window.localStorage?.setItem(USER_ORIGIN_STORAGE_KEY, text);
+          window.localStorage?.setItem(storageKey, text);
         } else {
-          window.localStorage?.removeItem(USER_ORIGIN_STORAGE_KEY);
+          window.localStorage?.removeItem(storageKey);
         }
       } catch (error) {
         // localStorage may be blocked by the browser; distance calculation still works for the current page.
@@ -125,7 +141,10 @@
     }
 
     function enteredUserOrigin() {
-      return String(originInput?.value || storedUserOrigin || "").trim();
+      if (originInput) {
+        return String(originInput.value || "").trim();
+      }
+      return currentUserOrigin();
     }
 
     function setDistanceOriginInfo(message, kind = "") {
@@ -278,9 +297,8 @@
       showAddressCheckbox.type = "checkbox";
       showAddressCheckbox.checked = showCinemaAddresses;
       showAddressLabel.append(showAddressCheckbox, "Mostra indirizzi cinema");
-      normalizeDistanceFilterToggles();
-      onlyCinemasWithDistance = Boolean(onlyDistanceCheckbox.checked);
-      onlyCinemasWithoutDistance = Boolean(onlyWithoutDistanceCheckbox.checked);
+      enforceExclusiveDistanceState();
+      syncDistanceControlValues();
 
       const insertBefore = searchInput && searchInput.parentNode === toolbarTools ? searchInput : null;
       for (const element of [
@@ -303,9 +321,51 @@
       statusElement.insertAdjacentElement?.("afterend", distanceOriginInfo);
     }
 
-    function persistUserOrigin(value) {
+    function enforceExclusiveDistanceState(changedToggle = "") {
+      if (changedToggle === "with" && onlyCinemasWithDistance) {
+        onlyCinemasWithoutDistance = false;
+      } else if (changedToggle === "without" && onlyCinemasWithoutDistance) {
+        onlyCinemasWithDistance = false;
+      } else if (onlyCinemasWithDistance && onlyCinemasWithoutDistance) {
+        onlyCinemasWithoutDistance = false;
+      }
+    }
+
+    function syncDistanceControlValues() {
+      if (originInput) {
+        originInput.value = storedUserOrigin;
+      }
+      if (onlyDistanceCheckbox) {
+        onlyDistanceCheckbox.checked = onlyCinemasWithDistance;
+      }
+      if (onlyWithoutDistanceCheckbox) {
+        onlyWithoutDistanceCheckbox.checked = onlyCinemasWithoutDistance;
+      }
+      if (sortDistanceCheckbox) {
+        sortDistanceCheckbox.checked = sortCinemasByDistance;
+      }
+      if (showAddressCheckbox) {
+        showAddressCheckbox.checked = showCinemaAddresses;
+      }
+      updateOriginButtons();
+    }
+
+    function loadDistanceStateForCity(city, { clearInfo = true } = {}) {
+      const scopedCity = distanceStateCity(city);
+      storedUserOrigin = readStoredUserOrigin(scopedCity);
+      onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, scopedCity);
+      onlyCinemasWithoutDistance = readStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, scopedCity);
+      sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, scopedCity);
+      enforceExclusiveDistanceState();
+      syncDistanceControlValues();
+      if (clearInfo) {
+        setDistanceOriginInfo("");
+      }
+    }
+
+    function persistUserOrigin(value, city = distanceStateCity()) {
       storedUserOrigin = String(value || "").trim();
-      writeStoredUserOrigin(storedUserOrigin);
+      writeStoredUserOrigin(storedUserOrigin, city);
       updateOriginButtons();
       updateFilter();
     }
@@ -319,7 +379,7 @@
       if (pendingCity !== null) {
         return;
       }
-      const city = activeCity || citySelect.value || DEFAULT_CITY;
+      const city = distanceStateCity(citySelect.value || activeCity || DEFAULT_CITY);
       const requestKey = `${city}\n${origin}`;
       const now = Date.now();
       if (requestKey === lastOriginRequestKey && now - lastOriginRequestAt < ORIGIN_REQUEST_DEDUP_MS) {
@@ -330,43 +390,39 @@
       if (originInput) {
         originInput.value = origin;
       }
-      persistUserOrigin(origin);
+      persistUserOrigin(origin, city);
       loadCity(city);
     }
 
-    function normalizeDistanceFilterToggles(changedToggle = "") {
-      if (changedToggle === "with" && onlyDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox) {
-        onlyWithoutDistanceCheckbox.checked = false;
-      } else if (changedToggle === "without" && onlyWithoutDistanceCheckbox?.checked && onlyDistanceCheckbox) {
-        onlyDistanceCheckbox.checked = false;
-      } else if (onlyDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox?.checked && onlyWithoutDistanceCheckbox) {
-        onlyWithoutDistanceCheckbox.checked = false;
-      }
-    }
-
     function updateDistanceToggleState(changedToggle = "") {
-      normalizeDistanceFilterToggles(changedToggle);
+      const city = distanceStateCity();
       onlyCinemasWithDistance = Boolean(onlyDistanceCheckbox?.checked);
       onlyCinemasWithoutDistance = Boolean(onlyWithoutDistanceCheckbox?.checked);
       sortCinemasByDistance = Boolean(sortDistanceCheckbox?.checked);
       showCinemaAddresses = Boolean(showAddressCheckbox?.checked);
-      writeStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, onlyCinemasWithDistance);
-      writeStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, onlyCinemasWithoutDistance);
-      writeStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, sortCinemasByDistance);
+      enforceExclusiveDistanceState(changedToggle);
+      syncDistanceControlValues();
+      writeStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, onlyCinemasWithDistance, city);
+      writeStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, onlyCinemasWithoutDistance, city);
+      writeStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, sortCinemasByDistance, city);
       writeStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY, showCinemaAddresses);
       updateFilter();
     }
 
     function removeUserOrigin() {
+      const city = distanceStateCity(activeCity || citySelect.value || DEFAULT_CITY);
       if (originInput) {
         originInput.value = "";
       }
-      persistUserOrigin("");
+      persistUserOrigin("", city);
       setDistanceOriginInfo("");
-      loadCity(activeCity || citySelect.value || DEFAULT_CITY);
+      loadCity(city);
     }
 
-    function rankingApiUrl(city, origin = currentUserOrigin()) {
+    function rankingApiUrl(
+      city,
+      origin = normalizeStorageCity(city) === distanceStateCity() ? currentUserOrigin() : readStoredUserOrigin(city)
+    ) {
       const params = [`city=${encodeURIComponent(city || DEFAULT_CITY)}`];
       const originText = String(origin || "").trim();
       if (originText) {
@@ -385,7 +441,12 @@
       return "";
     }
 
-    function updateDistanceOriginInfo(payload) {
+    function updateDistanceOriginInfo(payload, city = activeCity) {
+      const payloadCity = normalizeStorageCity(payload?.city || city);
+      if (payloadCity !== normalizeStorageCity(city)) {
+        setDistanceOriginInfo("");
+        return;
+      }
       const origin = currentUserOrigin();
       if (!origin) {
         setDistanceOriginInfo("");
@@ -673,8 +734,12 @@
       return Number.isFinite(number) ? number : null;
     }
 
+    function groupDistanceKm(group) {
+      return distanceKmValue(group?.cinemaDistanceKm ?? group?.distanceKm);
+    }
+
     function groupHasDistance(group) {
-      return distanceKmValue(group?.distanceKm) !== null;
+      return groupDistanceKm(group) !== null;
     }
 
     function groupHasNoDistance(group) {
@@ -706,7 +771,7 @@
       }
       if (options.sortByDistance) {
         nextGroups = nextGroups
-          .map((group, index) => ({ group, index, distanceKm: distanceKmValue(group.distanceKm) }))
+          .map((group, index) => ({ group, index, distanceKm: groupDistanceKm(group) }))
           .sort((left, right) => {
             const leftHasDistance = left.distanceKm !== null;
             const rightHasDistance = right.distanceKm !== null;
@@ -731,27 +796,27 @@
         }
         return groups
           .map((group) => ({
-            cinema: String(group?.cinema || "").trim(),
-            address: String(group?.address || "").trim(),
-            distanceLabel: String(group?.distanceLabel || "").trim(),
+            cinemaName: String(group?.cinemaName || group?.cinema || "").trim(),
+            cinemaAddress: String(group?.cinemaAddress || group?.address || "").trim(),
+            cinemaDistance: String(group?.cinemaDistance || group?.distanceLabel || "").trim(),
+            cinemaDistanceKm: groupDistanceKm(group),
             showtimes: String(group?.showtimes || "").trim(),
-            distanceKm: distanceKmValue(group?.distanceKm),
           }))
-          .filter((group) => group.cinema || group.showtimes);
+          .filter((group) => group.cinemaName || group.showtimes);
       } catch (error) {
         return [];
       }
     }
 
     function cinemaDisplayText(group) {
-      const lines = [optionalText(group?.cinema)].filter(Boolean);
+      const lines = [optionalText(group?.cinemaName ?? group?.cinema)].filter(Boolean);
       if (showCinemaAddresses) {
-        const address = optionalText(group?.address);
+        const address = optionalText(group?.cinemaAddress ?? group?.address);
         if (address) {
           lines.push(address);
         }
       }
-      const distance = optionalText(group?.distanceLabel);
+      const distance = optionalText(group?.cinemaDistance ?? group?.distanceLabel);
       if (distance) {
         lines.push(distance);
       }
@@ -846,11 +911,11 @@
     function filteredShowtimeGroups(groups, range) {
       return groups
         .map((group) => ({
-          cinema: group.cinema,
-          address: group.address,
-          distanceLabel: group.distanceLabel,
+          cinemaName: group.cinemaName,
+          cinemaAddress: group.cinemaAddress,
+          cinemaDistance: group.cinemaDistance,
+          cinemaDistanceKm: group.cinemaDistanceKm,
           showtimes: filteredShowtimeText(group.showtimes, range),
-          distanceKm: group.distanceKm,
         }))
         .filter((group) => group.showtimes);
     }
@@ -1021,11 +1086,11 @@
 
     function cinemaGroupFromShowtimeInfo(cinema, showtimeInfo) {
       return {
-        cinema: optionalText(cinema),
-        address: optionalText(showtimeInfo?.indirizzo),
-        distanceLabel: optionalText(showtimeInfo?.distance_label),
+        cinemaName: optionalText(cinema),
+        cinemaAddress: optionalText(showtimeInfo?.indirizzo),
+        cinemaDistance: optionalText(showtimeInfo?.distance_label),
+        cinemaDistanceKm: distanceKmValue(showtimeInfo?.distance_km),
         showtimes: combineShowtimes(showtimeInfo),
-        distanceKm: distanceKmValue(showtimeInfo?.distance_km),
       };
     }
 
@@ -1041,7 +1106,7 @@
     function showtimeGroupsFromCinemaOrari(cinemaOrari) {
       return Object.entries(cinemaOrari)
         .map(([cinema, showtimeInfo]) => cinemaGroupFromShowtimeInfo(cinema, showtimeInfo))
-        .filter((group) => group.cinema || (group.showtimes && group.showtimes !== "N.D."));
+        .filter((group) => group.cinemaName || (group.showtimes && group.showtimes !== "N.D."));
     }
 
     function movieRow(movie) {
@@ -1112,12 +1177,13 @@
       updatedElement.textContent = `Aggiornata il ${formatUpdatedAt(payload.updated_at)} - ${movies.length} film`;
       tbody.innerHTML = sortedMovies(movies).map(movieRow).join("");
       searchInput.value = "";
-      resetSortState();
-      updateFilter();
       activeCity = city;
       citySelect.value = city;
+      syncDistanceControlValues();
+      resetSortState();
+      updateFilter();
       setStatus(`source: ${source}`, "ok");
-      updateDistanceOriginInfo(payload);
+      updateDistanceOriginInfo(payload, city);
     }
 
     function restoreStaticFallback(message, kind = "warn") {
@@ -1127,13 +1193,14 @@
       updatedElement.textContent = staticSnapshot.updated;
       tbody.innerHTML = staticSnapshot.rowsHtml;
       searchInput.value = "";
-      resetSortState();
-      updateFilter();
       activeCity = staticSnapshot.city;
       citySelect.value = staticSnapshot.city;
       if (cityFilter) {
         cityFilter.value = cityLabels[staticSnapshot.city] || staticSnapshot.city;
       }
+      loadDistanceStateForCity(staticSnapshot.city, { clearInfo: true });
+      resetSortState();
+      updateFilter();
       setDistanceOriginInfo("");
       setStatus(message, kind);
     }
@@ -1145,13 +1212,14 @@
       updatedElement.textContent = "Classifica non disponibile - 0 film";
       tbody.innerHTML = "";
       searchInput.value = "";
-      resetSortState();
-      updateFilter();
       activeCity = city;
       citySelect.value = city;
       if (cityFilter) {
         cityFilter.value = cityLabel;
       }
+      loadDistanceStateForCity(city, { clearInfo: true });
+      resetSortState();
+      updateFilter();
       setDistanceOriginInfo("");
       setStatus(`${message} (${cityLabel})`, "error");
     }
@@ -1160,6 +1228,7 @@
       const requestId = ++loadCityRequestId;
       const cityLabel = cityLabels[city] || city;
       pendingCity = city;
+      loadDistanceStateForCity(city, { clearInfo: true });
       citySelect.disabled = true;
       updateOriginButtons();
       setStatus(`Aggiornamento ${cityLabel}...`, "");
@@ -1172,6 +1241,7 @@
         }
         if (response.status === 429) {
           citySelect.value = activeCity;
+          loadDistanceStateForCity(activeCity, { clearInfo: true });
           setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
         }
@@ -1246,7 +1316,6 @@
 
     ensureDistanceControls();
     if (originInput) {
-      originInput.value = storedUserOrigin;
       originInput.addEventListener("input", updateOriginButtons);
       originInput.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
@@ -1261,7 +1330,7 @@
     onlyWithoutDistanceCheckbox?.addEventListener("change", () => updateDistanceToggleState("without"));
     sortDistanceCheckbox?.addEventListener("change", () => updateDistanceToggleState());
     showAddressCheckbox?.addEventListener("change", () => updateDistanceToggleState());
-    updateOriginButtons();
+    syncDistanceControlValues();
 
     if (typeof window.addEventListener === "function") {
       window.addEventListener("resize", syncVisibleShowtimeGroupHeights);
