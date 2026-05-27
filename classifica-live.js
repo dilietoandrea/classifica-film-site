@@ -1339,6 +1339,7 @@
         if (response.status === 429) {
           citySelect.value = activeCity;
           loadDistanceStateForCity(activeCity, { clearInfo: true });
+          updateFilter();
           setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
         }
@@ -1351,6 +1352,7 @@
             const errorDetail = errorPayload.detail || errorPayload;
             const originMessage = geocodingOriginErrorMessage(errorDetail);
             if (originMessage) {
+              updateFilter();
               setDistanceOriginInfo(originMessage, "warn");
               setStatus(originMessage, "warn");
               return;
