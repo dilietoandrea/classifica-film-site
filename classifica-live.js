@@ -1339,6 +1339,7 @@
         if (response.status === 429) {
           citySelect.value = activeCity;
           loadDistanceStateForCity(activeCity, { clearInfo: true });
+          updateFilter();
           setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
         }
@@ -1351,6 +1352,9 @@
             const errorDetail = errorPayload.detail || errorPayload;
             const originMessage = geocodingOriginErrorMessage(errorDetail);
             if (originMessage) {
+              citySelect.value = activeCity;
+              loadDistanceStateForCity(activeCity, { clearInfo: true });
+              updateFilter();
               setDistanceOriginInfo(originMessage, "warn");
               setStatus(originMessage, "warn");
               return;
@@ -1494,3 +1498,144 @@
     } else {
       updateFilter();
     }
+
+/*
+ * CFR_LIVE_UI_CLEANUP_PATCH
+ * Defensive cleanup for live-rendered pages:
+ * - hides stale static empty state when live movies are present;
+ * - avoids duplicated origin-not-found messages;
+ * - normalizes known city display names such as L'Aquila.
+ */
+(() => {
+  const ORIGIN_NOT_FOUND_TEXT = "Indirizzo di partenza non trovato.";
+  const EMPTY_STATE_TEXT = "Non sono presenti film in programmazione.";
+
+  function normalizeText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function safeSetTimeout(callback, delay = 0) {
+    const timer =
+      window && typeof window.setTimeout === "function"
+        ? window.setTimeout.bind(window)
+        : typeof setTimeout === "function"
+          ? setTimeout
+          : null;
+
+    if (timer) {
+      return timer(callback, delay);
+    }
+
+    callback();
+    return null;
+  }
+
+  function hasPositiveMovieCount() {
+    const bodyText = normalizeText(document.body ? document.body.textContent : "");
+    if (/\b[1-9]\d*\s+di\s+[1-9]\d*\s+film\b/i.test(bodyText)) {
+      return true;
+    }
+    if (/-\s*[1-9]\d*\s+film\b/i.test(bodyText)) {
+      return true;
+    }
+    return Array.from(document.querySelectorAll("tbody tr")).some((row) => {
+      return normalizeText(row.textContent);
+    });
+  }
+
+  function fixCityDisplayName() {
+    document.querySelectorAll("h1").forEach((heading) => {
+      const current = heading.textContent || "";
+      const fixed = current.replace(/Classifica film\s*-\s*Laquila\b/i, "Classifica film - L'Aquila");
+      if (fixed !== current) {
+        heading.textContent = fixed;
+      }
+    });
+
+    if (document.title) {
+      document.title = document.title.replace(/Classifica film\s*-\s*Laquila\b/i, "Classifica film - L'Aquila");
+    }
+  }
+
+  function hideStaleEmptyState() {
+    if (!hasPositiveMovieCount()) {
+      return;
+    }
+
+    document.querySelectorAll("p, div, span").forEach((element) => {
+      if (normalizeText(element.textContent) === EMPTY_STATE_TEXT) {
+        element.hidden = true;
+        element.style.display = "none";
+        element.dataset.cfrHiddenEmptyState = "true";
+      }
+    });
+  }
+
+  function dedupeOriginNotFoundMessages() {
+    const messages = Array.from(document.querySelectorAll("p, div, span")).filter((element) => {
+      return normalizeText(element.textContent) === ORIGIN_NOT_FOUND_TEXT;
+    });
+
+    messages.forEach((element, index) => {
+      if (index === 0) {
+        if (element.dataset.cfrHiddenDuplicateOriginStatus === "true") {
+          element.hidden = false;
+          element.style.display = "";
+          delete element.dataset.cfrHiddenDuplicateOriginStatus;
+        }
+        return;
+      }
+
+      element.hidden = true;
+      element.style.display = "none";
+      element.dataset.cfrHiddenDuplicateOriginStatus = "true";
+    });
+  }
+
+  function cleanupLiveUiState() {
+    if (!document.body) {
+      return;
+    }
+    fixCityDisplayName();
+    hideStaleEmptyState();
+    dedupeOriginNotFoundMessages();
+  }
+
+  let scheduled = false;
+
+  function scheduleCleanup() {
+    if (scheduled) {
+      return;
+    }
+    scheduled = true;
+    safeSetTimeout(() => {
+      scheduled = false;
+      cleanupLiveUiState();
+    }, 0);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleCleanup);
+  } else {
+    scheduleCleanup();
+  }
+
+  safeSetTimeout(scheduleCleanup, 250);
+  safeSetTimeout(scheduleCleanup, 1000);
+  safeSetTimeout(scheduleCleanup, 2500);
+
+  if (typeof MutationObserver !== "undefined") {
+    const observer = new MutationObserver(scheduleCleanup);
+    const observeWhenReady = () => {
+      if (document.body) {
+        observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+      }
+    };
+
+    if (document.body) {
+      observeWhenReady();
+    } else {
+      document.addEventListener("DOMContentLoaded", observeWhenReady, { once: true });
+    }
+  }
+})();
