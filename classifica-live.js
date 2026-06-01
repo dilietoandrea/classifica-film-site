@@ -1272,6 +1272,28 @@
       });
     }
 
+    function hasOnlyAggregateCinemaGroups(movies) {
+      let hasAnyGroup = false;
+      for (const movie of movies) {
+        const cinemaOrari = movie?.cinema_orari;
+        if (!cinemaOrari || typeof cinemaOrari !== "object" || Array.isArray(cinemaOrari)) {
+          continue;
+        }
+        for (const showtimeInfo of Object.values(cinemaOrari)) {
+          if (!showtimeInfo || typeof showtimeInfo !== "object") {
+            continue;
+          }
+          hasAnyGroup = true;
+          const isAggregate = Boolean(showtimeInfo.is_aggregate)
+            || String(showtimeInfo.address_resolution_status || "").trim() === "aggregate_area";
+          if (!isAggregate) {
+            return false;
+          }
+        }
+      }
+      return hasAnyGroup;
+    }
+
     function formatUpdatedAt(value) {
       if (!value) {
         return "data non disponibile";
@@ -1307,7 +1329,13 @@
       syncDistanceControlValues();
       resetSortState();
       updateFilter();
-      setStatus(`source: ${source} | Ambito: ${scope === "province" ? "provincia" : "città"}`, "ok");
+      const scopeLabel = scope === "province" ? "provincia" : "città";
+      let statusMessage = `source: ${source} | Ambito: ${scopeLabel}`;
+      const cinemaCount = Number(payload?.metadata?.cinema_count);
+      if (scope === "city" && cinemaCount === 0 && hasOnlyAggregateCinemaGroups(movies)) {
+        statusMessage += " | Per questa località sono disponibili solo risultati aggregati. Prova a includere i cinema della provincia.";
+      }
+      setStatus(statusMessage, "ok");
       updateDistanceOriginInfo(payload, city);
     }
 
