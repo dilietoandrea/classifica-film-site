@@ -10,6 +10,7 @@
     const ONLY_CINEMAS_WITH_ADDRESS_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITH_ADDRESS";
     const ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITHOUT_ADDRESS";
     const SHOW_CINEMA_ADDRESSES_STORAGE_KEY = "CFR_SHOW_CINEMA_ADDRESSES";
+    const INCLUDE_PROVINCE_STORAGE_KEY = "CFR_INCLUDE_PROVINCE";
     const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
@@ -61,6 +62,7 @@
     let onlyWithAddressCheckbox = null;
     let onlyWithoutAddressCheckbox = null;
     let showAddressCheckbox = null;
+    let includeProvinceCheckbox = null;
     let distanceOriginInfo = null;
     let storedUserOrigin = readStoredUserOrigin(activeCity);
     let onlyCinemasWithDistance = readStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, activeCity);
@@ -69,6 +71,7 @@
     let onlyCinemasWithAddress = readStoredBoolean(ONLY_CINEMAS_WITH_ADDRESS_STORAGE_KEY, activeCity);
     let onlyCinemasWithoutAddress = readStoredBoolean(ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY, activeCity);
     let showCinemaAddresses = readStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY);
+    let includeProvince = readStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, activeCity);
     let lastOriginRequestKey = "";
     let lastOriginRequestAt = 0;
 
@@ -322,6 +325,14 @@
       showAddressCheckbox.type = "checkbox";
       showAddressCheckbox.checked = showCinemaAddresses;
       showAddressLabel.append(showAddressCheckbox, "Mostra indirizzi cinema");
+
+      const includeProvinceLabel = document.createElement("label");
+      includeProvinceLabel.className = "distance-toggle";
+      includeProvinceCheckbox = document.createElement("input");
+      includeProvinceCheckbox.id = "ranking-include-province";
+      includeProvinceCheckbox.type = "checkbox";
+      includeProvinceCheckbox.checked = includeProvince;
+      includeProvinceLabel.append(includeProvinceCheckbox, "Includi cinema della provincia");
       enforceExclusiveDistanceState();
       syncDistanceControlValues();
 
@@ -337,6 +348,7 @@
         onlyWithAddressLabel,
         onlyWithoutAddressLabel,
         showAddressLabel,
+        includeProvinceLabel,
       ]) {
         toolbarTools.insertBefore(element, insertBefore);
       }
@@ -392,6 +404,9 @@
       if (showAddressCheckbox) {
         showAddressCheckbox.checked = showCinemaAddresses;
       }
+      if (includeProvinceCheckbox) {
+        includeProvinceCheckbox.checked = includeProvince;
+      }
       updateOriginButtons();
     }
 
@@ -403,6 +418,7 @@
       sortCinemasByDistance = readStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, scopedCity);
       onlyCinemasWithAddress = readStoredBoolean(ONLY_CINEMAS_WITH_ADDRESS_STORAGE_KEY, scopedCity);
       onlyCinemasWithoutAddress = readStoredBoolean(ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY, scopedCity);
+      includeProvince = readStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, scopedCity);
       enforceExclusiveDistanceState();
       enforceExclusiveAddressState();
       syncDistanceControlValues();
@@ -450,6 +466,7 @@
       onlyCinemasWithAddress = Boolean(onlyWithAddressCheckbox?.checked);
       onlyCinemasWithoutAddress = Boolean(onlyWithoutAddressCheckbox?.checked);
       showCinemaAddresses = Boolean(showAddressCheckbox?.checked);
+      includeProvince = Boolean(includeProvinceCheckbox?.checked);
       enforceExclusiveDistanceState(changedToggle);
       enforceExclusiveAddressState(changedToggle);
       syncDistanceControlValues();
@@ -459,7 +476,10 @@
       writeStoredBoolean(ONLY_CINEMAS_WITH_ADDRESS_STORAGE_KEY, onlyCinemasWithAddress, city);
       writeStoredBoolean(ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY, onlyCinemasWithoutAddress, city);
       writeStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY, showCinemaAddresses);
+      writeStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, includeProvince, city);
       if (needsApiRankingDataForAddressOptions() && !hasApiRankingData) {
+        loadCity(activeCity || DEFAULT_CITY);
+      } else if (changedToggle === "scope") {
         loadCity(activeCity || DEFAULT_CITY);
       } else {
         updateFilter();
@@ -484,6 +504,9 @@
       const originText = String(origin || "").trim();
       if (originText) {
         params.push(`origin=${encodeURIComponent(originText)}`);
+      }
+      if (readStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, city)) {
+        params.push("scope=province");
       }
       if (needsApiRankingDataForAddressOptions()) {
         params.push("address_mode=auto");
@@ -889,6 +912,8 @@
             cinemaAddress: String(group?.cinemaAddress || group?.address || "").trim(),
             cinemaDistance: String(group?.cinemaDistance || group?.distanceLabel || "").trim(),
             cinemaDistanceKm: groupDistanceKm(group),
+            isAggregate: Boolean(group?.isAggregate ?? group?.is_aggregate),
+            addressResolutionStatus: String(group?.addressResolutionStatus || group?.address_resolution_status || "").trim(),
             showtimes: String(group?.showtimes || "").trim(),
           }))
           .filter((group) => group.cinemaName || group.showtimes);
@@ -903,6 +928,8 @@
         const address = optionalText(group?.cinemaAddress ?? group?.address);
         if (address) {
           lines.push(address);
+        } else if (group?.isAggregate || group?.addressResolutionStatus === "aggregate_area") {
+          lines.push("Area aggregata MYmovies, cinema non specificato");
         }
       }
       const distance = optionalText(group?.cinemaDistance ?? group?.distanceLabel);
@@ -1184,6 +1211,8 @@
         cinemaAddress: optionalText(showtimeInfo?.indirizzo),
         cinemaDistance: optionalText(showtimeInfo?.distance_label),
         cinemaDistanceKm: distanceKmValue(showtimeInfo?.distance_km),
+        isAggregate: Boolean(showtimeInfo?.is_aggregate),
+        addressResolutionStatus: optionalText(showtimeInfo?.address_resolution_status),
         showtimes: combineShowtimes(showtimeInfo),
       };
     }
@@ -1265,6 +1294,7 @@
       const city = payload.city || activeCity || DEFAULT_CITY;
       const cityLabel = payload.city_label || cityLabels[city] || city;
       const source = payload.metadata?.source || "api";
+      const scope = String(payload.metadata?.scope || "city");
       hasApiRankingData = true;
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
@@ -1277,7 +1307,7 @@
       syncDistanceControlValues();
       resetSortState();
       updateFilter();
-      setStatus(`source: ${source}`, "ok");
+      setStatus(`source: ${source} | Ambito: ${scope === "province" ? "provincia" : "città"}`, "ok");
       updateDistanceOriginInfo(payload, city);
     }
 
@@ -1433,6 +1463,7 @@
     onlyWithAddressCheckbox?.addEventListener("change", () => updateDistanceToggleState("address-with"));
     onlyWithoutAddressCheckbox?.addEventListener("change", () => updateDistanceToggleState("address-without"));
     showAddressCheckbox?.addEventListener("change", () => updateDistanceToggleState());
+    includeProvinceCheckbox?.addEventListener("change", () => updateDistanceToggleState("scope"));
     syncDistanceControlValues();
 
     if (typeof window.addEventListener === "function") {
