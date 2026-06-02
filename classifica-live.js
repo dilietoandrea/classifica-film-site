@@ -1568,7 +1568,6 @@
         if (response.status === 429) {
           citySelect.value = activeCity;
           loadDistanceStateForCity(activeCity, { clearInfo: true });
-          resetAggregateFallbackUi();
           updateFilter();
           setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
@@ -1584,7 +1583,6 @@
             if (originMessage) {
               citySelect.value = activeCity;
               loadDistanceStateForCity(activeCity, { clearInfo: true });
-              resetAggregateFallbackUi();
               updateFilter();
               setDistanceOriginInfo(originMessage, "warn");
               setStatus(originMessage, "warn");
