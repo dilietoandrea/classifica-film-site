@@ -1340,10 +1340,15 @@
     }
 
     function shouldHideAggregateOnlyRows(movies, metadata, scope) {
-      return scope === "city"
-        && Boolean(metadata?.city_cinema_expansion_used)
-        && movies.some(movieHasAnyRealGroups)
-        && movies.some(movieHasAggregateOnlyGroups);
+      const hasRealGroups = movies.some(movieHasAnyRealGroups);
+      const hasAggregateOnlyGroups = movies.some(movieHasAggregateOnlyGroups);
+      if (!hasRealGroups || !hasAggregateOnlyGroups) {
+        return false;
+      }
+      if (scope === "province") {
+        return true;
+      }
+      return scope === "city" && Boolean(metadata?.city_cinema_expansion_used);
     }
 
     function isAggregateOnlyRow(row) {
