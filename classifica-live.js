@@ -72,6 +72,11 @@
     let onlyCinemasWithoutAddress = readStoredBoolean(ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY, activeCity);
     let showCinemaAddresses = readStoredBoolean(SHOW_CINEMA_ADDRESSES_STORAGE_KEY);
     let includeProvince = readStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, activeCity);
+    let aggregateToggleContainer = null;
+    let aggregateToggleButton = null;
+    let aggregateToggleMessage = null;
+    let hideAggregateOnlyRowsByDefault = false;
+    let showAggregateRows = false;
     let lastOriginRequestKey = "";
     let lastOriginRequestAt = 0;
 
@@ -1072,7 +1077,8 @@
       for (const row of allRows()) {
         const matchesShowtime = matchesShowtimeFilter(row, showtimeRange);
         const matchesText = rowMatchesText(row, query);
-        const matches = matchesText && matchesShowtime;
+        const matchesAggregateVisibility = !hideAggregateOnlyRowsByDefault || !isAggregateOnlyRow(row) || showAggregateRows;
+        const matches = matchesText && matchesShowtime && matchesAggregateVisibility;
         row.hidden = !matches;
         if (matches) visible += 1;
       }
@@ -1294,6 +1300,160 @@
       return hasAnyGroup;
     }
 
+    function isAggregateShowtimeInfo(showtimeInfo) {
+      return Boolean(showtimeInfo?.is_aggregate || showtimeInfo?.isAggregate)
+        || String(showtimeInfo?.address_resolution_status || showtimeInfo?.addressResolutionStatus || "").trim() === "aggregate_area";
+    }
+
+    function movieHasAggregateOnlyGroups(movie) {
+      const cinemaOrari = movie?.cinema_orari;
+      if (!cinemaOrari || typeof cinemaOrari !== "object" || Array.isArray(cinemaOrari)) {
+        return false;
+      }
+      let hasGroup = false;
+      for (const showtimeInfo of Object.values(cinemaOrari)) {
+        if (!showtimeInfo || typeof showtimeInfo !== "object") {
+          continue;
+        }
+        hasGroup = true;
+        if (!isAggregateShowtimeInfo(showtimeInfo)) {
+          return false;
+        }
+      }
+      return hasGroup;
+    }
+
+    function movieHasAnyRealGroups(movie) {
+      const cinemaOrari = movie?.cinema_orari;
+      if (!cinemaOrari || typeof cinemaOrari !== "object" || Array.isArray(cinemaOrari)) {
+        return false;
+      }
+      for (const showtimeInfo of Object.values(cinemaOrari)) {
+        if (!showtimeInfo || typeof showtimeInfo !== "object") {
+          continue;
+        }
+        if (!isAggregateShowtimeInfo(showtimeInfo)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function shouldHideAggregateOnlyRows(movies, metadata, scope) {
+      return scope === "city"
+        && Boolean(metadata?.city_cinema_expansion_used)
+        && movies.some(movieHasAnyRealGroups)
+        && movies.some(movieHasAggregateOnlyGroups);
+    }
+
+    function isAggregateOnlyRow(row) {
+      const groups = parseShowtimeGroups(row);
+      if (!groups.length) {
+        return false;
+      }
+      return groups.every((group) => isAggregateShowtimeInfo(group));
+    }
+
+    function injectAggregateToggleStyles() {
+      if (typeof document.createElement !== "function" || !document.head) {
+        return;
+      }
+      const existing = document.getElementById("aggregate-toggle-styles");
+      if (existing && existing.id === "aggregate-toggle-styles") {
+        return;
+      }
+      const style = document.createElement("style");
+      style.id = "aggregate-toggle-styles";
+      style.textContent = `
+        .aggregate-toggle-container {
+          margin: 10px 0 14px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0.75rem;
+          color: var(--muted);
+          font-size: 13px;
+        }
+        .aggregate-toggle-message {
+          margin: 0;
+          min-width: 0;
+          flex: 1 1 auto;
+        }
+        .aggregate-toggle-button {
+          min-height: 38px;
+          padding: 0 12px;
+          border-radius: 6px;
+          border: 1px solid rgba(0,0,0,0.15);
+          background: var(--background);
+          color: var(--text);
+          font-weight: 700;
+          cursor: pointer;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    function ensureAggregateToggleUI() {
+      if (!statusElement || typeof document.createElement !== "function") {
+        return;
+      }
+      if (!aggregateToggleContainer) {
+        injectAggregateToggleStyles();
+        aggregateToggleContainer = document.createElement("div");
+        aggregateToggleContainer.id = "aggregate-toggle-container";
+        aggregateToggleContainer.className = "aggregate-toggle-container";
+
+        aggregateToggleMessage = document.createElement("p");
+        aggregateToggleMessage.id = "aggregate-toggle-message";
+        aggregateToggleMessage.className = "aggregate-toggle-message";
+
+        aggregateToggleButton = document.createElement("button");
+        aggregateToggleButton.id = "aggregate-toggle-button";
+        aggregateToggleButton.type = "button";
+        aggregateToggleButton.className = "aggregate-toggle-button";
+        aggregateToggleButton.addEventListener("click", () => {
+          showAggregateRows = !showAggregateRows;
+          updateAggregateToggleUI();
+          updateFilter();
+        });
+
+        aggregateToggleContainer.append(aggregateToggleMessage, aggregateToggleButton);
+        statusElement.insertAdjacentElement("afterend", aggregateToggleContainer);
+      }
+      aggregateToggleContainer.hidden = !hideAggregateOnlyRowsByDefault;
+      updateAggregateToggleUI();
+    }
+
+    function updateAggregateToggleUI() {
+      if (!aggregateToggleButton || !aggregateToggleMessage) {
+        return;
+      }
+      aggregateToggleButton.textContent = showAggregateRows
+        ? "Nascondi risultati aggregati"
+        : "Mostra anche risultati aggregati";
+      aggregateToggleMessage.textContent = showAggregateRows
+        ? "Sono mostrati anche i risultati aggregati."
+        : "Alcuni film sono disponibili solo come aggregato MYmovies.";
+      aggregateToggleButton.hidden = !hideAggregateOnlyRowsByDefault;
+      aggregateToggleMessage.hidden = !hideAggregateOnlyRowsByDefault;
+    }
+
+    function resetAggregateFallbackUi() {
+      hideAggregateOnlyRowsByDefault = false;
+      showAggregateRows = true;
+      if (aggregateToggleContainer) {
+        aggregateToggleContainer.hidden = true;
+      }
+      if (aggregateToggleButton) {
+        aggregateToggleButton.textContent = "Mostra anche risultati aggregati";
+        aggregateToggleButton.hidden = true;
+      }
+      if (aggregateToggleMessage) {
+        aggregateToggleMessage.textContent = "";
+        aggregateToggleMessage.hidden = true;
+      }
+    }
+
     function formatUpdatedAt(value) {
       if (!value) {
         return "data non disponibile";
@@ -1322,7 +1482,16 @@
       titleElement.textContent = `Classifica film - ${cityLabel}`;
       subtitleElement.textContent = payload.subtitle || `Guida alla programmazione dei film in uscita nelle sale cinematografiche di ${cityLabel}.`;
       updatedElement.textContent = `Aggiornata il ${formatUpdatedAt(payload.updated_at)} - ${movies.length} film`;
-      tbody.innerHTML = sortedMovies(movies).map(movieRow).join("");
+      const sorted = sortedMovies(movies);
+      tbody.innerHTML = sorted.map(movieRow).join("");
+      const hideAggregates = shouldHideAggregateOnlyRows(sorted, payload.metadata || {}, scope);
+      hideAggregateOnlyRowsByDefault = hideAggregates;
+      showAggregateRows = false;
+      if (hideAggregates) {
+        ensureAggregateToggleUI();
+      } else if (aggregateToggleContainer) {
+        aggregateToggleContainer.hidden = true;
+      }
       searchInput.value = "";
       activeCity = city;
       citySelect.value = city;
@@ -1341,6 +1510,7 @@
 
     function restoreStaticFallback(message, kind = "warn") {
       hasApiRankingData = false;
+      resetAggregateFallbackUi();
       document.title = staticSnapshot.title;
       titleElement.textContent = staticSnapshot.title;
       subtitleElement.textContent = staticSnapshot.subtitle;
@@ -1361,6 +1531,7 @@
 
     function renderUnavailableRanking(city, cityLabel, message) {
       hasApiRankingData = true;
+      resetAggregateFallbackUi();
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
       subtitleElement.textContent = message;
@@ -1397,6 +1568,7 @@
         if (response.status === 429) {
           citySelect.value = activeCity;
           loadDistanceStateForCity(activeCity, { clearInfo: true });
+          resetAggregateFallbackUi();
           updateFilter();
           setStatus("Hai raggiunto il limite di aggiornamenti live. Riprova pi\u00f9 tardi.", "error");
           return;
@@ -1412,6 +1584,7 @@
             if (originMessage) {
               citySelect.value = activeCity;
               loadDistanceStateForCity(activeCity, { clearInfo: true });
+              resetAggregateFallbackUi();
               updateFilter();
               setDistanceOriginInfo(originMessage, "warn");
               setStatus(originMessage, "warn");
