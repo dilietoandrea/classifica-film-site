@@ -12,6 +12,7 @@
     const SHOW_CINEMA_ADDRESSES_STORAGE_KEY = "CFR_SHOW_CINEMA_ADDRESSES";
     const INCLUDE_PROVINCE_STORAGE_KEY = "CFR_INCLUDE_PROVINCE";
     const TITLE_COLUMN_CLASS = "sticky-title-column";
+    const RANKING_UNAVAILABLE_MESSAGE = "La citt\u00e0 \u00e8 nel catalogo MYmovies, ma oggi non risultano film in programmazione.";
     const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
@@ -50,6 +51,7 @@
     let sortState = { column: null, direction: "ascending" };
     let loadCityRequestId = 0;
     let hasApiRankingData = false;
+    let isUnavailableRankingView = false;
     let pendingCity = null;
     let visibleCityOptions = [];
     let highlightedCityIndex = -1;
@@ -401,11 +403,9 @@
       }
       if (onlyWithAddressCheckbox) {
         onlyWithAddressCheckbox.checked = onlyCinemasWithAddress;
-        onlyWithAddressCheckbox.disabled = false;
       }
       if (onlyWithoutAddressCheckbox) {
         onlyWithoutAddressCheckbox.checked = onlyCinemasWithoutAddress;
-        onlyWithoutAddressCheckbox.disabled = false;
       }
       if (showAddressCheckbox) {
         showAddressCheckbox.checked = showCinemaAddresses;
@@ -414,6 +414,31 @@
         includeProvinceCheckbox.checked = includeProvince;
       }
       updateOriginButtons();
+      syncAddressFilterAvailability();
+    }
+
+    function syncAddressFilterAvailability() {
+      if (onlyWithAddressCheckbox) {
+        onlyWithAddressCheckbox.disabled = isUnavailableRankingView;
+      }
+      if (onlyWithoutAddressCheckbox) {
+        onlyWithoutAddressCheckbox.disabled = isUnavailableRankingView;
+      }
+    }
+
+    function clearUnavailableRankingFilters(city) {
+      const scopedCity = distanceStateCity(city);
+      onlyCinemasWithDistance = false;
+      onlyCinemasWithoutDistance = false;
+      sortCinemasByDistance = false;
+      onlyCinemasWithAddress = false;
+      onlyCinemasWithoutAddress = false;
+      writeStoredBoolean(ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY, false, scopedCity);
+      writeStoredBoolean(ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY, false, scopedCity);
+      writeStoredBoolean(SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY, false, scopedCity);
+      writeStoredBoolean(ONLY_CINEMAS_WITH_ADDRESS_STORAGE_KEY, false, scopedCity);
+      writeStoredBoolean(ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY, false, scopedCity);
+      syncDistanceControlValues();
     }
 
     function loadDistanceStateForCity(city, { clearInfo = true } = {}) {
@@ -1485,6 +1510,7 @@
       const source = payload.metadata?.source || "api";
       const scope = String(payload.metadata?.scope || "city");
       hasApiRankingData = true;
+      isUnavailableRankingView = false;
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
       subtitleElement.textContent = payload.subtitle || `Guida alla programmazione dei film in uscita nelle sale cinematografiche di ${cityLabel}.`;
@@ -1517,6 +1543,7 @@
 
     function restoreStaticFallback(message, kind = "warn") {
       hasApiRankingData = false;
+      isUnavailableRankingView = false;
       resetAggregateFallbackUi();
       document.title = staticSnapshot.title;
       titleElement.textContent = staticSnapshot.title;
@@ -1538,6 +1565,7 @@
 
     function renderUnavailableRanking(city, cityLabel, message) {
       hasApiRankingData = true;
+      isUnavailableRankingView = true;
       resetAggregateFallbackUi();
       document.title = `Classifica film - ${cityLabel}`;
       titleElement.textContent = `Classifica film - ${cityLabel}`;
@@ -1551,10 +1579,11 @@
         cityFilter.value = cityLabel;
       }
       loadDistanceStateForCity(city, { clearInfo: true });
+      clearUnavailableRankingFilters(city);
       resetSortState();
       updateFilter();
       setDistanceOriginInfo("");
-      setStatus(`${message} (${cityLabel})`, "error");
+      setStatus(`${message} (${cityLabel})`, "warn");
     }
 
     async function loadCity(city) {
@@ -1596,8 +1625,7 @@
               return;
             }
             if (errorDetail.error_code === "ranking_not_available") {
-              const message = errorDetail.message || `Classifica non disponibile per ${cityLabel}.`;
-              renderUnavailableRanking(city, cityLabel, message);
+              renderUnavailableRanking(city, cityLabel, RANKING_UNAVAILABLE_MESSAGE);
               return;
             }
           } catch (parseError) {
