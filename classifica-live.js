@@ -11,6 +11,7 @@
     const ONLY_CINEMAS_WITHOUT_ADDRESS_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITHOUT_ADDRESS";
     const SHOW_CINEMA_ADDRESSES_STORAGE_KEY = "CFR_SHOW_CINEMA_ADDRESSES";
     const INCLUDE_PROVINCE_STORAGE_KEY = "CFR_INCLUDE_PROVINCE";
+    const TITLE_COLUMN_CLASS = "sticky-title-column";
     const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
@@ -1227,9 +1228,10 @@
       return cinemaDisplayText(cinemaGroupFromShowtimeInfo(cinema, showtimeInfo));
     }
 
-    function cellHtml(value, sortValue = value) {
+    function cellHtml(value, sortValue = value, className = "") {
       const text = displayValue(value);
-      return `<td data-sort-value="${escapeHtml(sortValue)}">${escapeHtml(text).replace(/\n/g, "<br>")}</td>`;
+      const classAttr = className ? ` class="${escapeHtml(className)}"` : "";
+      return `<td${classAttr} data-sort-value="${escapeHtml(sortValue)}">${escapeHtml(text).replace(/\n/g, "<br>")}</td>`;
     }
 
     function showtimeGroupsFromCinemaOrari(cinemaOrari) {
@@ -1249,7 +1251,7 @@
       const rating = ratingToNumber(valutazioni["MYMONETRO"]);
       const duration = Number(movie.durata_minuti);
       return `<tr data-showtime-groups="${escapeHtml(JSON.stringify(showtimeGroups))}">`
-        + cellHtml(movie.titolo, displayValue(movie.titolo).toLocaleUpperCase("it-IT"))
+        + cellHtml(movie.titolo, displayValue(movie.titolo).toLocaleUpperCase("it-IT"), TITLE_COLUMN_CLASS)
         + cellHtml(formatRating(valutazioni["MYMONETRO"]), rating)
         + cellHtml(movie.consigliato)
         + cellHtml(joinValues(movie.genere))
