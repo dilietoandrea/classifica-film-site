@@ -713,7 +713,7 @@
       visibleCityOptions = matchingCities;
       highlightedCityIndex = -1;
       if (!matchingCities.length) {
-        comboboxResultsContainer.innerHTML = '<div role="option" class="city-result" style="cursor: default; pointer-events: none;">Nessuna città trovata</div>';
+        comboboxResultsContainer.innerHTML = '<div role="option" class="city-result" style="cursor: default; pointer-events: none;">Nessuna citt\u00e0 trovata</div>';
         if (isCityListOpen) openCityResults();
         return;
       }
@@ -1531,11 +1531,11 @@
       syncDistanceControlValues();
       resetSortState();
       updateFilter();
-      const scopeLabel = scope === "province" ? "provincia" : "città";
+      const scopeLabel = scope === "province" ? "provincia" : "citt\u00e0";
       let statusMessage = `source: ${source} | Ambito: ${scopeLabel}`;
       const cinemaCount = Number(payload?.metadata?.cinema_count);
       if (scope === "city" && cinemaCount === 0 && hasOnlyAggregateCinemaGroups(movies)) {
-        statusMessage += " | Per questa località sono disponibili solo risultati aggregati. Prova a includere i cinema della provincia.";
+        statusMessage += " | Per questa localit\u00e0 sono disponibili solo risultati aggregati. Prova a includere i cinema della provincia.";
       }
       setStatus(statusMessage, "ok");
       updateDistanceOriginInfo(payload, city);
