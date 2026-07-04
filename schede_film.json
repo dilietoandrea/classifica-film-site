@@ -323,8 +323,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:40",
-          "11:10",
           "11:40",
           "12:30",
           "13:00",
@@ -358,8 +356,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:50",
-          "11:10",
           "12:30",
           "13:20",
           "14:10",
@@ -674,8 +670,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:30",
-          "11:20",
           "14:20",
           "15:50",
           "16:20",
@@ -691,8 +685,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:30",
-          "11:20",
           "13:30",
           "14:20",
           "17:00",
@@ -1206,7 +1198,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:20",
           "14:00",
           "16:10",
           "19:20",
@@ -1645,6 +1636,7 @@
       },
       "Uci Luce Maximo": {
         "orari": [
+          "10:10",
           "16:40",
           "19:20",
           "22:10"
@@ -2367,7 +2359,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:35",
           "15:00"
         ],
         "orari_vo": [],
@@ -2473,7 +2464,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:20",
           "18:10"
         ],
         "orari_vo": [],
@@ -2481,7 +2471,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:40",
           "16:05"
         ],
         "orari_vo": [],
@@ -2942,21 +2931,6 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4968/"
       },
-      "Uci Cinemas Porta di Roma": {
-        "orari": [
-          "11:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
-      },
-      "Uci Cinemas Roma Est": {
-        "orari": [
-          "11:00",
-          "11:10"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
       "Uci Luce Maximo": {
         "orari": [
           "10:05",
@@ -3361,6 +3335,48 @@
   },
   {
     "scheda": 39,
+    "titolo": "IL DOTTOR STRANAMORE, OVVERO: COME IMPARAI A NON PREOCCUPARMI E AD AMARE LA BOMBA",
+    "valutazioni": {
+      "MYMONETRO": "4.27",
+      "MYMOVIES.IT": "4.25",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "4.29"
+    },
+    "consigliato": "ASSOLUTAMENTE SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Gran Bretagna"
+    ],
+    "anno": "1964",
+    "durata_minuti": 93,
+    "trama": "Una commedia satirica con delle immagini che rimarranno per sempre impresse nella Storia del Cinema",
+    "regia": [
+      "Stanley Kubrick"
+    ],
+    "cast": [
+      "Peter Sellers",
+      "George C. Scott",
+      "Sterling Hayden",
+      "Keenan Wynn"
+    ],
+    "uscita": "28 settembre 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +16",
+    "cinema_orari": {
+      "Arena Vigna Murata": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24628/"
+      }
+    }
+  },
+  {
+    "scheda": 40,
     "titolo": "L'AGENTE SEGRETO",
     "valutazioni": {
       "MYMONETRO": "3.48",
@@ -3405,7 +3421,7 @@
     }
   },
   {
-    "scheda": 40,
+    "scheda": 41,
     "titolo": "... CHE DIO PERDONA A TUTTI",
     "valutazioni": {
       "MYMONETRO": "2.99",
@@ -3447,7 +3463,7 @@
     }
   },
   {
-    "scheda": 41,
+    "scheda": 42,
     "titolo": "PECORE SOTTO COPERTURA",
     "valutazioni": {
       "MYMONETRO": "3.24",
@@ -3495,7 +3511,7 @@
     }
   },
   {
-    "scheda": 42,
+    "scheda": 43,
     "titolo": "IL SUONO DI UNA CADUTA",
     "valutazioni": {
       "MYMONETRO": "3.26",
@@ -3537,7 +3553,7 @@
     }
   },
   {
-    "scheda": 43,
+    "scheda": 44,
     "titolo": "NON BUSSARE ALLA MIA PORTA",
     "valutazioni": {
       "MYMONETRO": "2.97",
@@ -3579,7 +3595,7 @@
     }
   },
   {
-    "scheda": 44,
+    "scheda": 45,
     "titolo": "CENA DI CLASSE",
     "valutazioni": {
       "MYMONETRO": "2.77",
@@ -3621,7 +3637,7 @@
     }
   },
   {
-    "scheda": 45,
+    "scheda": 46,
     "titolo": "L'ESORCISTA - IL CREDENTE",
     "valutazioni": {
       "MYMONETRO": "1.76",
@@ -3670,7 +3686,7 @@
     }
   },
   {
-    "scheda": 46,
+    "scheda": 47,
     "titolo": "GILDA",
     "valutazioni": {
       "MYMONETRO": "4.31",
@@ -3715,7 +3731,7 @@
     }
   },
   {
-    "scheda": 47,
+    "scheda": 48,
     "titolo": "4 MOSCHE DI VELLUTO GRIGIO",
     "valutazioni": {
       "MYMONETRO": "3.42",
@@ -3757,7 +3773,7 @@
     }
   },
   {
-    "scheda": 48,
+    "scheda": 49,
     "titolo": "YELLOW LETTERS",
     "valutazioni": {
       "MYMONETRO": "3.59",
@@ -3801,7 +3817,7 @@
     }
   },
   {
-    "scheda": 49,
+    "scheda": 50,
     "titolo": "SUPER MARIO GALAXY - IL FILM",
     "valutazioni": {
       "MYMONETRO": "2.93",
@@ -3846,7 +3862,7 @@
     }
   },
   {
-    "scheda": 50,
+    "scheda": 51,
     "titolo": "LA STORIA DELLA PRINCIPESSA SPLENDENTE",
     "valutazioni": {
       "MYMONETRO": "3.38",
@@ -3889,7 +3905,7 @@
     }
   },
   {
-    "scheda": 51,
+    "scheda": 52,
     "titolo": "IL TERZO OMICIDIO",
     "valutazioni": {
       "MYMONETRO": "3.34",
@@ -3932,7 +3948,7 @@
     }
   },
   {
-    "scheda": 52,
+    "scheda": 53,
     "titolo": "IL CASO 137",
     "valutazioni": {
       "MYMONETRO": "3.81",
@@ -3974,7 +3990,7 @@
     }
   },
   {
-    "scheda": 53,
+    "scheda": 54,
     "titolo": "GOAT - SOGNA IN GRANDE",
     "valutazioni": {
       "MYMONETRO": "3.00",
@@ -4019,7 +4035,7 @@
     }
   },
   {
-    "scheda": 54,
+    "scheda": 55,
     "titolo": "LA PICCOLA BOTTEGA DEGLI ORRORI",
     "valutazioni": {
       "MYMONETRO": "3.16",
@@ -4062,7 +4078,7 @@
     }
   },
   {
-    "scheda": 55,
+    "scheda": 56,
     "titolo": "IL SILENZIO DEGLI ALTRI",
     "valutazioni": {
       "MYMONETRO": "3.60",
@@ -4111,7 +4127,7 @@
     }
   },
   {
-    "scheda": 56,
+    "scheda": 57,
     "titolo": "UN FILM FATTO PER BENE",
     "valutazioni": {
       "MYMONETRO": "3.32",
@@ -4150,7 +4166,7 @@
     }
   },
   {
-    "scheda": 57,
+    "scheda": 58,
     "titolo": "E.1027 - EILEEN GRAY E LA CASA SUL MARE",
     "valutazioni": {
       "MYMONETRO": "3.77",
@@ -4194,7 +4210,7 @@
     }
   },
   {
-    "scheda": 58,
+    "scheda": 59,
     "titolo": "D'ISTRUZIONE PUBBLICA",
     "valutazioni": {
       "MYMONETRO": "3.10",
@@ -4232,7 +4248,7 @@
     }
   },
   {
-    "scheda": 59,
+    "scheda": 60,
     "titolo": "SCIROCCO E IL REGNO DEI VENTI",
     "valutazioni": {
       "MYMONETRO": "3.82",
@@ -4270,7 +4286,7 @@
     }
   },
   {
-    "scheda": 60,
+    "scheda": 61,
     "titolo": "AFTER LIFE - QUAL È IL TUO RICORDO PIÙ BELLO?",
     "valutazioni": {
       "MYMONETRO": "3.67",
@@ -4344,7 +4360,7 @@
     }
   },
   {
-    "scheda": 61,
+    "scheda": 62,
     "titolo": "ERA",
     "valutazioni": {
       "MYMONETRO": "2.88",
@@ -4386,7 +4402,7 @@
     }
   },
   {
-    "scheda": 62,
+    "scheda": 63,
     "titolo": "LA FOSSA DELLE MARIANNE",
     "valutazioni": {
       "MYMONETRO": "3.48",
@@ -4432,7 +4448,7 @@
     }
   },
   {
-    "scheda": 63,
+    "scheda": 64,
     "titolo": "VITTORIO DE SICA - LA VITA IN SCENA",
     "valutazioni": {
       "MYMONETRO": "3.34",
@@ -4469,7 +4485,7 @@
     }
   },
   {
-    "scheda": 64,
+    "scheda": 65,
     "titolo": "LUX ÆTERNA",
     "valutazioni": {
       "MYMONETRO": "2.92",
@@ -4511,7 +4527,7 @@
     }
   },
   {
-    "scheda": 65,
+    "scheda": 66,
     "titolo": "DRACULA",
     "valutazioni": {
       "MYMONETRO": "2.79",
@@ -4557,7 +4573,7 @@
     }
   },
   {
-    "scheda": 66,
+    "scheda": 67,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4594,7 +4610,7 @@
     }
   },
   {
-    "scheda": 67,
+    "scheda": 68,
     "titolo": "LA STREGONERIA ATTRAVERSO I SECOLI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4636,7 +4652,7 @@
     }
   },
   {
-    "scheda": 68,
+    "scheda": 69,
     "titolo": "SCIAMPISTE & CO.",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4679,7 +4695,7 @@
     }
   },
   {
-    "scheda": 69,
+    "scheda": 70,
     "titolo": "SEPARAZIONI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4750,7 +4766,7 @@
     }
   },
   {
-    "scheda": 70,
+    "scheda": 71,
     "titolo": "SARAJEVO SAFARI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
