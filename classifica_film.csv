@@ -58,7 +58,7 @@ Uci Luce Maximo","15:00, 16:00, 17:00, 18:00, 19:50, 20:30, 21:30 | VO: 19:00
 16:00, 17:30, 19:15, 20:45
 16:00, 16:30, 17:15, 18:00, 19:15, 20:00, 20:45, 21:30, 22:00 | VO: 17:00, 20:30, 22:00
 16:00, 18:00, 20:00, 21:30, 22:00
-16:00, 17:00, 20:15 | VO: 10:45, 15:00, 18:15, 19:15, 21:30
+16:00, 17:00, 20:15 | VO: 15:00, 18:15, 19:15, 21:30
 16:30, 18:00, 20:30, 21:30
 16:30, 17:15, 18:25, 20:30, 21:15
 11:00, 13:15, 14:50, 15:40, 16:10, 17:00, 18:00, 19:00, 19:30, 20:00, 21:00, 22:00
@@ -66,8 +66,8 @@ Uci Luce Maximo","15:00, 16:00, 17:00, 18:00, 19:50, 20:30, 21:30 | VO: 19:00
 16:00, 17:00, 18:00, 19:30, 20:30, 21:30
 VO: 11:00, 14:30, 18:00, 21:30
 11:00, 12:00, 13:00, 14:00, 14:30, 15:00, 16:00, 16:30, 17:00, 17:30, 17:45, 18:00, 18:35, 19:00, 19:40, 20:00, 20:40, 21:00, 21:20, 21:30, 21:40, 22:00, 22:30, 23:00 | VO: 19:30
-10:00, 11:00, 12:00, 13:00, 14:00, 14:30, 14:40, 15:00, 15:30, 16:00, 16:20, 16:30, 17:00, 17:30, 18:00, 18:35, 19:00, 19:15, 19:30, 20:00, 20:15, 20:30, 21:00, 21:20, 21:30, 21:40, 22:00, 22:20, 22:40, 22:50, 23:00, 23:50 | VO: 09:10, 11:30
-09:30, 10:00, 11:00, 12:00, 13:00, 14:00, 14:30, 15:00, 16:00, 16:30, 17:00, 18:00, 18:20, 18:40, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:20, 22:40, 23:00 | VO: 10:30
+11:00, 12:00, 13:00, 14:00, 14:30, 14:40, 15:00, 15:30, 16:00, 16:20, 16:30, 17:00, 17:30, 18:00, 18:35, 19:00, 19:15, 19:30, 20:00, 20:15, 20:30, 21:00, 21:20, 21:30, 21:40, 22:00, 22:20, 22:40, 22:50, 23:00, 23:50 | VO: 11:30
+11:00, 12:00, 13:00, 14:00, 14:30, 15:00, 16:00, 16:30, 17:00, 18:00, 18:20, 18:40, 19:00, 19:30, 20:00, 20:30, 21:00, 21:30, 22:00, 22:20, 22:40, 23:00 | VO: 10:30
 09:10, 10:00, 12:00, 13:00, 14:00, 16:00, 17:00, 18:00, 19:30, 20:00, 21:00, 21:30, 22:00, 23:10, 23:35 | VO: 10:00"
 TOY STORY 5,"3,78",SI,"Animazione, Avventura, Commedia","USA, Giappone",2026,102,"Il quinto capitolo rispetta i topos e i personaggi della saga, affrontando le più grandi paure dei bambini: l'abbandono e la solitudine","Andrew Stanton, McKenna Harris","Angelo Maggi, Massimo Dapporto, Ilaria Stagni, Katia Follesa","CINEMA Adriano
 CINEMA Andromeda
@@ -253,25 +253,6 @@ Quattro Fontane","VO: 17:00
 18:00 | VO: 20:45
 16:30, 20:30
 17:00 | VO: 19:00"
-BLUE,"3,00",SI,Sperimentale,Gran Bretagna,1993,76,N.D.,Derek Jarman,N.D.,"CINEMA Atlantic
-CINEMA Cineland
-CINEMA Jolly
-CINEMA Multisala Lux
-The Screen Cinemas Roma Ottavia
-The Space Parco de Medici
-Uci Cinemas Parco Leonardo
-Uci Cinemas Porta di Roma
-Uci Cinemas Roma Est
-Uci Luce Maximo","21:30
-16:30, 18:30, 20:30
-17:00, 21:00
-18:30, 22:30
-19:45, 21:45
-14:20, 22:45
-11:45, 14:05, 17:20
-10:10, 14:05, 19:10
-14:05, 22:30
-22:10"
 COS'È L'AMORE?,"3,00",SI,Commedia,Francia,2025,98,"Commedia francese girata con brio fatta di equivoci, romanticismo e incroci familiari",Fabien Gorgeart,"Laure Calamy, Vincent Macaigne, Lyes Salem, Mélanie Thierry",CINEMA Giulio Cesare,16:45
 ELECTION DAY,"2,96",SI,Commedia,Italia,2026,100,La commedia politica di Amato si perde in una traiettoria narrativa prevedibile e in un finale banalizzante,Giorgio Amato,"Angela Finocchiaro, Giorgio Tirabassi, Antonio Gerardi, Crisula Stafida",Uci Cinemas Porta di Roma,13:40
 LA CASA - IL ROGO DEL MALE,"2,94",SI,Horror,USA,2026,112,Il sesto capitolo del franchise mostra il suo debito al cinema di Raimi,Sébastien Vanicek,"Souheila Yacoub, Hunter Doohan, Luciane Buchanan, Tandi Wright","CINEMA Adriano
@@ -298,7 +279,7 @@ Uci Cinemas Roma Est","15:00
 INNAMORARSI E ALTRE PESSIME IDEE,"2,77",SI,Commedia,Italia,2026,97,"Prevedibile commedia romantica, accompagnata da una regia che asseconda con grazia le evoluzioni romantiche dei protagonisti",Simone Aleandri,"Lino Guanciale, Ilenia Pastorelli, Andrea Delogu, Claudio Colica",Uci Luce Maximo,15:00
 GLI ULTIMI GIORNI DEL PARADISO,"2,70",SI,Drammatico,"Portogallo, Italia, Argentina",2025,108,Un'opera - a tratti feroce - che ci aiuta a contemplare il nostro disagio contemporaneo,João Nuno Pinto,"Margarida Marinho, Beatriz Batarda, Rita Cabaço, Jorge Andrade",Delle Provincie,16:00
 CENA DI CLASSE,"2,69",NI,Commedia,Italia,2026,94,Una commedia che perde la genuinità dell'ispirazione in una trama caotica,Francesco Mandelli,"Beatrice Arnera, Luigi Luciano, Giovanni Esposito, Roberto Lipari",Uci Luce Maximo,19:50
-RUFUS - IL DRAGHETTO MARINO CHE NON SAPEVA NUOTARE,"2,67",NI,"Animazione, Family","Norvegia, Belgio, Germania",2026,80,Dalla Norvegia una favola ecologista dal tradizionale impianto narrativo,Endre Skandfer,"Gisken Armand, Kåre Conradi, Janne Formoe, Stig Henrik Hoff",Uci Luce Maximo,"09:00, 09:40, 10:50, 12:45"
+RUFUS - IL DRAGHETTO MARINO CHE NON SAPEVA NUOTARE,"2,67",NI,"Animazione, Family","Norvegia, Belgio, Germania",2026,80,Dalla Norvegia una favola ecologista dal tradizionale impianto narrativo,Endre Skandfer,"Gisken Armand, Kåre Conradi, Janne Formoe, Stig Henrik Hoff",Uci Luce Maximo,"09:40, 10:50, 12:45"
 RICCHI... DA MORIRE - DELITTI IN FAMIGLIA,"2,52",NI,"Commedia, Drammatico, Thriller",USA,2025,105,Un'opera gradevole con un protagonista di bell'aspetto. Ma manca il mordente,John Patton Ford,"Glen Powell, Margaret Qualley, Jessica Henwick, Bill Camp","CINEMA Giulio Cesare
 Quattro Fontane","18:45
 16:30"
@@ -356,7 +337,7 @@ Uci Luce Maximo","15:20, 17:15, 20:30
 17:00, 19:00 | VO: 21:00
 11:15, 19:55, 22:25
 11:35, 14:40, 19:20
-10:20, 19:20
+19:20
 14:40, 19:10
 17:20"
 TROLLS 3 - TUTTI INSIEME,"2,05",NI,"Animazione, Commedia, Family",USA,2023,92,Una saga che si è spinta troppo oltre. Gioca sul sicure ma le cartucce erano già esaurite,"Walt Dohrn, Tim Heitz","Anna Kendrick, Justin Timberlake, Camila Cabello, Eric André","Uci Cinemas Parco Leonardo
