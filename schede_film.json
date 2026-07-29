@@ -144,10 +144,7 @@
           "20:00",
           "21:00"
         ],
-        "orari_vo": [
-          "18:15",
-          "21:15"
-        ],
+        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5249/"
       },
       "CINEMA Jolly": {
@@ -174,7 +171,6 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "10:00",
           "13:00",
           "16:30",
           "17:00",
@@ -184,12 +180,10 @@
           "22:30"
         ],
         "orari_vo": [
-          "10:30",
           "13:15",
           "16:00",
           "18:45",
           "21:30",
-          "10:15",
           "13:00",
           "15:40",
           "18:15",
@@ -325,6 +319,7 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
+          "10:15",
           "10:40",
           "11:05",
           "11:30",
@@ -355,8 +350,7 @@
           "20:45",
           "21:10",
           "21:20",
-          "21:35",
-          "21:50"
+          "21:35"
         ],
         "orari_vo": [
           "11:45",
@@ -610,13 +604,10 @@
       "CINEMA Giulio Cesare": {
         "orari": [
           "16:30",
-          "17:30",
-          "19:30",
-          "20:30"
+          "19:30"
         ],
         "orari_vo": [
           "18:00",
-          "19:30",
           "21:15"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5249/"
@@ -813,7 +804,6 @@
           "23:40"
         ],
         "orari_vo": [
-          "09:10",
           "10:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
@@ -1138,13 +1128,6 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
       },
-      "Uci Cinemas Porta di Roma": {
-        "orari": [
-          "10:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
-      },
       "Uci Cinemas Roma Est": {
         "orari": [
           "11:20"
@@ -1233,6 +1216,7 @@
       },
       "Uci Luce Maximo": {
         "orari": [
+          "09:00",
           "10:50"
         ],
         "orari_vo": [],
@@ -1392,13 +1376,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
-      },
-      "Uci Cinemas Porta di Roma": {
-        "orari": [
-          "10:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
       },
       "Uci Cinemas Roma Est": {
         "orari": [
@@ -2465,6 +2442,48 @@
   },
   {
     "scheda": 28,
+    "titolo": "CENA DI CLASSE",
+    "valutazioni": {
+      "MYMONETRO": "2.69",
+      "MYMOVIES.IT": "2.00",
+      "CRITICA": "2.33",
+      "PUBBLICO": "3.73"
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 94,
+    "trama": "Una commedia che perde la genuinità dell'ispirazione in una trama caotica",
+    "regia": [
+      "Francesco Mandelli"
+    ],
+    "cast": [
+      "Beatrice Arnera",
+      "Luigi Luciano",
+      "Giovanni Esposito",
+      "Roberto Lipari"
+    ],
+    "uscita": "26 marzo 2026",
+    "distribuzione": "Medusa",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Uci Luce Maximo": {
+        "orari": [
+          "09:10"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
+      }
+    }
+  },
+  {
+    "scheda": 29,
     "titolo": "FOLLOWING",
     "valutazioni": {
       "MYMONETRO": "3.50",
@@ -2509,7 +2528,7 @@
     }
   },
   {
-    "scheda": 29,
+    "scheda": 30,
     "titolo": "LA FAMIGLIA",
     "valutazioni": {
       "MYMONETRO": "3.64",
@@ -2553,7 +2572,7 @@
     }
   },
   {
-    "scheda": 30,
+    "scheda": 31,
     "titolo": "ILLUSIONE",
     "valutazioni": {
       "MYMONETRO": "2.76",
@@ -2596,7 +2615,7 @@
     }
   },
   {
-    "scheda": 31,
+    "scheda": 32,
     "titolo": "NOSFERATU IL VAMPIRO",
     "valutazioni": {
       "MYMONETRO": "4.00",
@@ -2639,7 +2658,7 @@
     }
   },
   {
-    "scheda": 32,
+    "scheda": 33,
     "titolo": "MIO FRATELLO È UN VICHINGO - THE LAST VIKING",
     "valutazioni": {
       "MYMONETRO": "3.42",
@@ -2683,7 +2702,7 @@
     }
   },
   {
-    "scheda": 33,
+    "scheda": 34,
     "titolo": "TUNER - L'ACCORDATORE",
     "valutazioni": {
       "MYMONETRO": "3.08",
@@ -2726,7 +2745,7 @@
     }
   },
   {
-    "scheda": 34,
+    "scheda": 35,
     "titolo": "SUPER MARIO GALAXY - IL FILM",
     "valutazioni": {
       "MYMONETRO": "2.93",
@@ -2771,7 +2790,7 @@
     }
   },
   {
-    "scheda": 35,
+    "scheda": 36,
     "titolo": "IL CASO 137",
     "valutazioni": {
       "MYMONETRO": "3.70",
@@ -2822,7 +2841,7 @@
     }
   },
   {
-    "scheda": 36,
+    "scheda": 37,
     "titolo": "ALLORA BALLIAMO",
     "valutazioni": {
       "MYMONETRO": "2.94",
@@ -2864,7 +2883,7 @@
     }
   },
   {
-    "scheda": 37,
+    "scheda": 38,
     "titolo": "IL SILENZIO DEGLI ALTRI",
     "valutazioni": {
       "MYMONETRO": "3.60",
@@ -2916,7 +2935,7 @@
     }
   },
   {
-    "scheda": 38,
+    "scheda": 39,
     "titolo": "NINO",
     "valutazioni": {
       "MYMONETRO": "3.73",
@@ -2958,7 +2977,7 @@
     }
   },
   {
-    "scheda": 39,
+    "scheda": 40,
     "titolo": "IL PRIGIONIERO",
     "valutazioni": {
       "MYMONETRO": "3.29",
@@ -3001,7 +3020,7 @@
     }
   },
   {
-    "scheda": 40,
+    "scheda": 41,
     "titolo": "AFTER LIFE - QUAL È IL TUO RICORDO PIÙ BELLO?",
     "valutazioni": {
       "MYMONETRO": "3.73",
@@ -3043,7 +3062,7 @@
     }
   },
   {
-    "scheda": 41,
+    "scheda": 42,
     "titolo": "STILL WALKING - CAMMINANDO IN UN GIORNO D'ESTATE",
     "valutazioni": {
       "MYMONETRO": "3.77",
@@ -3092,7 +3111,7 @@
     }
   },
   {
-    "scheda": 42,
+    "scheda": 43,
     "titolo": "SEPARAZIONI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -3134,7 +3153,52 @@
     }
   },
   {
-    "scheda": 43,
+    "scheda": 44,
+    "titolo": "RUFUS - IL DRAGHETTO MARINO CHE NON SAPEVA NUOTARE",
+    "valutazioni": {
+      "MYMONETRO": "2.67",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.33",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Animazione",
+      "Family"
+    ],
+    "paesi": [
+      "Norvegia",
+      "Belgio",
+      "Germania"
+    ],
+    "anno": "2026",
+    "durata_minuti": 80,
+    "trama": "Dalla Norvegia una favola ecologista dal tradizionale impianto narrativo",
+    "regia": [
+      "Endre Skandfer"
+    ],
+    "cast": [
+      "Gisken Armand",
+      "Kåre Conradi",
+      "Janne Formoe",
+      "Stig Henrik Hoff"
+    ],
+    "uscita": "4 giugno 2026",
+    "distribuzione": "Plaion Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Uci Luce Maximo": {
+        "orari": [
+          "09:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
+      }
+    }
+  },
+  {
+    "scheda": 45,
     "titolo": "SUPER HAPPY FOREVER - LA RAGAZZA DAL CAPPELLO ROSSO",
     "valutazioni": {
       "MYMONETRO": "3.74",
@@ -3177,7 +3241,7 @@
     }
   },
   {
-    "scheda": 44,
+    "scheda": 46,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -3214,7 +3278,7 @@
     }
   },
   {
-    "scheda": 45,
+    "scheda": 47,
     "titolo": "BALLATA FEMMENELLA",
     "valutazioni": {
       "MYMONETRO": "N.D.",
