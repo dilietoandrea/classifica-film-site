@@ -308,8 +308,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:10",
-          "10:40",
           "11:30",
           "12:20",
           "13:00",
@@ -335,6 +333,7 @@
           "22:30",
           "23:00",
           "23:30",
+          "23:40",
           "23:50"
         ],
         "orari_vo": [
@@ -346,7 +345,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:30",
           "11:30",
           "13:00",
           "14:00",
@@ -375,9 +373,11 @@
       },
       "Uci Luce Maximo": {
         "orari": [
+          "10:00",
           "10:30",
           "11:30",
           "13:00",
+          "13:40",
           "14:00",
           "15:00",
           "16:10",
@@ -387,11 +387,10 @@
           "20:20",
           "21:20",
           "22:30",
-          "23:30",
-          "00:30"
+          "23:30"
         ],
         "orari_vo": [
-          "09:10"
+          "19:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
@@ -404,7 +403,7 @@
       "MYMONETRO": "3.81",
       "MYMOVIES.IT": "4.00",
       "CRITICA": "4.06",
-      "PUBBLICO": "3.38"
+      "PUBBLICO": "3.37"
     },
     "consigliato": "SI",
     "genere": [
@@ -553,7 +552,6 @@
         "orari": [
           "16:30",
           "17:30",
-          "19:30",
           "20:30"
         ],
         "orari_vo": [
@@ -642,7 +640,6 @@
           "20:15"
         ],
         "orari_vo": [
-          "10:45",
           "15:00",
           "18:15",
           "19:30",
@@ -749,8 +746,7 @@
           "21:10",
           "21:40",
           "22:00",
-          "22:45",
-          "23:00"
+          "22:45"
         ],
         "orari_vo": [
           "15:10"
@@ -759,7 +755,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:10",
           "11:00",
           "13:00",
           "14:20",
@@ -779,14 +774,12 @@
           "22:45"
         ],
         "orari_vo": [
-          "09:10",
           "11:40"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:20",
           "11:00",
           "12:40",
           "13:10",
@@ -981,7 +974,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:40",
           "14:30"
         ],
         "orari_vo": [],
@@ -989,7 +981,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "10:40",
           "14:50",
           "17:00"
         ],
@@ -2086,6 +2077,14 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/21257/"
       },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "13:40",
+          "15:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
+      },
       "The Space Parco de Medici": {
         "orari": [
           "13:00",
@@ -2646,7 +2645,6 @@
     "cinema_orari": {
       "Uci Luce Maximo": {
         "orari": [
-          "09:30",
           "19:50"
         ],
         "orari_vo": [],
@@ -3049,8 +3047,7 @@
     "cinema_orari": {
       "Uci Luce Maximo": {
         "orari": [
-          "09:05",
-          "12:00",
+          "11:30",
           "17:30"
         ],
         "orari_vo": [],
@@ -3316,7 +3313,6 @@
     "cinema_orari": {
       "Uci Luce Maximo": {
         "orari": [
-          "09:00",
           "12:15"
         ],
         "orari_vo": [],
