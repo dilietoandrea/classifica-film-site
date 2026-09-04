@@ -5,7 +5,7 @@
     "valutazioni": {
       "MYMONETRO": "3.79",
       "MYMOVIES.IT": "3.50",
-      "CRITICA": "4.08",
+      "CRITICA": "4.07",
       "PUBBLICO": "N.D."
     },
     "consigliato": "SI",
@@ -38,7 +38,8 @@
         "orari": [
           "15:40",
           "18:00",
-          "20:30"
+          "20:30",
+          "22:45"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
@@ -58,7 +59,8 @@
         "orari": [
           "15:30",
           "17:50",
-          "20:20"
+          "20:20",
+          "22:40"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
@@ -92,8 +94,8 @@
       },
       "CINEMA FCE Majestic": {
         "orari": [
-          "15:20",
-          "17:35"
+          "16:00",
+          "22:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/24682/"
@@ -104,7 +106,7 @@
           "18:45"
         ],
         "orari_vo": [
-          "21:01"
+          "21:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5249/"
       },
@@ -148,58 +150,25 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4911/"
       },
-      "Palazzo San Lorenzo": {
-        "orari": [],
-        "orari_vo": [
-          "18:00"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/21490/"
-      },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "17:00",
-          "19:15",
-          "21:40"
+          "16:00",
+          "18:35",
+          "21:45"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
       },
-      "The Space Moderno": {
-        "orari": [
-          "15:30",
-          "19:00",
-          "21:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5271/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:35",
-          "15:10",
-          "17:15",
-          "18:20",
-          "19:00",
-          "19:35",
-          "19:55",
-          "21:00",
-          "21:55",
-          "22:35"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "16:00",
           "17:00",
           "18:00",
           "19:30",
+          "20:00",
+          "21:20",
           "22:00"
         ],
-        "orari_vo": [
-          "18:40"
-        ],
+        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
       },
       "Uci Cinemas Porta di Roma": {
@@ -207,7 +176,6 @@
           "11:30",
           "14:30",
           "17:00",
-          "17:30",
           "18:30",
           "19:10",
           "19:30",
@@ -221,28 +189,17 @@
       "Uci Cinemas Roma Est": {
         "orari": [
           "14:30",
-          "15:00",
+          "15:10",
           "16:00",
           "17:00",
           "18:20",
           "19:30",
           "21:20",
-          "22:00"
+          "22:00",
+          "23:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "11:00",
-          "13:40",
-          "17:00",
-          "18:50",
-          "19:10",
-          "22:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -310,7 +267,6 @@
       "CINEMA Atlantic": {
         "orari": [
           "15:00",
-          "16:00",
           "17:20"
         ],
         "orari_vo": [],
@@ -393,33 +349,12 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "17:00",
-          "18:30"
+          "16:10",
+          "17:10",
+          "21:20"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
-      },
-      "The Space Moderno": {
-        "orari": [
-          "18:10",
-          "20:45"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5271/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:40",
-          "15:55",
-          "16:45",
-          "17:50",
-          "18:45",
-          "19:40",
-          "21:30",
-          "21:45"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -434,6 +369,7 @@
         "orari": [
           "16:50",
           "17:20",
+          "18:10",
           "19:40",
           "20:20",
           "21:00"
@@ -444,14 +380,10 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "11:40",
-          "14:30",
           "15:30",
-          "15:40",
-          "16:00",
-          "17:20",
+          "16:10",
           "18:20",
           "19:00",
-          "20:00",
           "20:40",
           "21:10",
           "22:00"
@@ -472,19 +404,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "11:30",
-          "14:10",
-          "15:00",
-          "16:00",
-          "16:50",
-          "17:40",
-          "19:40"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -524,7 +443,7 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "15:00",
+          "16:00",
           "19:30"
         ],
         "orari_vo": [],
@@ -532,8 +451,7 @@
       },
       "CINEMA Atlantic": {
         "orari": [
-          "15:20",
-          "21:30"
+          "15:20"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
@@ -554,18 +472,9 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
       },
-      "The Space Parco de Medici": {
-        "orari": [
-          "15:40",
-          "18:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
-          "17:10",
-          "19:45"
+          "21:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
@@ -573,7 +482,7 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "12:00",
-          "14:20"
+          "14:40"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
@@ -592,12 +501,12 @@
     "scheda": 4,
     "titolo": "IL MALLOPPO",
     "valutazioni": {
-      "MYMONETRO": "N.D.",
+      "MYMONETRO": "1.50",
       "MYMOVIES.IT": "1.00",
-      "CRITICA": "N.D.",
+      "CRITICA": "2.00",
       "PUBBLICO": "N.D."
     },
-    "consigliato": "N.D.",
+    "consigliato": "NO",
     "genere": [
       "Commedia"
     ],
@@ -625,7 +534,8 @@
         "orari": [
           "15:00",
           "18:10",
-          "20:40"
+          "20:40",
+          "22:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
@@ -633,7 +543,7 @@
       "CINEMA Andromeda": {
         "orari": [
           "16:45",
-          "18:45",
+          "18:50",
           "21:15"
         ],
         "orari_vo": [],
@@ -650,7 +560,8 @@
       "CINEMA Atlantic": {
         "orari": [
           "18:15",
-          "20:30"
+          "20:30",
+          "22:45"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
@@ -709,21 +620,11 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "19:20",
-          "21:30"
+          "19:30",
+          "21:25"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "15:00",
-          "17:00",
-          "18:45",
-          "22:25"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -745,8 +646,6 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "11:20",
-          "15:00",
-          "16:50",
           "22:10"
         ],
         "orari_vo": [],
@@ -760,19 +659,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "09:30",
-          "12:20",
-          "13:30",
-          "15:15",
-          "17:50",
-          "20:25",
-          "23:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -830,8 +716,8 @@
       "CINEMA Atlantic": {
         "orari": [
           "15:00",
-          "18:20",
-          "21:00"
+          "18:40",
+          "21:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
@@ -869,10 +755,10 @@
         "cinema_url": "https://www.mymovies.it/cinema/roma/4966/"
       },
       "CINEMA FCE Majestic": {
-        "orari": [
-          "16:05"
+        "orari": [],
+        "orari_vo": [
+          "16:15"
         ],
-        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/24682/"
       },
       "CINEMA Giulio Cesare": {
@@ -894,8 +780,9 @@
       },
       "CINEMA Madison": {
         "orari": [
-          "15:05",
-          "21:00"
+          "15:30",
+          "18:15",
+          "21:05"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -920,29 +807,10 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "21:10"
+          "18:15"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
-      },
-      "The Space Moderno": {
-        "orari": [
-          "21:50"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5271/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "15:25",
-          "18:00",
-          "20:30",
-          "20:55",
-          "21:30",
-          "21:50"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -955,7 +823,7 @@
       "Uci Cinemas Parco Leonardo": {
         "orari": [
           "16:40",
-          "17:30",
+          "17:40",
           "19:50",
           "20:40",
           "22:20"
@@ -965,7 +833,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:00",
           "16:20",
           "19:20",
           "21:30",
@@ -977,22 +844,12 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "15:10",
           "16:10",
-          "18:00",
           "19:10",
           "22:10"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "16:10",
-          "20:15"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -1077,13 +934,6 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
       },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "CINEMA Tibur": {
         "orari": [
           "20:00"
@@ -1139,13 +989,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
-      },
-      "Palazzo San Lorenzo": {
-        "orari": [],
-        "orari_vo": [
-          "23:15"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/21490/"
       }
     }
   },
@@ -1196,7 +1039,7 @@
       },
       "CINEMA Andromeda": {
         "orari": [
-          "18:00"
+          "17:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5264/"
@@ -1264,18 +1107,18 @@
         "cinema_url": "https://www.mymovies.it/cinema/roma/4966/"
       },
       "CINEMA Farnese": {
-        "orari": [
+        "orari": [],
+        "orari_vo": [
           "18:00"
         ],
-        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6891/"
       },
       "CINEMA FCE Majestic": {
         "orari": [
-          "17:25"
+          "21:25"
         ],
         "orari_vo": [
-          "20:45"
+          "18:05"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/24682/"
       },
@@ -1308,6 +1151,7 @@
       },
       "CINEMA Madison": {
         "orari": [
+          "14:45",
           "17:45",
           "20:45"
         ],
@@ -1350,30 +1194,10 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "17:45"
+          "18:10"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
-      },
-      "The Space Moderno": {
-        "orari": [
-          "17:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5271/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:25",
-          "15:10",
-          "16:55",
-          "17:40",
-          "18:35",
-          "20:40",
-          "21:10"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -1410,7 +1234,6 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "14:00",
           "17:30",
           "18:45",
           "20:00",
@@ -1418,15 +1241,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "10:30",
-          "19:20",
-          "21:50"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -1434,9 +1248,9 @@
     "scheda": 9,
     "titolo": "SILENT FRIEND",
     "valutazioni": {
-      "MYMONETRO": "3.34",
+      "MYMONETRO": "3.38",
       "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.67",
+      "CRITICA": "3.75",
       "PUBBLICO": "N.D."
     },
     "consigliato": "SI",
@@ -1475,9 +1289,11 @@
         "cinema_url": "https://www.mymovies.it/cinema/roma/5255/"
       },
       "CINEMA Farnese": {
-        "orari": [],
-        "orari_vo": [
+        "orari": [
           "16:30",
+          "19:00"
+        ],
+        "orari_vo": [
           "21:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6891/"
@@ -1494,8 +1310,7 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "11:00",
-          "18:00"
+          "22:15"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
       }
@@ -1561,7 +1376,7 @@
       },
       "CINEMA Atlantic": {
         "orari": [
-          "17:40",
+          "17:41",
           "19:30"
         ],
         "orari_vo": [],
@@ -1616,8 +1431,7 @@
       },
       "CINEMA Madison": {
         "orari": [
-          "17:30",
-          "19:30"
+          "15:45"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -1646,14 +1460,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4905/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:15",
-          "18:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -1687,19 +1493,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "09:30",
-          "11:50",
-          "14:00",
-          "16:10",
-          "18:20",
-          "20:30",
-          "22:40"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -1740,17 +1533,10 @@
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
       },
-      "The Space Parco de Medici": {
-        "orari": [],
-        "orari_vo": [
-          "21:30"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "Uci Cinemas Parco Leonardo": {
         "orari": [],
         "orari_vo": [
-          "21:30"
+          "17:10"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
       },
@@ -1767,13 +1553,6 @@
           "21:30"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [],
-        "orari_vo": [
-          "21:30"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -1781,9 +1560,9 @@
     "scheda": 12,
     "titolo": "KETTICÈ",
     "valutazioni": {
-      "MYMONETRO": "3.32",
+      "MYMONETRO": "3.31",
       "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.13",
+      "CRITICA": "3.11",
       "PUBBLICO": "N.D."
     },
     "consigliato": "SI",
@@ -1812,7 +1591,7 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "18:00",
+          "17:20",
           "20:00"
         ],
         "orari_vo": [],
@@ -1867,17 +1646,9 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
       },
-      "The Space Parco de Medici": {
-        "orari": [
-          "15:00",
-          "19:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "CINEMA Troisi": {
         "orari": [
-          "20:45"
+          "17:45"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
@@ -1926,26 +1697,10 @@
       },
       "CINEMA Madison": {
         "orari": [
-          "15:45",
           "21:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "16:35",
-          "22:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
-      "Uci Cinemas Parco Leonardo": {
-        "orari": [
-          "23:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
@@ -1956,7 +1711,7 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "23:00"
+          "23:40"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
@@ -2011,21 +1766,6 @@
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
       },
-      "Multisala Odeon": {
-        "orari": [
-          "16:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/4911/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "16:05",
-          "22:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "23:50"
@@ -2035,7 +1775,7 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "23:30"
+          "23:50"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
@@ -2144,11 +1884,24 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "21:00",
-          "21:40"
+          "21:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "21:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
+      },
+      "CINEMA Barberini": {
+        "orari": [],
+        "orari_vo": [
+          "21:30"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5258/"
       },
       "CINEMA Cineland": {
         "orari": [
@@ -2156,13 +1909,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5292/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "21:35"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "Uci Cinemas Parco Leonardo": {
         "orari": [
@@ -2180,17 +1926,11 @@
       },
       "Uci Cinemas Roma Est": {
         "orari": [
-          "22:20"
+          "22:20",
+          "23:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "23:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -2228,15 +1968,7 @@
     "distribuzione": "I Wonder Pictures",
     "vm": "V.M. 14",
     "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      }
-    }
+    "cinema_orari": {}
   },
   {
     "scheda": 18,
@@ -2273,7 +2005,8 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "21:00"
+          "20:45",
+          "22:50"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
@@ -2304,18 +2037,10 @@
       },
       "CINEMA Multisala Lux": {
         "orari": [
-          "18:10",
           "22:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
-      },
-      "Palazzo San Lorenzo": {
-        "orari": [],
-        "orari_vo": [
-          "20:30"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/21490/"
       },
       "Quattro Fontane": {
         "orari": [
@@ -2327,18 +2052,9 @@
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4907/"
       },
-      "The Space Parco de Medici": {
-        "orari": [
-          "19:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "00:30",
-          "13:45",
           "01:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
@@ -2352,7 +2068,6 @@
       },
       "Uci Cinemas Porta di Roma": {
         "orari": [
-          "10:30",
           "21:50"
         ],
         "orari_vo": [],
@@ -2372,9 +2087,9 @@
     "scheda": 19,
     "titolo": "THE DOG STARS - LE STELLE DOPO LA FINE",
     "valutazioni": {
-      "MYMONETRO": "2.47",
+      "MYMONETRO": "2.42",
       "MYMOVIES.IT": "2.50",
-      "CRITICA": "2.44",
+      "CRITICA": "2.30",
       "PUBBLICO": "2.47"
     },
     "consigliato": "NI",
@@ -2414,7 +2129,6 @@
       },
       "CINEMA Andromeda": {
         "orari": [
-          "16:45",
           "21:20"
         ],
         "orari_vo": [],
@@ -2512,19 +2226,10 @@
       },
       "The Screen Cinemas Roma Ottavia": {
         "orari": [
-          "21:15"
+          "21:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "15:55",
-          "19:50",
-          "22:15"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       },
       "CINEMA Trianon": {
         "orari": [
@@ -2536,7 +2241,9 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "16:00"
+          "11:00",
+          "15:30",
+          "20:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
       },
@@ -2550,8 +2257,7 @@
       "Uci Cinemas Porta di Roma": {
         "orari": [
           "13:50",
-          "16:40",
-          "18:40",
+          "19:10",
           "22:30"
         ],
         "orari_vo": [],
@@ -2563,14 +2269,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      },
-      "Uci Luce Maximo": {
-        "orari": [
-          "14:20",
-          "22:50"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
       }
     }
   },
@@ -2609,7 +2307,7 @@
     "cinema_orari": {
       "CINEMA Adriano": {
         "orari": [
-          "17:20"
+          "21:40"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
@@ -2624,18 +2322,11 @@
       "CINEMA Madison": {
         "orari": [
           "15:30",
+          "19:30",
           "21:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:10",
-          "16:50"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       }
     }
   },
@@ -2680,108 +2371,11 @@
           "21:15"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4907/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:05",
-          "17:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       }
     }
   },
   {
     "scheda": 22,
-    "titolo": "ONE NIGHT ONLY - QUANDO TUTTO È POSSIBILE",
-    "valutazioni": {
-      "MYMONETRO": "2.94",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "2.88",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "2026",
-    "durata_minuti": 102,
-    "trama": "Una rom com brillante e musicale, sostenuta dalla riuscita chimica dei suoi protagonisti",
-    "regia": [
-      "Will Gluck"
-    ],
-    "cast": [
-      "Callum Turner",
-      "Monica Barbaro",
-      "Grace Dumdaw",
-      "Duncan Jui"
-    ],
-    "uscita": "26 agosto 2026",
-    "distribuzione": "Universal Pictures",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Adriano": {
-        "orari": [
-          "17:20"
-        ],
-        "orari_vo": [
-          "21:40"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
-      },
-      "CINEMA Barberini": {
-        "orari": [],
-        "orari_vo": [
-          "14:30",
-          "16:40"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5258/"
-      },
-      "CINEMA Cineland": {
-        "orari": [
-          "16:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5292/"
-      },
-      "CINEMA Multisala Lux": {
-        "orari": [
-          "18:10"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "19:05",
-          "22:40"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
-      },
-      "Uci Cinemas Porta di Roma": {
-        "orari": [
-          "14:20",
-          "19:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
-      },
-      "Uci Cinemas Roma Est": {
-        "orari": [
-          "17:10"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
-      }
-    }
-  },
-  {
-    "scheda": 23,
     "titolo": "SHEEP IN THE BOX",
     "valutazioni": {
       "MYMONETRO": "3.24",
@@ -2859,6 +2453,87 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5606/"
+      }
+    }
+  },
+  {
+    "scheda": 23,
+    "titolo": "ONE NIGHT ONLY - QUANDO TUTTO È POSSIBILE",
+    "valutazioni": {
+      "MYMONETRO": "2.94",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "2.88",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": 102,
+    "trama": "Una rom com brillante e musicale, sostenuta dalla riuscita chimica dei suoi protagonisti",
+    "regia": [
+      "Will Gluck"
+    ],
+    "cast": [
+      "Callum Turner",
+      "Monica Barbaro",
+      "Grace Dumdaw",
+      "Duncan Jui"
+    ],
+    "uscita": "26 agosto 2026",
+    "distribuzione": "Universal Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "18:20"
+        ],
+        "orari_vo": [
+          "21:40"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
+      },
+      "CINEMA Barberini": {
+        "orari": [],
+        "orari_vo": [
+          "14:30",
+          "16:40"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5258/"
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "16:20"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5292/"
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "18:10"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "14:20",
+          "19:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "17:10"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
       }
     }
   },
@@ -2941,60 +2616,11 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4905/"
-      },
-      "The Space Parco de Medici": {
-        "orari": [
-          "14:05"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5270/"
       }
     }
   },
   {
     "scheda": 25,
-    "titolo": "MALDOROR",
-    "valutazioni": {
-      "MYMONETRO": "3.66",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "3.32",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Belgio"
-    ],
-    "anno": "2024",
-    "durata_minuti": 155,
-    "trama": "Il film entra in modo viscerale nelle zone oscure del male",
-    "regia": [
-      "Fabrice Du Welz"
-    ],
-    "cast": [
-      "Anthony Bajon",
-      "Alba Gaïa Bellugi",
-      "Alexis Manenti",
-      "Sergi López"
-    ],
-    "uscita": "20 agosto 2026",
-    "distribuzione": "Movies Inspired",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Farnese": {
-        "orari": [],
-        "orari_vo": [
-          "19:00"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/6891/"
-      }
-    }
-  },
-  {
-    "scheda": 26,
     "titolo": "MARCO BELLOCCHIO - LA PORTA DELLA REALTÀ",
     "valutazioni": {
       "MYMONETRO": "3.38",
@@ -3051,7 +2677,7 @@
     }
   },
   {
-    "scheda": 27,
+    "scheda": 26,
     "titolo": "DISCLOSURE DAY",
     "valutazioni": {
       "MYMONETRO": "3.19",
@@ -3086,7 +2712,7 @@
     "cinema_orari": {
       "Teatro Don Bosco": {
         "orari": [
-          "20:30"
+          "18:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5234/"
@@ -3094,51 +2720,7 @@
     }
   },
   {
-    "scheda": 28,
-    "titolo": "LA FABBRICA DI CIOCCOLATO",
-    "valutazioni": {
-      "MYMONETRO": "3.82",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.64"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Fantastico"
-    ],
-    "paesi": [
-      "USA",
-      "Gran Bretagna"
-    ],
-    "anno": "2005",
-    "durata_minuti": 106,
-    "trama": "Remake burtoniano, magico e visionario",
-    "regia": [
-      "Tim Burton"
-    ],
-    "cast": [
-      "Johnny Depp",
-      "Freddie Highmore",
-      "Helena Bonham Carter",
-      "David Kelly",
-      "Deep Roy"
-    ],
-    "uscita": "23 settembre 2005",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "Film per tutti",
-    "cinema_orari": {
-      "Arena Villa Fiorelli": {
-        "orari": [
-          "20:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24698/"
-      }
-    }
-  },
-  {
-    "scheda": 29,
+    "scheda": 27,
     "titolo": "LE CITTÀ DI PIANURA",
     "valutazioni": {
       "MYMONETRO": "3.39",
@@ -3183,7 +2765,7 @@
     }
   },
   {
-    "scheda": 30,
+    "scheda": 28,
     "titolo": "LA GRAZIA",
     "valutazioni": {
       "MYMONETRO": "4.14",
@@ -3226,7 +2808,55 @@
     }
   },
   {
-    "scheda": 31,
+    "scheda": 29,
+    "titolo": "SENTIMENTAL VALUE",
+    "valutazioni": {
+      "MYMONETRO": "3.80",
+      "MYMOVIES.IT": "4.00",
+      "CRITICA": "3.64",
+      "PUBBLICO": "3.77"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia",
+      "Drammatico"
+    ],
+    "paesi": [
+      "Norvegia",
+      "Germania",
+      "Danimarca",
+      "Francia",
+      "Svezia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 132,
+    "trama": "Con una cifra stilistica inconfondibile, Trier delinea con morbidezza e fluidità la complessità dei rapporti familiari",
+    "regia": [
+      "Joachim Trier"
+    ],
+    "cast": [
+      "Renate Reinsve",
+      "Stellan Skarsgård",
+      "Inga Ibsdotter Lilleaas",
+      "Elle Fanning"
+    ],
+    "uscita": "22 gennaio 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Cinevillage Piazza Vittorio": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/6163/",
+        "indirizzo": "Piazza Vittorio"
+      }
+    }
+  },
+  {
+    "scheda": 30,
     "titolo": "BERLINGUER - LA GRANDE AMBIZIONE",
     "valutazioni": {
       "MYMONETRO": "3.62",
@@ -3268,49 +2898,7 @@
     }
   },
   {
-    "scheda": 32,
-    "titolo": "GIOIA MIA",
-    "valutazioni": {
-      "MYMONETRO": "3.49",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.38",
-      "PUBBLICO": "3.59"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Italia"
-    ],
-    "anno": "2025",
-    "durata_minuti": 90,
-    "trama": "Un film semplice e nostalgico che guarda alla proverbiale estate italiana che forse non esiste più",
-    "regia": [
-      "Margherita Spampinato"
-    ],
-    "cast": [
-      "Marco Fiore",
-      "Aurora Quattrocchi",
-      "Martina Ziami",
-      "Camille Dugay Comencini"
-    ],
-    "uscita": "11 dicembre 2025",
-    "distribuzione": "Fandango",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Cinevillage Villa Bonelli": {
-        "orari": [
-          "21:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24556/"
-      }
-    }
-  },
-  {
-    "scheda": 33,
+    "scheda": 31,
     "titolo": "LA GIOIA",
     "valutazioni": {
       "MYMONETRO": "3.05",
@@ -3353,49 +2941,7 @@
     }
   },
   {
-    "scheda": 34,
-    "titolo": "MICHAEL",
-    "valutazioni": {
-      "MYMONETRO": "3.24",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "2.45",
-      "PUBBLICO": "3.78"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Biografico"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "2026",
-    "durata_minuti": 127,
-    "trama": "Un film-evento musicale, dal ritmo travolgente. Da brividi la performance di Jaafar Jackson",
-    "regia": [
-      "Antoine Fuqua"
-    ],
-    "cast": [
-      "Jaafar Jackson",
-      "Nia Long",
-      "Laura Harrier",
-      "Juliano Valdi"
-    ],
-    "uscita": "22 aprile 2026",
-    "distribuzione": "Universal Pictures",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Cinevillage Villa Lazzaroni": {
-        "orari": [
-          "21:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/21227/"
-      }
-    }
-  },
-  {
-    "scheda": 35,
+    "scheda": 32,
     "titolo": "IL BENE COMUNE",
     "valutazioni": {
       "MYMONETRO": "3.14",
@@ -3427,18 +2973,60 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Cinevillage Piazza Vittorio": {
+      "Cinevillage Villa Bonelli": {
         "orari": [
           "21:00"
         ],
         "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/6163/",
-        "indirizzo": "Piazza Vittorio"
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24556/"
       }
     }
   },
   {
-    "scheda": 36,
+    "scheda": 33,
+    "titolo": "MATRIX RESURRECTIONS",
+    "valutazioni": {
+      "MYMONETRO": "2.48",
+      "MYMOVIES.IT": "2.00",
+      "CRITICA": "2.93",
+      "PUBBLICO": "2.51"
+    },
+    "consigliato": "NI",
+    "genere": [
+      "Fantascienza",
+      "Azione"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2021",
+    "durata_minuti": 148,
+    "trama": "Un sequel autoironico ma inferiore ai capitoli precedenti per storia, personaggi e scene d'azione",
+    "regia": [
+      "Lana Wachowski"
+    ],
+    "cast": [
+      "Keanu Reeves",
+      "Carrie-Anne Moss",
+      "Yahya Abdul-Mateen II",
+      "Jessica Henwick"
+    ],
+    "uscita": "1 gennaio 2022",
+    "distribuzione": "Warner Bros Italia",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +13",
+    "cinema_orari": {
+      "Arena Villa Fiorelli": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24698/"
+      }
+    }
+  },
+  {
+    "scheda": 34,
     "titolo": "LO STRANIERO",
     "valutazioni": {
       "MYMONETRO": "3.68",
@@ -3476,6 +3064,100 @@
           "19:00"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5249/"
+      }
+    }
+  },
+  {
+    "scheda": 35,
+    "titolo": "LA CASA - IL RISVEGLIO DEL MALE",
+    "valutazioni": {
+      "MYMONETRO": "2.85",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.93",
+      "PUBBLICO": "2.11"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Horror"
+    ],
+    "paesi": [
+      "USA",
+      "Irlanda",
+      "Nuova Zelanda"
+    ],
+    "anno": "2023",
+    "durata_minuti": 97,
+    "trama": "Gorefest rutilante e sanguinaria, un horror duro e puro che rivitalizza una serie storica",
+    "regia": [
+      "Lee Cronin"
+    ],
+    "cast": [
+      "Lily Sullivan",
+      "Alyssa Sutherland",
+      "Morgan Davies",
+      "Gabrielle Echols"
+    ],
+    "uscita": "20 aprile 2023",
+    "distribuzione": "Warner Bros Italia",
+    "vm": "V.M. 14",
+    "consigli_visione": "Ragazzi +13",
+    "cinema_orari": {
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "23:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "23:45"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
+      }
+    }
+  },
+  {
+    "scheda": 36,
+    "titolo": "RICOMINCIO DA TRE",
+    "valutazioni": {
+      "MYMONETRO": "3.39",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.78"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "1981",
+    "durata_minuti": 109,
+    "trama": "Quella di Massimo Troisi è una comicità umile, ispirata e proletaria, che si rifugia nel surreale come possibilità testuale sempre nuova",
+    "regia": [
+      "Massimo Troisi"
+    ],
+    "cast": [
+      "Massimo Troisi",
+      "Fiorenza Marchegiani",
+      "Lello Arena",
+      "Marco Messeri",
+      "Cloris Brosca"
+    ],
+    "uscita": "23 novembre 2015",
+    "distribuzione": "Microcinema",
+    "vm": "N.D.",
+    "consigli_visione": "Ragazzi +13",
+    "cinema_orari": {
+      "Casa del Cinema": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20082/"
       }
     }
   },
@@ -3569,48 +3251,6 @@
   },
   {
     "scheda": 39,
-    "titolo": "ANIMALI SELVATICI",
-    "valutazioni": {
-      "MYMONETRO": "3.68",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "3.47",
-      "PUBBLICO": "3.57"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Romania"
-    ],
-    "anno": "2022",
-    "durata_minuti": 125,
-    "trama": "Una disarmante dissezione della natura umana e della contemporaneità, pervasa da tensioni, intolleranza e paura",
-    "regia": [
-      "Cristian Mungiu"
-    ],
-    "cast": [
-      "Marin Grigore",
-      "Judith State",
-      "Macrina Barladeanu",
-      "Orsolya Moldován"
-    ],
-    "uscita": "6 luglio 2023",
-    "distribuzione": "Bim Distribuzione",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +13",
-    "cinema_orari": {
-      "CINEMA Arena 11": {
-        "orari": [
-          "21:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24778/"
-      }
-    }
-  },
-  {
-    "scheda": 40,
     "titolo": "CENA DI CLASSE",
     "valutazioni": {
       "MYMONETRO": "2.58",
@@ -3641,13 +3281,57 @@
     "distribuzione": "Medusa",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
+    "cinema_orari": {}
+  },
+  {
+    "scheda": 40,
+    "titolo": "A CENA CON IL DITTATORE",
+    "valutazioni": {
+      "MYMONETRO": "3.40",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.16",
+      "PUBBLICO": "3.55"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia",
+      "Drammatico",
+      "Storico"
+    ],
+    "paesi": [
+      "Spagna",
+      "Francia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 106,
+    "trama": "Un film dal deciso affondo politico. Un cinema vecchia scuola che è sempre un piacere da guardare",
+    "regia": [
+      "Manuel Gómez Pereira"
+    ],
+    "cast": [
+      "Mario Casas",
+      "Alberto San Juan",
+      "Asier Etxeandia",
+      "Oscar Lasarte"
+    ],
+    "uscita": "9 aprile 2026",
+    "distribuzione": "Officine Ubu",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Uci Luce Maximo": {
-        "orari": [
-          "09:10"
+      "Arena Nuovo Sacher": {
+        "orari": [],
+        "orari_vo": [
+          "20:45"
         ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20187/"
+      },
+      "CINEMA Nuovo Sacher": {
+        "orari": [],
+        "orari_vo": [
+          "20:45"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5268/"
       }
     }
   },
@@ -3695,6 +3379,92 @@
   },
   {
     "scheda": 42,
+    "titolo": "MIO FRATELLO È UN VICHINGO - THE LAST VIKING",
+    "valutazioni": {
+      "MYMONETRO": "3.42",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.19",
+      "PUBBLICO": "3.56"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia",
+      "Drammatico"
+    ],
+    "paesi": [
+      "Danimarca",
+      "Svezia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 116,
+    "trama": "Jensen prosegue a raccontare il dramma con feroce umorismo, incrementando qualità e complessità della narrazione",
+    "regia": [
+      "Anders Thomas Jensen"
+    ],
+    "cast": [
+      "Mads Mikkelsen",
+      "Nikolaj Lie Kaas",
+      "Sofie Gråbøl",
+      "Søren Malling"
+    ],
+    "uscita": "26 marzo 2026",
+    "distribuzione": "Plaion Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Arena Garbatella": {
+        "orari": [
+          "21:15"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/6045/"
+      }
+    }
+  },
+  {
+    "scheda": 43,
+    "titolo": "DOMANI INTERROGO",
+    "valutazioni": {
+      "MYMONETRO": "3.32",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.14",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2025",
+    "durata_minuti": 95,
+    "trama": "Un film dallo stupefacente meccanismo narrativo che ha in mente un pubblico di giovani",
+    "regia": [
+      "Umberto Riccioni Carteni"
+    ],
+    "cast": [
+      "Anna Ferzetti",
+      "Fabio Bizzarro",
+      "Zoe Massenti",
+      "Sara Silvestro"
+    ],
+    "uscita": "19 febbraio 2026",
+    "distribuzione": "Vision Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Tiziano": {
+        "orari": [
+          "17:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
+      }
+    }
+  },
+  {
+    "scheda": 44,
     "titolo": "TUNER - L'ACCORDATORE",
     "valutazioni": {
       "MYMONETRO": "3.13",
@@ -3737,7 +3507,7 @@
     }
   },
   {
-    "scheda": 43,
+    "scheda": 45,
     "titolo": "YELLOW LETTERS",
     "valutazioni": {
       "MYMONETRO": "3.59",
@@ -3772,16 +3542,67 @@
     "consigli_visione": "N.D.",
     "cinema_orari": {
       "Delle Provincie": {
-        "orari": [],
-        "orari_vo": [
-          "20:00"
+        "orari": [
+          "18:00"
         ],
+        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6367/"
       }
     }
   },
   {
-    "scheda": 44,
+    "scheda": 46,
+    "titolo": "UN CRIMINE IMPERFETTO",
+    "valutazioni": {
+      "MYMONETRO": "3.40",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.00",
+      "PUBBLICO": "3.71"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia",
+      "Thriller"
+    ],
+    "paesi": [
+      "Francia",
+      "Belgio"
+    ],
+    "anno": "2024",
+    "durata_minuti": 109,
+    "trama": "Un'incalzante commedia nera francese dallo spirito coeniano",
+    "regia": [
+      "Franck Dubosc"
+    ],
+    "cast": [
+      "Franck Dubosc",
+      "Laure Calamy",
+      "Benoît Poelvoorde",
+      "Joséphine de Meaux"
+    ],
+    "uscita": "9 ottobre 2025",
+    "distribuzione": "Movies Inspired",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Arena Tiziano": {
+        "orari": [
+          "21:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20186/"
+      },
+      "CINEMA Tiziano": {
+        "orari": [
+          "21:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
+      }
+    }
+  },
+  {
+    "scheda": 47,
     "titolo": "L'HANGAR ROSSO",
     "valutazioni": {
       "MYMONETRO": "4.04",
@@ -3816,7 +3637,7 @@
     "cinema_orari": {
       "Delle Provincie": {
         "orari": [
-          "18:00"
+          "16:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6367/"
@@ -3824,92 +3645,49 @@
     }
   },
   {
-    "scheda": 45,
-    "titolo": "LA CAMERA DI CONSIGLIO",
+    "scheda": 48,
+    "titolo": "L'AMORE STA BENE SU TUTTO",
     "valutazioni": {
-      "MYMONETRO": "3.18",
-      "MYMOVIES.IT": "2.50",
-      "CRITICA": "3.05",
-      "PUBBLICO": "4.00"
+      "MYMONETRO": "1.86",
+      "MYMOVIES.IT": "1.50",
+      "CRITICA": "1.83",
+      "PUBBLICO": "2.25"
     },
-    "consigliato": "SI",
+    "consigliato": "NO",
     "genere": [
-      "Drammatico"
+      "Commedia"
     ],
     "paesi": [
       "Italia"
     ],
-    "anno": "2025",
-    "durata_minuti": 107,
-    "trama": "Un'opera dall'autentico impeto civile che punta tutto sulla forza della parola",
+    "anno": "2026",
+    "durata_minuti": 96,
+    "trama": "La retorica abbonda in un film dove però gli attori riescono a salvarsi",
     "regia": [
-      "Fiorella Infascelli"
+      "Giampaolo Morelli"
     ],
     "cast": [
-      "Sergio Rubini",
-      "Massimo Popolizio",
-      "Rosario Lisma",
-      "Claudio Bigagli"
+      "Giampaolo Morelli",
+      "Max Tortora",
+      "Claudia Gerini",
+      "Paolo Calabresi"
     ],
-    "uscita": "20 novembre 2025",
-    "distribuzione": "Notorious Pictures",
+    "uscita": "6 maggio 2026",
+    "distribuzione": "PiperFilm",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "CINEMA Nuovo Sacher": {
+      "CINEMA Tiziano": {
         "orari": [
-          "16:00"
+          "18:45"
         ],
         "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5268/"
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
       }
     }
   },
   {
-    "scheda": 46,
-    "titolo": "COME VINSI LA GUERRA",
-    "valutazioni": {
-      "MYMONETRO": "3.79",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.59"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Muto"
-    ],
-    "paesi": [
-      "USA"
-    ],
-    "anno": "1926",
-    "durata_minuti": 75,
-    "trama": "Un capolavoro. Il primo film comico-storico della storia del cinema",
-    "regia": [
-      "Buster Keaton",
-      "Clyde Bruckman"
-    ],
-    "cast": [
-      "Buster Keaton",
-      "Marion Mack",
-      "Glen Cavender",
-      "Jim Farley"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Casa del Cinema": {
-        "orari": [
-          "21:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20082/"
-      }
-    }
-  },
-  {
-    "scheda": 47,
+    "scheda": 49,
     "titolo": "TOY STORY 5",
     "valutazioni": {
       "MYMONETRO": "3.77",
@@ -3957,13 +3735,13 @@
     }
   },
   {
-    "scheda": 48,
+    "scheda": 50,
     "titolo": "MINIONS & MONSTERS",
     "valutazioni": {
-      "MYMONETRO": "3.43",
+      "MYMONETRO": "3.37",
       "MYMOVIES.IT": "3.00",
       "CRITICA": "3.10",
-      "PUBBLICO": "4.20"
+      "PUBBLICO": "4.00"
     },
     "consigliato": "SI",
     "genere": [
@@ -4002,57 +3780,7 @@
     }
   },
   {
-    "scheda": 49,
-    "titolo": "MONSIEUR AZNAVOUR",
-    "valutazioni": {
-      "MYMONETRO": "3.07",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "2.83",
-      "PUBBLICO": "3.38"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Biografico"
-    ],
-    "paesi": [
-      "Francia"
-    ],
-    "anno": "2024",
-    "durata_minuti": 133,
-    "trama": "Un omaggio rispettoso e sentito a un artista che ha fatto della vita la sostanza stessa della sua arte",
-    "regia": [
-      "Mehdi Idir",
-      "Grand Corps Malade"
-    ],
-    "cast": [
-      "Tahar Rahim",
-      "Bastien Bouillon",
-      "Marie-Julie Baup",
-      "Camille Moutawakil"
-    ],
-    "uscita": "18 dicembre 2025",
-    "distribuzione": "Movies Inspired",
-    "vm": "N.D.",
-    "consigli_visione": "Ragazzi +13",
-    "cinema_orari": {
-      "CINEMA Arena Tiziano": {
-        "orari": [
-          "21:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20186/"
-      },
-      "CINEMA Tiziano": {
-        "orari": [
-          "21:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
-      }
-    }
-  },
-  {
-    "scheda": 50,
+    "scheda": 51,
     "titolo": "GRAND PRIX",
     "valutazioni": {
       "MYMONETRO": "2.71",
@@ -4084,19 +3812,10 @@
     "distribuzione": "Notorious Pictures",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Uci Luce Maximo": {
-        "orari": [
-          "11:20",
-          "12:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
-      }
-    }
+    "cinema_orari": {}
   },
   {
-    "scheda": 51,
+    "scheda": 52,
     "titolo": "TERAPIA DI FAMIGLIA",
     "valutazioni": {
       "MYMONETRO": "2.07",
@@ -4131,7 +3850,7 @@
     "cinema_orari": {
       "Teatro Don Bosco": {
         "orari": [
-          "18:00"
+          "21:00"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5234/"
@@ -4139,92 +3858,7 @@
     }
   },
   {
-    "scheda": 52,
-    "titolo": "COS'È L'AMORE?",
-    "valutazioni": {
-      "MYMONETRO": "3.00",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.00",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "Francia"
-    ],
-    "anno": "2025",
-    "durata_minuti": 98,
-    "trama": "Commedia francese girata con brio fatta di equivoci, romanticismo e incroci familiari",
-    "regia": [
-      "Fabien Gorgeart"
-    ],
-    "cast": [
-      "Laure Calamy",
-      "Vincent Macaigne",
-      "Lyes Salem",
-      "Mélanie Thierry"
-    ],
-    "uscita": "25 giugno 2026",
-    "distribuzione": "Movies Inspired",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Nuovo Sacher": {
-        "orari": [],
-        "orari_vo": [
-          "18:00"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5268/"
-      }
-    }
-  },
-  {
     "scheda": 53,
-    "titolo": "ROMERÍA - IL MARE DEI RICORDI",
-    "valutazioni": {
-      "MYMONETRO": "3.10",
-      "MYMOVIES.IT": "3.50",
-      "CRITICA": "3.00",
-      "PUBBLICO": "2.80"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Spagna",
-      "Germania"
-    ],
-    "anno": "2025",
-    "durata_minuti": 115,
-    "trama": "Un poema di sole e iodio che riflette con grande dolcezza sulla verità della memoria",
-    "regia": [
-      "Carla Simón"
-    ],
-    "cast": [
-      "Llúcia Garcia",
-      "Mitch Martín",
-      "Tristán Ulloa",
-      "Alberto Gracia"
-    ],
-    "uscita": "11 giugno 2026",
-    "distribuzione": "I Wonder Pictures",
-    "vm": "V.M. 14",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Tiziano": {
-        "orari": [
-          "17:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
-      }
-    }
-  },
-  {
-    "scheda": 54,
     "titolo": "INNAMORARSI E ALTRE PESSIME IDEE",
     "valutazioni": {
       "MYMONETRO": "2.77",
@@ -4266,41 +3900,43 @@
     }
   },
   {
-    "scheda": 55,
-    "titolo": "ELECTION DAY",
+    "scheda": 54,
+    "titolo": "LO SGUARDO DI EMMA",
     "valutazioni": {
-      "MYMONETRO": "2.96",
-      "MYMOVIES.IT": "2.50",
-      "CRITICA": "2.06",
-      "PUBBLICO": "4.33"
+      "MYMONETRO": "3.50",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.12",
+      "PUBBLICO": "3.89"
     },
     "consigliato": "SI",
     "genere": [
-      "Commedia"
+      "Drammatico"
     ],
     "paesi": [
-      "Italia"
+      "Svizzera",
+      "Francia",
+      "Belgio"
     ],
-    "anno": "2026",
-    "durata_minuti": 100,
-    "trama": "La commedia politica di Amato si perde in una traiettoria narrativa prevedibile e in un finale banalizzante",
+    "anno": "2025",
+    "durata_minuti": 98,
+    "trama": "Un doloroso coming of age che mette in scena la forza delle donne che si salvano da sole",
     "regia": [
-      "Giorgio Amato"
+      "Marie-Elsa Sgualdo"
     ],
     "cast": [
-      "Angela Finocchiaro",
-      "Giorgio Tirabassi",
-      "Antonio Gerardi",
-      "Crisula Stafida"
+      "Lila Gueneau",
+      "Grégoire Colin",
+      "Thomas Doret",
+      "Aurelia Petit"
     ],
-    "uscita": "9 luglio 2026",
-    "distribuzione": "Medusa",
+    "uscita": "2 aprile 2026",
+    "distribuzione": "Trent Film",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
       "CINEMA Tiziano": {
         "orari": [
-          "19:00"
+          "20:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
@@ -4308,7 +3944,7 @@
     }
   },
   {
-    "scheda": 56,
+    "scheda": 55,
     "titolo": "NOI DUE SCONOSCIUTI",
     "valutazioni": {
       "MYMONETRO": "2.98",
@@ -4345,11 +3981,53 @@
     "consigli_visione": "N.D.",
     "cinema_orari": {
       "Delle Provincie": {
-        "orari": [
-          "16:00"
+        "orari": [],
+        "orari_vo": [
+          "20:30"
         ],
-        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/6367/"
+      }
+    }
+  },
+  {
+    "scheda": 56,
+    "titolo": "L'INFILTRATA",
+    "valutazioni": {
+      "MYMONETRO": "3.22",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "3.17",
+      "PUBBLICO": "3.00"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Thriller"
+    ],
+    "paesi": [
+      "Spagna"
+    ],
+    "anno": "2024",
+    "durata_minuti": 118,
+    "trama": "Thriller intimo e claustrofobico sul punto di vista - anche di genere - di una donna all'interno dell'Eta",
+    "regia": [
+      "Arantxa Echevarria"
+    ],
+    "cast": [
+      "Carolina Yuste",
+      "Luis Tosar",
+      "Iñigo Gastesi",
+      "Diego Anido"
+    ],
+    "uscita": "5 febbraio 2026",
+    "distribuzione": "Movies Inspired",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Nuovo Sacher": {
+        "orari": [],
+        "orari_vo": [
+          "18:15"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5268/"
       }
     }
   },
@@ -4387,139 +4065,10 @@
     "distribuzione": "Lucky Red",
     "vm": "N.D.",
     "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Uci Luce Maximo": {
-        "orari": [
-          "10:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
-      }
-    }
+    "cinema_orari": {}
   },
   {
     "scheda": 58,
-    "titolo": "AGENT OF HAPPINESS - IL BHUTAN E LA FELICITÀ",
-    "valutazioni": {
-      "MYMONETRO": "3.00",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "3.00",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Documentario"
-    ],
-    "paesi": [
-      "Bhutan",
-      "Ungheria"
-    ],
-    "anno": "2024",
-    "durata_minuti": 93,
-    "trama": "Ironico e pieno di grazia, un documentario che si chiede cosa sia la felicità",
-    "regia": [
-      "Arun Bhattarai",
-      "Dorottya Zurbò"
-    ],
-    "cast": [],
-    "uscita": "16 luglio 2026",
-    "distribuzione": "Wanted",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Tiziano": {
-        "orari": [
-          "20:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
-      }
-    }
-  },
-  {
-    "scheda": 59,
-    "titolo": "PALESTINA 36 - QUANDO TUTTO EBBE INIZIO",
-    "valutazioni": {
-      "MYMONETRO": "N.D.",
-      "MYMOVIES.IT": "N.D.",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "N.D.",
-    "genere": [
-      "Biografico"
-    ],
-    "paesi": [],
-    "anno": "2025",
-    "durata_minuti": "N.D.",
-    "trama": "La Palestina sotto il mandato britannico",
-    "regia": [
-      "Annemarie Jacir"
-    ],
-    "cast": [
-      "Jeremy Irons",
-      "Liam Cunningham",
-      "Robert Aramayo",
-      "Billy Howle"
-    ],
-    "uscita": "10 settembre 2026",
-    "distribuzione": "Wanted",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Arena Garbatella": {
-        "orari": [
-          "21:15"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/6045/"
-      }
-    }
-  },
-  {
-    "scheda": 60,
-    "titolo": "GRETA E LE FAVOLE VERE",
-    "valutazioni": {
-      "MYMONETRO": "3.03",
-      "MYMOVIES.IT": "2.50",
-      "CRITICA": "1.60",
-      "PUBBLICO": "5.00"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Commedia"
-    ],
-    "paesi": [
-      "Italia"
-    ],
-    "anno": "2026",
-    "durata_minuti": 93,
-    "trama": "Una favola ecologista coraggiosa,con un'anima autentica e molto naïf",
-    "regia": [
-      "Berardo Carboni"
-    ],
-    "cast": [
-      "Sara Ciocca",
-      "Raoul Bova",
-      "Donatella Finocchiaro",
-      "Sabrina Impacciatore"
-    ],
-    "uscita": "6 agosto 2026",
-    "distribuzione": "Vision Distribution",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Uci Luce Maximo": {
-        "orari": [
-          "09:20"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/24052/"
-      }
-    }
-  },
-  {
-    "scheda": 61,
     "titolo": "BORGO",
     "valutazioni": {
       "MYMONETRO": "3.22",
@@ -4551,24 +4100,51 @@
     "vm": "N.D.",
     "consigli_visione": "N.D.",
     "cinema_orari": {
-      "Arena Nuovo Sacher": {
-        "orari": [],
-        "orari_vo": [
-          "20:45"
-        ],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20187/"
-      },
       "CINEMA Nuovo Sacher": {
-        "orari": [],
-        "orari_vo": [
-          "20:45"
+        "orari": [
+          "16:00"
         ],
+        "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5268/"
       }
     }
   },
   {
-    "scheda": 62,
+    "scheda": 59,
+    "titolo": "GRETA E LE FAVOLE VERE",
+    "valutazioni": {
+      "MYMONETRO": "3.03",
+      "MYMOVIES.IT": "2.50",
+      "CRITICA": "1.60",
+      "PUBBLICO": "5.00"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 93,
+    "trama": "Una favola ecologista coraggiosa,con un'anima autentica e molto naïf",
+    "regia": [
+      "Berardo Carboni"
+    ],
+    "cast": [
+      "Sara Ciocca",
+      "Raoul Bova",
+      "Donatella Finocchiaro",
+      "Sabrina Impacciatore"
+    ],
+    "uscita": "6 agosto 2026",
+    "distribuzione": "Vision Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {}
+  },
+  {
+    "scheda": 60,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4601,6 +4177,176 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5260/"
+      }
+    }
+  },
+  {
+    "scheda": 61,
+    "titolo": "PAW PATROL - MISSIONE DINOSAURI",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Animazione"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": "N.D.",
+    "trama": "N.D.",
+    "regia": [
+      "Cal Brunker"
+    ],
+    "cast": [],
+    "uscita": "9 settembre 2026",
+    "distribuzione": "Eagle Pictures",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Adriano": {
+        "orari": [
+          "15:20",
+          "17:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5263/"
+      },
+      "CINEMA Andromeda": {
+        "orari": [
+          "17:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5264/"
+      },
+      "CINEMA Atlantic": {
+        "orari": [
+          "15:00",
+          "16:50"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5261/"
+      },
+      "CINEMA Cineland": {
+        "orari": [
+          "16:30",
+          "18:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5292/"
+      },
+      "CINEMA Doria": {
+        "orari": [
+          "16:15"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5253/"
+      },
+      "CINEMA Multisala Lux": {
+        "orari": [
+          "16:15",
+          "18:10"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/4914/"
+      },
+      "Multisala Odeon": {
+        "orari": [
+          "16:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/4911/"
+      },
+      "The Screen Cinemas Roma Ottavia": {
+        "orari": [
+          "16:15"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5876/"
+      },
+      "CINEMA Trianon": {
+        "orari": [
+          "16:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5236/"
+      },
+      "Uci Cinemas Parco Leonardo": {
+        "orari": [
+          "16:20",
+          "18:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/6882/"
+      },
+      "Uci Cinemas Porta di Roma": {
+        "orari": [
+          "11:30",
+          "14:00",
+          "16:20",
+          "17:40",
+          "18:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20642/"
+      },
+      "Uci Cinemas Roma Est": {
+        "orari": [
+          "14:00",
+          "15:00",
+          "16:20",
+          "18:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20401/"
+      }
+    }
+  },
+  {
+    "scheda": 62,
+    "titolo": "SOUAD",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "N.D.",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Drammatico"
+    ],
+    "paesi": [
+      "Egitto",
+      "Tunisia",
+      "Germania"
+    ],
+    "anno": "2021",
+    "durata_minuti": 96,
+    "trama": "Due sorelle nell'Egitto contemporaneo",
+    "regia": [
+      "Ayten Amin"
+    ],
+    "cast": [
+      "Bassant Ahmed",
+      "Basmala Elghaiesh",
+      "Hussein Ghanem",
+      "Hagar Mahmoud"
+    ],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Arena 11": {
+        "orari": [
+          "21:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/24778/"
       }
     }
   }
