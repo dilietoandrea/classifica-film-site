@@ -4,6 +4,19 @@
     ).replace(/\/+$/, "");
     const DEFAULT_CITY = "roma";
     const USER_ORIGIN_STORAGE_KEY = "CFR_USER_ORIGIN";
+    const pageUserOrigins = new Map();
+    // Remove addresses saved by older versions, including cities not currently selected.
+    try {
+      const storage = window.localStorage;
+      for (let index = (storage?.length || 0) - 1; index >= 0; index -= 1) {
+        const key = storage.key(index);
+        if (key === USER_ORIGIN_STORAGE_KEY || key?.startsWith(`${USER_ORIGIN_STORAGE_KEY}:`)) {
+          storage.removeItem(key);
+        }
+      }
+    } catch (error) {
+      // Storage can be blocked; addresses are only kept in page memory.
+    }
     const ONLY_CINEMAS_WITH_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITH_DISTANCE";
     const ONLY_CINEMAS_WITHOUT_DISTANCE_STORAGE_KEY = "CFR_ONLY_CINEMAS_WITHOUT_DISTANCE";
     const SORT_CINEMAS_BY_DISTANCE_STORAGE_KEY = "CFR_SORT_CINEMAS_BY_DISTANCE";
@@ -13,6 +26,8 @@
     const INCLUDE_PROVINCE_STORAGE_KEY = "CFR_INCLUDE_PROVINCE";
     const TITLE_COLUMN_CLASS = "sticky-title-column";
     const RANKING_UNAVAILABLE_MESSAGE = "La citt\u00e0 \u00e8 nel catalogo MYmovies, ma oggi non risultano film in programmazione.";
+    const LEGACY_DISTANCE_UNAVAILABLE_MESSAGE =
+      "Calcolo distanze temporaneamente non disponibile finch\u00e9 l\u2019API non viene aggiornata.";
     const ORIGIN_REQUEST_DEDUP_MS = 1200;
     const FALLBACK_CITIES = [
       { city: "roma", city_label: "Roma" },
@@ -53,6 +68,8 @@
     let hasApiRankingData = false;
     let isUnavailableRankingView = false;
     let pendingCity = null;
+    let rankingPostSupported = null;
+    let legacyRankingWithoutOrigin = false;
     let visibleCityOptions = [];
     let highlightedCityIndex = -1;
     let isCityListOpen = false;
@@ -115,11 +132,7 @@
     }
 
     function readStoredUserOrigin(city = distanceStateCity()) {
-      try {
-        return String(window.localStorage?.getItem(cityScopedStorageKey(USER_ORIGIN_STORAGE_KEY, city)) || "").trim();
-      } catch (error) {
-        return "";
-      }
+      return pageUserOrigins.get(normalizeStorageCity(city)) || "";
     }
 
     function readStoredBoolean(key, city = null) {
@@ -141,17 +154,10 @@
     }
 
     function writeStoredUserOrigin(value, city = distanceStateCity()) {
-      try {
-        const text = String(value || "").trim();
-        const storageKey = cityScopedStorageKey(USER_ORIGIN_STORAGE_KEY, city);
-        if (text) {
-          window.localStorage?.setItem(storageKey, text);
-        } else {
-          window.localStorage?.removeItem(storageKey);
-        }
-      } catch (error) {
-        // localStorage may be blocked by the browser; distance calculation still works for the current page.
-      }
+      const key = normalizeStorageCity(city);
+      const text = String(value || "").trim();
+      if (text) pageUserOrigins.set(key, text);
+      else pageUserOrigins.delete(key);
     }
 
     function currentUserOrigin() {
@@ -272,7 +278,8 @@
       originInput.id = "distance-origin-input";
       originInput.type = "search";
       originInput.placeholder = "Indirizzo di partenza";
-      originInput.autocomplete = "street-address";
+      originInput.autocomplete = "off";
+      originInput.title = "Indirizzo conservato solo fino alla chiusura o al ricaricamento della pagina";
 
       originApplyButton = document.createElement("button");
       originApplyButton.className = "showtime-reset distance-origin-apply";
@@ -527,15 +534,8 @@
       loadCity(city);
     }
 
-    function rankingApiUrl(
-      city,
-      origin = normalizeStorageCity(city) === distanceStateCity() ? currentUserOrigin() : readStoredUserOrigin(city)
-    ) {
+    function rankingApiUrl(city) {
       const params = [`city=${encodeURIComponent(city || DEFAULT_CITY)}`];
-      const originText = String(origin || "").trim();
-      if (originText) {
-        params.push(`origin=${encodeURIComponent(originText)}`);
-      }
       if (readStoredBoolean(INCLUDE_PROVINCE_STORAGE_KEY, city)) {
         params.push("scope=province");
       }
@@ -543,6 +543,55 @@
         params.push("address_mode=auto");
       }
       return `${API_BASE_URL}/api/ranking?${params.join("&")}`;
+    }
+
+    function legacyRankingRequest(city) {
+      return fetch(rankingApiUrl(city), {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        cache: "no-store",
+      });
+    }
+
+    async function rankingApiRequest(city) {
+      if (rankingPostSupported === false) {
+        return { response: await legacyRankingRequest(city), legacyFallback: true };
+      }
+
+      let response;
+      try {
+        response = await fetch(rankingApiUrl(city), {
+          method: "POST",
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({ origin: currentUserOrigin() || null }),
+          cache: "no-store",
+        });
+      } catch (postError) {
+        try {
+          const legacyResponse = await legacyRankingRequest(city);
+          if (legacyResponse.ok) {
+            rankingPostSupported = false;
+          }
+          return { response: legacyResponse, legacyFallback: true };
+        } catch (legacyError) {
+          throw postError;
+        }
+      }
+
+      // Only method incompatibility (405/501) triggers legacy GET; 404 can be an application error.
+      if (![405, 501].includes(response.status)) {
+        rankingPostSupported = true;
+        return { response, legacyFallback: false };
+      }
+
+      if ([405, 501].includes(response.status)) {
+        rankingPostSupported = false;
+      }
+      const legacyResponse = await legacyRankingRequest(city);
+      if (legacyResponse.ok) {
+        rankingPostSupported = false;
+      }
+      return { response: legacyResponse, legacyFallback: true };
     }
 
     function geocodingOriginErrorMessage(errorDetail) {
@@ -564,6 +613,11 @@
       const origin = currentUserOrigin();
       if (!origin) {
         setDistanceOriginInfo("");
+        return;
+      }
+      if (legacyRankingWithoutOrigin) {
+        setDistanceOriginInfo(LEGACY_DISTANCE_UNAVAILABLE_MESSAGE, "warn");
+        setStatus(LEGACY_DISTANCE_UNAVAILABLE_MESSAGE, "warn");
         return;
       }
       const metadata = payload?.metadata || {};
@@ -870,7 +924,7 @@
     }
 
     function distanceOptionsActive() {
-      return Boolean(currentUserOrigin());
+      return Boolean(currentUserOrigin()) && !legacyRankingWithoutOrigin;
     }
 
     function currentCinemaGroupOptions() {
@@ -1595,12 +1649,11 @@
       updateOriginButtons();
       setStatus(`Aggiornamento ${cityLabel}...`, "");
       try {
-        const response = await fetch(rankingApiUrl(city), {
-          headers: { Accept: "application/json" },
-        });
+        const { response, legacyFallback } = await rankingApiRequest(city);
         if (requestId !== loadCityRequestId) {
           return;
         }
+        legacyRankingWithoutOrigin = legacyFallback;
         if (response.status === 429) {
           citySelect.value = activeCity;
           loadDistanceStateForCity(activeCity, { clearInfo: true });
