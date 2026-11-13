@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confronto prossimamente</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --accent: #2d6cdf;
+      --accent-soft: #eaf2ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 44px;
+    }
+    header {
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(520px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+    .section-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .section-button:hover, .section-button:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .actions, .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .actions a, .summary-card {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .actions a:hover, .actions a:focus, .summary-card:hover, .summary-card:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .summary-card strong {
+      min-width: 28px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #10233f;
+      text-align: center;
+    }
+    .diff-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+      overflow: hidden;
+    }
+    summary {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    summary strong {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0;
+      padding: 0 16px 16px 34px;
+    }
+    li {
+      margin: 8px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .empty {
+      color: var(--muted);
+    }
+    li[hidden], .diff-section[hidden] {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+      }
+      h1 { font-size: 23px; }
+      summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Confronto prossimamente</h1>
+      <p class="meta">Generato il 13/11/2026 18:05</p>
+      <p class="meta">Precedente: prossimamente_2026-11-12.csv - Attuale: prossimamente_2026-11-13.csv</p>
+    </header>
+    <nav class="actions" aria-label="Collegamenti report">
+      <a href="../index.html">Home</a>
+      <a href="prossimamente_2026-11-12.csv">CSV precedente</a>
+      <a href="prossimamente_2026-11-13.csv">CSV attuale</a>
+    </nav>
+    <div class="toolbar">
+      <input class="search" id="diff-search" type="search" placeholder="Cerca nei cambi" autocomplete="off">
+      <label class="toggle">
+        <input id="toggle-unchanged" type="checkbox">
+        <span>Mostra invariati</span>
+      </label>
+      <button class="section-button" id="toggle-sections" type="button" aria-expanded="true">Chiudi sezioni</button>
+      <span class="counter" id="diff-counter"></span>
+    </div>
+    <nav class="summary-grid" aria-label="Sezioni">
+      <a class="summary-card" href="#section-0">
+        <span>Nuovi film in arrivo</span>
+        <strong>1</strong>
+      </a><a class="summary-card" href="#section-1">
+        <span>Film non piu presenti</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-2">
+        <span>Cambi data uscita</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-3">
+        <span>Cambi distribuzione</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-4">
+        <span>Variazioni MYMONETRO</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-5">
+        <span>Invariati</span>
+        <strong>61</strong>
+      </a>
+    </nav>
+    <section>
+      <details class="diff-section" id="section-0" data-section-title="nuovi film in arrivo" open>
+        <summary>
+          <span>Nuovi film in arrivo</span>
+          <strong data-count-label>1 voce</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="le cose che posso cambiare: 24 novembre 2026 (dnart, 0,00)">LE COSE CHE POSSO CAMBIARE: 24 novembre 2026 (DNArt, 0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-1" data-section-title="film non piu presenti" open>
+        <summary>
+          <span>Film non piu presenti</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-2" data-section-title="cambi data uscita" open>
+        <summary>
+          <span>Cambi data uscita</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-3" data-section-title="cambi distribuzione" open>
+        <summary>
+          <span>Cambi distribuzione</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-4" data-section-title="variazioni mymonetro" open>
+        <summary>
+          <span>Variazioni MYMONETRO</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-5" data-section-title="invariati" data-unchanged-section="true">
+        <summary>
+          <span>Invariati</span>
+          <strong data-count-label>61 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="ingeborg bachmann - qui non c&#x27;è nessuna donna: 15 novembre 2026 (dugong, 0,00)">INGEBORG BACHMANN - QUI NON C&#x27;È NESSUNA DONNA: 15 novembre 2026 (Dugong, 0,00)</li>
+<li data-filter-text="2001: odissea nello spazio: 16 novembre 2026 (nexo studios, 4,52)">2001: ODISSEA NELLO SPAZIO: 16 novembre 2026 (Nexo Studios, 4,52)</li>
+<li data-filter-text="in un battito: 16 novembre 2026 (01 distribution, 0,00)">IN UN BATTITO: 16 novembre 2026 (01 Distribution, 0,00)</li>
+<li data-filter-text="la storia infinita: 16 novembre 2026 (adler entertainment, 3,39)">LA STORIA INFINITA: 16 novembre 2026 (Adler Entertainment, 3,39)</li>
+<li data-filter-text="fjord: 19 novembre 2026 (bim distribuzione, 3,67)">FJORD: 19 novembre 2026 (Bim Distribuzione, 3,67)</li>
+<li data-filter-text="hunger games - l&#x27;alba sulla mietitura: 19 novembre 2026 (notorious pictures, 0,00)">HUNGER GAMES - L&#x27;ALBA SULLA MIETITURA: 19 novembre 2026 (Notorious Pictures, 0,00)</li>
+<li data-filter-text="il destino dell&#x27;ape: 19 novembre 2026 (rs productions, 0,00)">IL DESTINO DELL&#x27;APE: 19 novembre 2026 (RS Productions, 0,00)</li>
+<li data-filter-text="il fuoco che ti porti dentro: 19 novembre 2026 (01 distribution, 3,54)">IL FUOCO CHE TI PORTI DENTRO: 19 novembre 2026 (01 Distribution, 3,54)</li>
+<li data-filter-text="la ballata del re delle api: 19 novembre 2026 (i wonder pictures, 0,00)">LA BALLATA DEL RE DELLE API: 19 novembre 2026 (I Wonder Pictures, 0,00)</li>
+<li data-filter-text="ramayana - la nascita di una leggenda: 19 novembre 2026 (eagle pictures, 0,00)">RAMAYANA - LA NASCITA DI UNA LEGGENDA: 19 novembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="pesciolino e superverme: 21 novembre 2026 (cineteca di bologna, 0,00)">PESCIOLINO E SUPERVERME: 21 novembre 2026 (Cineteca di Bologna, 0,00)</li>
+<li data-filter-text="holy wood dust: 23 novembre 2026 (be water, 0,00)">HOLY WOOD DUST: 23 novembre 2026 (Be Water, 0,00)</li>
+<li data-filter-text="mustang: 23 novembre 2026 (fandango, 0,00)">MUSTANG: 23 novembre 2026 (Fandango, 0,00)</li>
+<li data-filter-text="your name.: 23 novembre 2026 (dynit, 4,08)">YOUR NAME.: 23 novembre 2026 (Dynit, 4,08)</li>
+<li data-filter-text="la furia: 25 novembre 2026 (exitmedia, 0,00)">LA FURIA: 25 novembre 2026 (ExitMedia, 0,00)</li>
+<li data-filter-text="hexe - il regno delle streghe: 26 novembre 2026 (walt disney, 0,00)">HEXE - IL REGNO DELLE STREGHE: 26 novembre 2026 (Walt Disney, 0,00)</li>
+<li data-filter-text="il risveglio di boiúna: 26 novembre 2026 (vertice360, 0,00)">IL RISVEGLIO DI BOIÚNA: 26 novembre 2026 (Vertice360, 0,00)</li>
+<li data-filter-text="la notte delle fragole: 26 novembre 2026 (medusa, 0,00)">LA NOTTE DELLE FRAGOLE: 26 novembre 2026 (Medusa, 0,00)</li>
+<li data-filter-text="le nuove disavventure di cliff booth: 26 novembre 2026 (n.d., 0,00)">LE NUOVE DISAVVENTURE DI CLIFF BOOTH: 26 novembre 2026 (N.D., 0,00)</li>
+<li data-filter-text="lorenzo - l&#x27;incredibile avventura di jovanotti: 26 novembre 2026 (plaion pictures, 0,00)">LORENZO - L&#x27;INCREDIBILE AVVENTURA DI JOVANOTTI: 26 novembre 2026 (Plaion Pictures, 0,00)</li>
+<li data-filter-text="radio praga - le onde della libertà: 26 novembre 2026 (trent film, 0,00)">RADIO PRAGA - LE ONDE DELLA LIBERTÀ: 26 novembre 2026 (Trent Film, 0,00)</li>
+<li data-filter-text="storie parallele: 26 novembre 2026 (lucky red, 3,22)">STORIE PARALLELE: 26 novembre 2026 (Lucky Red, 3,22)</li>
+<li data-filter-text="ti presento i fotter: 26 novembre 2026 (eagle pictures, 0,00)">TI PRESENTO I FOTTER: 26 novembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="è andata così: 26 novembre 2026 (vision distribution, 0,00)">È ANDATA COSÌ: 26 novembre 2026 (Vision Distribution, 0,00)</li>
+<li data-filter-text="you can see everything: 27 novembre 2026 (i wonder pictures, 0,00)">YOU CAN SEE EVERYTHING: 27 novembre 2026 (I Wonder Pictures, 0,00)</li>
+<li data-filter-text="werner herzog - radical dreamer: 29 novembre 2026 (kublai film, 0,00)">WERNER HERZOG - RADICAL DREAMER: 29 novembre 2026 (Kublai Film, 0,00)</li>
+<li data-filter-text="bellissima: 30 novembre 2026 (cineteca di bologna, 0,00)">BELLISSIMA: 30 novembre 2026 (Cineteca di Bologna, 0,00)</li>
+<li data-filter-text="ken il guerriero - il film: 30 novembre 2026 (nexo studios, 0,00)">KEN IL GUERRIERO - IL FILM: 30 novembre 2026 (Nexo Studios, 0,00)</li>
+<li data-filter-text="buddy: 2 dicembre 2026 (be water, 0,00)">BUDDY: 2 dicembre 2026 (Be Water, 0,00)</li>
+<li data-filter-text="behemoth! una vita. da ricomporre.: 3 dicembre 2026 (walt disney, 0,00)">BEHEMOTH! UNA VITA. DA RICOMPORRE.: 3 dicembre 2026 (Walt Disney, 0,00)</li>
+<li data-filter-text="butterfly jam: 3 dicembre 2026 (europictures, 3,25)">BUTTERFLY JAM: 3 dicembre 2026 (Europictures, 3,25)</li>
+<li data-filter-text="club kid: 3 dicembre 2026 (i wonder pictures, 3,50)">CLUB KID: 3 dicembre 2026 (I Wonder Pictures, 3,50)</li>
+<li data-filter-text="il re dei re - la più grande storia mai raccontata: 3 dicembre 2026 (nexo studios, 0,00)">IL RE DEI RE - LA PIÙ GRANDE STORIA MAI RACCONTATA: 3 dicembre 2026 (Nexo Studios, 0,00)</li>
+<li data-filter-text="kiki - consegne a domicilio: 3 dicembre 2026 (lucky red, 3,63)">KIKI - CONSEGNE A DOMICILIO: 3 dicembre 2026 (Lucky Red, 3,63)</li>
+<li data-filter-text="lei che brilla nella battaglia: 3 dicembre 2026 (wanted, 0,00)">LEI CHE BRILLA NELLA BATTAGLIA: 3 dicembre 2026 (Wanted, 0,00)</li>
+<li data-filter-text="novembre 1963 - l&#x27;assassinio di j. f. kennedy: 3 dicembre 2026 (eagle pictures, 0,00)">NOVEMBRE 1963 - L&#x27;ASSASSINIO DI J. F. KENNEDY: 3 dicembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="shrek: 3 dicembre 2026 (universal pictures, 3,94)">SHREK: 3 dicembre 2026 (Universal Pictures, 3,94)</li>
+<li data-filter-text="succederà questa notte: 3 dicembre 2026 (01 distribution, 4,13)">SUCCEDERÀ QUESTA NOTTE: 3 dicembre 2026 (01 Distribution, 4,13)</li>
+<li data-filter-text="un&#x27;altra notte violenta e silenziosa: 3 dicembre 2026 (universal pictures, 0,00)">UN&#x27;ALTRA NOTTE VIOLENTA E SILENZIOSA: 3 dicembre 2026 (Universal Pictures, 0,00)</li>
+<li data-filter-text="rocky: 7 dicembre 2026 (plaion pictures, 3,43)">ROCKY: 7 dicembre 2026 (Plaion Pictures, 3,43)</li>
+<li data-filter-text="i swear - è più forte di me: 9 dicembre 2026 (fandango, 0,00)">I SWEAR - È PIÙ FORTE DI ME: 9 dicembre 2026 (Fandango, 0,00)</li>
+<li data-filter-text="il caso marie-claire: 10 dicembre 2026 (bim distribuzione, 0,00)">IL CASO MARIE-CLAIRE: 10 dicembre 2026 (Bim Distribuzione, 0,00)</li>
+<li data-filter-text="il corsetto: 10 dicembre 2026 (movies inspired, 3,88)">IL CORSETTO: 10 dicembre 2026 (Movies Inspired, 3,88)</li>
+<li data-filter-text="il mio nemico immaginario: 10 dicembre 2026 (filmclub distribuzione, 0,00)">IL MIO NEMICO IMMAGINARIO: 10 dicembre 2026 (Filmclub Distribuzione, 0,00)</li>
+<li data-filter-text="puella magi madoka magica the movie - il risveglio di walpurgisnacht: 10 dicembre 2026 (dynit, 0,00)">PUELLA MAGI MADOKA MAGICA THE MOVIE - IL RISVEGLIO DI WALPURGISNACHT: 10 dicembre 2026 (Dynit, 0,00)</li>
+<li data-filter-text="l&#x27;incontro: 15 dicembre 2026 (wanted, 0,00)">L&#x27;INCONTRO: 15 dicembre 2026 (Wanted, 0,00)</li>
+<li data-filter-text="avengers - doomsday: 16 dicembre 2026 (walt disney, 0,00)">AVENGERS - DOOMSDAY: 16 dicembre 2026 (Walt Disney, 0,00)</li>
+<li data-filter-text="dune - parte tre: 16 dicembre 2026 (warner bros italia, 0,00)">DUNE - PARTE TRE: 16 dicembre 2026 (Warner Bros Italia, 0,00)</li>
+<li data-filter-text="nella gioia e nel dolore: 17 dicembre 2026 (vision distribution, 0,00)">NELLA GIOIA E NEL DOLORE: 17 dicembre 2026 (Vision Distribution, 0,00)</li>
+<li data-filter-text="the housewife: 17 dicembre 2026 (eagle pictures, 0,00)">THE HOUSEWIFE: 17 dicembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="angry birds 3 - terremoto in famiglia: 23 dicembre 2026 (eagle pictures, 0,00)">ANGRY BIRDS 3 - TERREMOTO IN FAMIGLIA: 23 dicembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="bentornati al sud: 25 dicembre 2026 (medusa, 0,00)">BENTORNATI AL SUD: 25 dicembre 2026 (Medusa, 0,00)</li>
+<li data-filter-text="jumanji - open world: 25 dicembre 2026 (eagle pictures, 0,00)">JUMANJI - OPEN WORLD: 25 dicembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="salute!: 25 dicembre 2026 (piperfilm, 0,00)">SALUTE!: 25 dicembre 2026 (PiperFilm, 0,00)</li>
+<li data-filter-text="la venere elettrica: 29 dicembre 2026 (teodora film, 3,17)">LA VENERE ELETTRICA: 29 dicembre 2026 (Teodora Film, 3,17)</li>
+<li data-filter-text="rocky sono io: 31 dicembre 2026 (eagle pictures, 0,00)">ROCKY SONO IO: 31 dicembre 2026 (Eagle Pictures, 0,00)</li>
+<li data-filter-text="the debut - la grande occasione: 1 gennaio 2027 (i wonder pictures, 3,34)">THE DEBUT - LA GRANDE OCCASIONE: 1 gennaio 2027 (I Wonder Pictures, 3,34)</li>
+<li data-filter-text="werwulf: 1 gennaio 2027 (universal pictures, 0,00)">WERWULF: 1 gennaio 2027 (Universal Pictures, 0,00)</li>
+<li data-filter-text="cambiare l&#x27;acqua ai fiori: 5 gennaio 2027 (lucky red, 0,00)">CAMBIARE L&#x27;ACQUA AI FIORI: 5 gennaio 2027 (Lucky Red, 0,00)</li>
+<li data-filter-text="coward: 5 gennaio 2027 (mubi, 3,36)">COWARD: 5 gennaio 2027 (Mubi, 3,36)</li>
+<li data-filter-text="l&#x27;ultimo tiziano: n.d. (n.d., 0,00)">L&#x27;ULTIMO TIZIANO: N.D. (N.D., 0,00)</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById("diff-search");
+    const toggleUnchanged = document.getElementById("toggle-unchanged");
+    const toggleSections = document.getElementById("toggle-sections");
+    const counter = document.getElementById("diff-counter");
+    const sections = Array.from(document.querySelectorAll(".diff-section"));
+
+    function countLabel(count) {
+      return count === 1 ? "1 voce" : `${count} voci`;
+    }
+
+    function visibleSectionsList() {
+      return sections.filter((section) => !section.hidden);
+    }
+
+    function updateSectionToggleLabel() {
+      const visibleSections = visibleSectionsList();
+      const allOpen = visibleSections.length > 0 && visibleSections.every((section) => section.open);
+      toggleSections.textContent = allOpen ? "Chiudi sezioni" : "Espandi sezioni";
+      toggleSections.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visibleRows = 0;
+      let totalRows = 0;
+      let visibleSections = 0;
+
+      for (const section of sections) {
+        const isUnchanged = section.dataset.unchangedSection === "true";
+        const showUnchanged = toggleUnchanged.checked || searchInput.value.trim();
+        if (isUnchanged && !showUnchanged) {
+          section.hidden = true;
+          continue;
+        }
+        const sectionTitle = section.dataset.sectionTitle || "";
+        const rows = Array.from(section.querySelectorAll("li:not(.empty)"));
+        const sectionMatches = !query || sectionTitle.includes(query);
+        let sectionVisibleRows = 0;
+        totalRows += rows.length;
+
+        for (const row of rows) {
+          const rowText = row.dataset.filterText || row.textContent.toLocaleLowerCase("it-IT");
+          const matches = sectionMatches || rowText.includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            sectionVisibleRows += 1;
+            visibleRows += 1;
+          }
+        }
+
+        const hasRows = rows.length > 0;
+        section.hidden = hasRows ? sectionVisibleRows === 0 : !sectionMatches;
+        if (!section.hidden) visibleSections += 1;
+        const count = query ? sectionVisibleRows : rows.length;
+        const label = section.querySelector("[data-count-label]");
+        if (label) label.textContent = countLabel(count);
+      }
+
+      counter.textContent = `${visibleRows} di ${totalRows} voci in ${visibleSections} sezioni`;
+      updateSectionToggleLabel();
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    toggleUnchanged.addEventListener("change", updateFilter);
+    toggleSections.addEventListener("click", () => {
+      const visibleSections = visibleSectionsList();
+      const shouldOpen = visibleSections.some((section) => !section.open);
+      for (const section of visibleSections) section.open = shouldOpen;
+      updateSectionToggleLabel();
+    });
+    for (const section of sections) section.addEventListener("toggle", updateSectionToggleLabel);
+    updateFilter();
+  </script>
+</body>
+</html>
