@@ -342,10 +342,10 @@
     "scheda": 3,
     "titolo": "FJORD",
     "valutazioni": {
-      "MYMONETRO": "3.62",
+      "MYMONETRO": "3.30",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "3.74",
-      "PUBBLICO": "N.D."
+      "PUBBLICO": "2.67"
     },
     "consigliato": "SI",
     "genere": [
@@ -487,7 +487,8 @@
       "CINEMA Troisi": {
         "orari": [],
         "orari_vo": [
-          "13:15"
+          "13:15",
+          "18:15"
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
       },
@@ -768,10 +769,10 @@
     "scheda": 7,
     "titolo": "SE DOMANI NON TORNO",
     "valutazioni": {
-      "MYMONETRO": "3.22",
+      "MYMONETRO": "3.24",
       "MYMOVIES.IT": "3.00",
       "CRITICA": "2.82",
-      "PUBBLICO": "3.85"
+      "PUBBLICO": "3.89"
     },
     "consigliato": "SI",
     "genere": [
@@ -855,7 +856,8 @@
           "15:30",
           "17:30",
           "19:30",
-          "21:30"
+          "21:30",
+          "21:35"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -1638,7 +1640,7 @@
       "MYMONETRO": "3.48",
       "MYMOVIES.IT": "3.50",
       "CRITICA": "2.97",
-      "PUBBLICO": "3.98"
+      "PUBBLICO": "3.97"
     },
     "consigliato": "SI",
     "genere": [
@@ -1933,7 +1935,8 @@
       "CINEMA Madison": {
         "orari": [
           "17:30",
-          "19:30"
+          "19:30",
+          "15:20"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -2201,7 +2204,7 @@
       "MYMONETRO": "3.86",
       "MYMOVIES.IT": "4.00",
       "CRITICA": "4.04",
-      "PUBBLICO": "3.54"
+      "PUBBLICO": "3.53"
     },
     "consigliato": "ASSOLUTAMENTE SI",
     "genere": [
@@ -2371,6 +2374,13 @@
         ],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4907/"
       },
+      "Teatro Don Bosco": {
+        "orari": [
+          "20:30"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5234/"
+      },
       "The Space Parco de Medici": {
         "orari": [
           "14:10",
@@ -2400,6 +2410,60 @@
   },
   {
     "scheda": 18,
+    "titolo": "È ANDATA COSÌ",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "4.50",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Commedia"
+    ],
+    "paesi": [
+      "Italia"
+    ],
+    "anno": "2026",
+    "durata_minuti": 120,
+    "trama": "Una scatenata e surreale commedia sentimentale che raccoglie il meglio dell'eredità della commedia all'italiana",
+    "regia": [
+      "Gianni Zanasi"
+    ],
+    "cast": [
+      "Michele Riondino",
+      "Valerio Mastandrea",
+      "Valentina Lodovini",
+      "Leonardo Lidi"
+    ],
+    "uscita": "26 novembre 2026",
+    "distribuzione": "Vision Distribution",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Madison": {
+        "orari": [
+          "14:45",
+          "17:00",
+          "19:15",
+          "21:35"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
+      },
+      "CINEMA Troisi": {
+        "orari": [
+          "11:00",
+          "16:00",
+          "21:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
+      }
+    }
+  },
+  {
+    "scheda": 19,
     "titolo": "ODISSEA",
     "valutazioni": {
       "MYMONETRO": "3.80",
@@ -2444,7 +2508,7 @@
     }
   },
   {
-    "scheda": 19,
+    "scheda": 20,
     "titolo": "IL CIELO SOPRA BERLINO",
     "valutazioni": {
       "MYMONETRO": "4.07",
@@ -2487,7 +2551,7 @@
     }
   },
   {
-    "scheda": 20,
+    "scheda": 21,
     "titolo": "L'ESTRANEA",
     "valutazioni": {
       "MYMONETRO": "3.35",
@@ -2537,7 +2601,8 @@
         "orari": [
           "15:20",
           "19:25",
-          "21:35"
+          "21:35",
+          "19:30"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -2552,7 +2617,7 @@
     }
   },
   {
-    "scheda": 21,
+    "scheda": 22,
     "titolo": "YOUR NAME.",
     "valutazioni": {
       "MYMONETRO": "4.08",
@@ -2651,7 +2716,7 @@
     }
   },
   {
-    "scheda": 22,
+    "scheda": 23,
     "titolo": "SERPENTI",
     "valutazioni": {
       "MYMONETRO": "3.17",
@@ -2689,44 +2754,6 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/5235/"
-      }
-    }
-  },
-  {
-    "scheda": 23,
-    "titolo": "NAZA",
-    "valutazioni": {
-      "MYMONETRO": "4.04",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "4.19",
-      "PUBBLICO": "3.92"
-    },
-    "consigliato": "ASSOLUTAMENTE SI",
-    "genere": [
-      "Documentario"
-    ],
-    "paesi": [
-      "Gran Bretagna"
-    ],
-    "anno": "2026",
-    "durata_minuti": 80,
-    "trama": "Un'opera analitica e razionale nel cuore di Tel Aviv. Un atto necessario di resistenza",
-    "regia": [
-      "Yuval Abraham",
-      "Rachel Szor"
-    ],
-    "cast": [],
-    "uscita": "28 settembre 2026",
-    "distribuzione": "I Wonder Pictures",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Madison": {
-        "orari": [
-          "15:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
       }
     }
   },
@@ -2808,6 +2835,13 @@
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4907/"
+      },
+      "Teatro Don Bosco": {
+        "orari": [
+          "18:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5234/"
       },
       "CINEMA Tibur": {
         "orari": [
@@ -3050,7 +3084,8 @@
       "CINEMA Madison": {
         "orari": [
           "15:30",
-          "19:35"
+          "19:35",
+          "15:20"
         ],
         "orari_vo": [],
         "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
@@ -3247,6 +3282,51 @@
   },
   {
     "scheda": 32,
+    "titolo": "RESIDENT EVIL",
+    "valutazioni": {
+      "MYMONETRO": "2.85",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.75",
+      "PUBBLICO": "2.29"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Azione",
+      "Fantascienza",
+      "Horror"
+    ],
+    "paesi": [
+      "USA",
+      "Germania"
+    ],
+    "anno": "2026",
+    "durata_minuti": 90,
+    "trama": "Zach Cregger realizza uno dei più felici adattamenti videoludici mai visti",
+    "regia": [
+      "Zach Cregger"
+    ],
+    "cast": [
+      "Austin Abrams",
+      "Zach Cherry",
+      "kali Reis",
+      "Paul Walter Hauser"
+    ],
+    "uscita": "17 settembre 2026",
+    "distribuzione": "Eagle Pictures",
+    "vm": "V.M. 14",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Troisi": {
+        "orari": [],
+        "orari_vo": [
+          "00:30"
+        ],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
+      }
+    }
+  },
+  {
+    "scheda": 33,
     "titolo": "IL CANTO DELLA FORESTA",
     "valutazioni": {
       "MYMONETRO": "3.55",
@@ -3294,7 +3374,7 @@
     }
   },
   {
-    "scheda": 33,
+    "scheda": 34,
     "titolo": "IL GATTO COL CAPPELLO",
     "valutazioni": {
       "MYMONETRO": "3.34",
@@ -3423,7 +3503,7 @@
     }
   },
   {
-    "scheda": 34,
+    "scheda": 35,
     "titolo": "CLÉO DALLE 5 ALLE 7",
     "valutazioni": {
       "MYMONETRO": "2.94",
@@ -3466,7 +3546,7 @@
     }
   },
   {
-    "scheda": 35,
+    "scheda": 36,
     "titolo": "MUSTANG",
     "valutazioni": {
       "MYMONETRO": "3.42",
@@ -3616,49 +3696,6 @@
     }
   },
   {
-    "scheda": 36,
-    "titolo": "IL CLUB DEI TRENTANOVE",
-    "valutazioni": {
-      "MYMONETRO": "3.68",
-      "MYMOVIES.IT": "4.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "3.35"
-    },
-    "consigliato": "SI",
-    "genere": [
-      "Spionaggio"
-    ],
-    "paesi": [
-      "Gran Bretagna"
-    ],
-    "anno": "1935",
-    "durata_minuti": 81,
-    "trama": "Uno dei film più belli e giustamente famosi del periodo inglese di Hitchcock",
-    "regia": [
-      "Alfred Hitchcock"
-    ],
-    "cast": [
-      "Robert Donat",
-      "Madeleine Carroll",
-      "Lucie Mannheim",
-      "Godfrey Tearle",
-      "Peggy Ashcroft"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "Palazzo delle Esposizioni": {
-        "orari": [
-          "20:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/20729/"
-      }
-    }
-  },
-  {
     "scheda": 37,
     "titolo": "WILDWOOD - I SEGRETI DEL BOSCO PROIBITO",
     "valutazioni": {
@@ -3767,6 +3804,49 @@
   },
   {
     "scheda": 39,
+    "titolo": "LA SIGNORA SCOMPARE",
+    "valutazioni": {
+      "MYMONETRO": "3.09",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "3.17"
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Spionaggio"
+    ],
+    "paesi": [
+      "Gran Bretagna"
+    ],
+    "anno": "1938",
+    "durata_minuti": 97,
+    "trama": "N.D.",
+    "regia": [
+      "Alfred Hitchcock"
+    ],
+    "cast": [
+      "Paul Lukas",
+      "Michael Redgrave",
+      "Margaret Lockwood",
+      "May Whitty",
+      "Cecil Parker"
+    ],
+    "uscita": "N.D.",
+    "distribuzione": "N.D.",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "Palazzo delle Esposizioni": {
+        "orari": [
+          "20:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/20729/"
+      }
+    }
+  },
+  {
+    "scheda": 40,
     "titolo": "CASCO D'ORO",
     "valutazioni": {
       "MYMONETRO": "4.09",
@@ -3808,7 +3888,7 @@
     }
   },
   {
-    "scheda": 40,
+    "scheda": 41,
     "titolo": "UN GIORNO SENZA DONNE",
     "valutazioni": {
       "MYMONETRO": "4.25",
@@ -3848,7 +3928,7 @@
     }
   },
   {
-    "scheda": 41,
+    "scheda": 42,
     "titolo": "ESTASI DI UN DELITTO",
     "valutazioni": {
       "MYMONETRO": "3.14",
@@ -3889,7 +3969,7 @@
     }
   },
   {
-    "scheda": 42,
+    "scheda": 43,
     "titolo": "SHAUN, VITA DA PECORA: OPERAZIONE Z.U.C.C.A.",
     "valutazioni": {
       "MYMONETRO": "3.88",
@@ -3961,7 +4041,7 @@
     }
   },
   {
-    "scheda": 43,
+    "scheda": 44,
     "titolo": "DISCOVER ROME",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -3998,7 +4078,7 @@
     }
   },
   {
-    "scheda": 44,
+    "scheda": 45,
     "titolo": "I RACCONTI DEL GIARDINO INCANTATO",
     "valutazioni": {
       "MYMONETRO": "3.88",
@@ -4045,7 +4125,7 @@
     }
   },
   {
-    "scheda": 45,
+    "scheda": 46,
     "titolo": "TI PRESENTO I FOTTER",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4216,7 +4296,7 @@
     }
   },
   {
-    "scheda": 46,
+    "scheda": 47,
     "titolo": "COLPO IN CANNA",
     "valutazioni": {
       "MYMONETRO": "2.65",
@@ -4259,7 +4339,54 @@
     }
   },
   {
-    "scheda": 47,
+    "scheda": 48,
+    "titolo": "STORIE PARALLELE",
+    "valutazioni": {
+      "MYMONETRO": "3.22",
+      "MYMOVIES.IT": "3.50",
+      "CRITICA": "2.93",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "SI",
+    "genere": [
+      "Drammatico",
+      "Thriller"
+    ],
+    "paesi": [
+      "Francia",
+      "Italia",
+      "Belgio"
+    ],
+    "anno": "2026",
+    "durata_minuti": 139,
+    "trama": "Una lezione su ciò che sta alla base del fare cinema: la sceneggiatura",
+    "regia": [
+      "Asghar Farhadi"
+    ],
+    "cast": [
+      "Isabelle Huppert",
+      "Virginie Efira",
+      "Vincent Cassel",
+      "Pierre Niney"
+    ],
+    "uscita": "26 novembre 2026",
+    "distribuzione": "Lucky Red",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Eden": {
+        "orari": [
+          "15:30",
+          "18:15",
+          "21:00"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/5255/"
+      }
+    }
+  },
+  {
+    "scheda": 49,
     "titolo": "IL CANTO DI ALINA",
     "valutazioni": {
       "MYMONETRO": "3.07",
@@ -4302,7 +4429,7 @@
     }
   },
   {
-    "scheda": 48,
+    "scheda": 50,
     "titolo": "LE NUOVE DISAVVENTURE DI CLIFF BOOTH",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4346,7 +4473,53 @@
     }
   },
   {
-    "scheda": 49,
+    "scheda": 51,
+    "titolo": "HEXE - IL REGNO DELLE STREGHE",
+    "valutazioni": {
+      "MYMONETRO": "N.D.",
+      "MYMOVIES.IT": "3.00",
+      "CRITICA": "N.D.",
+      "PUBBLICO": "N.D."
+    },
+    "consigliato": "N.D.",
+    "genere": [
+      "Animazione"
+    ],
+    "paesi": [
+      "USA"
+    ],
+    "anno": "2026",
+    "durata_minuti": 103,
+    "trama": "Una storia di magia e di disobbedienza necessaria, sotto l'influenza di Wicked",
+    "regia": [
+      "Jason Hand",
+      "Fawn Veerasunthorn"
+    ],
+    "cast": [
+      "Mariasole Pollio",
+      "Claudia Pandolfi",
+      "Isabella Ferrari",
+      "Hailee Steinfeld"
+    ],
+    "uscita": "26 novembre 2026",
+    "distribuzione": "Walt Disney",
+    "vm": "N.D.",
+    "consigli_visione": "N.D.",
+    "cinema_orari": {
+      "CINEMA Madison": {
+        "orari": [
+          "15:25",
+          "17:30",
+          "19:30",
+          "21:35"
+        ],
+        "orari_vo": [],
+        "cinema_url": "https://www.mymovies.it/cinema/roma/4916/"
+      }
+    }
+  },
+  {
+    "scheda": 52,
     "titolo": "HOLY WOOD DUST",
     "valutazioni": {
       "MYMONETRO": "2.50",
@@ -4399,46 +4572,7 @@
     }
   },
   {
-    "scheda": 50,
-    "titolo": "IN UN BATTITO",
-    "valutazioni": {
-      "MYMONETRO": "N.D.",
-      "MYMOVIES.IT": "3.00",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "N.D."
-    },
-    "consigliato": "N.D.",
-    "genere": [
-      "Documentario"
-    ],
-    "paesi": [
-      "Italia"
-    ],
-    "anno": "2026",
-    "durata_minuti": 97,
-    "trama": "Un racconto intenso di determinazione, sogni bambini e legami, che segue la battaglia di un giovane calciatore",
-    "regia": [
-      "Giovanni Troilo"
-    ],
-    "cast": [
-      "Edoardo Bove"
-    ],
-    "uscita": "16 novembre 2026",
-    "distribuzione": "01 Distribution",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Eden": {
-        "orari": [
-          "21:30"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5255/"
-      }
-    }
-  },
-  {
-    "scheda": 51,
+    "scheda": 53,
     "titolo": "ROBERTO PERPIGNANI - L'EMOZIONE DEI TAGLI IMPROPRI",
     "valutazioni": {
       "MYMONETRO": "N.D.",
@@ -4473,49 +4607,7 @@
     }
   },
   {
-    "scheda": 52,
-    "titolo": "SHIFT-E SHAB",
-    "valutazioni": {
-      "MYMONETRO": "N.D.",
-      "MYMOVIES.IT": "N.D.",
-      "CRITICA": "N.D.",
-      "PUBBLICO": "2.63"
-    },
-    "consigliato": "N.D.",
-    "genere": [
-      "Drammatico"
-    ],
-    "paesi": [
-      "Iran"
-    ],
-    "anno": "2015",
-    "durata_minuti": 100,
-    "trama": "N.D.",
-    "regia": [
-      "Niki Karimi"
-    ],
-    "cast": [
-      "Mohammad Reza Forutan",
-      "Leyla Zareh",
-      "Amir-Hossein Arman",
-      "Amir Aghaee"
-    ],
-    "uscita": "N.D.",
-    "distribuzione": "N.D.",
-    "vm": "N.D.",
-    "consigli_visione": "N.D.",
-    "cinema_orari": {
-      "CINEMA Troisi": {
-        "orari": [
-          "18:00"
-        ],
-        "orari_vo": [],
-        "cinema_url": "https://www.mymovies.it/cinema/roma/5243/"
-      }
-    }
-  },
-  {
-    "scheda": 53,
+    "scheda": 54,
     "titolo": "GLI ANNI DEL PADRE",
     "valutazioni": {
       "MYMONETRO": "N.D.",
