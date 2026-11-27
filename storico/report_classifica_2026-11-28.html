@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confronto classifica</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #5c6875;
+      --line: #d8dee8;
+      --accent: #2d6cdf;
+      --accent-soft: #eaf2ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 44px;
+    }
+    header {
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+    .search {
+      width: min(520px, 100%);
+      min-height: 42px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+    .search:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .counter {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toggle {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+    .section-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .section-button:hover, .section-button:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .actions, .summary-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0;
+    }
+    .actions a, .summary-card {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .actions a:hover, .actions a:focus, .summary-card:hover, .summary-card:focus {
+      border-color: var(--accent);
+      outline: 2px solid rgba(45, 108, 223, 0.16);
+    }
+    .summary-card strong {
+      min-width: 28px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #10233f;
+      text-align: center;
+    }
+    .diff-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(24, 32, 42, 0.06);
+      overflow: hidden;
+    }
+    summary {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    summary strong {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    ul {
+      margin: 0;
+      padding: 0 16px 16px 34px;
+    }
+    li {
+      margin: 8px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .empty {
+      color: var(--muted);
+    }
+    li[hidden], .diff-section[hidden] {
+      display: none;
+    }
+    @media (max-width: 700px) {
+      main {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+      }
+      h1 { font-size: 23px; }
+      summary {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Confronto classifica</h1>
+      <p class="meta">Generato il 28/11/2026 00:18</p>
+      <p class="meta">Precedente: classifica_film_2026-11-27.csv - Attuale: classifica_film_2026-11-28.csv</p>
+    </header>
+    <nav class="actions" aria-label="Collegamenti report">
+      <a href="../index.html">Home</a>
+      <a href="classifica_film_2026-11-27.csv">CSV precedente</a>
+      <a href="classifica_film_2026-11-28.csv">CSV attuale</a>
+    </nav>
+    <div class="toolbar">
+      <input class="search" id="diff-search" type="search" placeholder="Cerca nei cambi" autocomplete="off">
+      <label class="toggle">
+        <input id="toggle-unchanged" type="checkbox">
+        <span>Mostra invariati</span>
+      </label>
+      <button class="section-button" id="toggle-sections" type="button" aria-expanded="true">Chiudi sezioni</button>
+      <span class="counter" id="diff-counter"></span>
+    </div>
+    <nav class="summary-grid" aria-label="Sezioni">
+      <a class="summary-card" href="#section-0">
+        <span>Nuovi film</span>
+        <strong>4</strong>
+      </a><a class="summary-card" href="#section-1">
+        <span>Film usciti</span>
+        <strong>37</strong>
+      </a><a class="summary-card" href="#section-2">
+        <span>Saliti in classifica</span>
+        <strong>20</strong>
+      </a><a class="summary-card" href="#section-3">
+        <span>Scesi in classifica</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-4">
+        <span>Variazioni punteggio</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-5">
+        <span>Cambi cinema</span>
+        <strong>0</strong>
+      </a><a class="summary-card" href="#section-6">
+        <span>Cambi orari</span>
+        <strong>8</strong>
+      </a><a class="summary-card" href="#section-7">
+        <span>Invariati</span>
+        <strong>1</strong>
+      </a>
+    </nav>
+    <section>
+      <details class="diff-section" id="section-0" data-section-title="nuovi film" open>
+        <summary>
+          <span>Nuovi film</span>
+          <strong data-count-label>4 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#4 sabrina (3,88)">#4 SABRINA (3,88)</li>
+<li data-filter-text="#5 shaun, vita da pecora: operazione z.u.c.c.a. (3,88)">#5 SHAUN, VITA DA PECORA: OPERAZIONE Z.U.C.C.A. (3,88)</li>
+<li data-filter-text="#19 zazie nel metrò (3,06)">#19 ZAZIE NEL METRÒ (3,06)</li>
+<li data-filter-text="#21 i prigionieri dell&#x27;oceano (3,00)">#21 I PRIGIONIERI DELL&#x27;OCEANO (3,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-1" data-section-title="film usciti" open>
+        <summary>
+          <span>Film usciti</span>
+          <strong data-count-label>37 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#2 rebecca - la prima moglie (4,31)">#2 REBECCA - LA PRIMA MOGLIE (4,31)</li>
+<li data-filter-text="#4 casco d&#x27;oro (4,09)">#4 CASCO D&#x27;ORO (4,09)</li>
+<li data-filter-text="#6 fatherland (4,04)">#6 FATHERLAND (4,04)</li>
+<li data-filter-text="#7 i racconti del giardino incantato (3,88)">#7 I RACCONTI DEL GIARDINO INCANTATO (3,88)</li>
+<li data-filter-text="#8 minotaur (3,88)">#8 MINOTAUR (3,88)</li>
+<li data-filter-text="#10 odissea (3,80)">#10 ODISSEA (3,80)</li>
+<li data-filter-text="#12 la ballata del re delle api (3,75)">#12 LA BALLATA DEL RE DELLE API (3,75)</li>
+<li data-filter-text="#13 la gradiva (3,75)">#13 LA GRADIVA (3,75)</li>
+<li data-filter-text="#16 il canto della foresta (3,55)">#16 IL CANTO DELLA FORESTA (3,55)</li>
+<li data-filter-text="#18 domenica, maledetta domenica (3,50)">#18 DOMENICA, MALEDETTA DOMENICA (3,50)</li>
+<li data-filter-text="#20 c&#x27;eravamo tanto amati (3,45)">#20 C&#x27;ERAVAMO TANTO AMATI (3,45)</li>
+<li data-filter-text="#22 coward (3,36)">#22 COWARD (3,36)</li>
+<li data-filter-text="#25 mustang (3,35)">#25 MUSTANG (3,35)</li>
+<li data-filter-text="#28 the social - il prezzo della verità (3,27)">#28 THE SOCIAL - IL PREZZO DELLA VERITÀ (3,27)</li>
+<li data-filter-text="#29 un mondo meraviglioso (3,25)">#29 UN MONDO MERAVIGLIOSO (3,25)</li>
+<li data-filter-text="#32 hunger games - l&#x27;alba sulla mietitura (3,15)">#32 HUNGER GAMES - L&#x27;ALBA SULLA MIETITURA (3,15)</li>
+<li data-filter-text="#33 una storia (3,15)">#33 UNA STORIA (3,15)</li>
+<li data-filter-text="#34 the moment (3,13)">#34 THE MOMENT (3,13)</li>
+<li data-filter-text="#35 godzilla minus zero (3,09)">#35 GODZILLA MINUS ZERO (3,09)</li>
+<li data-filter-text="#36 radio praga - le onde della libertà (3,07)">#36 RADIO PRAGA - LE ONDE DELLA LIBERTÀ (3,07)</li>
+<li data-filter-text="#38 ti presento i fotter (2,94)">#38 TI PRESENTO I FOTTER (2,94)</li>
+<li data-filter-text="#40 limonov (2,87)">#40 LIMONOV (2,87)</li>
+<li data-filter-text="#42 la notte delle fragole (2,80)">#42 LA NOTTE DELLE FRAGOLE (2,80)</li>
+<li data-filter-text="#43 clayface (2,69)">#43 CLAYFACE (2,69)</li>
+<li data-filter-text="#45 il tempo di anne (2,47)">#45 IL TEMPO DI ANNE (2,47)</li>
+<li data-filter-text="#46 come rapinare una banca (2,35)">#46 COME RAPINARE UNA BANCA (2,35)</li>
+<li data-filter-text="#47 il risveglio di boiúna (2,34)">#47 IL RISVEGLIO DI BOIÚNA (2,34)</li>
+<li data-filter-text="#48 mammina (2,04)">#48 MAMMINA (2,04)</li>
+<li data-filter-text="#49 un weekend artificiale (1,91)">#49 UN WEEKEND ARTIFICIALE (1,91)</li>
+<li data-filter-text="#50 dal nulla (0,00)">#50 DAL NULLA (0,00)</li>
+<li data-filter-text="#52 gli anni del padre (0,00)">#52 GLI ANNI DEL PADRE (0,00)</li>
+<li data-filter-text="#53 in jackson heights (0,00)">#53 IN JACKSON HEIGHTS (0,00)</li>
+<li data-filter-text="#54 kintsugi... e sono la mia opera (0,00)">#54 KINTSUGI... E SONO LA MIA OPERA (0,00)</li>
+<li data-filter-text="#55 le nuove disavventure di cliff booth (0,00)">#55 LE NUOVE DISAVVENTURE DI CLIFF BOOTH (0,00)</li>
+<li data-filter-text="#56 lorenzo - l&#x27;incredibile avventura di jovanotti (0,00)">#56 LORENZO - L&#x27;INCREDIBILE AVVENTURA DI JOVANOTTI (0,00)</li>
+<li data-filter-text="#57 pesciolino e superverme (0,00)">#57 PESCIOLINO E SUPERVERME (0,00)</li>
+<li data-filter-text="#58 ugualmente diversi (0,00)">#58 UGUALMENTE DIVERSI (0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-2" data-section-title="saliti in classifica" open>
+        <summary>
+          <span>Saliti in classifica</span>
+          <strong data-count-label>20 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="l&#x27;essere amato: #3 -&gt; #2 (4,28)">L&#x27;ESSERE AMATO: #3 -&gt; #2 (4,28)</li>
+<li data-filter-text="look back: #5 -&gt; #3 (4,05)">LOOK BACK: #5 -&gt; #3 (4,05)</li>
+<li data-filter-text="wild horse nine: #9 -&gt; #6 (3,86)">WILD HORSE NINE: #9 -&gt; #6 (3,86)</li>
+<li data-filter-text="wildwood - i segreti del bosco proibito: #11 -&gt; #7 (3,78)">WILDWOOD - I SEGRETI DEL BOSCO PROIBITO: #11 -&gt; #7 (3,78)</li>
+<li data-filter-text="è andata così: #14 -&gt; #8 (3,72)">È ANDATA COSÌ: #14 -&gt; #8 (3,72)</li>
+<li data-filter-text="fjord: #15 -&gt; #9 (3,60)">FJORD: #15 -&gt; #9 (3,60)</li>
+<li data-filter-text="je so&#x27; pazzo: #17 -&gt; #10 (3,53)">JE SO&#x27; PAZZO: #17 -&gt; #10 (3,53)</li>
+<li data-filter-text="dio ride: #19 -&gt; #11 (3,47)">DIO RIDE: #19 -&gt; #11 (3,47)</li>
+<li data-filter-text="il fuoco che ti porti dentro: #21 -&gt; #12 (3,38)">IL FUOCO CHE TI PORTI DENTRO: #21 -&gt; #12 (3,38)</li>
+<li data-filter-text="digger: #23 -&gt; #13 (3,35)">DIGGER: #23 -&gt; #13 (3,35)</li>
+<li data-filter-text="l&#x27;estranea: #24 -&gt; #14 (3,35)">L&#x27;ESTRANEA: #24 -&gt; #14 (3,35)</li>
+<li data-filter-text="il gatto col cappello: #26 -&gt; #15 (3,34)">IL GATTO COL CAPPELLO: #26 -&gt; #15 (3,34)</li>
+<li data-filter-text="scrooge e gli spiriti del natale: #27 -&gt; #16 (3,33)">SCROOGE E GLI SPIRITI DEL NATALE: #27 -&gt; #16 (3,33)</li>
+<li data-filter-text="se domani non torno: #30 -&gt; #17 (3,24)">SE DOMANI NON TORNO: #30 -&gt; #17 (3,24)</li>
+<li data-filter-text="storie parallele: #31 -&gt; #18 (3,21)">STORIE PARALLELE: #31 -&gt; #18 (3,21)</li>
+<li data-filter-text="hexe - il regno delle streghe: #37 -&gt; #20 (3,00)">HEXE - IL REGNO DELLE STREGHE: #37 -&gt; #20 (3,00)</li>
+<li data-filter-text="un tranquillo funerale di famiglia: #39 -&gt; #22 (2,89)">UN TRANQUILLO FUNERALE DI FAMIGLIA: #39 -&gt; #22 (2,89)</li>
+<li data-filter-text="resident evil: #41 -&gt; #23 (2,85)">RESIDENT EVIL: #41 -&gt; #23 (2,85)</li>
+<li data-filter-text="il rumore delle cose nuove: #44 -&gt; #24 (2,54)">IL RUMORE DELLE COSE NUOVE: #44 -&gt; #24 (2,54)</li>
+<li data-filter-text="discover rome: #51 -&gt; #25 (0,00)">DISCOVER ROME: #51 -&gt; #25 (0,00)</li>
+        </ul>
+      </details><details class="diff-section" id="section-3" data-section-title="scesi in classifica" open>
+        <summary>
+          <span>Scesi in classifica</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-4" data-section-title="variazioni punteggio" open>
+        <summary>
+          <span>Variazioni punteggio</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-5" data-section-title="cambi cinema" open>
+        <summary>
+          <span>Cambi cinema</span>
+          <strong data-count-label>0 voci</strong>
+        </summary>
+        <ul>
+          <li class="empty">Nessuno</li>
+        </ul>
+      </details><details class="diff-section" id="section-6" data-section-title="cambi orari" open>
+        <summary>
+          <span>Cambi orari</span>
+          <strong data-count-label>8 voci</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="you can see everything: vo: 21:00 | 15:45, 18:00, 18:20, 21:00, 21:30 | vo: 15:30 | vo: 18:15 | 20:00 | vo: 20:30 | vo: 18:30, 20:30 | vo: 16:00 | 21:21 | vo: 20:20 -&gt; vo: 21:00 | 15:45, 18:00, 18:20, 21:00, 21:30 | vo: 15:30 | vo: 18:15 | 20:00 | vo: 20:30 | vo: 18:30, 20:30 | vo: 16:00, 13:15 | 21:21 | vo: 20:20">YOU CAN SEE EVERYTHING: VO: 21:00 | 15:45, 18:00, 18:20, 21:00, 21:30 | VO: 15:30 | VO: 18:15 | 20:00 | VO: 20:30 | VO: 18:30, 20:30 | VO: 16:00 | 21:21 | VO: 20:20 -&gt; VO: 21:00 | 15:45, 18:00, 18:20, 21:00, 21:30 | VO: 15:30 | VO: 18:15 | 20:00 | VO: 20:30 | VO: 18:30, 20:30 | VO: 16:00, 13:15 | 21:21 | VO: 20:20</li>
+<li data-filter-text="wild horse nine: 17:40, 20:15, 22:45 | 18:50 | vo: 16:00 | 17:20, 19:35, 21:45 | 17:20 | vo: 21:45 | 16:30 | vo: 17:30, 21:30 | 16:15 | vo: 18:40, 21:00 | 20:00 | vo: 22:15 | 17:15, 19:25, 21:35 | 16:00, 18:50, 21:15 | 22:00 | 16:30, 19:00 | vo: 19:00, 21:30 | 19:00 | 18:30 | 17:45 | 15:45, 18:00 | vo: 22:00 | 21:00 -&gt; 17:40, 20:15, 22:45 | 18:50 | vo: 16:00 | 17:20, 19:35, 21:45 | 17:20 | vo: 21:45 | 16:30 | vo: 17:30, 21:30 | 16:15 | vo: 18:40, 21:00 | 20:00 | vo: 22:15 | 17:15, 19:25, 21:35, 12:00 | 16:00, 18:50, 21:15 | 22:00 | 16:30, 19:00 | vo: 19:00, 21:30 | 19:00, 15:30, 21:00 | 18:30 | 17:45 | 15:45, 18:00 | vo: 22:00 | 21:00">WILD HORSE NINE: 17:40, 20:15, 22:45 | 18:50 | VO: 16:00 | 17:20, 19:35, 21:45 | 17:20 | VO: 21:45 | 16:30 | VO: 17:30, 21:30 | 16:15 | VO: 18:40, 21:00 | 20:00 | VO: 22:15 | 17:15, 19:25, 21:35 | 16:00, 18:50, 21:15 | 22:00 | 16:30, 19:00 | VO: 19:00, 21:30 | 19:00 | 18:30 | 17:45 | 15:45, 18:00 | VO: 22:00 | 21:00 -&gt; 17:40, 20:15, 22:45 | 18:50 | VO: 16:00 | 17:20, 19:35, 21:45 | 17:20 | VO: 21:45 | 16:30 | VO: 17:30, 21:30 | 16:15 | VO: 18:40, 21:00 | 20:00 | VO: 22:15 | 17:15, 19:25, 21:35, 12:00 | 16:00, 18:50, 21:15 | 22:00 | 16:30, 19:00 | VO: 19:00, 21:30 | 19:00, 15:30, 21:00 | 18:30 | 17:45 | 15:45, 18:00 | VO: 22:00 | 21:00</li>
+<li data-filter-text="wildwood - i segreti del bosco proibito: 21:30 -&gt; 21:30, 12:15">WILDWOOD - I SEGRETI DEL BOSCO PROIBITO: 21:30 -&gt; 21:30, 12:15</li>
+<li data-filter-text="è andata così: 17:00, 21:30 | 15:10, 19:10, 20:40 | 18:45, 21:20 | 15:00, 19:00 | 15:45, 18:45, 21:30 | 15:00, 19:20 | 15:00, 20:30 | 15:45, 18:15, 20:40 | 15:15, 18:45, 21:15 | 15:10, 19:40, 21:45 | 16:00, 18:30, 21:00 | 15:30, 20:00 | 14:45, 17:00, 19:15, 21:35 | 15:30, 17:50, 20:10 | 17:50, 22:30 | 16:30, 18:45, 21:00 | 17:00, 19:40, 21:30 | 15:15, 22:00 | 13:45 -&gt; 17:00, 21:30 | 15:10, 19:10, 20:40 | 18:45, 21:20 | 15:00, 19:00 | 15:45, 18:45, 21:30 | 15:00, 19:20 | 15:00, 20:30 | 15:45, 18:15, 20:40 | 15:15, 18:45, 21:15 | 15:10, 19:40, 21:45 | 16:00, 18:30, 21:00 | 15:30, 20:00 | 14:45, 17:00, 19:15, 21:35 | 15:30, 17:50, 20:10 | 17:50, 22:30 | 16:30, 18:45, 21:00 | 17:00, 19:40, 21:30 | 15:15, 22:00 | 13:45, 19:15">È ANDATA COSÌ: 17:00, 21:30 | 15:10, 19:10, 20:40 | 18:45, 21:20 | 15:00, 19:00 | 15:45, 18:45, 21:30 | 15:00, 19:20 | 15:00, 20:30 | 15:45, 18:15, 20:40 | 15:15, 18:45, 21:15 | 15:10, 19:40, 21:45 | 16:00, 18:30, 21:00 | 15:30, 20:00 | 14:45, 17:00, 19:15, 21:35 | 15:30, 17:50, 20:10 | 17:50, 22:30 | 16:30, 18:45, 21:00 | 17:00, 19:40, 21:30 | 15:15, 22:00 | 13:45 -&gt; 17:00, 21:30 | 15:10, 19:10, 20:40 | 18:45, 21:20 | 15:00, 19:00 | 15:45, 18:45, 21:30 | 15:00, 19:20 | 15:00, 20:30 | 15:45, 18:15, 20:40 | 15:15, 18:45, 21:15 | 15:10, 19:40, 21:45 | 16:00, 18:30, 21:00 | 15:30, 20:00 | 14:45, 17:00, 19:15, 21:35 | 15:30, 17:50, 20:10 | 17:50, 22:30 | 16:30, 18:45, 21:00 | 17:00, 19:40, 21:30 | 15:15, 22:00 | 13:45, 19:15</li>
+<li data-filter-text="fjord: 17:00 | 15:20, 18:10, 21:00 | 15:30, 18:15, 21:00 | 15:30, 18:50 | vo: 21:30 | 15:45, 18:30 | vo: 20:45 | 16:00, 18:15, 21:00 | 17:45, 20:45 | 19:00 | 15:10 | vo: 18:00, 21:00 | 16:00, 18:45 | vo: 21:15 | 15:05 | vo: 11:00, 19:15 -&gt; 17:00 | 15:20, 18:10, 21:00 | 15:30, 18:15, 21:00 | 15:30, 18:50 | vo: 21:30 | 15:45, 18:30 | vo: 20:45 | 16:00, 18:15, 21:00 | 17:45, 20:45 | 19:00 | 15:10 | vo: 18:00, 21:00 | 16:00, 18:45 | vo: 21:15 | 15:05 | vo: 11:00, 19:15, 16:30, 21:30">FJORD: 17:00 | 15:20, 18:10, 21:00 | 15:30, 18:15, 21:00 | 15:30, 18:50 | VO: 21:30 | 15:45, 18:30 | VO: 20:45 | 16:00, 18:15, 21:00 | 17:45, 20:45 | 19:00 | 15:10 | VO: 18:00, 21:00 | 16:00, 18:45 | VO: 21:15 | 15:05 | VO: 11:00, 19:15 -&gt; 17:00 | 15:20, 18:10, 21:00 | 15:30, 18:15, 21:00 | 15:30, 18:50 | VO: 21:30 | 15:45, 18:30 | VO: 20:45 | 16:00, 18:15, 21:00 | 17:45, 20:45 | 19:00 | 15:10 | VO: 18:00, 21:00 | 16:00, 18:45 | VO: 21:15 | 15:05 | VO: 11:00, 19:15, 16:30, 21:30</li>
+<li data-filter-text="je so&#x27; pazzo: 17:00 | 15:30, 21:00 -&gt; 17:00, 18:00 | 15:30, 21:00">JE SO&#x27; PAZZO: 17:00 | 15:30, 21:00 -&gt; 17:00, 18:00 | 15:30, 21:00</li>
+<li data-filter-text="digger: 21:30 | vo: 21:00 -&gt; 21:30, 12:15 | vo: 21:00">DIGGER: 21:30 | VO: 21:00 -&gt; 21:30, 12:15 | VO: 21:00</li>
+<li data-filter-text="se domani non torno: 10:30, 15:00 | 16:30 | 19:20 | 20:00 | 15:30, 17:30, 19:30, 21:35 | 15:30 | 14:10, 16:45, 18:00, 20:35 | 20:40 | 15:00, 18:30 | 15:50, 18:20 | 13:10 -&gt; 10:30, 15:00 | 16:30 | 19:20 | 20:00 | 15:30, 17:30, 19:30, 21:35, 12:45 | 15:30 | 14:10, 16:45, 18:00, 20:35 | 20:40 | 15:00, 18:30 | 15:50, 18:20 | 13:10">SE DOMANI NON TORNO: 10:30, 15:00 | 16:30 | 19:20 | 20:00 | 15:30, 17:30, 19:30, 21:35 | 15:30 | 14:10, 16:45, 18:00, 20:35 | 20:40 | 15:00, 18:30 | 15:50, 18:20 | 13:10 -&gt; 10:30, 15:00 | 16:30 | 19:20 | 20:00 | 15:30, 17:30, 19:30, 21:35, 12:45 | 15:30 | 14:10, 16:45, 18:00, 20:35 | 20:40 | 15:00, 18:30 | 15:50, 18:20 | 13:10</li>
+        </ul>
+      </details><details class="diff-section" id="section-7" data-section-title="invariati" data-unchanged-section="true">
+        <summary>
+          <span>Invariati</span>
+          <strong data-count-label>1 voce</strong>
+        </summary>
+        <ul>
+          <li data-filter-text="#1 you can see everything (4,38)">#1 YOU CAN SEE EVERYTHING (4,38)</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <script>
+    const searchInput = document.getElementById("diff-search");
+    const toggleUnchanged = document.getElementById("toggle-unchanged");
+    const toggleSections = document.getElementById("toggle-sections");
+    const counter = document.getElementById("diff-counter");
+    const sections = Array.from(document.querySelectorAll(".diff-section"));
+
+    function countLabel(count) {
+      return count === 1 ? "1 voce" : `${count} voci`;
+    }
+
+    function visibleSectionsList() {
+      return sections.filter((section) => !section.hidden);
+    }
+
+    function updateSectionToggleLabel() {
+      const visibleSections = visibleSectionsList();
+      const allOpen = visibleSections.length > 0 && visibleSections.every((section) => section.open);
+      toggleSections.textContent = allOpen ? "Chiudi sezioni" : "Espandi sezioni";
+      toggleSections.setAttribute("aria-expanded", allOpen ? "true" : "false");
+    }
+
+    function updateFilter() {
+      const query = searchInput.value.trim().toLocaleLowerCase("it-IT");
+      let visibleRows = 0;
+      let totalRows = 0;
+      let visibleSections = 0;
+
+      for (const section of sections) {
+        const isUnchanged = section.dataset.unchangedSection === "true";
+        const showUnchanged = toggleUnchanged.checked || searchInput.value.trim();
+        if (isUnchanged && !showUnchanged) {
+          section.hidden = true;
+          continue;
+        }
+        const sectionTitle = section.dataset.sectionTitle || "";
+        const rows = Array.from(section.querySelectorAll("li:not(.empty)"));
+        const sectionMatches = !query || sectionTitle.includes(query);
+        let sectionVisibleRows = 0;
+        totalRows += rows.length;
+
+        for (const row of rows) {
+          const rowText = row.dataset.filterText || row.textContent.toLocaleLowerCase("it-IT");
+          const matches = sectionMatches || rowText.includes(query);
+          row.hidden = !matches;
+          if (matches) {
+            sectionVisibleRows += 1;
+            visibleRows += 1;
+          }
+        }
+
+        const hasRows = rows.length > 0;
+        section.hidden = hasRows ? sectionVisibleRows === 0 : !sectionMatches;
+        if (!section.hidden) visibleSections += 1;
+        const count = query ? sectionVisibleRows : rows.length;
+        const label = section.querySelector("[data-count-label]");
+        if (label) label.textContent = countLabel(count);
+      }
+
+      counter.textContent = `${visibleRows} di ${totalRows} voci in ${visibleSections} sezioni`;
+      updateSectionToggleLabel();
+    }
+
+    searchInput.addEventListener("input", updateFilter);
+    toggleUnchanged.addEventListener("change", updateFilter);
+    toggleSections.addEventListener("click", () => {
+      const visibleSections = visibleSectionsList();
+      const shouldOpen = visibleSections.some((section) => !section.open);
+      for (const section of visibleSections) section.open = shouldOpen;
+      updateSectionToggleLabel();
+    });
+    for (const section of sections) section.addEventListener("toggle", updateSectionToggleLabel);
+    updateFilter();
+  </script>
+</body>
+</html>
